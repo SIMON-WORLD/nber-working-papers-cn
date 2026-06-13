@@ -6,7 +6,8 @@
   --muted: #69726b;
   --line: #dce2dc;
   --accent: #0366d6;
-  --accent-2: #8a4f18;
+  --accent-2: #334155;
+  --accent-soft: #eaf2ff;
   --soft: #edf4f2;
   --shadow: 0 10px 30px rgba(20, 31, 24, 0.08);
 }
@@ -276,11 +277,11 @@ select:focus {
   display: inline-flex;
   align-items: center;
   min-height: 22px;
-  border: 1px solid rgba(138, 79, 24, 0.28);
+  border: 1px solid rgba(3, 102, 214, 0.24);
   border-radius: 999px;
   padding: 0 8px;
-  color: var(--accent-2);
-  background: #fff8ed;
+  color: var(--accent);
+  background: var(--accent-soft);
   font-size: 12px;
   font-weight: 700;
 }

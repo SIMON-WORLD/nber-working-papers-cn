@@ -60,7 +60,7 @@ python .\scripts\build_site.py --weekly-mode markdown
 
 ## 自动更新
 
-`.github/workflows/update-site.yml` 会在每周一 14:00 北京时间运行：
+`.github/workflows/update-site.yml` 会在每周一 12:00 北京时间运行：
 
 1. 下载 NBER TSV 元数据到 `data/nber/`
 2. 使用 DeepSeek 翻译最新一周缺失的中文标题和摘要
