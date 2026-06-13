@@ -6,3 +6,4 @@ __pycache__/
 venv/
 .tmp_nber_metadata_check/
 *.baiduyun.uploading.cfg
+*_冲突文件_*.html

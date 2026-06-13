@@ -803,16 +803,43 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
 
 
 def write_weekly_json(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
+    weekly_dir = output / "data" / "weekly"
+    weekly_dir.mkdir(parents=True, exist_ok=True)
+    for old_file in weekly_dir.glob("*.json"):
+        old_file.unlink()
+
+    years = sorted({issue.year for issue in weeks})
+    for year in years:
+        year_issues = [issue for issue in weeks if issue.year == year]
+        year_data = {
+            "built_at": built_at,
+            "year": year,
+            "weeks": [
+                {
+                    **{k: v for k, v in asdict(issue).items() if k != "papers"},
+                    "count": len(issue.papers),
+                }
+                for issue in year_issues
+            ],
+            "papers": [asdict(paper) for issue in year_issues for paper in issue.papers],
+        }
+        (weekly_dir / f"{year}.json").write_text(
+            json.dumps(year_data, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
     data = {
         "built_at": built_at,
+        "latest": weeks[-1].date if weeks else "",
         "weeks": [
             {
                 **{k: v for k, v in asdict(issue).items() if k != "papers"},
                 "count": len(issue.papers),
+                "data_file": f"weekly/{issue.year}.json",
             }
             for issue in weeks
         ],
-        "papers": [asdict(paper) for issue in weeks for paper in issue.papers],
+        "total_papers": sum(len(issue.papers) for issue in weeks),
+        "split_by": "year",
     }
     (output / "data" / "nber_weekly.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 

@@ -31,6 +31,11 @@ python .\scripts\build_site.py
 
 生成结果位于 `docs/`，可直接作为 GitHub Pages 发布目录。
 
+周报数据采用拆分结构，避免单个 JSON 过大：
+
+- `docs/data/nber_weekly.json`：轻量周报索引
+- `docs/data/weekly/YYYY.json`：按年份保存周报论文详情
+
 默认构建会读取：
 
 - `sources/monthly_ready/*NBER*ready.md`

@@ -1,0 +1,434 @@
+{
+  "built_at": "2026-06-14 01:03:58",
+  "year": 1973,
+  "weeks": [
+    {
+      "date": "1973-01-01",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-01-01 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-01-01。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 1
+    },
+    {
+      "date": "1973-06-04",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-06-04 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-06-04。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 3
+    },
+    {
+      "date": "1973-07-02",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-07-02 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-07-02。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 3
+    },
+    {
+      "date": "1973-08-06",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-08-06 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-08-06。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 1
+    },
+    {
+      "date": "1973-09-03",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-09-03 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-09-03。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 4
+    },
+    {
+      "date": "1973-10-01",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-10-01 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-10-01。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 4
+    },
+    {
+      "date": "1973-11-05",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-11-05 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-11-05。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 3
+    },
+    {
+      "date": "1973-12-03",
+      "year": 1973,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 1973-12-03 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：1973-12-03。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 7
+    }
+  ],
+  "papers": [
+    {
+      "index": 1,
+      "number": "0000",
+      "title": "NBER WORKING PAPERS ONLINE TEST DOCUMENT",
+      "authors": "Testing Document",
+      "abstract": "This is a test document for the NBER Online working paper system. Every user should be able to search for and display bibliographic information in this format. The URL for this document is http://www.nber.org/papers/w0000. Full-Text access to working papers is offered on a subscription basis, (and free to press, US government, and low income). If your domain name or IP address is in the authorization file, or if you are properly logged onto this site, you should see a Download PDF button below this text block. If the button is missing, you are not in our authorization file. Nevertheless papers older than 18 months and certain other papers are always freely available.\\n\\n<p><h4>Test of Mathjax </h4><p>\\nYou should see a nicely formatted solution to a quadratic equation here.<br>\\n<p>\\n\\n`x = (-b +- sqrt(b^2-4ac))/(2a)`\\n",
+      "meta": "Programs：LS；JEL：Z0",
+      "url": "https://www.nber.org/papers/w0000",
+      "week_date": "1973-01-01",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 1,
+      "number": "0003",
+      "title": "Error Components Regression Models and Their Applications",
+      "authors": "Swarnjit S. Arora",
+      "abstract": "In this paper, we have developed an operational method for estimating error components regression models when the variance- covariance matrix of the disturbance terms is unkown. Monte Carlo Studies were conducted to compare the relative efficiency of the pooled estimator obtained by this procedure to (a) an ordinary least sources estimator based on data aggregated over time, (b) the covariance estimator, and (d) a generalized least squares estimator based on a known variance-covariance matrix. For T small and large p, this estimator definitely performs better than the other estimators which are also based on an estimated value of the variance-covariance matrix of the disturbances. For p small and large T it compares equally well with other estimators.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0003",
+      "week_date": "1973-06-04",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 2,
+      "number": "0002",
+      "title": "Hospital Utilization: An Analysis of SMSA Differences in Hospital Admission Rates, Occupancy Rates and Bed Rates",
+      "authors": "Barry R. Chiswick",
+      "abstract": "A topic of continued public concern is the national level and distribution among areas and individuals of the availability of hospital services. This paper presents data for the country as a whole on hospital utilization during the post World War II period for short-term non-federal hospitals. The bed rate (the number of beds per thousand population) increased nearly 25 percent. The admission rate (admissions per thousand population)increased nearly 50 percent. The average bed occupancy rate increased during most of the period but has recently been on the decline. These changes are important because hospitals do perform useful services, but at a considerable cost - a cost which has been growing rapidly. The purpose of this study is to present a model for analyzing the utilization of short-term general hospitals. The objective is to develop structural equations and hypotheses as to why the measures of hospital utilization vary across communities, and to estimate these equations and test these hypotheses.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0002",
+      "week_date": "1973-06-04",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 3,
+      "number": "0001",
+      "title": "Education, Information, and Efficiency",
+      "authors": "Finis Welch",
+      "abstract": "This represents two chapters of a proposed book co-authored by Bob Evenson and myself. The subject is relationships between agricultural productivity, research and information. The first chapter of this part is concerned with the \"theory\" of the value of information. Among other things, the Bayesian learning model is used as a vehicle for describing optimal learning from experience. The second chapter presents results for a number of empirical studies concerned with relationships between education and allocative efficiency. Section I is reprinted from my J.P.E. paper \"Education in Production\". Section II is the \"Scale Economy\" paper of mine which has existed in various unpublished versions for two years now. The final section summarizes recent discussions by Wallace Huffman (Chicago), Nabil Khaloi (SMU) and Charles Fane (Harvard).",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0001",
+      "week_date": "1973-06-04",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 1,
+      "number": "0006",
+      "title": "A Review of Cyclical Indicators for the United States: Preliminary Results",
+      "authors": "Victor Zarnowitz",
+      "abstract": "This paper represents a very early progress report on a new study of business cycle indicators for the United States. Our host organization, CIRET, is concerned with research on surveys of economic tendencies that cover broad areas of business, investment, and consumer behavior. These inquiries yield mainly qualitative data on plans and expectations of economic decision-making units. Such data are aggregated and also in a sense quantified in form of diffusion indexes (the Ifo Business Test and its components may serve as examples), but they are basically limited to showing only the direction and not the size of changes in the economic variables covered. A major purpose of compiling and analyzing these diffusion measures is to improve prediction of cyclical movements in business activity. This objective is the same as that pursued in the National Bureau studies of quantitative business cycle indicators -- the latest of which is the project to be discussed in this paper. Appraisals of the predictive records and potentials of these two time series data sets (the cyclical indicators and the expectational diffusion indexes) are therefore definitely an appropriate subject for consideration in this conference.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0006",
+      "week_date": "1973-07-02",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 2,
+      "number": "0005",
+      "title": "A Life Cycle Family Model",
+      "authors": "James P. Smith",
+      "abstract": "The household production model provides a useful theoretical framework in which one may analyze family labor supply issues. In this model, the family is viewed as if it were a small firm producing its ultimate wants within the household. In order to satisfy these wants, the family (firm) combines purchased market goods and services with the time of various family members. This approach differs from the traditional treatment of the labor-leisure choice decision since the price of any activity now has two components â€\" the goods price and the time price of each family member. The relative empirical importance of the two components depends, of course, on their respective shares in the cost of producing an activity.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0005",
+      "week_date": "1973-07-02",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 3,
+      "number": "0004",
+      "title": "Human Capital Life Cycle of Earnings Models: A Specific Solution and Estimation",
+      "authors": "Lee A. Lillard",
+      "abstract": "The purpose of this paper is to consider human capital models of earning behavior over an individual lifetime. A general class of life cycle models relating to individual earnings behavior is developed by considering alternative formulation of the basic Ben- Porath type model. An explicit solution to a specific formulation within this general class is considered in some detail. An empirical development of this explicit earnings function is estimated using data on a cohort of individuals surveyed at some point in their lifetime. The empirical estimates are discussed in detail. The estimated earnings function is then used to predict and individual's discounted present value of lifetime earnings.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0004",
+      "week_date": "1973-07-02",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 1,
+      "number": "0007",
+      "title": "The Definition and Impact of College Quality",
+      "authors": "Lewis C. Solmon",
+      "abstract": "In this paper we are concerned with the characteristics of colleges which serve to increase subsequent monetary incomes of those who attend. Usually, lifetime earnings are explained by variables such as innate ability, experience in the labor force and years of education, although other socio-economic, demographic and occupational data can be inserted to increase the explanatory power of the model. This paper attempts to add a new dimension to the earnings function analysis by hypothesizing the features of colleges which might yield financial payoffs later in life, and then testing to see which of these traits actually do add most to the explanatory power of the traditional earnings function.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0007",
+      "week_date": "1973-08-06",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 1,
+      "number": "0011",
+      "title": "Weighted Ridge Regression: Combining Ridge and Robust Regression Methods",
+      "authors": "Paul W. Holland",
+      "abstract": "This paper gives the formulas for and derivation of ridge regression methods when there are weights associated with each observation. A Bayesian motivation is used and various choices of k are discussed. A suggestion is made as to how to combine ridge regression with robust regression methods.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0011",
+      "week_date": "1973-09-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 2,
+      "number": "0010",
+      "title": "Monte Carlo for Robust Regression: The Swindle Unmasked",
+      "authors": "Paul W. Holland",
+      "abstract": "This paper gives an alternative derivation of a Monte Carlo method that has been used to study robust estimators. Extensions of the technique to the regression case are also considered and some computational points are briefly mentioned.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0010",
+      "week_date": "1973-09-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 3,
+      "number": "0009",
+      "title": "From Age-Earnings Profiles to the Distribution of Earnings and Human Wealth",
+      "authors": "Lee A. Lillard",
+      "abstract": "Recent development of explicit theoretical and empirical earnings functions from life cycle human capital investment models increases the potential to explain existing earnings distributions and to predict changes in it. The purpose of this paper is to suggest how these earnings functions can be used more directly to derive predicted earnings and human wealth distributions for populations and sub-populations with an empirical illustration. This is accomplished by an application if statistical distribution theory as a link between the earnings function and the earnings distribution.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0009",
+      "week_date": "1973-09-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 4,
+      "number": "0008",
+      "title": "Multinational Firms and the Factor Intensity of Trade",
+      "authors": "Robert E. Lipsey, Merle Yahr Weiss",
+      "abstract": "In studying the impact of direct investment on the amount, direction, and composition of international trade we have found that the multinational firm fits uncomfortably into the usual theory of trade and capital movements. We attempt here to introduce the fact of the existence of multinational firms into the explanation of trade flows and particularly into the long-running debate over the relations among factor abundance, factor prices and trade.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0008",
+      "week_date": "1973-09-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 1,
+      "number": "0015",
+      "title": "A Comparison of FIML and Robust Estimates of a Nonlinear Macroeconomic Model",
+      "authors": "Ray C. Fair",
+      "abstract": "The prediction accuracy of six estimators of econometric models are compared. Two of rthe estimators are ordinary least squares (OLS) and full-information maximum likelihood. (FML). The other four estimators are robust estimators in the sense that they give less weight to large residuals. One of the four estimators is approximately equivalent to the least-absolute-residual (LAR) estimator, one is a combination of OLS for small residuals and LAR for large residuals, one is an estimator proposed by John W. Tukey, and one is a combination of FIML and LAR. All of the estimators account for the first-order serial correlation of the error terms. The main conclusion is that robust estimators appear quite promising for the estimation of econometric models. Of the robust estimators considered in the paper, the one based on minimizing the sum of the absolute values of the residuals performed the best. The FIML estimator and the combination of the FIML and LAR estimators also appear promising.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0015",
+      "week_date": "1973-10-01",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 2,
+      "number": "0014",
+      "title": "The Effects on Income of Type of College Attended",
+      "authors": "Lewis C. Solmon, Paul Wachtel",
+      "abstract": "The effects of particular attributes of colleges on the subsequent earnings of individuals who attend are much discussed but rarely studied systematically. Here we seek to compare the earnings patterns of people attending different types of colleges. The classification of colleges used in this study is the scheme developed by the Carnegie Commission on Higher Education based on the sense of commitments to research, types of programs offered and selectivity of admission of students. We find that at the college level, differences in type of institution attended have highly significant effects on differences in lifetime earning patterns of students.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0014",
+      "week_date": "1973-10-01",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 3,
+      "number": "0013",
+      "title": "Wage Comparisons -A Selectivity Bias",
+      "authors": "Reuben Gronau",
+      "abstract": "The economics of information have been established by now as an integral part of economic analysis. However, surprisingly little has been written on the implications of search (and in particular, job search) for the estimation of the wage function and its ramifications in such cases as the estimation of the determinants of labor force participation, age-earning profiles, rates of return and rates of depreciation of human capital, degree of discrimination, etc. Given a wage offer distribution, the parameters of the observed wage distribution depend on the intensity of search. The lower a personâ€™s wage demands the greater the chance of his finding an acceptable job, but the lower the wage he expects to receive and the wider the dispersion of acceptable wages around their mean. On the other hand, the job seeker may opt for a more ambitious search strategy, raising his minimum wage demand and consequently increasing the risk of remaining unemployed, but also increasing the expected wage and decreasing the dispersion of available offers. Models of wage offer distribution have traditionally been based on empirical observation of observed wage distribution. This approach may involve certain biases when applied to secondary labor groups â€\" married women, teenagers and the aged. This paper attempts to point out some of these biases and suggests a method for their correction.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0013",
+      "week_date": "1973-10-01",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 4,
+      "number": "0012",
+      "title": "Citizen Rights and the Cost of Law Enforcement",
+      "authors": "Melvin Reder",
+      "abstract": "There is an inherent tension between the idea that individuals have certain inalienable (natural) rights and the economist's postulate that the rate if utilization of anything whose production requires scarce resources must be limited by considerations of opportunity cost. Remarks about rights to life, liberty, health, justice and the like are readily inserted into political pronouncements, legislative preambles and court decisions, but they (should) cause economists to raise questions about costs and quantities. Unfortunately, neither in ordinary language nor in the jargon of moral philosophy can such ultimate desiderata as liberty and justice be related to costs or quantities. Hence in the first section we sketch a model of social choice in which the necessary relationships can be defined. In section II, we give instances where, despite protestations to the contrary, the Law Enforcement System (LES) has made de facto reductions of citizen rights (liberties) in order to increase the efficiency if law enforcement. The final section considers some of the normative implications suggested by the positive arguments of section II.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0012",
+      "week_date": "1973-10-01",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 1,
+      "number": "0018",
+      "title": "The Deterrent Effect of Capital Punishment: A Question of Life and Death",
+      "authors": "Isaac Ehrlich",
+      "abstract": "The debate over the legitimacy or propriety of the death penalty may be almost as old as the death penalty itself and, in the view of the increasing trend towards its complete abolition, perhaps as outdated. Not surprisingly, and as is generally recognized by contemporary writers on this topic, the philosophical and moral arguments for or against the death penalty have remained remarkably unchanged since the beginning of the debate. One outstanding issue has become, however, the subject of increased investigation, especially in recent years, due to its objective nature and the dominant role it has played in shaping the analytical and practical case against the death penalty. That issue is the deterrent effect of capital punishment, a reexamination of which, in both theory and practice, is the object of the paper.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0018",
+      "week_date": "1973-11-05",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 2,
+      "number": "0017",
+      "title": "Schooling, Ability, Non Pecuniary Rewards, Socioeconomic Background and the Lifetime Distribution of Earnings",
+      "authors": "Paul J. Taubman",
+      "abstract": "Inequality in income or earnings is the most indisputable fact about the distribution of income. Inequality in income distribution occurs in most political and economic models and has from ancient times to the modern era. Society and government have expressed a desire to establish a minimum floor for members of society -- though the level of the floor and the means of achieving it are matters of debate. Besides a direct interest in the questions of the sources of inequality, how to achieve income redistribution, and the efficacy of various policy tools, economists are also concerned with establishing how various labor markets operate, how rational individuals are, and how important are individual effort , chance, and predestination. Economists have constructed various theories that purport to explain income distribution. Some aspects of these theories have been tested against empirical observations. This study will extend the range of such tests. In addition, we will generate some new facts that a complete theory should be able to explain.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0017",
+      "week_date": "1973-11-05",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 3,
+      "number": "0016",
+      "title": "Monte Carlo Techniques in Studying Robust Estimators",
+      "authors": "David C. Hoaglin",
+      "abstract": "Recent work on robust estimation has led to many procedures, which are easy to formulate and straightforward to program but difficult to study analytically. In such circumstances experimental sampling is quite attractive, but the variety and complexity of both estimators and sampling situations make effective Monte Carlo techniques essential. This discussion examines problems, techniques, and results and draws on examples in studies of robust location and robust regression.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0016",
+      "week_date": "1973-11-05",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 1,
+      "number": "0025",
+      "title": "The Covariance Structure of Earnings and the On the Job Training Hypothesis",
+      "authors": "John C. Hause",
+      "abstract": "The fine structure of earnings is defined by a theoretically meaningful decomposition of the covariance matrix of earnings (or log earnings) time series. A three-element variance components model is proposed for analyzing earnings of young workers. These components are interpreted as the effects of differential on-the-job training (OJT) and differential economic ability. Several properties of these components and relationships between them are deduced from the OJT model. Background noise generated by a nonstationary first-order autoregressive process, with heteroscedastic innovations and time-varying AR parameters is also assumed present in observed earnings. ML estimates are obtained for all parameters of the model for a sample of Swedish males. The results are consistent with the view that the OJT mechanism is an empirically significant phenomenon in determining individual earnings profiles.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0025",
+      "week_date": "1973-12-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 2,
+      "number": "0024",
+      "title": "Optimal Adaptive Control Methods for Structurally Varying Systems",
+      "authors": "Alexander H. Sarris, Michael Athans",
+      "abstract": "The problem of simultaneously identifying and controlling a time-varying, perfectly-observed linear system is posed. The parameters are assumed to obey a Markov structure and are estimated with a Kalman filter. The problem can be solved conceptually by dynamic programming, but even with a quadratic loss function the analytical computations cannot be carried out for more than one step because of the dual nature of the optimal control law. All approximations to the solution that have been proposed in the literature, and two approximations that are presented here for the first time are analyzed. They are classified into dual and non-dual methods. Analytical comparison is untractable; hence Monte Carlo simulations are used. A set of experiments is presented in which five non-dual methods are compared. The numerical results indicate a possible ordering among these approximations.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0024",
+      "week_date": "1973-12-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 3,
+      "number": "0023",
+      "title": "What Happened During the Baby Boom? New Estimates of Age and Parity: Specific Birth Probabilities for American Women",
+      "authors": "Warren C. Sanderson",
+      "abstract": "It is the main purpose of this paper to examine in detail the pattern of fertility fluctuations in the United States since the Second World War and to define, with some precision, the questions these patterns raise for students of fertility behavior.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0023",
+      "week_date": "1973-12-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 4,
+      "number": "0022",
+      "title": "The Correlation Between Health and Schooling",
+      "authors": "Michael Grossman",
+      "abstract": "This paper has two purposes. The first is to develop a methodological framework that can be used to introduce and discuss alternative explanations of the correlation between health and schooling. The second is to test these explanations empirically in order to select the most relevant ones and obtain quantitative estimates of different effects. The empirical work is limited to one rather unique body of data and uses two measures of health that are far from ideal. The methodological framework can, however, serve as a point of departure for future research when longitudinal samples with more refined measures of current and past health and background characteristics become available.",
+      "meta": "JEL：913, H",
+      "url": "https://www.nber.org/papers/w0022",
+      "week_date": "1973-12-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 5,
+      "number": "0021",
+      "title": "Contraception and Fertility: Household Production Under Uncertainty",
+      "authors": "Robert T. Michael, Robert J. Willis",
+      "abstract": "Over the past century fertility behavior in the United Stated has undergone profound changes Measured by cohort fertility the average number of children per married woman had declined from about 5.5 children at the time of the Civil War to 2.4 children at the time of the Great Depression. It is seldom emphasized however that an even greater relative change took place in the dispersion of fertility among these women: the percentage of women with, say, seven or more children declined from 36% to under 6%. While students of population have offered reasonably convincing explanations for the decline in fertility over time, they have not succeeded in explaining the fluctuations in the trend and have made surprisingly little effort to explain the large and systematic decline in the dispersion of fertility over time. In this paper we attempt to study contraception behavior and its effects on fertility. One of the effects on which we focus considerable attention is the dispersion or variance in fertility. Our analysis is applied to cross-sectional data but it also provides an explanation for the decline in the variance in fertility over time.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0021",
+      "week_date": "1973-12-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 6,
+      "number": "0020",
+      "title": "Short-Run and Long-Run Prospects for Female Earnings",
+      "authors": "Victor R. Fuchs",
+      "abstract": "This paper discussed the prospects for female earnings relative to male earnings. The determinants of the general level of earnings (female and male) are not considered. I concentrate on hourly earnings as being the best measure of the price of labor from both the demand and supply points of view. One can easily extend the discussion to annual earnings by taking account of annual hours. (In 1970 on average employed women worked about 3/4 as many hours per year as employed men.) The estimates of hourly earnings to be presented are calculated from the 1/1000 samples of the 1960 and the 1970 Census of Population. The Census samples provide much useful data on employed persons including such characteristics as sex, schooling, age, race, marital status, and class of worker. I have excluded agricultural and unpaid family members because of well-known difficulties in estimating their earnings and hours of work. All other persons who were at work during the Census week and who had their earnings in the year preceding the Census are included.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0020",
+      "week_date": "1973-12-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    },
+    {
+      "index": 7,
+      "number": "0019",
+      "title": "Utilization of Surgical Manpower in A Prepaid Group Practice",
+      "authors": "Edward F. X. Hughes, Eugene M. Lewit, Richard N. Watkins, Richard Handschin",
+      "abstract": "The median operative workload of seven general surgeons comprising the general surgical staff of a prepaid group practice of 158,000 enrollees was 9.9 hernia equivalents (HE) a week. The value was over three times that of a previously studied population of 19 general surgeons in fee-for-service community practice, and approximated a consensus standard of a full surgical workload. The median complexity of operations was 1.00 HE, similar to the community practice, and evidence suggested the most complex operation were handled by6 the surgeons with the most training. 23.6% of operations were performed on an ambulatory basis. The results suggest that the prepaid group practice under study possesses administrative mechanisms to efficiently utilize both general surgeons and the resources devoted to general surgery.",
+      "meta": "",
+      "url": "https://www.nber.org/papers/w0019",
+      "week_date": "1973-12-03",
+      "zh_title": "",
+      "zh_abstract": "",
+      "is_china_related": false
+    }
+  ]
+}
