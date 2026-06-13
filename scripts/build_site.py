@@ -579,7 +579,10 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <div>
       <p class="eyebrow">Academic Door</p>
       <h1>学术传送门 NBER 工作论文</h1>
-      <p class="lead">每周整理 NBER Working Papers 官方全量元数据，月度中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门。</p>
+      <div class="intro-row">
+        <p class="lead">每周整理 NBER Working Papers 官方全量元数据，月度中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门。</p>
+        <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
+      </div>
     </div>
     <div class="stats" aria-label="站点统计">
       <span><strong>{len(months)}</strong> 个月</span>
