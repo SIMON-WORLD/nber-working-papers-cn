@@ -27,9 +27,24 @@
   }
 
   function renderArchive() {
-    archiveList.innerHTML = months
-      .map((month) => {
-        return `<a class="archive-link" href="${month.url}"><span>${month.year} 年 ${month.month} 月</span><small>${month.count} 篇</small></a>`;
+    const groupedMonths = months.reduce((groups, month) => {
+      const year = String(month.year);
+      if (!groups[year]) groups[year] = [];
+      groups[year].push(month);
+      return groups;
+    }, {});
+    const years = Object.keys(groupedMonths).sort((a, b) => Number(b) - Number(a));
+    archiveList.innerHTML = years
+      .map((year, index) => {
+        const yearMonths = groupedMonths[year];
+        const count = yearMonths.reduce((sum, month) => sum + Number(month.count || 0), 0);
+        const open = index < 2 ? " open" : "";
+        const links = yearMonths
+          .map((month) => {
+            return `<a class="archive-link" href="${month.url}"><span>${month.month} 月</span><small>${month.count} 篇</small></a>`;
+          })
+          .join("");
+        return `<details class="archive-year"${open}><summary><span>${year} 年</span><small>${count} 篇</small></summary><div class="archive-year-list">${links}</div></details>`;
       })
       .join("");
     weeklyList.innerHTML = weeks

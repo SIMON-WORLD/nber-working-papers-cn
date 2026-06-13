@@ -606,8 +606,16 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <a class="quick-card" href="#paperList" data-quick-filter="china">
         <span>中国相关</span>
         <strong>{china_papers} 篇</strong>
-        <small>点击查看筛选结果</small>
+        <small>中国主题与相关线索</small>
       </a>
+    </section>
+
+    <section class="project-note" aria-label="项目说明">
+      <div>
+        <h2>项目说明</h2>
+        <p>本站基于 NBER Working Papers 官方元数据生成周度归档；月度中文摘要来自学术传送门整理稿，中文内容由 DeepSeek 辅助翻译。</p>
+      </div>
+      <p>这是一个面向中文读者的非官方学术交流项目，便于检索、归档和公众号选题使用。论文原文、版本更新与版权信息请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
     </section>
 
     {latest_week_html}

@@ -162,6 +162,26 @@ h1 {
   color: var(--muted);
 }
 
+.project-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: 18px;
+  margin: 0 0 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+
+.project-note h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.project-note p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .toolbar {
   display: grid;
   grid-template-columns: 1fr 160px auto;
@@ -316,6 +336,41 @@ select:focus {
   display: grid;
   gap: 8px;
   margin-top: 14px;
+}
+
+.archive-year {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.archive-year summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  color: var(--accent-2);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.archive-year summary:hover {
+  background: var(--soft);
+}
+
+.archive-year summary small {
+  color: var(--muted);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.archive-year-list {
+  display: grid;
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding: 8px;
+  background: #fbfcfb;
 }
 
 .archive-link {
@@ -498,6 +553,7 @@ footer p {
 
   .toolbar,
   .quick-sections,
+  .project-note,
   .layout {
     grid-template-columns: 1fr;
   }
