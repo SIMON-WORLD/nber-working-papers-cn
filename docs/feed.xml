@@ -4,7 +4,13 @@
     <title>学术传送门 NBER 工作论文</title>
     <link>https://example.com/</link>
     <description>面向中文读者的 NBER Working Papers 非官方归档。</description>
-    <lastBuildDate>Sat, 13 Jun 2026 21:27:02 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 14:42:19 +0000</lastBuildDate>
+    <item>
+      <title>NBER Working Papers 2026-06-15 (28 papers)</title>
+      <link>https://example.com/weekly/2026-06-15.html</link>
+      <guid>https://example.com/weekly/2026-06-15.html</guid>
+      <description>NBER Working Papers weekly archive for 2026-06-15, 28 papers.</description>
+    </item>
     <item>
       <title>NBER Working Papers 2026-06-08 (24 papers)</title>
       <link>https://example.com/weekly/2026-06-08.html</link>
@@ -118,12 +124,6 @@
       <link>https://example.com/weekly/2026-02-02.html</link>
       <guid>https://example.com/weekly/2026-02-02.html</guid>
       <description>NBER Working Papers weekly archive for 2026-02-02, 32 papers.</description>
-    </item>
-    <item>
-      <title>NBER Working Papers 2026-01-26 (40 papers)</title>
-      <link>https://example.com/weekly/2026-01-26.html</link>
-      <guid>https://example.com/weekly/2026-01-26.html</guid>
-      <description>NBER Working Papers weekly archive for 2026-01-26, 40 papers.</description>
     </item>
   </channel>
 </rss>
