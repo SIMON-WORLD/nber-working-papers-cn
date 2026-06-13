@@ -26,6 +26,13 @@ jobs:
       - name: Build site
         run: python scripts/build_site.py --source sources/monthly_ready --metadata-source data/nber
 
+      - name: Upload site preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: nber-site-preview
+          path: docs
+          retention-days: 14
+
       - name: Commit updated site
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

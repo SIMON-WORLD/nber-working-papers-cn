@@ -65,6 +65,12 @@ python .\scripts\build_site.py --weekly-mode markdown
 
 注意：如果仓库保持 private，GitHub Pages 的可用性和访问权限取决于 GitHub 账号/组织套餐。最稳的发布方式是：先 private 调试 Actions，成熟后 public，再正式开启 Pages。
 
+Private 调试阶段查看网页效果：
+
+1. 在本地直接打开 `docs/index.html`
+2. 或运行 `python -m http.server 8765 --bind 127.0.0.1 --directory docs` 后访问 `http://127.0.0.1:8765/`
+3. 或在 GitHub Actions 的运行结果里下载 `nber-site-preview` artifact，解压后打开 `index.html`
+
 ## 首次推送
 
 如果使用 GitHub CLI：
