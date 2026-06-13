@@ -9,7 +9,13 @@
   const searchInput = document.getElementById("searchInput");
   const yearFilter = document.getElementById("yearFilter");
   const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+  const quickFilterLinks = Array.from(document.querySelectorAll("[data-quick-filter]"));
+  const prevPage = document.getElementById("prevPage");
+  const nextPage = document.getElementById("nextPage");
+  const pageInfo = document.getElementById("pageInfo");
+  const pageSize = 30;
   let relationFilter = "all";
+  let currentPage = 1;
 
   function escapeHtml(value) {
     return String(value || "")
@@ -53,9 +59,16 @@
       return haystack.includes(query);
     });
 
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    currentPage = Math.min(currentPage, totalPages);
+    const start = (currentPage - 1) * pageSize;
+
     resultCount.textContent = `${filtered.length} 篇`;
+    pageInfo.textContent = `第 ${currentPage} / ${totalPages} 页`;
+    prevPage.disabled = currentPage <= 1;
+    nextPage.disabled = currentPage >= totalPages;
     paperList.innerHTML = filtered
-      .slice(0, 300)
+      .slice(start, start + pageSize)
       .map((paper) => {
         const archiveUrl = `archive/${paper.month_key}.html#w${paper.number}`;
         return `<article class="paper-card">
@@ -73,15 +86,43 @@
       .join("");
   }
 
+  function setFilter(value) {
+    relationFilter = value || "all";
+    currentPage = 1;
+    filterButtons.forEach((item) => item.classList.toggle("active", item.dataset.filter === relationFilter));
+    renderPapers();
+  }
+
   renderArchive();
   renderPapers();
-  searchInput.addEventListener("input", renderPapers);
-  yearFilter.addEventListener("change", renderPapers);
+  searchInput.addEventListener("input", () => {
+    currentPage = 1;
+    renderPapers();
+  });
+  yearFilter.addEventListener("change", () => {
+    currentPage = 1;
+    renderPapers();
+  });
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      relationFilter = button.dataset.filter || "all";
-      filterButtons.forEach((item) => item.classList.toggle("active", item === button));
-      renderPapers();
+      setFilter(button.dataset.filter);
     });
+  });
+  quickFilterLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      setFilter(link.dataset.quickFilter);
+    });
+  });
+  prevPage.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage -= 1;
+      renderPapers();
+      paperList.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+  nextPage.addEventListener("click", () => {
+    currentPage += 1;
+    renderPapers();
+    paperList.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 })();

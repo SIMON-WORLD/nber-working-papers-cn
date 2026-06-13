@@ -506,6 +506,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     total_papers = sum(len(issue.papers) for issue in months)
     latest_week = weeks[-1] if weeks else None
     total_weekly_papers = sum(len(issue.papers) for issue in weeks)
+    china_papers = sum(1 for issue in months for paper in issue.papers if paper.is_china_related)
     years = sorted({issue.year for issue in months}, reverse=True)
     months_json = json.dumps(
         [
@@ -588,6 +589,24 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   </header>
 
   <main>
+    <section class="quick-sections" aria-label="内容入口">
+      <a class="quick-card" href="{f'weekly/{latest_week.date}.html' if latest_week else '#'}">
+        <span>最新周报</span>
+        <strong>{html.escape(latest_week.date) if latest_week else "暂无"}</strong>
+        <small>{len(latest_week.papers) if latest_week else 0} 篇全量论文</small>
+      </a>
+      <a class="quick-card" href="#archiveList">
+        <span>月度合集</span>
+        <strong>{len(months)} 个月</strong>
+        <small>{total_papers} 篇中文摘要</small>
+      </a>
+      <a class="quick-card" href="#paperList" data-quick-filter="china">
+        <span>中国相关</span>
+        <strong>{china_papers} 篇</strong>
+        <small>点击查看筛选结果</small>
+      </a>
+    </section>
+
     {latest_week_html}
 
     <section class="toolbar" aria-label="检索工具">
@@ -597,8 +616,8 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
         {''.join(f'<option value="{year}">{year}</option>' for year in years)}
       </select>
       <div class="segmented" role="group" aria-label="相关性筛选">
-        <button type="button" class="active" data-filter="all">全部论文</button>
-        <button type="button" data-filter="china">中国相关</button>
+        <button type="button" class="active" data-filter="all">全部论文 <span>{total_papers}</span></button>
+        <button type="button" data-filter="china">中国相关 <span>{china_papers}</span></button>
       </div>
     </section>
 
@@ -615,6 +634,11 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
           <span id="resultCount"></span>
         </div>
         <div id="paperList" class="paper-list"></div>
+        <div class="pagination" aria-label="分页">
+          <button type="button" id="prevPage">上一页</button>
+          <span id="pageInfo"></span>
+          <button type="button" id="nextPage">下一页</button>
+        </div>
       </section>
     </section>
   </main>

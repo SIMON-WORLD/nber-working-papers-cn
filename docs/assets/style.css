@@ -98,6 +98,45 @@ h1 {
   line-height: 1.2;
 }
 
+.quick-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 8px 0 18px;
+}
+
+.quick-card {
+  display: grid;
+  gap: 4px;
+  min-height: 118px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  color: var(--text);
+}
+
+.quick-card:hover {
+  background: var(--soft);
+  text-decoration: none;
+}
+
+.quick-card span {
+  color: var(--accent-2);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quick-card strong {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.quick-card small {
+  color: var(--muted);
+}
+
 .toolbar {
   display: grid;
   grid-template-columns: 1fr 160px auto;
@@ -150,6 +189,11 @@ select:focus {
 .segmented button.active {
   background: var(--accent);
   color: #fff;
+}
+
+.segmented span {
+  font-size: 12px;
+  opacity: 0.82;
 }
 
 .layout {
@@ -289,6 +333,41 @@ select:focus {
   display: grid;
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.pagination button {
+  min-width: 86px;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.pagination button:not(:disabled):hover {
+  background: var(--soft);
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  color: var(--muted);
+  opacity: 0.55;
+}
+
+#pageInfo {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .paper-card {
   padding: 18px;
   border-bottom: 1px solid var(--line);
@@ -389,6 +468,7 @@ footer p {
   }
 
   .toolbar,
+  .quick-sections,
   .layout {
     grid-template-columns: 1fr;
   }
@@ -405,6 +485,10 @@ footer p {
   .archive-panel {
     position: static;
   }
+
+  .quick-card {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 520px) {
@@ -419,7 +503,16 @@ footer p {
   }
 
   .panel-head,
-  .paper-meta {
+  .paper-meta,
+  .pagination {
     display: block;
+  }
+
+  .pagination button,
+  #pageInfo {
+    width: 100%;
+    display: block;
+    margin-top: 8px;
+    text-align: center;
   }
 }
