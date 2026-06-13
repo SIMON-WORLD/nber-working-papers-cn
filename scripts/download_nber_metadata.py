@@ -7,7 +7,7 @@ import urllib.request
 from pathlib import Path
 
 
-BASE_URL = "https://data.nber.org/nber-wp-logs"
+BASE_URL = "https://data.nber.org/nber_paper_chapter_metadata/tsv"
 FILES = ("ref.tsv", "abs.tsv", "prog.tsv", "jel.tsv")
 
 
@@ -42,4 +42,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
