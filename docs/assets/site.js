@@ -8,6 +8,8 @@
   const resultCount = document.getElementById("resultCount");
   const searchInput = document.getElementById("searchInput");
   const yearFilter = document.getElementById("yearFilter");
+  const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+  let relationFilter = "all";
 
   function escapeHtml(value) {
     return String(value || "")
@@ -36,12 +38,14 @@
     const year = yearFilter.value;
     const filtered = papers.filter((paper) => {
       if (year && String(paper.month_key).slice(0, 4) !== year) return false;
+      if (relationFilter === "china" && !paper.is_china_related) return false;
       if (!query) return true;
       const haystack = [
         paper.number,
         paper.title,
         paper.authors,
         paper.zh_abstract,
+        paper.is_china_related ? "china 中国相关" : "",
         paper.month_key,
       ]
         .join(" ")
@@ -61,6 +65,7 @@
             <a href="${escapeHtml(paper.url)}" target="_blank" rel="noopener">NBER w${escapeHtml(paper.number)}</a>
           </div>
           <h3><a href="${archiveUrl}">${escapeHtml(paper.title)}</a></h3>
+          ${paper.is_china_related ? '<span class="tag">中国相关</span>' : ""}
           <p class="authors">${escapeHtml(paper.authors)}</p>
           <p class="summary">${escapeHtml(paper.zh_abstract)}</p>
         </article>`;
@@ -72,4 +77,11 @@
   renderPapers();
   searchInput.addEventListener("input", renderPapers);
   yearFilter.addEventListener("change", renderPapers);
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      relationFilter = button.dataset.filter || "all";
+      filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+      renderPapers();
+    });
+  });
 })();

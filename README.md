@@ -16,9 +16,9 @@
 
 - 首页顶部展示最新一周的全量 NBER 工作论文。
 - 左侧提供月度中文归档和最近周报入口。
-- 中间提供本地搜索，可按标题、作者、中文摘要和 NBER 编号检索。
+- 中间提供本地搜索，可按标题、作者、中文摘要和 NBER 编号检索，并支持“中国相关”快速筛选。
 - 月度页保留中文摘要，适合公众号选题和发布前检索。
-- 周度页保留官方英文摘要，适合追踪最新更新。
+- 周度页保留官方英文摘要；如已配置翻译缓存或 DeepSeek API Key，会显示中文标题和中文摘要。
 - `feed.xml` 和 `feed.json` 用于后续接入 RSS 阅读器或自动化监控。
 
 ## 本地构建
@@ -58,10 +58,33 @@ python .\scripts\build_site.py --weekly-mode markdown
 `.github/workflows/update-site.yml` 会在每周一 14:00 北京时间运行：
 
 1. 下载 NBER TSV 元数据到 `data/nber/`
-2. 用 `sources/monthly_ready/` 和 `data/nber/` 生成 `docs/`
-3. 自动提交更新
+2. 使用 DeepSeek 翻译最新一周缺失的中文标题和摘要
+3. 用 `sources/monthly_ready/`、`data/nber/` 和 `data/translations/` 生成 `docs/`
+4. 自动提交更新
+
+翻译功能需要在 GitHub 仓库中添加 Actions Secret：
+
+- Name: `DEEPSEEK_API_KEY`
+- Value: 你的 DeepSeek API Key
+
+如果暂时没有配置 Secret，Actions 不会失败，会跳过缺失翻译并继续更新英文全量周报。
 
 也可以在 GitHub 的 Actions 页面手动点击 `Run workflow`。
+
+### DeepSeek Secret
+
+如果要让 GitHub Actions 自动翻译最新周报，需要在仓库设置：
+
+`Settings -> Secrets and variables -> Actions -> New repository secret`
+
+新增：
+
+```text
+Name: DEEPSEEK_API_KEY
+Value: <your DeepSeek API key>
+```
+
+没有设置 `DEEPSEEK_API_KEY` 时，Actions 仍会下载 NBER 元数据并重建网站，但会跳过缺失翻译。
 
 注意：如果仓库保持 private，GitHub Pages 的可用性和访问权限取决于 GitHub 账号/组织套餐。最稳的发布方式是：先 private 调试 Actions，成熟后 public，再正式开启 Pages。
 

@@ -23,8 +23,13 @@ jobs:
       - name: Download NBER metadata
         run: python scripts/download_nber_metadata.py --output data/nber
 
+      - name: Translate latest weekly issue
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/translate_weekly.py --metadata-source data/nber --cache data/translations/nber_weekly_zh.json
+
       - name: Build site
-        run: python scripts/build_site.py --source sources/monthly_ready --metadata-source data/nber
+        run: python scripts/build_site.py --source sources/monthly_ready --metadata-source data/nber --translation-cache data/translations/nber_weekly_zh.json
 
       - name: Upload site preview
         uses: actions/upload-artifact@v4
@@ -37,4 +42,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update NBER site"
-          file_pattern: "docs data/nber"
+          file_pattern: "docs data/nber data/translations"

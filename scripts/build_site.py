@@ -20,6 +20,24 @@ DEFAULT_SOURCE = PROJECT_MONTHLY_SOURCE if PROJECT_MONTHLY_SOURCE.exists() else 
 DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber" / "markdown_weekly"
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
+DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
+
+CHINA_TERMS = (
+    "china",
+    "chinese",
+    "hong kong",
+    "taiwan",
+    "mainland china",
+    "renminbi",
+    "rmb",
+    "beijing",
+    "shanghai",
+    "shenzhen",
+    "guangdong",
+    "xinjiang",
+    "tibet",
+    "uyghur",
+)
 
 
 MONTH_RE = re.compile(r"(?P<date>20\d{6})-前沿文献-NBER工作论文-(?P<year>20\d{2})年(?P<month>\d{1,2})月合集-目录与摘要-ready\.md$")
@@ -43,6 +61,7 @@ class Paper:
     month_key: str
     year: int
     month: int
+    is_china_related: bool
 
 
 @dataclass
@@ -67,6 +86,9 @@ class WeeklyPaper:
     meta: str
     url: str
     week_date: str
+    zh_title: str
+    zh_abstract: str
+    is_china_related: bool
 
 
 @dataclass
@@ -122,6 +144,25 @@ def next_monday(date_text: str) -> str:
     dt = datetime.strptime(date_text, "%Y-%m-%d")
     days_until_monday = (7 - dt.weekday()) % 7
     return (dt + timedelta(days=days_until_monday)).strftime("%Y-%m-%d")
+
+
+def is_china_related_text(*parts: str) -> bool:
+    haystack = " ".join(parts).lower()
+    return any(term in haystack for term in CHINA_TERMS)
+
+
+def load_translation_cache(path: Path) -> dict[str, dict[str, str]]:
+    if not path.exists():
+        return {}
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    cache: dict[str, dict[str, str]] = {}
+    for number, item in raw.items():
+        if isinstance(item, dict):
+            cache[str(number)] = {
+                "zh_title": clean(item.get("zh_title", "")),
+                "zh_abstract": clean(item.get("zh_abstract", "")),
+            }
+    return cache
 
 
 def collect_ready_files(source: Path) -> list[Path]:
@@ -220,7 +261,7 @@ def parse_month(path: Path) -> MonthIssue:
     )
 
 
-def parse_week(path: Path) -> WeekIssue:
+def parse_week(path: Path, translation_cache: dict[str, dict[str, str]] | None = None) -> WeekIssue:
     text = read_text(path)
     match = WEEKLY_RE.match(path.name)
     if not match:
@@ -256,13 +297,17 @@ def parse_week(path: Path) -> WeekIssue:
         heading = WEEKLY_HEADING_RE.match(line)
         if heading:
             flush()
+            number = heading.group("number")
+            zh = (translation_cache or {}).get(number, {})
             current = {
                 "index": int(heading.group("index")),
-                "number": heading.group("number"),
+                "number": number,
                 "title": clean_title(heading.group("title")),
                 "authors": "",
                 "meta": "",
                 "abstract": "",
+                "zh_title": zh.get("zh_title", ""),
+                "zh_abstract": zh.get("zh_abstract", ""),
             }
             continue
 
@@ -316,7 +361,7 @@ def load_page_abstracts(metadata_source: Path) -> dict[str, str]:
     return abstracts
 
 
-def build_full_weekly_from_metadata(metadata_source: Path) -> list[WeekIssue]:
+def build_full_weekly_from_metadata(metadata_source: Path, translation_cache: dict[str, dict[str, str]] | None = None) -> list[WeekIssue]:
     required = [metadata_source / name for name in ["ref.tsv", "abs.tsv", "prog.tsv", "jel.tsv"]]
     missing = [path.name for path in required if not path.exists()]
     if missing:
@@ -344,7 +389,11 @@ def build_full_weekly_from_metadata(metadata_source: Path) -> list[WeekIssue]:
         if not paper.startswith("w") or not is_valid_date(date):
             continue
         number = paper[1:]
+        zh = (translation_cache or {}).get(number, {})
         week_date = next_monday(date)
+        title = clean(row.get("title", ""))
+        author = clean(row.get("author", ""))
+        abstract = abstracts.get(paper, "") or page_abstracts.get(paper, "")
         tags = []
         if programs.get(paper):
             tags.append("Programs：" + ", ".join(sorted(programs[paper])))
@@ -354,12 +403,15 @@ def build_full_weekly_from_metadata(metadata_source: Path) -> list[WeekIssue]:
             WeeklyPaper(
                 index=0,
                 number=number,
-                title=clean(row.get("title", "")),
-                authors=clean(row.get("author", "")),
-                abstract=abstracts.get(paper, "") or page_abstracts.get(paper, ""),
+                title=title,
+                authors=author,
+                abstract=abstract,
                 meta="；".join(tags),
                 url=f"https://www.nber.org/papers/{paper}",
                 week_date=week_date,
+                zh_title=zh.get("zh_title", ""),
+                zh_abstract=zh.get("zh_abstract", ""),
+                is_china_related=is_china_related_text(title, author, abstract),
             )
         )
 
@@ -395,6 +447,9 @@ def make_weekly_paper(raw: dict[str, object], date: str) -> WeeklyPaper:
         meta=str(raw.get("meta", "")),
         url=f"https://www.nber.org/papers/w{number}",
         week_date=date,
+        zh_title=str(raw.get("zh_title", "")),
+        zh_abstract=str(raw.get("zh_abstract", "")),
+        is_china_related=is_china_related_text(str(raw.get("title", "")), str(raw.get("authors", "")), str(raw.get("abstract", ""))),
     )
 
 
@@ -442,6 +497,7 @@ def make_paper(raw: dict[str, str], month_key: str, year: int, month: int) -> Pa
         month_key=month_key,
         year=year,
         month=month,
+        is_china_related=is_china_related_text(raw.get("title", ""), raw.get("authors", ""), raw.get("abstract", ""), raw.get("zh_abstract", "")),
     )
 
 
@@ -476,6 +532,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
                 "url": paper.url,
                 "month_key": paper.month_key,
                 "index": paper.index,
+                "is_china_related": paper.is_china_related,
             }
             for issue in reversed(months)
             for paper in issue.papers
@@ -539,6 +596,10 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
         <option value="">全部年份</option>
         {''.join(f'<option value="{year}">{year}</option>' for year in years)}
       </select>
+      <div class="segmented" role="group" aria-label="相关性筛选">
+        <button type="button" class="active" data-filter="all">全部论文</button>
+        <button type="button" data-filter="china">中国相关</button>
+      </div>
     </section>
 
     <section class="layout">
@@ -576,10 +637,30 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
 
 
 def render_week_card(paper: WeeklyPaper, date: str) -> str:
+    badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
+    zh_title = f'\n  <p class="zh-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
     return f"""<article class="week-card">
-  <div class="meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">w{paper.number}</a></div>
-  <h3><a href="weekly/{date}.html#w{paper.number}">{html.escape(paper.title)}</a></h3>
+  <div class="meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">w{paper.number}</a>{badge}</div>
+  <h3><a href="weekly/{date}.html#w{paper.number}">{html.escape(paper.title)}</a></h3>{zh_title}
   <p>{html.escape(paper.authors)}</p>
+</article>"""
+
+
+def render_week_article(paper: WeeklyPaper) -> str:
+    badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
+    zh_title = f'\n  <p class="zh-detail-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
+    if paper.zh_abstract:
+        zh_abstract = f"<h3>中文摘要</h3><p>{html.escape(paper.zh_abstract)}</p>"
+    else:
+        zh_abstract = '<p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>'
+    return f"""<article class="paper-detail" id="w{paper.number}">
+  <div class="paper-meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">NBER w{paper.number}</a>{badge}</div>
+  <h2>{html.escape(paper.title)}</h2>{zh_title}
+  <p class="authors">{html.escape(paper.authors)}</p>
+  <p class="meta-line">{html.escape(paper.meta)}</p>
+  {zh_abstract}
+  <h3>Abstract</h3>
+  <p>{html.escape(paper.abstract)}</p>
 </article>"""
 
 
@@ -626,17 +707,7 @@ def render_month(issue: MonthIssue) -> str:
 
 
 def render_week(issue: WeekIssue) -> str:
-    rows = "\n".join(
-        f"""<article class="paper-detail" id="w{paper.number}">
-  <div class="paper-meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">NBER w{paper.number}</a></div>
-  <h2>{html.escape(paper.title)}</h2>
-  <p class="authors">{html.escape(paper.authors)}</p>
-  <p class="meta-line">{html.escape(paper.meta)}</p>
-  <h3>Abstract</h3>
-  <p>{html.escape(paper.abstract)}</p>
-</article>"""
-        for paper in issue.papers
-    )
+    rows = "\n".join(render_week_article(paper) for paper in issue.papers)
     intro = "".join(f"<p>{html.escape(line)}</p>" for line in issue.intro)
     return f"""<!doctype html>
 <html lang="zh-CN">
@@ -751,6 +822,7 @@ def main() -> None:
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--weekly-source", type=Path, default=DEFAULT_WEEKLY_SOURCE)
     parser.add_argument("--metadata-source", type=Path, default=DEFAULT_METADATA_SOURCE)
+    parser.add_argument("--translation-cache", type=Path, default=DEFAULT_TRANSLATION_CACHE)
     parser.add_argument("--weekly-mode", choices=["full-tsv", "markdown"], default="full-tsv")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
@@ -762,11 +834,12 @@ def main() -> None:
         raise SystemExit(f"No NBER ready files found in {source}")
 
     months = [parse_month(path) for path in files]
+    translation_cache = load_translation_cache(args.translation_cache.resolve())
     if args.weekly_mode == "full-tsv":
-        weeks = build_full_weekly_from_metadata(args.metadata_source.resolve())
+        weeks = build_full_weekly_from_metadata(args.metadata_source.resolve(), translation_cache)
     else:
         week_files = collect_weekly_files(args.weekly_source.resolve())
-        weeks = [parse_week(path) for path in week_files]
+        weeks = [parse_week(path, translation_cache) for path in week_files]
     built_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     (output / "assets").mkdir(parents=True, exist_ok=True)

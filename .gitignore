@@ -5,3 +5,4 @@ __pycache__/
 .venv/
 venv/
 .tmp_nber_metadata_check/
+*.baiduyun.uploading.cfg

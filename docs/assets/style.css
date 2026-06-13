@@ -100,7 +100,7 @@ h1 {
 
 .toolbar {
   display: grid;
-  grid-template-columns: 1fr 160px;
+  grid-template-columns: 1fr 160px auto;
   gap: 12px;
   margin: 12px 0 18px;
 }
@@ -121,6 +121,35 @@ input:focus,
 select:focus {
   outline: 2px solid rgba(15, 118, 110, 0.24);
   border-color: var(--accent);
+}
+
+.segmented {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(82px, 1fr));
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.segmented button {
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.segmented button:last-child {
+  border-right: 0;
+}
+
+.segmented button.active {
+  background: var(--accent);
+  color: #fff;
 }
 
 .layout {
@@ -147,7 +176,7 @@ select:focus {
 }
 
 .week-card {
-  min-height: 174px;
+  min-height: 204px;
   padding: 16px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -167,6 +196,25 @@ select:focus {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+.week-card .zh-title,
+.zh-detail-title {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  border: 1px solid rgba(138, 79, 24, 0.28);
+  border-radius: 999px;
+  padding: 0 8px;
+  color: var(--accent-2);
+  background: #fff8ed;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .archive-panel,
@@ -276,6 +324,14 @@ select:focus {
 
 .summary {
   margin: 10px 0 0;
+}
+
+.translation-missing {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+  background: var(--soft);
 }
 
 .month-page {
