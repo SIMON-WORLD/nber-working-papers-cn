@@ -46,6 +46,8 @@ FIELD_RE = re.compile(r"^【\*\*(?P<key>Author|Abstract|摘要|NBER)\*\*】[：:
 TOC_ITEM_RE = re.compile(r"^\d+\.\s+\*\*(?P<title>.+?)\s+\{#(?P<number>\d+)\}\*\*")
 WEEKLY_RE = re.compile(r"【NBER-(?P<date>20\d{2}-\d{2}-\d{2})】\.md$")
 WEEKLY_HEADING_RE = re.compile(r"^###\s+(?P<index>\d+)\.\s+(?P<title>.+?)\s+\{#(?P<number>\d+)\}\s*$")
+MONTH_TITLE_RE = re.compile(r"NBER工作论文\s+(?P<year>20\d{2})年(?P<month>\d{1,2})月合集")
+TOC_HEADING_RE = re.compile(r"^\d+\.\s+\*\*(?P<title>.+?)\s+\{#(?P<number>\d+)\}\*\*(?P<rest>.*)$")
 
 
 @dataclass
@@ -53,6 +55,7 @@ class Paper:
     index: int
     number: str
     title: str
+    zh_title: str
     authors: str
     abstract: str
     zh_abstract: str
@@ -118,6 +121,48 @@ def clean(raw: object) -> str:
     if raw is None:
         return ""
     return re.sub(r"\s+", " ", str(raw)).strip()
+
+
+def strip_inline_markup(raw: str) -> str:
+    text = re.sub(r"`?<font\b[^>]*>.*$", "", raw, flags=re.IGNORECASE).strip()
+    text = text.replace("`", "").strip()
+    return clean(text)
+
+
+def simplify_month_title(raw: str, year: int, month: int) -> str:
+    match = MONTH_TITLE_RE.search(raw)
+    if match:
+        return f"NBER工作论文 {year}年{month}月合集"
+    return raw.replace("【前沿文献】", "").replace("目录与摘要", "").strip()
+
+
+def extract_toc_zh_titles(lines: list[str]) -> dict[str, str]:
+    zh_by_number: dict[str, str] = {}
+    try:
+        start = lines.index("## 一、目录速览")
+        end = lines.index("## 二、摘要")
+    except ValueError:
+        return zh_by_number
+
+    toc_lines = lines[start + 1 : end]
+    for idx, line in enumerate(toc_lines):
+        match = TOC_HEADING_RE.match(line)
+        if not match:
+            continue
+        number = match.group("number")
+        rest = strip_inline_markup(match.group("rest"))
+        if rest:
+            zh_by_number[number] = rest
+            continue
+        for next_line in toc_lines[idx + 1 :]:
+            stripped = strip_inline_markup(next_line)
+            if not stripped:
+                continue
+            if TOC_HEADING_RE.match(stripped) or stripped.startswith("<font"):
+                break
+            zh_by_number[number] = stripped
+            break
+    return zh_by_number
 
 
 def parse_date(value: str) -> str:
@@ -205,8 +250,10 @@ def parse_month(path: Path) -> MonthIssue:
     month_key = f"{year}-{month:02d}"
     date = match.group("date")
     lines = text.split("\n")
-    title = next((line.lstrip("# ").strip() for line in lines if line.startswith("# ")), f"NBER {month_key}")
+    raw_title = next((line.lstrip("# ").strip() for line in lines if line.startswith("# ")), f"NBER {month_key}")
+    title = simplify_month_title(raw_title, year, month)
     intro = [line.strip("> ").strip() for line in lines if line.startswith("> ")]
+    zh_titles = extract_toc_zh_titles(lines)
 
     try:
         start = lines.index("## 二、摘要")
@@ -221,10 +268,12 @@ def parse_month(path: Path) -> MonthIssue:
         if heading:
             if current:
                 papers.append(make_paper(current, month_key, year, month))
+            number = heading.group("number") or ""
             current = {
                 "index": heading.group("index"),
-                "number": heading.group("number") or "",
+                "number": number,
                 "title": clean_title(heading.group("title")),
+                "zh_title": zh_titles.get(number, ""),
                 "authors": "",
                 "abstract": "",
                 "zh_abstract": "",
@@ -498,6 +547,7 @@ def make_paper(raw: dict[str, str], month_key: str, year: int, month: int) -> Pa
         index=int(raw["index"]),
         number=number,
         title=raw["title"],
+        zh_title=raw.get("zh_title", ""),
         authors=raw.get("authors", ""),
         abstract=raw.get("abstract", ""),
         zh_abstract=raw.get("zh_abstract", ""),
@@ -541,7 +591,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
             {
                 "number": paper.number,
                 "title": paper.title,
-                "zh_title": (translation_cache or {}).get(paper.number, {}).get("zh_title", ""),
+                "zh_title": paper.zh_title or (translation_cache or {}).get(paper.number, {}).get("zh_title", ""),
                 "authors": paper.authors,
                 "zh_abstract": paper.zh_abstract,
                 "url": paper.url,
@@ -733,11 +783,12 @@ def render_week_article(paper: WeeklyPaper) -> str:
 </article>"""
 
 
-def render_month(issue: MonthIssue) -> str:
+def render_month(issue: MonthIssue, translation_cache: dict[str, dict[str, str]] | None = None) -> str:
     rows = "\n".join(
         f"""<article class="paper-detail" id="w{paper.number}">
   <div class="paper-meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">NBER w{paper.number}</a></div>
-  <h2>{html.escape(paper.title)}</h2>
+  <h2>{html.escape(paper.title)}</h2>{f'''
+  <p class="zh-detail-title">{html.escape(paper.zh_title or (translation_cache or {}).get(paper.number, {}).get("zh_title", ""))}</p>''' if paper.zh_title or (translation_cache or {}).get(paper.number, {}).get("zh_title", "") else ''}
   <p class="authors">{html.escape(paper.authors)}</p>
   <h3>Abstract</h3>
   <p>{html.escape(paper.abstract)}</p>
@@ -949,7 +1000,7 @@ def main() -> None:
     write_weekly_json(output, weeks, built_at)
     write_feeds(output, weeks, built_at)
     for issue in months:
-        (output / "archive" / f"{issue.key}.html").write_text(render_month(issue), encoding="utf-8")
+        (output / "archive" / f"{issue.key}.html").write_text(render_month(issue, translation_cache), encoding="utf-8")
     for issue in weeks:
         (output / "weekly" / f"{issue.date}.html").write_text(render_week(issue), encoding="utf-8")
 
