@@ -79,6 +79,7 @@
       const haystack = [
         paper.number,
         paper.title,
+        paper.zh_title,
         paper.authors,
         paper.zh_abstract,
         paper.is_china_related ? "china 中国相关" : "",
@@ -101,6 +102,7 @@
       .slice(start, start + pageSize)
       .map((paper) => {
         const archiveUrl = `archive/${paper.month_key}.html#w${paper.number}`;
+        const zhTitle = paper.zh_title ? `<p class="paper-zh-title">${escapeHtml(paper.zh_title)}</p>` : "";
         return `<article class="paper-card">
           <div class="meta">
             <span>${escapeHtml(paper.month_key)}</span>
@@ -108,6 +110,7 @@
             <a href="${escapeHtml(paper.url)}" target="_blank" rel="noopener">NBER w${escapeHtml(paper.number)}</a>
           </div>
           <h3><a href="${archiveUrl}">${escapeHtml(paper.title)}</a></h3>
+          ${zhTitle}
           ${paper.is_china_related ? '<span class="tag">中国相关</span>' : ""}
           <p class="authors">${escapeHtml(paper.authors)}</p>
           <p class="summary">${escapeHtml(paper.zh_abstract)}</p>

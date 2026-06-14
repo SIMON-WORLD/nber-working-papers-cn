@@ -94,7 +94,7 @@ h1 {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 132px);
+  grid-template-columns: 172px 132px 172px;
   gap: 10px;
   flex: 0 0 auto;
 }
@@ -154,7 +154,7 @@ h1 {
 }
 
 .quick-card strong {
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.2;
 }
 
@@ -299,7 +299,19 @@ select:focus {
 .archive-panel {
   position: sticky;
   top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 16px;
+}
+
+.archive-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.archive-panel::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #cbd5d1;
 }
 
 .archive-panel h2,
@@ -442,6 +454,13 @@ select:focus {
   font-size: 20px;
   line-height: 1.35;
   letter-spacing: 0;
+}
+
+.paper-zh-title {
+  margin: -2px 0 10px;
+  color: var(--accent-2);
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .meta {

@@ -151,6 +151,15 @@ def is_china_related_text(*parts: str) -> bool:
     return any(term in haystack for term in CHINA_TERMS)
 
 
+def year_range_label(years: list[int] | set[int]) -> str:
+    ordered = sorted(years)
+    if not ordered:
+        return "\u6682\u65e0"
+    if ordered[0] == ordered[-1]:
+        return str(ordered[0])
+    return f"{ordered[0]}-{ordered[-1]}"
+
+
 def load_translation_cache(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
         return {}
@@ -501,13 +510,17 @@ def make_paper(raw: dict[str, str], month_key: str, year: int, month: int) -> Pa
     )
 
 
-def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str) -> str:
+def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str, translation_cache: dict[str, dict[str, str]] | None = None) -> str:
     latest = months[-1]
     total_papers = sum(len(issue.papers) for issue in months)
     latest_week = weeks[-1] if weeks else None
     total_weekly_papers = sum(len(issue.papers) for issue in weeks)
     china_papers = sum(1 for issue in months for paper in issue.papers if paper.is_china_related)
     years = sorted({issue.year for issue in months}, reverse=True)
+    month_range = year_range_label({issue.year for issue in months})
+    weekly_range = year_range_label({issue.year for issue in weeks})
+    latest_week_label = latest_week.date if latest_week else latest.key
+    latest_week_title = f"\u6700\u65b0\u4e00\u5468 NBER \u5de5\u4f5c\u8bba\u6587\uff08updated on: {latest_week.date}\uff09" if latest_week else "\u6700\u65b0\u4e00\u5468 NBER \u5de5\u4f5c\u8bba\u6587"
     months_json = json.dumps(
         [
             {
@@ -528,6 +541,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
             {
                 "number": paper.number,
                 "title": paper.title,
+                "zh_title": (translation_cache or {}).get(paper.number, {}).get("zh_title", ""),
                 "authors": paper.authors,
                 "zh_abstract": paper.zh_abstract,
                 "url": paper.url,
@@ -557,7 +571,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
         latest_week_html = f"""
     <section class="latest-week">
       <div class="panel-head">
-        <h2>最新一周：{html.escape(latest_week.date)}</h2>
+        <h2>{html.escape(latest_week_title)}</h2>
         <a href="weekly/{latest_week.date}.html">查看全部 {len(latest_week.papers)} 篇</a>
       </div>
       <div class="weekly-grid">
@@ -585,9 +599,9 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       </div>
     </div>
     <div class="stats" aria-label="站点统计">
-      <span><strong>{len(months)}</strong> 个月</span>
-      <span><strong>{total_papers}</strong> 篇论文</span>
-      <span><strong>{latest_week.date if latest_week else latest.key}</strong> 最新</span>
+      <span><strong>{weekly_range}</strong> 周报跨度</span>
+      <span><strong>{len(months)}</strong> 月度合集</span>
+      <span><strong>{latest_week_label}</strong> 最新更新</span>
     </div>
   </header>
 
@@ -595,18 +609,18 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <section class="quick-sections" aria-label="内容入口">
       <a class="quick-card" href="{f'weekly/{latest_week.date}.html' if latest_week else '#'}">
         <span>最新周报</span>
-        <strong>{html.escape(latest_week.date) if latest_week else "暂无"}</strong>
-        <small>{len(latest_week.papers) if latest_week else 0} 篇全量论文</small>
+        <strong>{len(latest_week.papers) if latest_week else 0} 篇</strong>
+        <small>updated on: {html.escape(latest_week.date) if latest_week else "暂无"}</small>
       </a>
       <a class="quick-card" href="#archiveList">
-        <span>月度合集</span>
+        <span>月度中文合集</span>
         <strong>{len(months)} 个月</strong>
-        <small>{total_papers} 篇中文摘要</small>
+        <small>{month_range}，{total_papers} 篇中文摘要</small>
       </a>
       <a class="quick-card" href="#paperList" data-quick-filter="china">
         <span>中国相关</span>
         <strong>{china_papers} 篇</strong>
-        <small>中国主题与相关线索</small>
+        <small>来自月度中文合集筛选</small>
       </a>
     </section>
 
@@ -691,6 +705,34 @@ def render_week_article(paper: WeeklyPaper) -> str:
 </article>"""
 
 
+def render_week_card(paper: WeeklyPaper, date: str) -> str:
+    badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
+    zh_title = f'\n  <p class="zh-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
+    return f"""<article class="week-card">
+  <div class="meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">w{paper.number}</a>{badge}</div>
+  <h3><a href="weekly/{date}.html#w{paper.number}">{html.escape(paper.title)}</a></h3>{zh_title}
+  <p>{html.escape(paper.authors)}</p>
+</article>"""
+
+
+def render_week_article(paper: WeeklyPaper) -> str:
+    badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
+    zh_title = f'\n  <p class="zh-detail-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
+    if paper.zh_abstract:
+        zh_abstract = f"<h3>中文摘要</h3><p>{html.escape(paper.zh_abstract)}</p>"
+    else:
+        zh_abstract = '<p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>'
+    return f"""<article class="paper-detail" id="w{paper.number}">
+  <div class="paper-meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">NBER w{paper.number}</a>{badge}</div>
+  <h2>{html.escape(paper.title)}</h2>{zh_title}
+  <p class="authors">{html.escape(paper.authors)}</p>
+  <p class="meta-line">{html.escape(paper.meta)}</p>
+  <h3>Abstract</h3>
+  <p>{html.escape(paper.abstract)}</p>
+  {zh_abstract}
+</article>"""
+
+
 def render_month(issue: MonthIssue) -> str:
     rows = "\n".join(
         f"""<article class="paper-detail" id="w{paper.number}">
@@ -736,19 +778,20 @@ def render_month(issue: MonthIssue) -> str:
 def render_week(issue: WeekIssue) -> str:
     rows = "\n".join(render_week_article(paper) for paper in issue.papers)
     intro = "".join(f"<p>{html.escape(line)}</p>" for line in issue.intro)
+    display_title = f"NBER 工作论文周报（updated on: {issue.date}）"
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(issue.title)}</title>
+  <title>{html.escape(display_title)}</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="../index.html">学术传送门 NBER 工作论文</a></p>
-      <h1>{html.escape(issue.title)}</h1>
+      <h1>{html.escape(display_title)}</h1>
       <p class="lead">{issue.date}，共 {len(issue.papers)} 篇。</p>
     </div>
   </header>
@@ -901,7 +944,7 @@ def main() -> None:
     (output / "archive").mkdir(parents=True, exist_ok=True)
     (output / "weekly").mkdir(parents=True, exist_ok=True)
 
-    (output / "index.html").write_text(render_index(months, weeks, built_at), encoding="utf-8")
+    (output / "index.html").write_text(render_index(months, weeks, built_at, translation_cache), encoding="utf-8")
     write_json(output, months, built_at)
     write_weekly_json(output, weeks, built_at)
     write_feeds(output, weeks, built_at)
