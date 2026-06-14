@@ -47,9 +47,24 @@
         return `<details class="archive-year"${open}><summary><span>${year} 年</span><small>${count} 篇</small></summary><div class="archive-year-list">${links}</div></details>`;
       })
       .join("");
-    weeklyList.innerHTML = weeks
-      .map((week) => {
-        return `<a class="archive-link" href="${week.url}"><span>${week.date}</span><small>${week.count} 篇</small></a>`;
+    const groupedWeeks = weeks.reduce((groups, week) => {
+      const year = String(week.year || String(week.date).slice(0, 4));
+      if (!groups[year]) groups[year] = [];
+      groups[year].push(week);
+      return groups;
+    }, {});
+    const weekYears = Object.keys(groupedWeeks).sort((a, b) => Number(b) - Number(a));
+    weeklyList.innerHTML = weekYears
+      .map((year, index) => {
+        const yearWeeks = groupedWeeks[year];
+        const count = yearWeeks.reduce((sum, week) => sum + Number(week.count || 0), 0);
+        const open = index < 2 ? " open" : "";
+        const links = yearWeeks
+          .map((week) => {
+            return `<a class="archive-link" href="${week.url}"><span>${week.date}</span><small>${week.count} 篇</small></a>`;
+          })
+          .join("");
+        return `<details class="archive-year"${open}><summary><span>${year} 年</span><small>${count} 篇</small></summary><div class="archive-year-list">${links}</div></details>`;
       })
       .join("");
   }

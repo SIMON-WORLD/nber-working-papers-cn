@@ -548,7 +548,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
                 "count": len(issue.papers),
                 "url": f"weekly/{issue.date}.html",
             }
-            for issue in reversed(weeks[-80:])
+            for issue in reversed(weeks)
         ],
         ensure_ascii=False,
     )
@@ -610,14 +610,6 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       </a>
     </section>
 
-    <section class="project-note" aria-label="项目说明">
-      <div>
-        <h2>项目说明</h2>
-        <p>本站基于 NBER Working Papers 官方元数据生成周度归档；月度中文摘要来自学术传送门整理稿，中文内容由 DeepSeek 辅助翻译。</p>
-      </div>
-      <p>这是一个面向中文读者的非官方学术交流项目，便于检索、归档和公众号选题使用。论文原文、版本更新与版权信息请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
-    </section>
-
     {latest_week_html}
 
     <section class="toolbar" aria-label="检索工具">
@@ -636,7 +628,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <aside class="archive-panel">
         <h2>月度归档</h2>
         <div id="archiveList" class="archive-list"></div>
-        <h2 class="side-heading">最近周报</h2>
+        <h2 class="side-heading">全部周报</h2>
         <div id="weeklyList" class="archive-list"></div>
       </aside>
       <section class="results-panel">
@@ -656,7 +648,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
 
   <footer>
     <p>订阅：<a href="feed.xml">RSS Feed</a> / <a href="feed.json">JSON Feed</a></p>
-    <p>本站为 Academic Door / 学术传送门维护的非官方 NBER 工作论文中文整理项目；原文请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
+    <p>本站为 Academic Door / 学术传送门维护的面向中文读者的非官方学术交流项目。论文原文、版本更新与版权信息请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
     <p>Generated at {html.escape(built_at)}.</p>
   </footer>
 
@@ -693,9 +685,9 @@ def render_week_article(paper: WeeklyPaper) -> str:
   <h2>{html.escape(paper.title)}</h2>{zh_title}
   <p class="authors">{html.escape(paper.authors)}</p>
   <p class="meta-line">{html.escape(paper.meta)}</p>
-  {zh_abstract}
   <h3>Abstract</h3>
   <p>{html.escape(paper.abstract)}</p>
+  {zh_abstract}
 </article>"""
 
 
@@ -705,10 +697,10 @@ def render_month(issue: MonthIssue) -> str:
   <div class="paper-meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">NBER w{paper.number}</a></div>
   <h2>{html.escape(paper.title)}</h2>
   <p class="authors">{html.escape(paper.authors)}</p>
-  <h3>中文摘要</h3>
-  <p>{html.escape(paper.zh_abstract)}</p>
   <h3>Abstract</h3>
   <p>{html.escape(paper.abstract)}</p>
+  <h3>中文摘要</h3>
+  <p>{html.escape(paper.zh_abstract)}</p>
 </article>"""
         for paper in issue.papers
     )

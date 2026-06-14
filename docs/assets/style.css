@@ -162,26 +162,6 @@ h1 {
   color: var(--muted);
 }
 
-.project-note {
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
-  gap: 18px;
-  margin: 0 0 18px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 18px 0;
-}
-
-.project-note h2 {
-  margin: 0 0 8px;
-  font-size: 20px;
-}
-
-.project-note p {
-  margin: 0;
-  color: var(--muted);
-}
-
 .toolbar {
   display: grid;
   grid-template-columns: 1fr 160px auto;
@@ -553,7 +533,6 @@ footer p {
 
   .toolbar,
   .quick-sections,
-  .project-note,
   .layout {
     grid-template-columns: 1fr;
   }
