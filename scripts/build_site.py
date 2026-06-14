@@ -108,6 +108,12 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8-sig").replace("\r\n", "\n")
 
 
+def write_text_if_changed(path: Path, text: str) -> None:
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        return
+    path.write_text(text, encoding="utf-8")
+
+
 def read_tsv(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f, delimiter="\t"))
@@ -571,51 +577,6 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     weekly_range = year_range_label({issue.year for issue in weeks})
     latest_week_label = latest_week.date if latest_week else latest.key
     latest_week_title = f"\u6700\u65b0\u4e00\u5468 NBER \u5de5\u4f5c\u8bba\u6587\uff08updated on: {latest_week.date}\uff09" if latest_week else "\u6700\u65b0\u4e00\u5468 NBER \u5de5\u4f5c\u8bba\u6587"
-    months_json = json.dumps(
-        [
-            {
-                "key": issue.key,
-                "year": issue.year,
-                "month": issue.month,
-                "date": issue.date,
-                "title": issue.title,
-                "count": len(issue.papers),
-                "url": f"archive/{issue.key}.html",
-            }
-            for issue in reversed(months)
-        ],
-        ensure_ascii=False,
-    )
-    papers_json = json.dumps(
-        [
-            {
-                "number": paper.number,
-                "title": paper.title,
-                "zh_title": paper.zh_title or (translation_cache or {}).get(paper.number, {}).get("zh_title", ""),
-                "authors": paper.authors,
-                "zh_abstract": paper.zh_abstract,
-                "url": paper.url,
-                "month_key": paper.month_key,
-                "index": paper.index,
-                "is_china_related": paper.is_china_related,
-            }
-            for issue in reversed(months)
-            for paper in issue.papers
-        ],
-        ensure_ascii=False,
-    )
-    weeks_json = json.dumps(
-        [
-            {
-                "date": issue.date,
-                "year": issue.year,
-                "count": len(issue.papers),
-                "url": f"weekly/{issue.date}.html",
-            }
-            for issue in reversed(weeks)
-        ],
-        ensure_ascii=False,
-    )
     latest_week_html = ""
     if latest_week:
         latest_week_html = f"""
@@ -691,16 +652,16 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <section class="layout">
       <aside class="archive-panel">
         <h2>月度归档</h2>
-        <div id="archiveList" class="archive-list"></div>
+        <div id="archiveList" class="archive-list" data-loading="月度归档加载中..."></div>
         <h2 class="side-heading">全部周报</h2>
-        <div id="weeklyList" class="archive-list"></div>
+        <div id="weeklyList" class="archive-list" data-loading="周报归档加载中..."></div>
       </aside>
       <section class="results-panel">
         <div class="panel-head">
           <h2>论文检索</h2>
           <span id="resultCount"></span>
         </div>
-        <div id="paperList" class="paper-list"></div>
+        <div id="paperList" class="paper-list" data-loading="论文索引加载中..."></div>
         <div class="pagination" aria-label="分页">
           <button type="button" id="prevPage">上一页</button>
           <span id="pageInfo"></span>
@@ -716,11 +677,6 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <p>Generated at {html.escape(built_at)}.</p>
   </footer>
 
-  <script>
-    window.NBER_MONTHS = {months_json};
-    window.NBER_PAPERS = {papers_json};
-    window.NBER_WEEKS = {weeks_json};
-  </script>
   <script src="assets/site.js"></script>
 </body>
 </html>
@@ -870,7 +826,56 @@ def write_json(output: Path, months: list[MonthIssue], built_at: str) -> None:
         ],
         "papers": [asdict(paper) for issue in months for paper in issue.papers],
     }
-    (output / "data" / "nber_papers.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_text_if_changed(output / "data" / "nber_papers.json", json.dumps(data, ensure_ascii=False, indent=2))
+
+
+def write_index_data(
+    output: Path,
+    months: list[MonthIssue],
+    weeks: list[WeekIssue],
+    translation_cache: dict[str, dict[str, str]] | None = None,
+) -> None:
+    data_dir = output / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    month_items = [
+        {
+            "key": issue.key,
+            "year": issue.year,
+            "month": issue.month,
+            "date": issue.date,
+            "title": issue.title,
+            "count": len(issue.papers),
+            "url": f"archive/{issue.key}.html",
+        }
+        for issue in reversed(months)
+    ]
+    paper_items = [
+        {
+            "number": paper.number,
+            "title": paper.title,
+            "zh_title": paper.zh_title or (translation_cache or {}).get(paper.number, {}).get("zh_title", ""),
+            "authors": paper.authors,
+            "zh_abstract": paper.zh_abstract,
+            "url": paper.url,
+            "month_key": paper.month_key,
+            "index": paper.index,
+            "is_china_related": paper.is_china_related,
+        }
+        for issue in reversed(months)
+        for paper in issue.papers
+    ]
+    week_items = [
+        {
+            "date": issue.date,
+            "year": issue.year,
+            "count": len(issue.papers),
+            "url": f"weekly/{issue.date}.html",
+        }
+        for issue in reversed(weeks)
+    ]
+    write_text_if_changed(data_dir / "months.json", json.dumps(month_items, ensure_ascii=False))
+    write_text_if_changed(data_dir / "monthly_papers.json", json.dumps(paper_items, ensure_ascii=False))
+    write_text_if_changed(data_dir / "weeks.json", json.dumps(week_items, ensure_ascii=False))
 
 
 def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
@@ -919,8 +924,8 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
         "items": json_items,
         "generated_at": built_at,
     }
-    (output / "feed.xml").write_text(rss, encoding="utf-8")
-    (output / "feed.json").write_text(json.dumps(feed_json, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_text_if_changed(output / "feed.xml", rss)
+    write_text_if_changed(output / "feed.json", json.dumps(feed_json, ensure_ascii=False, indent=2))
 
 
 def write_weekly_json(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
@@ -933,7 +938,6 @@ def write_weekly_json(output: Path, weeks: list[WeekIssue], built_at: str) -> No
     for year in years:
         year_issues = [issue for issue in weeks if issue.year == year]
         year_data = {
-            "built_at": built_at,
             "year": year,
             "weeks": [
                 {
@@ -944,12 +948,9 @@ def write_weekly_json(output: Path, weeks: list[WeekIssue], built_at: str) -> No
             ],
             "papers": [asdict(paper) for issue in year_issues for paper in issue.papers],
         }
-        (weekly_dir / f"{year}.json").write_text(
-            json.dumps(year_data, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
+        write_text_if_changed(weekly_dir / f"{year}.json", json.dumps(year_data, ensure_ascii=False, indent=2))
 
     data = {
-        "built_at": built_at,
         "latest": weeks[-1].date if weeks else "",
         "weeks": [
             {
@@ -962,7 +963,7 @@ def write_weekly_json(output: Path, weeks: list[WeekIssue], built_at: str) -> No
         "total_papers": sum(len(issue.papers) for issue in weeks),
         "split_by": "year",
     }
-    (output / "data" / "nber_weekly.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_text_if_changed(output / "data" / "nber_weekly.json", json.dumps(data, ensure_ascii=False, indent=2))
 
 
 def main() -> None:
@@ -995,14 +996,14 @@ def main() -> None:
     (output / "archive").mkdir(parents=True, exist_ok=True)
     (output / "weekly").mkdir(parents=True, exist_ok=True)
 
-    (output / "index.html").write_text(render_index(months, weeks, built_at, translation_cache), encoding="utf-8")
-    write_json(output, months, built_at)
+    write_text_if_changed(output / "index.html", render_index(months, weeks, built_at, translation_cache))
+    write_index_data(output, months, weeks, translation_cache)
     write_weekly_json(output, weeks, built_at)
     write_feeds(output, weeks, built_at)
     for issue in months:
-        (output / "archive" / f"{issue.key}.html").write_text(render_month(issue, translation_cache), encoding="utf-8")
+        write_text_if_changed(output / "archive" / f"{issue.key}.html", render_month(issue, translation_cache))
     for issue in weeks:
-        (output / "weekly" / f"{issue.date}.html").write_text(render_week(issue), encoding="utf-8")
+        write_text_if_changed(output / "weekly" / f"{issue.date}.html", render_week(issue))
 
     total = sum(len(issue.papers) for issue in months)
     weekly_total = sum(len(issue.papers) for issue in weeks)

@@ -1,7 +1,7 @@
 (function () {
-  const months = window.NBER_MONTHS || [];
-  const papers = window.NBER_PAPERS || [];
-  const weeks = window.NBER_WEEKS || [];
+  let months = window.NBER_MONTHS || [];
+  let papers = window.NBER_PAPERS || [];
+  let weeks = window.NBER_WEEKS || [];
   const archiveList = document.getElementById("archiveList");
   const weeklyList = document.getElementById("weeklyList");
   const paperList = document.getElementById("paperList");
@@ -16,6 +16,47 @@
   const pageSize = 30;
   let relationFilter = "all";
   let currentPage = 1;
+
+  function setLoading() {
+    archiveList.textContent = archiveList.dataset.loading || "加载中...";
+    weeklyList.textContent = weeklyList.dataset.loading || "加载中...";
+    paperList.textContent = paperList.dataset.loading || "加载中...";
+    resultCount.textContent = "";
+    pageInfo.textContent = "";
+    prevPage.disabled = true;
+    nextPage.disabled = true;
+  }
+
+  function setError() {
+    archiveList.innerHTML = "";
+    weeklyList.innerHTML = "";
+    paperList.innerHTML = `<article class="paper-card"><h3>数据加载失败</h3><p class="summary">请通过本地服务器或 GitHub Pages 访问本站，例如在项目目录运行 <code>python -m http.server 8765 --bind 127.0.0.1 --directory docs</code> 后打开 <code>http://127.0.0.1:8765/</code>。</p></article>`;
+    resultCount.textContent = "加载失败";
+    pageInfo.textContent = "";
+    prevPage.disabled = true;
+    nextPage.disabled = true;
+  }
+
+  async function loadJson(path) {
+    const response = await fetch(path, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`Failed to load ${path}: ${response.status}`);
+    }
+    return response.json();
+  }
+
+  async function loadIndexData() {
+    if (months.length && papers.length && weeks.length) return;
+    setLoading();
+    const [loadedMonths, loadedPapers, loadedWeeks] = await Promise.all([
+      loadJson("data/months.json"),
+      loadJson("data/monthly_papers.json"),
+      loadJson("data/weeks.json"),
+    ]);
+    months = loadedMonths;
+    papers = loadedPapers;
+    weeks = loadedWeeks;
+  }
 
   function escapeHtml(value) {
     return String(value || "")
@@ -126,36 +167,40 @@
     renderPapers();
   }
 
-  renderArchive();
-  renderPapers();
-  searchInput.addEventListener("input", () => {
-    currentPage = 1;
-    renderPapers();
-  });
-  yearFilter.addEventListener("change", () => {
-    currentPage = 1;
-    renderPapers();
-  });
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      setFilter(button.dataset.filter);
-    });
-  });
-  quickFilterLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      setFilter(link.dataset.quickFilter);
-    });
-  });
-  prevPage.addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage -= 1;
+  loadIndexData()
+    .then(() => {
+      renderArchive();
       renderPapers();
-      paperList.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-  nextPage.addEventListener("click", () => {
-    currentPage += 1;
-    renderPapers();
-    paperList.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+      searchInput.addEventListener("input", () => {
+        currentPage = 1;
+        renderPapers();
+      });
+      yearFilter.addEventListener("change", () => {
+        currentPage = 1;
+        renderPapers();
+      });
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setFilter(button.dataset.filter);
+        });
+      });
+      quickFilterLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          setFilter(link.dataset.quickFilter);
+        });
+      });
+      prevPage.addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage -= 1;
+          renderPapers();
+          paperList.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+      nextPage.addEventListener("click", () => {
+        currentPage += 1;
+        renderPapers();
+        paperList.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    })
+    .catch(setError);
 })();

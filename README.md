@@ -31,6 +31,14 @@ python .\scripts\build_site.py
 
 生成结果位于 `docs/`，可直接作为 GitHub Pages 发布目录。
 
+本地查看建议用一个轻量静态服务器，而不是直接双击 `docs/index.html`，因为首页会异步加载 `docs/data/*.json`：
+
+```powershell
+python -m http.server 8765 --bind 127.0.0.1 --directory docs
+```
+
+然后访问 `http://127.0.0.1:8765/`。
+
 周报数据采用拆分结构，避免单个 JSON 过大：
 
 - `docs/data/nber_weekly.json`：轻量周报索引
@@ -41,6 +49,8 @@ python .\scripts\build_site.py
 - `sources/monthly_ready/*NBER*ready.md`
 - 本地默认：`../../workflow/01_sources/journals/nber/*.tsv`
 - GitHub Actions 默认：`data/nber/*.tsv`
+
+`data/nber/*.tsv` 是构建时下载或本地生成的原始元数据，文件较大，不再作为仓库长期提交内容；GitHub Actions 会在运行时重新下载。
 
 如果只想沿用旧的筛选版周报 Markdown，可以运行：
 
