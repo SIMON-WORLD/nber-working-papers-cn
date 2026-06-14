@@ -39,6 +39,8 @@ python -m http.server 8765 --bind 127.0.0.1 --directory docs
 
 然后访问 `http://127.0.0.1:8765/`。
 
+如果 8765 端口已被占用，把命令和访问地址里的端口改成 8766 或其他空闲端口即可。
+
 周报数据采用拆分结构，避免单个 JSON 过大：
 
 - `docs/data/nber_weekly.json`：轻量周报索引

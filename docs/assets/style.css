@@ -527,9 +527,89 @@ select:focus {
   gap: 14px;
 }
 
+.about-page {
+  display: grid;
+  gap: 14px;
+}
+
 .month-summary,
-.paper-detail {
+.paper-detail,
+.week-toc,
+.week-actions {
   padding: 18px;
+}
+
+.week-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.week-actions a {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 5px 10px;
+  background: #fbfcfb;
+}
+
+.week-actions a:hover {
+  background: var(--soft);
+  text-decoration: none;
+}
+
+.week-summary-grid {
+  margin: 0;
+}
+
+.week-toc {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.compact-head {
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding-top: 12px;
+}
+
+.toc-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text);
+  background: #fbfcfb;
+}
+
+.toc-link:hover {
+  background: var(--soft);
+  text-decoration: none;
+}
+
+.toc-link small {
+  flex: 0 0 auto;
+  color: var(--muted);
+}
+
+.toc-link.china-hit {
+  border-color: rgba(3, 102, 214, 0.28);
+  background: var(--accent-soft);
 }
 
 .month-summary p {
@@ -545,6 +625,7 @@ select:focus {
 .paper-detail h3 {
   margin: 18px 0 6px;
   font-size: 16px;
+  color: var(--accent-2);
 }
 
 .paper-meta {
@@ -563,6 +644,18 @@ footer {
 
 footer p {
   margin: 4px 0;
+}
+
+.about-contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+}
+
+.wechat-qr.large {
+  width: 118px;
+  height: 118px;
 }
 
 @media (max-width: 820px) {
@@ -595,6 +688,10 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .toc-list {
+    grid-template-columns: 1fr;
+  }
+
   .week-card,
   .week-card:nth-child(3n) {
     border-right: 0;
@@ -606,6 +703,10 @@ footer p {
 
   .quick-card {
     min-height: auto;
+  }
+
+  .about-contact {
+    align-items: flex-start;
   }
 }
 
@@ -628,6 +729,10 @@ footer p {
     width: 88px;
     height: 88px;
     margin-top: 12px;
+  }
+
+  .about-contact {
+    display: block;
   }
 
   .panel-head,

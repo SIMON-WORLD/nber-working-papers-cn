@@ -676,7 +676,8 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   </main>
 
   <footer>
-    <p>订阅：<a href="feed.xml">RSS Feed</a> / <a href="feed.json">JSON Feed</a></p>
+      <p>订阅：<a href="feed.xml">RSS Feed</a> / <a href="feed.json">JSON Feed</a></p>
+    <p><a href="about.html">关于本站与更新说明</a></p>
     <p>本站为 Academic Door / 学术传送门维护的面向中文读者的非官方学术交流项目。论文原文、版本更新与版权信息请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
     <p>Generated at {html.escape(built_at)}.</p>
   </footer>
@@ -685,34 +686,6 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
 </body>
 </html>
 """
-
-
-def render_week_card(paper: WeeklyPaper, date: str) -> str:
-    badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
-    zh_title = f'\n  <p class="zh-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
-    return f"""<article class="week-card">
-  <div class="meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">w{paper.number}</a>{badge}</div>
-  <h3><a href="weekly/{date}.html#w{paper.number}">{html.escape(paper.title)}</a></h3>{zh_title}
-  <p>{html.escape(paper.authors)}</p>
-</article>"""
-
-
-def render_week_article(paper: WeeklyPaper) -> str:
-    badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
-    zh_title = f'\n  <p class="zh-detail-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
-    if paper.zh_abstract:
-        zh_abstract = f"<h3>中文摘要</h3><p>{html.escape(paper.zh_abstract)}</p>"
-    else:
-        zh_abstract = '<p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>'
-    return f"""<article class="paper-detail" id="w{paper.number}">
-  <div class="paper-meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">NBER w{paper.number}</a>{badge}</div>
-  <h2>{html.escape(paper.title)}</h2>{zh_title}
-  <p class="authors">{html.escape(paper.authors)}</p>
-  <p class="meta-line">{html.escape(paper.meta)}</p>
-  <h3>Abstract</h3>
-  <p>{html.escape(paper.abstract)}</p>
-  {zh_abstract}
-</article>"""
 
 
 def render_week_card(paper: WeeklyPaper, date: str) -> str:
@@ -790,6 +763,32 @@ def render_week(issue: WeekIssue) -> str:
     rows = "\n".join(render_week_article(paper) for paper in issue.papers)
     intro = "".join(f"<p>{html.escape(line)}</p>" for line in issue.intro)
     display_title = f"NBER 工作论文周报（updated on: {issue.date}）"
+    china_count = sum(1 for paper in issue.papers if paper.is_china_related)
+    translated_count = sum(1 for paper in issue.papers if paper.zh_title or paper.zh_abstract)
+    china_link = '<a href="#china-related">只看中国相关</a>' if china_count else ""
+    toc_items = "\n".join(
+        f"""<a class="toc-link{' china-hit' if paper.is_china_related else ''}" href="#w{paper.number}">
+          <span>{paper.index}. {html.escape(paper.title)}</span>
+          <small>w{paper.number}</small>
+        </a>"""
+        for paper in issue.papers
+    )
+    china_items = "\n".join(
+        f"""<a class="toc-link china-hit" href="#w{paper.number}">
+          <span>{paper.index}. {html.escape(paper.zh_title or paper.title)}</span>
+          <small>w{paper.number}</small>
+        </a>"""
+        for paper in issue.papers
+        if paper.is_china_related
+    )
+    china_section = (
+        f"""<section class="week-toc" id="china-related">
+      <div class="panel-head compact-head"><h2>中国相关</h2><span>{china_count} 篇</span></div>
+      <div class="toc-list">{china_items}</div>
+    </section>"""
+        if china_count
+        else ""
+    )
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -808,10 +807,87 @@ def render_week(issue: WeekIssue) -> str:
   </header>
   <main class="month-page">
     <section class="month-summary">{intro}</section>
+    <section class="week-actions">
+      <a href="../index.html">返回主页</a>
+      <a href="#week-toc">查看目录</a>
+      {china_link}
+      <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a>
+    </section>
+    <section class="quick-sections week-summary-grid" aria-label="本周统计">
+      <div class="quick-card"><span>本周论文</span><strong>{len(issue.papers)} 篇</strong><small>官方全量口径</small></div>
+      <div class="quick-card"><span>中文翻译</span><strong>{translated_count} 篇</strong><small>标题或摘要已翻译</small></div>
+      <div class="quick-card"><span>中国相关</span><strong>{china_count} 篇</strong><small>按标题、作者、摘要关键词识别</small></div>
+    </section>
+    {china_section}
+    <section class="week-toc" id="week-toc">
+      <div class="panel-head compact-head"><h2>本周目录</h2><span>{len(issue.papers)} 篇</span></div>
+      <div class="toc-list">{toc_items}</div>
+    </section>
     {rows}
   </main>
   <footer>
     <p>Maintained by Academic Door / 学术传送门。Hosted on GitHub Pages。</p>
+  </footer>
+</body>
+</html>
+"""
+
+
+def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str) -> str:
+    month_range = year_range_label({issue.year for issue in months})
+    weekly_range = year_range_label({issue.year for issue in weeks})
+    total_monthly = sum(len(issue.papers) for issue in months)
+    total_weekly = sum(len(issue.papers) for issue in weeks)
+    latest_week = weeks[-1].date if weeks else "暂无"
+    latest_month = months[-1].key if months else "暂无"
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>关于本站｜学术传送门 NBER 工作论文</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header compact">
+    <div>
+      <p class="eyebrow"><a href="index.html">学术传送门 NBER 工作论文</a></p>
+      <h1>关于本站与更新说明</h1>
+      <p class="lead">这是 Academic Door / 学术传送门维护的 NBER Working Papers 非官方中文整理项目，用于学术交流、检索归档和公众号选题。</p>
+    </div>
+  </header>
+  <main class="about-page">
+    <section class="quick-sections">
+      <div class="quick-card"><span>周报跨度</span><strong>{weekly_range}</strong><small>{total_weekly} 篇全量周报索引</small></div>
+      <div class="quick-card"><span>月度合集</span><strong>{month_range}</strong><small>{total_monthly} 篇中文摘要</small></div>
+      <div class="quick-card"><span>最新更新</span><strong>{html.escape(latest_week)}</strong><small>最新月度合集：{html.escape(latest_month)}</small></div>
+    </section>
+    <section class="paper-detail">
+      <h2>本站收录什么</h2>
+      <p>周报页面按 NBER 官方工作论文元数据汇总生成，采用官方全量口径，不按 Programs、JEL 或邮件订阅偏好筛选。月度页面来自学术传送门整理稿，保留中文标题、作者、英文摘要和中文摘要，适合做公众号选题和发布前检索。</p>
+      <p>首页提供两个检索范围：“月度中文合集”偏向已整理素材，“周报全量”偏向完整 NBER 工作论文索引。</p>
+    </section>
+    <section class="paper-detail">
+      <h2>更新流程</h2>
+      <p>GitHub Actions 每周一 12:00 北京时间自动下载 NBER 元数据，补充最新一周的中文翻译缓存，并重建静态站点。翻译由 DeepSeek 辅助生成，仍需以论文原文为准。</p>
+      <p>本地工作流会继续生成公众号 ready 稿，供人工审核后发布到“学术传送门”。</p>
+    </section>
+    <section class="paper-detail">
+      <h2>版权与声明</h2>
+      <p>本站不是 NBER 官方项目。论文原文、版本更新、版权信息和引用格式请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
+      <p>本站仅发布目录、作者、摘要、中文导读和原文链接，用于非商业学术交流和资料检索。</p>
+    </section>
+    <section class="paper-detail about-contact">
+      <div>
+        <h2>关注学术传送门</h2>
+        <p>欢迎关注微信公众号：学术传送门。本站会作为 NBER 工作论文和公众号选题素材的长期归档入口。</p>
+      </div>
+      <img class="wechat-qr large" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
+    </section>
+  </main>
+  <footer>
+    <p><a href="index.html">返回主页</a></p>
+    <p>Generated at {html.escape(built_at)}.</p>
   </footer>
 </body>
 </html>
@@ -1016,6 +1092,7 @@ def main() -> None:
     (output / "weekly").mkdir(parents=True, exist_ok=True)
 
     write_text_if_changed(output / "index.html", render_index(months, weeks, built_at, translation_cache))
+    write_text_if_changed(output / "about.html", render_about(months, weeks, built_at))
     write_index_data(output, months, weeks, translation_cache)
     write_weekly_json(output, weeks, built_at)
     write_feeds(output, weeks, built_at)
