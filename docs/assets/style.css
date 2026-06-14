@@ -164,9 +164,39 @@ h1 {
 
 .toolbar {
   display: grid;
-  grid-template-columns: 1fr 160px auto;
+  grid-template-columns: auto 1fr 160px auto;
   gap: 12px;
   margin: 12px 0 18px;
+}
+
+.source-tabs {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(112px, 1fr));
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.source-tabs button {
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  padding: 0 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.source-tabs button:last-child {
+  border-right: 0;
+}
+
+.source-tabs button.active {
+  background: var(--accent-2);
+  color: #fff;
 }
 
 input,
@@ -556,6 +586,11 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .source-tabs,
+  .segmented {
+    width: 100%;
+  }
+
   .weekly-grid {
     grid-template-columns: 1fr;
   }
@@ -590,8 +625,8 @@ footer p {
   }
 
   .wechat-qr {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
     margin-top: 12px;
   }
 

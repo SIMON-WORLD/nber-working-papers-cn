@@ -2,6 +2,7 @@
   let months = window.NBER_MONTHS || [];
   let papers = window.NBER_PAPERS || [];
   let weeks = window.NBER_WEEKS || [];
+  let weeklyPapers = window.NBER_WEEKLY_PAPERS || [];
   const archiveList = document.getElementById("archiveList");
   const weeklyList = document.getElementById("weeklyList");
   const paperList = document.getElementById("paperList");
@@ -10,10 +11,12 @@
   const yearFilter = document.getElementById("yearFilter");
   const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
   const quickFilterLinks = Array.from(document.querySelectorAll("[data-quick-filter]"));
+  const sourceButtons = Array.from(document.querySelectorAll("[data-source]"));
   const prevPage = document.getElementById("prevPage");
   const nextPage = document.getElementById("nextPage");
   const pageInfo = document.getElementById("pageInfo");
   const pageSize = 30;
+  let sourceMode = "monthly";
   let relationFilter = "all";
   let currentPage = 1;
 
@@ -56,6 +59,12 @@
     months = loadedMonths;
     papers = loadedPapers;
     weeks = loadedWeeks;
+  }
+
+  async function ensureWeeklyPapers() {
+    if (weeklyPapers.length) return;
+    paperList.textContent = "周报全量索引加载中...";
+    weeklyPapers = await loadJson("data/weekly_papers.json");
   }
 
   function escapeHtml(value) {
@@ -113,8 +122,10 @@
   function renderPapers() {
     const query = searchInput.value.trim().toLowerCase();
     const year = yearFilter.value;
-    const filtered = papers.filter((paper) => {
-      if (year && String(paper.month_key).slice(0, 4) !== year) return false;
+    const source = sourceMode === "weekly" ? weeklyPapers : papers;
+    const filtered = source.filter((paper) => {
+      const dateKey = sourceMode === "weekly" ? paper.week_date : paper.month_key;
+      if (year && String(dateKey).slice(0, 4) !== year) return false;
       if (relationFilter === "china" && !paper.is_china_related) return false;
       if (!query) return true;
       const haystack = [
@@ -124,7 +135,7 @@
         paper.authors,
         paper.zh_abstract,
         paper.is_china_related ? "china 中国相关" : "",
-        paper.month_key,
+        dateKey,
       ]
         .join(" ")
         .toLowerCase();
@@ -142,19 +153,22 @@
     paperList.innerHTML = filtered
       .slice(start, start + pageSize)
       .map((paper) => {
-        const archiveUrl = `archive/${paper.month_key}.html#w${paper.number}`;
+        const dateKey = sourceMode === "weekly" ? paper.week_date : paper.month_key;
+        const archiveUrl = sourceMode === "weekly" ? `weekly/${paper.week_date}.html#w${paper.number}` : `archive/${paper.month_key}.html#w${paper.number}`;
         const zhTitle = paper.zh_title ? `<p class="paper-zh-title">${escapeHtml(paper.zh_title)}</p>` : "";
+        const sourceLabel = sourceMode === "weekly" ? "周报" : "月度";
+        const summary = sourceMode === "weekly" ? "" : `<p class="summary">${escapeHtml(paper.zh_abstract)}</p>`;
         return `<article class="paper-card">
           <div class="meta">
-            <span>${escapeHtml(paper.month_key)}</span>
-            <span>No. ${escapeHtml(paper.index)}</span>
+            <span>${escapeHtml(dateKey)}</span>
+            <span>${sourceLabel} No. ${escapeHtml(paper.index)}</span>
             <a href="${escapeHtml(paper.url)}" target="_blank" rel="noopener">NBER w${escapeHtml(paper.number)}</a>
           </div>
           <h3><a href="${archiveUrl}">${escapeHtml(paper.title)}</a></h3>
           ${zhTitle}
           ${paper.is_china_related ? '<span class="tag">中国相关</span>' : ""}
           <p class="authors">${escapeHtml(paper.authors)}</p>
-          <p class="summary">${escapeHtml(paper.zh_abstract)}</p>
+          ${summary}
         </article>`;
       })
       .join("");
@@ -164,6 +178,16 @@
     relationFilter = value || "all";
     currentPage = 1;
     filterButtons.forEach((item) => item.classList.toggle("active", item.dataset.filter === relationFilter));
+    renderPapers();
+  }
+
+  async function setSourceMode(value) {
+    sourceMode = value || "monthly";
+    currentPage = 1;
+    sourceButtons.forEach((item) => item.classList.toggle("active", item.dataset.source === sourceMode));
+    if (sourceMode === "weekly") {
+      await ensureWeeklyPapers();
+    }
     renderPapers();
   }
 
@@ -182,6 +206,11 @@
       filterButtons.forEach((button) => {
         button.addEventListener("click", () => {
           setFilter(button.dataset.filter);
+        });
+      });
+      sourceButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setSourceMode(button.dataset.source).catch(setError);
         });
       });
       quickFilterLinks.forEach((link) => {

@@ -595,7 +595,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>学术传送门 NBER 工作论文</title>
+  <title>学术传送门 NBER 工作论文｜主页</title>
   <meta name="description" content="面向中文读者的 NBER Working Papers 目录与摘要归档。">
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -638,6 +638,10 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     {latest_week_html}
 
     <section class="toolbar" aria-label="检索工具">
+      <div class="source-tabs" role="group" aria-label="检索范围">
+        <button type="button" class="active" data-source="monthly">月度中文合集</button>
+        <button type="button" data-source="weekly">周报全量</button>
+      </div>
       <input id="searchInput" type="search" placeholder="搜索标题、作者、摘要或 NBER 编号" autocomplete="off">
       <select id="yearFilter" aria-label="按年份筛选">
         <option value="">全部年份</option>
@@ -873,9 +877,24 @@ def write_index_data(
         }
         for issue in reversed(weeks)
     ]
+    weekly_paper_items = [
+        {
+            "number": paper.number,
+            "title": paper.title,
+            "zh_title": paper.zh_title,
+            "authors": paper.authors,
+            "week_date": paper.week_date,
+            "index": paper.index,
+            "url": paper.url,
+            "is_china_related": paper.is_china_related,
+        }
+        for issue in reversed(weeks)
+        for paper in issue.papers
+    ]
     write_text_if_changed(data_dir / "months.json", json.dumps(month_items, ensure_ascii=False))
     write_text_if_changed(data_dir / "monthly_papers.json", json.dumps(paper_items, ensure_ascii=False))
     write_text_if_changed(data_dir / "weeks.json", json.dumps(week_items, ensure_ascii=False))
+    write_text_if_changed(data_dir / "weekly_papers.json", json.dumps(weekly_paper_items, ensure_ascii=False))
 
 
 def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
