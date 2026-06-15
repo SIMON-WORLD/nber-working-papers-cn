@@ -211,6 +211,22 @@ def year_range_label(years: list[int] | set[int]) -> str:
     return f"{ordered[0]}-{ordered[-1]}"
 
 
+def render_site_nav(active: str, latest_week_date: str | None = None, prefix: str = "") -> str:
+    latest_week_href = f"{prefix}weekly/{latest_week_date}.html" if latest_week_date else f"{prefix}index.html#weeklyList"
+    items = [
+        ("home", "主页", f"{prefix}index.html"),
+        ("about", "关于本站", f"{prefix}about.html"),
+        ("latest", "最新周报", latest_week_href),
+        ("archive", "月度合集", f"{prefix}index.html#archiveList"),
+        ("rss", "RSS", f"{prefix}feed.xml"),
+    ]
+    links = []
+    for key, label, href in items:
+        active_class = " active" if key == active else ""
+        links.append(f'<a class="site-nav-link{active_class}" href="{href}">{label}</a>')
+    return f'<nav class="site-nav" aria-label="站点导航">{"".join(links)}</nav>'
+
+
 def load_translation_cache(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
         return {}
@@ -597,6 +613,10 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>学术传送门 NBER 工作论文｜主页</title>
   <meta name="description" content="面向中文读者的 NBER Working Papers 目录与摘要归档。">
+  <meta property="og:title" content="学术传送门 NBER 工作论文｜主页">
+  <meta property="og:description" content="每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -605,7 +625,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <p class="eyebrow">Academic Door</p>
       <h1>学术传送门 NBER 工作论文</h1>
       <div class="intro-row">
-        <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门。</p>
+        <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门，获取最新前沿文献，读好论文，用好论文！</p>
         <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
       </div>
     </div>
@@ -617,6 +637,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   </header>
 
   <main>
+    {render_site_nav("home", latest_week.date if latest_week else None)}
     <section class="quick-sections" aria-label="内容入口">
       <a class="quick-card" href="{f'weekly/{latest_week.date}.html' if latest_week else '#'}">
         <span>最新周报</span>
@@ -716,7 +737,11 @@ def render_week_article(paper: WeeklyPaper) -> str:
 </article>"""
 
 
-def render_month(issue: MonthIssue, translation_cache: dict[str, dict[str, str]] | None = None) -> str:
+def render_month(
+    issue: MonthIssue,
+    translation_cache: dict[str, dict[str, str]] | None = None,
+    latest_week_date: str | None = None,
+) -> str:
     rows = "\n".join(
         f"""<article class="paper-detail" id="w{paper.number}">
   <div class="paper-meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">NBER w{paper.number}</a></div>
@@ -733,13 +758,17 @@ def render_month(issue: MonthIssue, translation_cache: dict[str, dict[str, str]]
     intro = format_month_intro(issue)
     return f"""<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(issue.title)}</title>
-  <link rel="stylesheet" href="../assets/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{html.escape(issue.title)}</title>
+    <meta name="description" content="{html.escape(issue.title)}。">
+    <meta property="og:title" content="{html.escape(issue.title)}">
+    <meta property="og:description" content="{issue.year} 年 {issue.month} 月 NBER 工作论文合集。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="../index.html">学术传送门 NBER 工作论文</a></p>
@@ -748,6 +777,7 @@ def render_month(issue: MonthIssue, translation_cache: dict[str, dict[str, str]]
     </div>
   </header>
   <main class="month-page">
+    {render_site_nav("archive", latest_week_date, "../")}
     <section class="month-summary">{intro}</section>
     {rows}
   </main>
@@ -791,13 +821,17 @@ def render_week(issue: WeekIssue) -> str:
     )
     return f"""<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(display_title)}</title>
-  <link rel="stylesheet" href="../assets/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{html.escape(display_title)}</title>
+    <meta name="description" content="{html.escape(display_title)}。">
+    <meta property="og:title" content="{html.escape(display_title)}">
+    <meta property="og:description" content="{issue.date} NBER 工作论文周报。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="../index.html">学术传送门 NBER 工作论文</a></p>
@@ -806,6 +840,7 @@ def render_week(issue: WeekIssue) -> str:
     </div>
   </header>
   <main class="month-page">
+    {render_site_nav("latest", issue.date, "../")}
     <section class="month-summary">{intro}</section>
     <section class="week-actions">
       <a href="../index.html">返回主页</a>
@@ -842,13 +877,17 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     latest_month = months[-1].key if months else "暂无"
     return f"""<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>关于本站｜学术传送门 NBER 工作论文</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关于本站｜学术传送门 NBER 工作论文</title>
+    <meta name="description" content="学术传送门 NBER 工作论文站点说明、更新频率、数据来源与版权声明。">
+    <meta property="og:title" content="关于本站｜学术传送门 NBER 工作论文">
+    <meta property="og:description" content="站点说明、更新频率、数据来源与版权声明。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body>
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="index.html">学术传送门 NBER 工作论文</a></p>
@@ -857,6 +896,7 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     </div>
   </header>
   <main class="about-page">
+    {render_site_nav("about", weeks[-1].date if weeks else None)}
     <section class="quick-sections">
       <div class="quick-card"><span>周报跨度</span><strong>{weekly_range}</strong><small>{total_weekly} 篇全量周报索引</small></div>
       <div class="quick-card"><span>月度合集</span><strong>{month_range}</strong><small>{total_monthly} 篇中文摘要</small></div>
@@ -1096,8 +1136,12 @@ def main() -> None:
     write_index_data(output, months, weeks, translation_cache)
     write_weekly_json(output, weeks, built_at)
     write_feeds(output, weeks, built_at)
+    latest_week_date = weeks[-1].date if weeks else None
     for issue in months:
-        write_text_if_changed(output / "archive" / f"{issue.key}.html", render_month(issue, translation_cache))
+        write_text_if_changed(
+            output / "archive" / f"{issue.key}.html",
+            render_month(issue, translation_cache, latest_week_date),
+        )
     for issue in weeks:
         write_text_if_changed(output / "weekly" / f"{issue.date}.html", render_week(issue))
 

@@ -162,6 +162,35 @@ h1 {
   color: var(--muted);
 }
 
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--accent-2);
+  background: var(--panel);
+}
+
+.site-nav-link:hover {
+  background: var(--soft);
+  text-decoration: none;
+}
+
+.site-nav-link.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
 .toolbar {
   display: grid;
   grid-template-columns: auto 1fr 160px auto;
@@ -653,6 +682,10 @@ footer p {
   align-items: center;
 }
 
+.about-contact h2 {
+  margin-top: 0;
+}
+
 .wechat-qr.large {
   width: 118px;
   height: 118px;
@@ -682,6 +715,10 @@ footer p {
   .source-tabs,
   .segmented {
     width: 100%;
+  }
+
+  .site-nav {
+    gap: 6px;
   }
 
   .weekly-grid {
@@ -747,5 +784,10 @@ footer p {
     display: block;
     margin-top: 8px;
     text-align: center;
+  }
+
+  .site-nav-link {
+    min-height: 32px;
+    padding: 5px 10px;
   }
 }

@@ -1,129 +1,41 @@
-# NBER Working Papers CN
+# 学术传送门 NBER 工作论文
 
-一个面向中文读者的 NBER Working Papers 目录与摘要站点，由“学术传送门”本地工作流生成。
+面向中文读者的 NBER Working Papers 非官方整理项目。本站聚合 NBER 工作论文周报、月度中文合集和可检索论文索引，便于学术交流、资料归档和公众号选题。
 
-## 项目定位
+> 关注微信公众号：学术传送门，获取最新前沿文献，读好论文，用好论文！
 
-- 仓库名里的 `cn` 表示中文整理版，不表示 NBER 官方项目。
-- 周度页面按 NBER 官方 TSV 元数据全量生成，未按 Programs 或 JEL 筛选。
-- 月度页面来自“学术传送门”公众号 ready 稿，包含中文目录与中文摘要。
-- 本项目只发布论文目录、作者、摘要和 NBER 原文链接。
-- 论文版权与原始元数据归 NBER 及原作者所有；本站仅用于学术交流、检索和导读。
+## 项目简介
 
-## 网站设计
+- 每周一 12:00 自动更新 NBER Working Papers。
+- 周报页面采用 NBER 官方元数据全量口径，不按邮件订阅、Programs 或 JEL 筛选。
+- 月度合集来自 Academic Door / 学术传送门整理稿，包含中文标题和中文摘要。
+- 首页支持“月度中文合集”和“周报全量”两种检索范围。
+- RSS / JSON Feed 可用于订阅最新周报。
 
-本站面向中文读者和公众号选题工作流设计，重点是把 NBER Working Papers 的全量周报、中文月度合集和可检索素材库统一到一个静态站点中：
+## 数据来源
 
-- 首页顶部展示最新一周的全量 NBER 工作论文。
-- 左侧提供月度中文归档和最近周报入口。
-- 中间提供本地搜索，可在“月度中文合集”和“周报全量”之间切换，按标题、作者、中文摘要和 NBER 编号检索，并支持“中国相关”快速筛选。
-- 月度页保留中文摘要，适合公众号选题和发布前检索。
-- 周度页保留官方英文摘要；如已配置翻译缓存或 DeepSeek API Key，会显示中文标题和中文摘要。
-- `feed.xml` 和 `feed.json` 用于后续接入 RSS 阅读器或自动化监控。
+本站基于 NBER Working Papers 官方公开元数据整理生成。论文原文、版本更新、引用格式和版权信息请以 [NBER 官网](https://www.nber.org/papers) 为准。
 
-## 本地构建
+## 更新频率
 
-在本项目目录运行：
+GitHub Actions 每周一 12:00 北京时间自动运行，下载最新 NBER 元数据，补充最新周报中文翻译缓存，并重建静态页面。
 
-```powershell
-python .\scripts\build_site.py
-```
+## 使用方式
 
-生成结果位于 `docs/`，可直接作为 GitHub Pages 发布目录。
+访问站点首页后，可以：
 
-本地查看建议用一个轻量静态服务器，而不是直接双击 `docs/index.html`，因为首页会异步加载 `docs/data/*.json`：
+- 查看最新一周 NBER 工作论文。
+- 按年份浏览全部周报。
+- 检索月度中文合集中的论文标题、作者、摘要和 NBER 编号。
+- 切换到“周报全量”检索完整 NBER 工作论文索引。
+- 使用“中国相关”筛选辅助选题。
 
-```powershell
-python -m http.server 8765 --bind 127.0.0.1 --directory docs
-```
+## 免责声明
 
-然后访问 `http://127.0.0.1:8765/`。
+本站不是 NBER 官方项目，仅用于非商业学术交流和资料检索。中文标题和中文摘要由 AI 辅助翻译与人工整理，可能存在误差，请以论文原文为准。
 
-如果 8765 端口已被占用，把命令和访问地址里的端口改成 8766 或其他空闲端口即可。
+## 公众号入口
 
-周报数据采用拆分结构，避免单个 JSON 过大：
+欢迎关注微信公众号：**学术传送门**。
 
-- `docs/data/nber_weekly.json`：轻量周报索引
-- `docs/data/weekly/YYYY.json`：按年份保存周报论文详情
-
-默认构建会读取：
-
-- `sources/monthly_ready/*NBER*ready.md`
-- 本地默认：`../../workflow/01_sources/journals/nber/*.tsv`
-- GitHub Actions 默认：`data/nber/*.tsv`
-
-`data/nber/*.tsv` 是构建时下载或本地生成的原始元数据，文件较大，不再作为仓库长期提交内容；GitHub Actions 会在运行时重新下载。
-
-如果只想沿用旧的筛选版周报 Markdown，可以运行：
-
-```powershell
-python .\scripts\build_site.py --weekly-mode markdown
-```
-
-## GitHub Pages
-
-推荐设置：
-
-- Repository name: `nber-working-papers-cn`
-- Visibility: `Private` first, switch to public after the workflow is stable
-- Pages source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/docs`
-
-## 自动更新
-
-`.github/workflows/update-site.yml` 会在每周一 12:00 北京时间运行：
-
-1. 下载 NBER TSV 元数据到 `data/nber/`
-2. 使用 DeepSeek 翻译最新一周缺失的中文标题和摘要
-3. 用 `sources/monthly_ready/`、`data/nber/` 和 `data/translations/` 生成 `docs/`
-4. 自动提交更新
-
-翻译功能需要在 GitHub 仓库中添加 Actions Secret：
-
-- Name: `DEEPSEEK_API_KEY`
-- Value: 你的 DeepSeek API Key
-
-如果暂时没有配置 Secret，Actions 不会失败，会跳过缺失翻译并继续更新英文全量周报。
-
-也可以在 GitHub 的 Actions 页面手动点击 `Run workflow`。
-
-### DeepSeek Secret
-
-如果要让 GitHub Actions 自动翻译最新周报，需要在仓库设置：
-
-`Settings -> Secrets and variables -> Actions -> New repository secret`
-
-新增：
-
-```text
-Name: DEEPSEEK_API_KEY
-Value: <your DeepSeek API key>
-```
-
-没有设置 `DEEPSEEK_API_KEY` 时，Actions 仍会下载 NBER 元数据并重建网站，但会跳过缺失翻译。
-
-注意：如果仓库保持 private，GitHub Pages 的可用性和访问权限取决于 GitHub 账号/组织套餐。最稳的发布方式是：先 private 调试 Actions，成熟后 public，再正式开启 Pages。
-
-Private 调试阶段查看网页效果：
-
-1. 在本地直接打开 `docs/index.html`
-2. 或运行 `python -m http.server 8765 --bind 127.0.0.1 --directory docs` 后访问 `http://127.0.0.1:8765/`
-3. 或在 GitHub Actions 的运行结果里下载 `nber-site-preview` artifact，解压后打开 `index.html`
-
-## 首次推送
-
-如果使用 GitHub CLI：
-
-```powershell
-gh auth login -h github.com
-gh repo create nber-working-papers-cn --private --source . --remote origin --push
-```
-
-如果仓库已在 GitHub 网页创建：
-
-```powershell
-git remote add origin https://github.com/<your-user>/nber-working-papers-cn.git
-git branch -M main
-git push -u origin main
-```
+本站长期作为 NBER 工作论文和公众号选题素材的归档入口。
