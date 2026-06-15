@@ -45,7 +45,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  padding: 42px 0 24px;
+  padding: 30px 0 18px;
 }
 
 .site-header.compact {
@@ -71,7 +71,7 @@ h1 {
 
 .lead {
   max-width: 760px;
-  margin: 14px 0 0;
+  margin: 10px 0 0;
   color: var(--muted);
   font-size: 17px;
 }
@@ -82,9 +82,29 @@ h1 {
   gap: 14px;
 }
 
+.follow-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 8px 10px 8px 8px;
+  box-shadow: var(--shadow);
+}
+
+.follow-card small {
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
 .wechat-qr {
-  width: 78px;
-  height: 78px;
+  width: 72px;
+  height: 72px;
   flex: 0 0 auto;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -127,13 +147,13 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  margin: 8px 0 18px;
+  margin: 6px 0 16px;
 }
 
 .quick-card {
   display: grid;
   gap: 4px;
-  min-height: 118px;
+  min-height: 104px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
@@ -166,7 +186,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 
 .site-nav-link {
@@ -189,6 +209,28 @@ h1 {
   border-color: var(--accent);
   background: var(--accent);
   color: #fff;
+}
+
+.page-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -4px 0 0;
+}
+
+.page-tools a {
+  min-height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px 10px;
+  background: #fbfcfb;
+  color: var(--accent-2);
+  font-size: 14px;
+}
+
+.page-tools a:hover {
+  background: var(--soft);
+  text-decoration: none;
 }
 
 .toolbar {
@@ -706,6 +748,10 @@ footer p {
     align-items: flex-start;
   }
 
+  .follow-card {
+    box-shadow: none;
+  }
+
   .toolbar,
   .quick-sections,
   .layout {
@@ -760,6 +806,10 @@ footer p {
 
   .intro-row {
     display: block;
+  }
+
+  .follow-card {
+    margin-top: 12px;
   }
 
   .wechat-qr {

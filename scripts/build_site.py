@@ -227,6 +227,14 @@ def render_site_nav(active: str, latest_week_date: str | None = None, prefix: st
     return f'<nav class="site-nav" aria-label="站点导航">{"".join(links)}</nav>'
 
 
+def render_page_tools(prefix: str = "") -> str:
+    return f"""<nav class="page-tools" aria-label="页面工具">
+      <a href="#top">返回顶部</a>
+      <a href="{prefix}index.html">返回主页</a>
+      <a href="{prefix}index.html#archiveList">月度合集</a>
+    </nav>"""
+
+
 def load_translation_cache(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
         return {}
@@ -617,16 +625,20 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   <meta property="og:description" content="每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body id="top">
   <header class="site-header">
     <div>
       <p class="eyebrow">Academic Door</p>
       <h1>学术传送门 NBER 工作论文</h1>
       <div class="intro-row">
         <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门，获取最新前沿文献，读好论文，用好论文！</p>
-        <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
+        <div class="follow-card" aria-label="微信公众号">
+          <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
+          <small>扫码关注<br>学术传送门</small>
+        </div>
       </div>
     </div>
     <div class="stats" aria-label="站点统计">
@@ -766,9 +778,10 @@ def render_month(
     <meta property="og:title" content="{html.escape(issue.title)}">
     <meta property="og:description" content="{issue.year} 年 {issue.month} 月 NBER 工作论文合集。">
     <meta property="og:type" content="article">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../assets/style.css">
   </head>
-  <body>
+  <body id="top">
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="../index.html">学术传送门 NBER 工作论文</a></p>
@@ -778,6 +791,7 @@ def render_month(
   </header>
   <main class="month-page">
     {render_site_nav("archive", latest_week_date, "../")}
+    {render_page_tools("../")}
     <section class="month-summary">{intro}</section>
     {rows}
   </main>
@@ -829,9 +843,10 @@ def render_week(issue: WeekIssue) -> str:
     <meta property="og:title" content="{html.escape(display_title)}">
     <meta property="og:description" content="{issue.date} NBER 工作论文周报。">
     <meta property="og:type" content="article">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../assets/style.css">
   </head>
-  <body>
+  <body id="top">
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="../index.html">学术传送门 NBER 工作论文</a></p>
@@ -845,6 +860,7 @@ def render_week(issue: WeekIssue) -> str:
     <section class="week-actions">
       <a href="../index.html">返回主页</a>
       <a href="#week-toc">查看目录</a>
+      <a href="#top">返回顶部</a>
       {china_link}
       <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a>
     </section>
@@ -885,9 +901,10 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <meta property="og:title" content="关于本站｜学术传送门 NBER 工作论文">
     <meta property="og:description" content="站点说明、更新频率、数据来源与版权声明。">
     <meta property="og:type" content="article">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/style.css">
   </head>
-  <body>
+  <body id="top">
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="index.html">学术传送门 NBER 工作论文</a></p>
@@ -897,6 +914,7 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   </header>
   <main class="about-page">
     {render_site_nav("about", weeks[-1].date if weeks else None)}
+    {render_page_tools("")}
     <section class="quick-sections">
       <div class="quick-card"><span>周报跨度</span><strong>{weekly_range}</strong><small>{total_weekly} 篇全量周报索引</small></div>
       <div class="quick-card"><span>月度合集</span><strong>{month_range}</strong><small>{total_monthly} 篇中文摘要</small></div>
@@ -920,7 +938,7 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <section class="paper-detail about-contact">
       <div>
         <h2>关注学术传送门</h2>
-        <p>欢迎关注微信公众号：学术传送门。本站会作为 NBER 工作论文和公众号选题素材的长期归档入口。</p>
+        <p>欢迎关注微信公众号：学术传送门。获取最新前沿文献，读好论文，用好论文！本站会作为 NBER 工作论文和公众号选题素材的长期归档入口。</p>
       </div>
       <img class="wechat-qr large" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
     </section>
