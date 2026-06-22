@@ -6,5 +6,6 @@ __pycache__/
 venv/
 .tmp_nber_metadata_check/
 data/nber/
+data/translations/
 *.baiduyun.uploading.cfg
 *_冲突文件_*.html

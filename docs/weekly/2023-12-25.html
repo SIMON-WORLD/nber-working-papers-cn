@@ -9,7 +9,7 @@
     <meta property="og:description" content="2023-12-25 NBER 工作论文周报。">
     <meta property="og:type" content="article">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/style.css?v=20260622c">
+    <link rel="stylesheet" href="../assets/style.css?v=20260622d">
   </head>
   <body id="top">
   <header class="site-header compact">
@@ -31,13 +31,13 @@
     </section>
     <section class="quick-sections week-summary-grid" aria-label="本周统计">
       <div class="quick-card"><span>本周论文</span><strong>24 篇</strong><small>官方全量口径</small></div>
-      <div class="quick-card"><span>中文翻译</span><strong>24 篇</strong><small>标题或摘要已翻译</small></div>
+      <div class="quick-card"><span>中文翻译</span><strong>0 篇</strong><small>标题或摘要已翻译</small></div>
       <div class="quick-card"><span>中国相关</span><strong>1 篇</strong><small>按标题、作者、摘要关键词识别</small></div>
     </section>
     <section class="week-toc" id="china-related">
       <div class="panel-head compact-head"><h2>中国相关</h2><span>1 篇</span></div>
       <div class="toc-list"><a class="toc-link china-hit" href="#w31976">
-          <span>20. 改善监管以促进创新：来自中国制药业的证据</span>
+          <span>20. Improving Regulation for Innovation: Evidence from China’s Pharmaceutical Industry</span>
           <small>w31976</small>
         </a></div>
     </section>
@@ -143,242 +143,218 @@
     <article class="paper-detail" id="w31995">
   <div class="paper-meta"><span>No. 1</span><a href="https://www.nber.org/papers/w31995" target="_blank" rel="noopener">NBER w31995</a></div>
   <h2>A Simulated Reconstruction and Reidentification Attack on the 2010 U.S. Census: Full Technical Report</h2>
-  <p class="zh-detail-title">对2010年美国人口普查的模拟重建与再识别攻击：完整技术报告</p>
   <p class="authors">John M. Abowd, Tamara Adams, Robert Ashmead, David Darais, Sourya Dey, Simson L. Garfinkel, Nathan Goldschlag, Daniel Kifer, Philip Leclerc, Ethan Lew, Scott Moore, Rolando A. Rodríguez. Ramy N. Tadros, Lars Vilhuber</p>
   <p class="meta-line">Programs：LS；JEL：C19, J10</p>
   <h3>Abstract</h3>
   <p>For the last half-century, it has been a common and accepted practice for statistical agencies, including the United States Census Bureau, to adopt different strategies to protect the confidentiality of aggregate tabular data products from those used to protect the individual records contained in publicly released microdata products. This strategy was premised on the assumption that the aggregation used to generate tabular data products made the resulting statistics inherently less disclosive than the microdata from which they were tabulated. Consistent with this common assumption, the 2010 Census of Population and Housing in the U.S. used different disclosure limitation rules for its tabular and microdata publications. This paper demonstrates that, in the context of disclosure limitation for the 2010 Census, the assumption that tabular data are inherently less disclosive than their underlying microdata is fundamentally flawed. The 2010 Census published more than 150 billion aggregate statistics in 180 table sets. Most of these tables were published at the most detailed geographic level—individual census blocks, which can have populations as small as one person. Using only 34 of the published table sets, we reconstructed microdata records including five variables (census block, sex, age, race, and ethnicity) from the confidential 2010 Census person records. Using only published data, an attacker using our methods can verify that all records in 70% of all census blocks (97 million people) are perfectly reconstructed. We further confirm, through reidentification studies, that an attacker can, within census blocks with perfect reconstruction accuracy, correctly infer the actual census response on race and ethnicity for 3.4 million vulnerable population uniques (persons with race and ethnicity different from the modal person on the census block) with 95% accuracy. Having shown the vulnerabilities inherent to the disclosure limitation methods used for the 2010 Census, we proceed to demonstrate that the more robust disclosure limitation framework used for the 2020 Census publications defends against attacks that are based on reconstruction. Finally, we show that available alternatives to the 2020 Census Disclosure Avoidance System would either fail to protect confidentiality, or would overly degrade the statistics’ utility for the primary statutory use case: redrawing the boundaries of all of the nation’s legislative and voting districts in compliance with the 1965 Voting Rights Act. You are reading the full technical report. For the summary paper see https://doi.org/10.1162/99608f92.4a1ebf70.</p>
-  <h3>中文摘要</h3><p>在过去的半个世纪里，包括美国人口普查局在内的统计机构普遍接受并采用一种做法，即对汇总表格数据产品采取不同于保护公开发布的微观数据产品中个人记录的策略。这一策略基于一个假设：用于生成表格数据产品的汇总过程使得最终统计数据本质上比其来源的微观数据更不易泄露。与此常见假设一致，2010年美国人口与住房普查对其表格和微观数据出版物采用了不同的披露限制规则。本文证明，在2010年人口普查的披露限制背景下，认为表格数据本质上比其底层微观数据更不易泄露的假设存在根本性缺陷。2010年人口普查在180个表格集中发布了超过1500亿条汇总统计数据。这些表格大多以最详细的地理层级——单个普查区块（人口可少至一人）发布。仅使用已发布的34个表格集，我们重建了来自机密2010年人口普查个人记录的微观数据记录，包括五个变量（普查区块、性别、年龄、种族和民族）。仅使用已发布数据，使用我们方法的攻击者可以验证，在70%的普查区块（9700万人）中，所有记录都被完美重建。我们进一步通过再识别研究确认，在重建精度完美的普查区块内，攻击者能够以95%的准确率正确推断出340万脆弱人口独特性个体（其种族和民族与普查区块上的模态个体不同）的实际人口普查种族和民族回答。在展示了2010年人口普查所用披露限制方法固有的脆弱性之后，我们接着证明，2020年人口普查出版物所使用的更稳健的披露限制框架能够抵御基于重建的攻击。最后，我们表明，2020年人口普查披露避免系统的现有替代方案要么无法保护机密性，要么会过度降低统计数据在主要法定用例（即根据1965年《投票权法案》重新划定全国所有立法和投票选区的边界）中的效用。您正在阅读完整的技术报告。摘要论文请参见 https://doi.org/10.1162/99608f92.4a1ebf70。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31994">
   <div class="paper-meta"><span>No. 2</span><a href="https://www.nber.org/papers/w31994" target="_blank" rel="noopener">NBER w31994</a></div>
   <h2>School Management Takeover, Leadership Change, and Personnel Policy</h2>
-  <p class="zh-detail-title">学校管理接管、领导层变动与人事政策</p>
   <p class="authors">Emma Duchini, Victor Lavy, Stephen Machin, Shqiponja Telhaj</p>
   <p class="meta-line">Programs：CH, DEV, ED, LS, PE；JEL：I28, J13, J18</p>
   <h3>Abstract</h3>
   <p>Low-performing, high-poverty, public schools notoriously struggle to attract and retain good teachers. This paper studies a setting where independent organizations, including charities and businesses, take over the management of under-performing schools, while funding remains public. Exploiting the staggered expansion of English Sponsor-led academies since the early 2000s, we show that the Sponsor-led takeover leads to substantial changes in the teaching body and the school personnel policy. The probability that the Sponsor appoints a new headteacher doubles upon the takeover, with the new headteacher being, on average, better paid, and more likely to come from outstanding schools. The takeover also induces teacher sorting, with older and lower-achieving teachers leaving the school, and new teachers joining the Sponsor-led school from outstanding schools. Lastly, Sponsors substantially restructure teachers’ rewarding scheme and abandon a pay scale entirely based on seniority, leading to a 10 percent increase in pay dispersion across equally experienced teachers.</p>
-  <h3>中文摘要</h3><p>表现不佳、高贫困率的公立学校在吸引和留住优秀教师方面历来困难重重。本文研究了一种情境：独立组织（包括慈善机构和企业）接管表现不佳学校的管理，而资金仍来自公共部门。利用自21世纪初以来英国赞助人主导学院（Sponsor-led academies）的错时扩张，我们表明赞助人主导的接管导致了教师队伍和学校人事政策的重大变化。接管后，赞助人任命新校长的概率翻倍，新校长平均薪酬更高，且更可能来自杰出学校。接管还引发了教师分类，年龄较大和成绩较低的教师离开学校，而新教师则从杰出学校加入赞助人主导的学校。最后，赞助人大幅重组了教师的奖励方案，放弃了完全基于资历的薪酬体系，导致同等经验教师之间的薪酬离散度增加了10%。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31993">
   <div class="paper-meta"><span>No. 3</span><a href="https://www.nber.org/papers/w31993" target="_blank" rel="noopener">NBER w31993</a></div>
   <h2>Long-run Impacts of Forced Labor Migration on Fertility Behaviors: Evidence from Colonial West Africa</h2>
-  <p class="zh-detail-title">强制劳动力迁移对生育行为的长期影响：来自殖民时期西非的证据</p>
   <p class="authors">Pascaline Dupas, Camille Falezan, Marie Christelle Mabeu, Pauline Rossi</p>
   <p class="meta-line">Programs：DEV；JEL：J13, N37, O15</p>
   <h3>Abstract</h3>
   <p>Is the persistently high fertility in West Africa today rooted in the decades of forced labor migration under colonial rule? We study the case of Burkina Faso, considered the largest labor reservoir in West Africa by the French colonial authorities. Hundreds of thousands of young men were forcibly recruited and sent to work in neighboring colonies for multiple years. The practice started in the late 1910s and lasted until the late 1940s, when forced labor was replaced with voluntary wage employment. We digitize historical maps, combine data from multiple surveys, and exploit the historical, temporary partition of colonial Burkina Faso (and, more specifically, the historical land of the Mossi ethnic group) into three zones with different needs for labor to implement a spatial regression discontinuity design analysis. We find that, on the side where Mossi villages were more exposed to forced labor historically, there is more temporary male migration to Côte d&#x27;Ivoire up to today, and lower realized and desired fertility today. We show evidence suggesting that the inherited pattern of low-skill circular migration for adult men reduced the reliance on subsistence farming and the accompanying need for child labor. We can rule out women&#x27;s empowerment or improvements in human and physical capital as pathways for the fertility decline. These findings contribute to the debate on the origins of family institutions and preferences, often mentioned to explain West Africa&#x27;s exceptional fertility trends, showing that fertility choices respond to changes in modes of production.</p>
-  <h3>中文摘要</h3><p>当今西非持续的高生育率是否根植于殖民统治下数十年的强制劳动力迁移？我们以布基纳法索为案例进行研究，该国被法国殖民当局视为西非最大的劳动力储备库。数十万年轻男性被强制招募并送往邻近殖民地工作多年。这种做法始于1910年代末，一直持续到1940年代末，当时强制劳动被自愿工资雇佣所取代。我们将历史地图数字化，结合多项调查数据，并利用殖民时期布基纳法索（更具体地说，是莫西族的历史土地）因劳动力需求不同而被临时划分为三个区域的情况，实施空间断点回归设计分析。我们发现，在历史上莫西村庄更易遭受强制劳动的一侧，至今仍有更多前往科特迪瓦的临时男性迁移，且当前的实际和理想生育率更低。我们提供的证据表明，成年男性低技能循环迁移的继承模式减少了对自给农业的依赖以及随之而来的对童工的需求。我们可以排除女性赋权或人力与物质资本改善作为生育率下降的途径。这些发现有助于关于家庭制度和偏好起源的辩论（常被用来解释西非异常的生育率趋势），表明生育选择是对生产方式变化的回应。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31992">
   <div class="paper-meta"><span>No. 4</span><a href="https://www.nber.org/papers/w31992" target="_blank" rel="noopener">NBER w31992</a></div>
   <h2>The Intergenerational Health Effects of Forced Displacement: Japanese American Incarceration during WWII</h2>
-  <p class="zh-detail-title">强制流离失所的代际健康影响：二战期间日裔美国人的拘禁</p>
   <p class="authors">Daniel S. Grossman, Umair Khalil, Laura Panza</p>
   <p class="meta-line">Programs：EH；JEL：I12, I14, I18, N32</p>
   <h3>Abstract</h3>
   <p>We study the intergenerational health consequences of forced displacement and incarceration of Japanese Americans in the US during WWII. Incarcerated mothers had babies who were less healthy at birth. This decrease in health represents a shift in the entire birthweight distribution due to exposure to prison camps. Imprisoned individuals were less likely to have children with fathers of other ethnic groups but were more likely to receive prenatal care, invest in education, and participate in the labor market. To the extent human capital effects mitigate the full negative effects of incarceration on intergenerational health, our results are a lower bound.</p>
-  <h3>中文摘要</h3><p>我们研究了二战期间美国日裔美国人被强制流离失所和拘禁的代际健康后果。被拘禁的母亲生下的婴儿出生时健康状况较差。这种健康下降代表了整个出生体重分布因监狱营地的暴露而发生的变化。被拘禁的个体与其他族裔父亲生育子女的可能性较低，但更可能接受产前护理、投资教育并参与劳动力市场。如果人力资本效应在一定程度上减轻了拘禁对代际健康的全部负面影响，那么我们的结果是一个下限估计。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31991">
   <div class="paper-meta"><span>No. 5</span><a href="https://www.nber.org/papers/w31991" target="_blank" rel="noopener">NBER w31991</a></div>
   <h2>How Rules and Compliance Impact Organizational Outcomes: Evidence from Delegation in Environmental Regulation</h2>
-  <p class="zh-detail-title">规则与合规如何影响组织结果：来自环境监管中授权的证据</p>
   <p class="authors">James Fenske, Muhammad Haseeb, Namrata Kala</p>
   <p class="meta-line">Programs：DEV, EEE；JEL：D23, D73, O1, O13, Q50, Q53, Q56, Q58</p>
   <h3>Abstract</h3>
   <p>Formal rules within organizations are pervasive, but may be interpreted and implemented differently by actors within the organization, impacting organizational outcomes. We consider a delegation reform that changed formal rules within the environmental regulator in an Indian state, by giving decision rights to junior officers over certain types of application. Using novel data on firms&#x27; environmental permit applications and internal communications within the regulator, we study how the delegation of formal authority affects its actual allocation, the consequences for applicant firms, and the circumstances that lead senior officers to withhold this authority. The change in decision rights led to greater approval rates for applicant firms. However, only two thirds of applications that should have been delegated according to the rules were actually delegated. We show that senior officers chose to retain decision rights over more difficult applications, namely, applications with higher pollution potential. Furthermore, baseline disagreement with more subordinates&#x27; recommendations reduces delegation post-reform, and officers facing a higher backlog of applications are more likely to delegate. These results are consistent with a framework where the allocation of decision rights is determined by a knowledge hierarchy and where different senior officers face varying costs of delegation at different times.</p>
-  <h3>中文摘要</h3><p>组织内部的正式规则无处不在，但可能被组织内的行动者以不同方式解释和执行，从而影响组织结果。我们考虑一项授权改革，该改革改变了印度某邦环境监管机构内部的正式规则，将某些类型申请的决策权授予初级官员。利用关于企业环境许可申请和监管机构内部沟通的新数据，我们研究了正式权力的下放如何影响其实际分配、对申请企业的后果，以及导致高级官员保留此权力的情境。决策权的变更导致申请企业的批准率提高。然而，根据规则本应下放的申请中，只有三分之二实际上被下放了。我们表明，高级官员选择保留对更困难申请（即污染潜力更高的申请）的决策权。此外，改革后，与更多下属建议的基线分歧会减少授权，而面临更高申请积压的官员更可能授权。这些结果与一个框架一致，在该框架中，决策权的分配由知识层级决定，并且不同的高级官员在不同时间面临不同的授权成本。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31990">
   <div class="paper-meta"><span>No. 6</span><a href="https://www.nber.org/papers/w31990" target="_blank" rel="noopener">NBER w31990</a></div>
   <h2>Do Cities Mitigate or Exacerbate Environmental Damages to Health?</h2>
-  <p class="zh-detail-title">城市是加剧还是减轻了环境对健康的损害？</p>
   <p class="authors">David Molitor, Corey D. White</p>
   <p class="meta-line">Programs：EEE；JEL：I12, Q5</p>
   <h3>Abstract</h3>
   <p>Do environmental conditions pose greater health risks to individuals living in urban or rural areas? The answer is theoretically ambiguous: while urban areas have traditionally been associated with heightened exposure to environmental pollutants, the economies of scale and density inherent to urban environments offer unique opportunities for mitigating or adapting to these harmful exposures. To make progress on this question, we focus on the United States and consider how exposures—to air pollution, drinking water pollution, and extreme temperatures—and the response to those exposures differ across urban and rural settings. While prior studies have addressed some aspects of these issues, substantial gaps in knowledge remain, in large part due to historical deficiencies in monitoring and reporting, especially in rural areas. As a step toward closing these gaps, we present new evidence on urban-rural differences in air quality and population sensitivity to air pollution, leveraging recent advances in remote sensing measurement and machine learning. We find that the urban-rural gap in fine particulate matter (PM₂.₅) has converged over the last two decades and the remaining gap is small relative to the overall declines. Furthermore, we find that residents of urban counties are, on average, less vulnerable to the mortality effects of PM₂.₅ exposure. We also discuss promising areas for future research.</p>
-  <h3>中文摘要</h3><p>环境条件对居住在城市还是农村地区的个人构成更大的健康风险？答案在理论上是不明确的：虽然城市地区传统上与更高的环境污染物暴露相关，但城市环境固有的规模经济和密度经济为减轻或适应这些有害暴露提供了独特的机会。为了推进这一问题，我们聚焦于美国，并考虑暴露（对空气污染、饮用水污染和极端温度的暴露）以及对这些暴露的反应在城市和农村环境中如何不同。虽然先前的研究已经涉及了这些问题的某些方面，但知识上仍存在巨大空白，很大程度上是由于监测和报告的历史缺陷，尤其是在农村地区。作为缩小这些差距的一步，我们利用遥感测量和机器学习的最新进展，提供了关于城乡空气质量差异和人口对空气污染敏感性的新证据。我们发现，细颗粒物（PM₂.₅）的城乡差距在过去二十年中已经趋同，且相对于总体下降幅度，剩余差距很小。此外，我们发现，平均而言，农村县居民对PM₂.₅暴露的死亡率影响更脆弱。我们还讨论了未来研究的有前景领域。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31989">
   <div class="paper-meta"><span>No. 7</span><a href="https://www.nber.org/papers/w31989" target="_blank" rel="noopener">NBER w31989</a></div>
   <h2>The Role of Intermediaries in Selection Markets: Evidence form Mortgage Lending</h2>
-  <p class="zh-detail-title">中介在筛选市场中的作用：来自抵押贷款的证据</p>
   <p class="authors">Jason Allen, Robert Clark, Jean-François Houde, Shaoteng Li, Anna V. Trubnikova</p>
   <p class="meta-line">Programs：IO；JEL：G21, L80</p>
   <h3>Abstract</h3>
   <p>We study the role of brokers in selection markets. We find broker-clients in the Canadian mortgage market are observationally different from branch-clients. They finance larger loans with more leverage and longer amortization. We build and estimate a model of mortgage demand to disentangle three possible explanations for these riskier product choices: (i) selection on observables, (ii) unobserved borrower preferences for riskier loans, and (iii) a causal effect of brokers. Although we find that brokers influence product choices, the main reason borrowers choose high-leverage products is unobserved preferences. Borrowers prefer larger loans and brokers facilitate qualification for them.</p>
-  <h3>中文摘要</h3><p>我们研究了经纪人在筛选市场中的作用。我们发现，加拿大抵押贷款市场中的经纪人客户在观测特征上与分行客户不同。他们融资的贷款规模更大，杠杆率更高，摊销期更长。我们构建并估计了一个抵押贷款需求模型，以厘清这些风险更高产品选择的三种可能解释：(i) 基于可观测特征的筛选，(ii) 借款人对风险更高贷款的未观测偏好，以及 (iii) 经纪人的因果效应。尽管我们发现经纪人会影响产品选择，但借款人选择高杠杆产品的主要原因是未观测偏好。借款人偏好更大的贷款，而经纪人则帮助他们获得贷款资格。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31988">
   <div class="paper-meta"><span>No. 8</span><a href="https://www.nber.org/papers/w31988" target="_blank" rel="noopener">NBER w31988</a></div>
   <h2>Labor Market Tightness and Union Activity</h2>
-  <p class="zh-detail-title">劳动力市场紧俏与工会活动</p>
   <p class="authors">Chantal Pezold, Simon Jäger, Patrick Nüss</p>
   <p class="meta-line">Programs：AG, EFG, LS, ME, PE, POL, PR；JEL：D83, E32, J21, J23, J51, J52, J53</p>
   <h3>Abstract</h3>
   <p>We study how labor market conditions affect unionization decisions. Tight labor markets might spur unionization, e.g., by reducing the threat of unemployment after management opposition or employer retaliation in response to a unionization attempt. Tightness might also weaken unionization by providing attractive outside alternatives to engaging in costly unionization. Drawing on a large-scale, representative survey experiment among U.S. workers, we show that an increase in worker beliefs about labor market tightness moderately raises support for union activity. Effect sizes are small as they imply that moving from trough to peak of the business cycle increases workers’ probability of voting for a union by one percentage point. To study equilibrium effects, we draw on three quasi-experimental research designs using data from across U.S. states and counties over several decades. We find no systematic effect of changes in aggregate labor market tightness on union membership, union elections, and strikes. Overall, our results challenge the notion that labor market tightness significantly drives U.S. unionization.</p>
-  <h3>中文摘要</h3><p>我们研究劳动力市场状况如何影响工会化决策。劳动力市场紧俏可能通过降低管理层反对或雇主报复导致失业的威胁来促进工会化，但也可能通过提供有吸引力的外部选择来削弱工会化，因为参与成本高昂的工会化活动。基于对美国工人进行的大规模代表性调查实验，我们发现工人对劳动力市场紧俏的信念增强会适度提高对工会活动的支持。效应规模较小，这意味着从经济周期低谷到高峰的转变会使工人投票支持工会的概率增加一个百分点。为了研究均衡效应，我们利用跨越数十年、涵盖美国各州和县的数据，采用了三种准实验研究设计。我们发现，总体劳动力市场紧俏的变化对工会会员人数、工会选举和罢工没有系统性影响。总体而言，我们的结果挑战了劳动力市场紧俏显著推动美国工会化的观点。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31987">
   <div class="paper-meta"><span>No. 9</span><a href="https://www.nber.org/papers/w31987" target="_blank" rel="noopener">NBER w31987</a></div>
   <h2>Market Design for the Environment</h2>
-  <p class="zh-detail-title">环境的市场设计</p>
   <p class="authors">Estelle Cantillon, Aurélie Slechten</p>
   <p class="meta-line">Programs：EEE；JEL：D47, Q2, Q53, Q57</p>
   <h3>Abstract</h3>
   <p>The main argument in favor of markets in environmental contexts is the same as in other contexts: their ability to promote efficient allocations and production. But environmental problems bring their own challenges: their underlying bio-physical processes - and the technologies to monitor them - constrain what is feasible or even desirable. This chapter illustrates the main design dimensions in environmental markets, the trade-offs involved and their impact on performance, through the lens of a regulated market for pollution rights (the EU emissions trading scheme) and a voluntary market for the provision of environmental services (the global market for carbon credits). While both markets eventually contribute to climate change mitigation, their organisation as a “pollution market”, for the former, and as a “provision market”, for second, means that different design considerations take precedence. Both markets also face challenges: volatile prices in the EU emissions scheme and low trust for voluntary carbon markets. We discuss how alternative design options could address those.</p>
-  <h3>中文摘要</h3><p>在环境背景下支持市场的主要论点与其他背景下相同：即市场促进有效配置和生产的能力。但环境问题带来了自身的挑战：其潜在的生物物理过程以及监测这些过程的技术限制了什么是可行甚至可取的。本章通过受监管的污染权市场（欧盟排放交易体系）和自愿性环境服务提供市场（全球碳信用市场）的视角，阐述了环境市场的主要设计维度、涉及的权衡及其对绩效的影响。虽然这两个市场最终都有助于减缓气候变化，但前者作为“污染市场”和后者作为“提供市场”的组织方式意味着不同的设计考虑因素占据优先地位。这两个市场也面临挑战：欧盟排放交易体系的价格波动和自愿碳市场的低信任度。我们讨论了替代设计方案如何应对这些挑战。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31986">
   <div class="paper-meta"><span>No. 10</span><a href="https://www.nber.org/papers/w31986" target="_blank" rel="noopener">NBER w31986</a></div>
   <h2>Fund Flows and Income Risk of Fund Managers</h2>
-  <p class="zh-detail-title">资金流动与基金经理的收入风险</p>
   <p class="authors">Xiao Cen, Winston Wei Dou, Leonid Kogan, Wei Wu</p>
   <p class="meta-line">Programs：AP, CF, IO, LS；JEL：G11, G23, J24, J31, J33, J44, J63</p>
   <h3>Abstract</h3>
   <p>We develop a unique dataset, the first-ever of its kind, by leveraging the US Census Bureau’s LEHD program and various big textual data sources, to examine the factors influencing the compensation and career trajectories of US active equity mutual fund managers. We find that managers’ compensation is primarily determined by assets under management (AUM), with return performance directly influencing bonuses beyond its impact on AUM. Despite not aligning with client interests, fund flows significantly affect manager compensation and career outcomes. Large fund outflows increase a manager’s likelihood of job turnover (with a substantial decline in compensation) by 4 percentage points.</p>
-  <h3>中文摘要</h3><p>我们利用美国人口普查局的LEHD项目和各种大型文本数据源，开发了一个独特的数据集——这是同类中的首个——来研究影响美国主动型股票共同基金经理薪酬和职业轨迹的因素。我们发现，经理的薪酬主要由管理资产规模决定，而回报表现除了通过影响管理资产规模外，还直接对奖金产生影响。尽管不符合客户利益，但资金流动显著影响经理的薪酬和职业结果。大规模资金流出会使经理离职（同时薪酬大幅下降）的可能性增加4个百分点。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31985">
   <div class="paper-meta"><span>No. 11</span><a href="https://www.nber.org/papers/w31985" target="_blank" rel="noopener">NBER w31985</a></div>
   <h2>Professional Motivations in the Public Sector: Evidence from Police Officers</h2>
-  <p class="zh-detail-title">公共部门的职业动机：来自警察的证据</p>
   <p class="authors">Aaron Chalfin, Felipe M. Gonçalves</p>
   <p class="meta-line">Programs：LE, LS, PE, POL；JEL：J33, J45, K42</p>
   <h3>Abstract</h3>
   <p>We study how public sector workers balance their professional motivations with private economic concerns, focusing on police arrests. Arrests made near the end of an officer&#x27;s shift typically require overtime work, and officers respond by reducing arrest frequency but increasing arrest quality. Days in which an officer works a second job after their police shift have higher opportunity cost, also reducing late-shift arrests. Combining our estimates in a dynamic model identifies officer preferences over workplace activity and overtime work. Our results indicate that officers&#x27; private costs of arrests have a first-order impact on the quantity and quality of enforcement.</p>
-  <h3>中文摘要</h3><p>我们研究公共部门工作人员如何平衡其职业动机与私人经济关切，重点关注警察的逮捕行为。在警官轮班临近结束时进行的逮捕通常需要加班工作，警官对此的反应是减少逮捕频率但提高逮捕质量。警官在警察轮班后从事第二份工作的日子具有更高的机会成本，同样会减少轮班后期的逮捕。将我们的估计结果结合到一个动态模型中，可以识别出警官对工作场所活动和加班工作的偏好。我们的结果表明，警官的私人逮捕成本对执法的数量和质量具有首要影响。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31984">
   <div class="paper-meta"><span>No. 12</span><a href="https://www.nber.org/papers/w31984" target="_blank" rel="noopener">NBER w31984</a></div>
   <h2>Online Job Posts Contain Very Little Wage Information</h2>
-  <p class="zh-detail-title">在线招聘信息中工资信息极少</p>
   <p class="authors">Honey Batra, Amanda Michaud, Simon Mongey</p>
   <p class="meta-line">Programs：EFG, LS；JEL：E20, J30</p>
   <h3>Abstract</h3>
   <p>We present six facts that characterize the little wage information contained in the universe of online job posts in the U.S. First, wage information is rare: only 14% of posts contain any wage information and the minority of these (6%) have a point wage. The majority (8%) feature a range of wages that are on average wide, spanning 28% of the midpoint (e.g. $21-28/hr or $32,000-$42,000/yr). Second, information varies systematically along the occupation-wage gradient. Third, posted wages are 40% higher than wages in BLS data in low-wage occupations and 20% lower than BLS data in high-wage occupations. Fourth, among the wages that are posted, high wage firms are more opaque, with more and wider ranges. Fifth, there is zero correlation between wage information and local labor market tightness. Sixth, of the top 20 posting private firms, none have any wage information in more than 2% of their posts. Our findings caution against treating wage data from job postings as a stand-in for administrative data. We provide an example of bias in econometric inference that worsens as wage information falls.</p>
-  <h3>中文摘要</h3><p>我们提出了六个事实，描述了美国在线招聘信息总体中包含的少量工资信息。第一，工资信息罕见：只有14%的招聘信息包含任何工资信息，其中少数（6%）包含一个点工资。大多数（8%）包含一个工资范围，平均而言范围很宽，跨度达到中点的28%（例如每小时21-28美元或每年32,000-42,000美元）。第二，信息沿职业-工资梯度系统性地变化。第三，在低工资职业中，发布的工资比BLS数据中的工资高40%，而在高工资职业中则比BLS数据低20%。第四，在已发布的工资中，高工资企业更加不透明，工资范围更多且更宽。第五，工资信息与当地劳动力市场紧俏程度之间零相关。第六，在前20名发布招聘信息的私营企业中，没有一家在其超过2%的招聘信息中包含任何工资信息。我们的发现警示人们不要将招聘信息中的工资数据视为行政数据的替代品。我们提供了一个计量经济学推断中存在偏差的例子，这种偏差随着工资信息的减少而加剧。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31983">
   <div class="paper-meta"><span>No. 13</span><a href="https://www.nber.org/papers/w31983" target="_blank" rel="noopener">NBER w31983</a></div>
   <h2>The Direct and Intergenerational Effects of Criminal History-Based Safety Net Bans in the U.S.</h2>
-  <p class="zh-detail-title">美国基于犯罪记录的安全网禁令的直接与代际效应</p>
   <p class="authors">Michael G. Mueller-Smith, James M. Reeves, Kevin Schnepel, Caroline Walker</p>
   <p class="meta-line">Programs：CH, LE, LS, PE；JEL：H53, I38, K42</p>
   <h3>Abstract</h3>
   <p>We study the lifetime banning, as introduced by United States Public Law 104-193, of individuals convicted of felony drug offenses after August 22, 1996 from ever receiving future SNAP benefits. Using a regression discontinuity design that leverages CJARS criminal history records with federal administrative and survey data, we estimate the causal impact of safety net assistance bans, finding significant reductions in SNAP benefit take-up, which creates unintentional spillovers to spouses and children and persist long after ban revocations occurred. While we observe limited changes to other adult outcomes, children’s short- and long-run outcomes worsen, especially those impacted at young ages.</p>
-  <h3>中文摘要</h3><p>我们研究了美国公法104-193引入的终身禁令，该禁令禁止1996年8月22日之后被判犯有重罪毒品犯罪的个人未来领取SNAP福利。利用回归不连续设计，结合CJARS犯罪历史记录以及联邦行政和调查数据，我们估计了安全网援助禁令的因果影响，发现SNAP福利领取显著减少，这给配偶和子女造成了无意的溢出效应，并且在禁令撤销后长期持续。虽然我们观察到其他成人结果变化有限，但子女的短期和长期结果恶化，尤其是在幼年时期受到影响的子女。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31982">
   <div class="paper-meta"><span>No. 14</span><a href="https://www.nber.org/papers/w31982" target="_blank" rel="noopener">NBER w31982</a></div>
   <h2>Dealing with Imperfect Randomization: Inference for the HighScope Perry Preschool Program</h2>
-  <p class="zh-detail-title">应对不完美随机化：HighScope佩里学前项目的推断</p>
   <p class="authors">James J. Heckman, Rodrigo Pinto, Azeem Shaikh</p>
   <p class="meta-line">Programs：CH, ED, TWP；JEL：C31, I21, J13</p>
   <h3>Abstract</h3>
   <p>This paper considers the problem of making inferences about the effects of a program on multiple outcomes when the assignment of treatment status is imperfectly randomized. By imperfect randomization we mean that treatment status is reassigned after an initial randomization on the basis of characteristics that may be observed or unobserved by the analyst. We develop a partial identification approach to this problem that makes use of information limiting the extent to which randomization is imperfect to show that it is still possible to make nontrivial inferences about the effects of the program in such settings. We consider a family of null hypotheses in which each null hypothesis specifies that the program has no effect on one of many outcomes of interest. Under weak assumptions, we construct a procedure for testing this family of null hypotheses in a way that controls the familywise error rate--the probability of even one false rejection--in finite samples. We develop our methodology in the context of a reanalysis of the HighScope Perry Preschool program. We find statistically significant effects of the program on a number of different outcomes of interest, including outcomes related to criminal activity for males and females, even after accounting for imperfections in the randomization and the multiplicity of null hypotheses.</p>
-  <h3>中文摘要</h3><p>本文考虑了在治疗状态分配不完美随机化的情况下，对项目在多个结果上的效应进行推断的问题。所谓不完美随机化，是指治疗状态在初始随机化之后根据分析师可能观察到或未观察到的特征进行了重新分配。我们针对这一问题开发了一种部分识别方法，该方法利用限制随机化不完美程度的信息，表明在此类设定下仍然可以对项目效应进行有意义的推断。我们考虑一族原假设，其中每个原假设指定项目对众多感兴趣结果中的某一个没有影响。在弱假设下，我们构建了一个检验这族原假设的程序，该程序以有限样本中控制族系错误率（即至少一次错误拒绝的概率）的方式运行。我们在对HighScope佩里学前项目进行重新分析的背景下发展了我们的方法论。我们发现，即使在考虑了随机化的不完美性和原假设的多重性之后，该项目对许多不同的感兴趣结果（包括与男性和女性犯罪活动相关的结果）仍具有统计上显著的效应。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31981">
   <div class="paper-meta"><span>No. 15</span><a href="https://www.nber.org/papers/w31981" target="_blank" rel="noopener">NBER w31981</a></div>
   <h2>Infrastructure Inequality: Who Pays the Cost of Road Roughness?</h2>
-  <p class="zh-detail-title">基础设施不平等：谁为道路不平整买单？</p>
   <p class="authors">Lindsey Currier, Edward L. Glaeser, Gabriel E. Kreindler</p>
   <p class="meta-line">Programs：PE；JEL：L92, O18, R41, R42</p>
   <h3>Abstract</h3>
   <p>Which Americans experience the worst infrastructure? What are the costs of living with that infrastructure? We measure road roughness throughout America using vertical acceleration data from Uber rides across millions of American roads. Our measure correlates strongly and positively with other measures of road roughness where they are available, negatively with driver speed, and we find road repair events decrease roughness and increase speeds. We measure drivers’ willingness-to-pay to avoid roughness by measuring how speeds change with salient changes in road roughness, such as those associated with town borders and road repaving events in Chicago. These estimates suggest the roughness of the median local road in the US generates welfare losses to drivers of at least 31 cents per driver-mile. Roads are worse near coasts, and in poorer towns and in poorer neighborhoods, even within towns. We find that a household that drives 3,000 miles annually on predominantly local roads will suffer $318 per year more in driving pain if they live in a predominantly Black neighborhood than in a predominantly White neighborhood. Road roughness modestly predicts subsequent road resurfacing in New York City, but not in three other cities, which suggests that repaving is only weakly targeted towards damaged roads. Surveys from 120 towns and cities across the US suggest many reasons why resurfacing seems to be weakly targeted.</p>
-  <h3>中文摘要</h3><p>哪些美国人经历着最差的基础设施？生活在这样的基础设施中的成本是多少？我们利用来自全美数百万条道路的Uber行程的垂直加速度数据，测量了全美的道路不平整度。我们的测量指标与可获取的其他道路不平整度指标呈强正相关，与驾驶员速度呈负相关，并且我们发现道路修复事件会降低不平整度并提高速度。我们通过测量速度如何随道路不平整度的显著变化（例如与城镇边界和芝加哥道路重铺事件相关的变化）来估计驾驶员为避免不平整而愿意支付的代价。这些估计表明，美国中位地方道路的不平整度给驾驶员造成的福利损失至少为每驾驶员英里31美分。沿海地区、较贫困城镇以及城镇内较贫困社区的道路状况更差。我们发现，一个每年主要在地方道路上行驶3000英里的家庭，如果居住在黑人占多数的社区，每年将比居住在白人占多数的社区多承受318美元的驾驶痛苦。在纽约市，道路不平整度能适度预测随后的道路重铺，但在其他三个城市则不然，这表明重铺工作对受损道路的针对性较弱。来自全美120个城镇和城市的调查表明，重铺工作针对性较弱的原因有很多。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31980">
   <div class="paper-meta"><span>No. 16</span><a href="https://www.nber.org/papers/w31980" target="_blank" rel="noopener">NBER w31980</a></div>
   <h2>Creating the “American Way” of Business: Evidence from WWII in the U.S.</h2>
-  <p class="zh-detail-title">创造“美国式”商业：来自二战期间美国的证据</p>
   <p class="authors">Michela Giorcelli</p>
   <p class="meta-line">Programs：DAE, PR；JEL：N0</p>
   <h3>Abstract</h3>
   <p>The Second World War II (WWII) was arguably one of the largest shocks to the U.S. economic and production system in history. Historians, business historians, and economists have largely discussed the stimulus that WWII had on U.S. technological advancements. However, its effect on U.S. ‘‘managerial technology’’ innovations has been largely ignored, except for very few qualitative works. In this paper, I argue that ‘‘managerial technology’’ played a key role in shaping U.S. WWII production and its capacity to defeat some of the most advanced economies in the world. The large-scale diffusion of innovative management practices to US firms involved in war production acted as a technology that put them on a higher growth path for decades. Moreover, it made U.S. managerial practices internationally distinctive and helped create the so-called “American Way” of business, which was exported to war-torn European and Japanese economies in the war aftermath.</p>
-  <h3>中文摘要</h3><p>第二次世界大战（二战）可以说是美国经济和生产体系历史上最大的冲击之一。历史学家、商业史学家和经济学家大多讨论了二战对美国技术进步的刺激作用。然而，除了极少数定性研究外，其对美国“管理技术”创新的影响在很大程度上被忽视了。本文认为，“管理技术”在塑造美国二战生产及其击败世界上一些最先进经济体的能力方面发挥了关键作用。创新管理实践大规模扩散到参与战时生产的美国企业，作为一种技术，使它们在未来几十年走上了更高的增长轨道。此外，它使美国的管理实践在国际上独具特色，并帮助创造了所谓的“美国式”商业，这种模式在战后被输出到饱受战争蹂躏的欧洲和日本经济体。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31979">
   <div class="paper-meta"><span>No. 17</span><a href="https://www.nber.org/papers/w31979" target="_blank" rel="noopener">NBER w31979</a></div>
   <h2>The Effects of Reforms on Retirement Behavior: Introduction and Summary</h2>
-  <p class="zh-detail-title">改革对退休行为的影响：引言与总结</p>
   <p class="authors">Axel H. Börsch-Supan, Courtney Coile</p>
   <p class="meta-line">Programs：AG；JEL：J14, J26</p>
   <h3>Abstract</h3>
   <p>The International Social Security (ISS) project compares the experiences of a dozen developed countries to study Social Security Programs and Retirement Around the World. The project was launched in the mid 1990s and was motivated by decades of decline in the labor force participation rate of older men. The first phases of the project documented that social security program provisions can create powerful incentives for retirement that are strongly correlated with the labor force behavior of older workers. Since then, the dramatic decline in men’s labor force participation has been replaced by sharply rising participation rates. Older women’s participation has increased dramatically as well.</p>
-  <h3>中文摘要</h3><p>国际社会保障（ISS）项目比较了十几个发达国家的经验，以研究社会保障计划与全球退休问题。该项目于20世纪90年代中期启动，其动机是几十年来老年男性劳动力参与率的下降。项目的前几个阶段表明，社会保障计划条款可能为退休创造强大的激励，这些激励与老年工人的劳动力行为密切相关。自那时起，男性劳动力参与率的急剧下降已被参与率的显著上升所取代。老年女性的参与率也大幅提高。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31978">
   <div class="paper-meta"><span>No. 18</span><a href="https://www.nber.org/papers/w31978" target="_blank" rel="noopener">NBER w31978</a></div>
   <h2>Firm Accommodation After Disability: Labor Market Impacts and Implications for Social Insurance</h2>
-  <p class="zh-detail-title">残疾后的企业安置：劳动力市场影响及对社会保险的启示</p>
   <p class="authors">Naoki Aizawa, Corina Mommaerts, Stephanie L. Rennane</p>
   <p class="meta-line">Programs：AG, EH, LS, PE；JEL：G22, H0, J14, J24, J28</p>
   <h3>Abstract</h3>
   <p>This paper studies the labor market impacts of firm accommodation decisions and assesses implications for the design of social insurance for workplace disability. We leverage a unique workers’ compensation (WC) program in Oregon that provides wage subsidies to firms for accommodating workers with workplace disabilities. Leveraging rich administrative data and a policy change to the wage subsidy, we show that accommodation rates respond to the subsidy rate and that receipt of accommodation leads to a significant increase in employment and earnings a year later. To explore welfare implications, we develop and estimate a frictional labor market model of accommodation as a form of human capital investment. Worker turnover and imperfect experience rating in WC lead to under-accommodation and inefficient labor market outcomes after workplace disability. Counterfactual simulations show that subsidizing accommodation not only improves long-run labor market outcomes of workers experiencing work-related disability but also leads to welfare gains for most workers.</p>
-  <h3>中文摘要</h3><p>本文研究了企业安置决策对劳动力市场的影响，并评估了其对工作场所残疾社会保险设计的启示。我们利用了俄勒冈州一项独特的工人赔偿（WC）计划，该计划向企业提供工资补贴，以安置有工作场所残疾的工人。借助丰富的行政数据和工资补贴的政策变化，我们表明安置率对补贴率有反应，并且接受安置会导致一年后就业和收入显著增加。为了探索福利影响，我们开发并估计了一个将安置视为人力资本投资形式的摩擦性劳动力市场模型。工人流动和工人赔偿中不完善的经验评级导致工作场所残疾后出现安置不足和低效的劳动力市场结果。反事实模拟表明，补贴安置不仅改善了经历工作相关残疾的工人的长期劳动力市场结果，而且为大多数工人带来了福利收益。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31977">
   <div class="paper-meta"><span>No. 19</span><a href="https://www.nber.org/papers/w31977" target="_blank" rel="noopener">NBER w31977</a></div>
   <h2>The Psychology of Poverty: Where Do We Stand?</h2>
-  <p class="zh-detail-title">贫困心理学：我们处于什么位置？</p>
   <p class="authors">Johannes Haushofer, Daniel Salicath</p>
   <p class="meta-line">Programs：DEV；JEL：D91, O12</p>
   <h3>Abstract</h3>
   <p>In recent years, the psychological causes and consequences of poverty have received renewed attention from scientists and policymakers. In this review, we summarize new developments in this literature. First, we discuss advances in our understanding of the relationship between income and psychological well-being. There is a robust positive relationship between the two, both within and across countries, and in correlational and causal analyses. Second, we summarize recent work on the impact of “scarcity” and stress on economic preferences and decision-making. Our view of this literature is that the evidence is relatively weak. Third, we summarize evidence on the impact of psychological interventions on economic outcomes. Light-touch psychological interventions, such as videos that aim to raise aspirations, have shown some promise in encouraging investment and improving economic well-being. Similarly, psychotherapy and pharmacological mental health treatments have positive effects on economic outcomes. Relative to the effects of cash transfers, these impacts are small in absolute terms and large in per-dollar terms. We conclude by discussing whether a psychological poverty trap is plausible.</p>
-  <h3>中文摘要</h3><p>近年来，贫困的心理原因和后果重新引起了科学家和政策制定者的关注。在这篇综述中，我们总结了这一文献的新进展。首先，我们讨论了在理解收入与心理健康之间关系方面的进展。两者之间存在稳健的正相关关系，无论是在国家内部还是国家之间，无论是在相关性分析还是因果分析中。其次，我们总结了关于“稀缺”和压力对经济偏好和决策影响的最新研究。我们对这一文献的看法是，证据相对薄弱。第三，我们总结了关于心理干预对经济结果影响的证据。轻触式心理干预，例如旨在提高抱负的视频，在鼓励投资和改善经济福祉方面显示出一些前景。同样，心理治疗和药物心理健康治疗对经济结果有积极影响。相对于现金转移的效果，这些影响在绝对值上较小，但在每美元成本上较大。最后，我们讨论了心理贫困陷阱是否合理。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31976">
   <div class="paper-meta"><span>No. 20</span><a href="https://www.nber.org/papers/w31976" target="_blank" rel="noopener">NBER w31976</a><span class="tag">中国相关</span></div>
   <h2>Improving Regulation for Innovation: Evidence from China’s Pharmaceutical Industry</h2>
-  <p class="zh-detail-title">改善监管以促进创新：来自中国制药业的证据</p>
   <p class="authors">Ruixue Jia, Xiao Ma, Jianan Yang, Yiran Zhang</p>
   <p class="meta-line">Programs：EH, PE, POL, PR；JEL：D22, I15, I18, O31</p>
   <h3>Abstract</h3>
   <p>This study investigates how enhanced regulation can promote innovation, focusing on the impacts of a significant regulatory reform in China&#x27;s pharmaceutical sector implemented in 2015. Inspired by regulatory practices in the U.S., the reform aimed to address application backlogs and reduce administrative waiting time for new drug development. Using data at the drug and firm levels during 2012--2021, we make three main findings: (1) drug categories experiencing improved approval times witnessed a surge in investigational new drug applications and related clinical trials; (2) despite little improvement in innovativeness (measured by novel targets unexplored by U.S. counterparts) within drug categories, the reform led to changes in firm composition, attracting innovative new firms and boosting overall drug innovativeness; and (3) the market recognized the improvement in drug innovation, as reflected in stock price adjustments post new drug registrations after the reform. Our findings demonstrate that regulatory barriers can hinder the entry of innovative firms and suggest that latecomers could boost their innovation potential by adopting specific, effective regulatory practices from frontier countries.</p>
-  <h3>中文摘要</h3><p>本研究探讨了加强监管如何促进创新，重点关注2015年中国制药行业一项重大监管改革的影响。受美国监管实践的启发，该改革旨在解决申请积压问题，并减少新药开发的行政等待时间。利用2012年至2021年药品和企业层面的数据，我们得出三个主要发现：（1）审批时间改善的药物类别见证了研究性新药申请和相关临床试验的激增；（2）尽管药物类别内的创新性（以美国同行未探索的新靶点衡量）改善甚微，但改革导致了企业构成的变化，吸引了创新型新企业，并提升了整体药物创新性；（3）市场认可了药物创新的改善，这反映在改革后新药注册后的股价调整中。我们的研究结果表明，监管障碍可能阻碍创新型企业的进入，并表明后来者可以通过采用前沿国家特定、有效的监管实践来提升其创新潜力。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31975">
   <div class="paper-meta"><span>No. 21</span><a href="https://www.nber.org/papers/w31975" target="_blank" rel="noopener">NBER w31975</a></div>
   <h2>Indexing and the Incorporation of Exogenous Information Shocks to Stock Prices</h2>
-  <p class="zh-detail-title">指数化与外部信息冲击对股票价格的纳入</p>
   <p class="authors">Randall Morck, M. Deniz Yavuz</p>
   <p class="meta-line">Programs：CF；JEL：G11, G14</p>
   <h3>Abstract</h3>
   <p>Support from the National Science Foundation (SES-2343948) is gratefully acknowledged. The paper has benefited from comments and suggestions by seminar audiences at the 2024 SITE Workshop on Dynamic Games, Contracts, and Markets, Brown University, New York University, Northwestern University, NYUAD, Princeton University, Stanford University, and The University of Chicago. We also wish to thank Sandeep Baliga, Gary Cox, John Ferejohn, Emir Kamenica, Roger Myerson, and Andrea Prat for discussions and comments. We are responsible for any remaining shortcomings.</p>
-  <h3>中文摘要</h3><p>感谢国家科学基金会（SES-2343948）的支持。本文受益于2024年SITE动态博弈、合同与市场研讨会、布朗大学、纽约大学、西北大学、纽约大学阿布扎比分校、普林斯顿大学、斯坦福大学和芝加哥大学研讨会听众的评论和建议。我们还要感谢Sandeep Baliga、Gary Cox、John Ferejohn、Emir Kamenica、Roger Myerson和Andrea Prat的讨论和评论。我们对任何剩余的不足之处负责。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31974">
   <div class="paper-meta"><span>No. 22</span><a href="https://www.nber.org/papers/w31974" target="_blank" rel="noopener">NBER w31974</a></div>
   <h2>Whose Preferences Matter for Redistribution: Cross-country Evidence</h2>
-  <p class="zh-detail-title">谁的偏好对再分配重要：跨国证据</p>
   <p class="authors">Michel Marechal, Alain Cohn, Jeffrey Yusof, Raymond Fisman</p>
   <p class="meta-line">Programs：PE, POL；JEL：D72, D78, H23</p>
   <h3>Abstract</h3>
   <p>Using cross-sectional data from 93 countries, we investigate the relationship between the desired level of redistribution among citizens from different socioeconomic backgrounds and the actual extent of government redistribution. Our focus on redistribution arises from the inherent class conflicts it engenders in policy choices, allowing us to examine whose preferences are reflected in policy formulation. Contrary to prevailing assumptions regarding political influence, we find that the preferences of the lower socioeconomic group, rather than those of the median or upper strata, are most predictive of realized redistribution. This finding contradicts the expectations of both leading experts and regular citizens.</p>
-  <h3>中文摘要</h3><p>利用来自93个国家的横截面数据，我们调查了来自不同社会经济背景的公民期望的再分配水平与政府实际再分配程度之间的关系。我们关注再分配，是因为它在政策选择中引发了固有的阶级冲突，这使我们能够检验谁的偏好反映在政策制定中。与关于政治影响力的普遍假设相反，我们发现较低社会经济群体的偏好，而非中等或上层群体的偏好，最能预测实际实现的再分配。这一发现与领先专家和普通公民的预期相矛盾。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31973">
   <div class="paper-meta"><span>No. 23</span><a href="https://www.nber.org/papers/w31973" target="_blank" rel="noopener">NBER w31973</a></div>
   <h2>Civil Rights Protests and Election Outcomes: Exploring the Effects of the Poor People&#x27;s Campaign</h2>
-  <p class="zh-detail-title">民权抗议与选举结果：探索穷人运动的影响</p>
   <p class="authors">D. Mark Anderson, Kerwin Charles, Krzysztof Karbownik, Daniel I. Rees, Camila Steffens</p>
   <p class="meta-line">Programs：DAE, LE, PE, POL；JEL：D72, I30, J15, N32</p>
   <h3>Abstract</h3>
   <p>The Poor People’s Campaign (PPC) of 1968 was focused on highlighting, and ultimately reducing, poverty in the United States. As part of the campaign, protestors from across the country were transported to Washington, D.C. in 6 separate bus caravans, each of which made stops en route to rest, recruit, and hold non-violent protests. Using data from 1960-1970, we estimate the effects of these protests on congressional election outcomes. In the South, we find that PPC protests led to reductions in Democratic vote share and turnout, while in the West they may have benefited Democratic candidates at the expense of their Republican rivals.</p>
-  <h3>中文摘要</h3><p>1968年的穷人运动（PPC）旨在关注并最终减少美国的贫困。作为该运动的一部分，来自全国各地的抗议者被分成6个独立的巴士车队运送到华盛顿特区，每个车队在途中都会停下来休息、招募人员并举行非暴力抗议。利用1960年至1970年的数据，我们估计了这些抗议对国会选举结果的影响。在南方，我们发现穷人运动抗议导致民主党得票率和投票率下降，而在西部，它们可能以牺牲共和党对手为代价使民主党候选人受益。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
 <article class="paper-detail" id="w31972">
   <div class="paper-meta"><span>No. 24</span><a href="https://www.nber.org/papers/w31972" target="_blank" rel="noopener">NBER w31972</a></div>
   <h2>Monopsony Amplifies Distortions from Progressive Taxes</h2>
-  <p class="zh-detail-title">买方垄断加剧累进税制的扭曲效应</p>
   <p class="authors">David W. Berger, Kyle F. Herkenhoff, Simon Mongey, Negin Mousavi</p>
   <p class="meta-line">Programs：EFG, LS, PE；JEL：E0, H0, J0</p>
   <h3>Abstract</h3>
   <p>In this short paper we show that progressive income taxes distort hiring and wages when firms have labor market power. From a firm’s perspective, raising pre-tax wages increases employment by less when taxes are progressive as less of the pre-tax wage is paid to workers. Understanding this when setting wages leads to lower wages and employment at all firms. When firms differ in productivity, progressive taxes also distort the allocation of labor across firms. We characterize this novel monopsony cost of progressivity in a simple monopsony economy and derive efficiency wedges that depend on progressivity. A simple quantification of these wedges points to the possibility that the monopsony cost may be of similar magnitudes to redistribution and insurance benefits.</p>
-  <h3>中文摘要</h3><p>在这篇短文中，我们证明当企业拥有劳动力市场势力时，累进所得税会扭曲雇佣决策和工资水平。从企业角度看，当税收具有累进性时，提高税前工资所带动的就业增长幅度会减小，因为税前工资中实际支付给工人的部分减少了。企业在设定工资时理解这一点，会导致所有企业的工资和就业水平下降。当企业生产率存在差异时，累进税还会扭曲劳动力在企业间的配置。我们在一个简单的买方垄断经济中刻画了这种累进税制的新型买方垄断成本，并推导出依赖于累进程度的效率楔子。对这些楔子的简单量化表明，买方垄断成本可能与再分配和保险福利的规模相当。</p>
+  <p class="translation-missing">中文翻译待补充。设置 DEEPSEEK_API_KEY 后，自动更新会只翻译缺失项。</p>
 </article>
   </main>
   <footer>

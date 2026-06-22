@@ -21,7 +21,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
-ASSET_VERSION = "20260622c"
+ASSET_VERSION = "20260622d"
 
 CHINA_TERMS = (
     "china",
@@ -634,7 +634,11 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <div>
       <p class="eyebrow">Academic Door</p>
       <h1>学术传送门 NBER 工作论文</h1>
-      <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门，获取最新前沿文献，读好文献，用好论文！</p>
+      <p class="lead">
+        <span>每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。</span>
+        <span>欢迎关注微信公众号：学术传送门。</span>
+        <span>获取最新前沿文献，读好文献，用好论文！</span>
+      </p>
     </div>
     <div class="hero-aside">
       <div class="stats" aria-label="站点统计">
@@ -939,7 +943,7 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <section class="paper-detail about-contact">
       <div>
         <h2>关注学术传送门</h2>
-        <p>欢迎关注微信公众号：学术传送门。获取最新前沿文献，读好论文，用好论文！本站会作为 NBER 工作论文和公众号选题素材的长期归档入口。</p>
+        <p>欢迎关注微信公众号：学术传送门。获取最新前沿文献，读好文献，用好论文！本站会作为 NBER 工作论文和公众号选题素材的长期归档入口。</p>
       </div>
       <img class="wechat-qr large" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
     </section>

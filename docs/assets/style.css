@@ -83,6 +83,10 @@ h1 {
   font-size: 17px;
 }
 
+.lead span {
+  display: block;
+}
+
 .hero-aside {
   display: grid;
   gap: 14px;
@@ -93,7 +97,7 @@ h1 {
 .follow-card {
   display: inline-flex;
   align-items: center;
-  justify-self: start;
+  justify-self: center;
   gap: 14px;
   flex: 0 0 auto;
   border: 0;

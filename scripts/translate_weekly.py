@@ -9,12 +9,13 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from build_site import DEFAULT_METADATA_SOURCE, DEFAULT_TRANSLATION_CACHE, build_full_weekly_from_metadata, clean, load_translation_cache
+from build_site import DEFAULT_METADATA_SOURCE, DEFAULT_TRANSLATION_CACHE, PROJECT_ROOT, build_full_weekly_from_metadata, clean, load_translation_cache
 
 
 MODEL = os.environ.get("DEEPSEEK_MODEL") or os.environ.get("LLM_MODEL") or "deepseek-chat"
 BASE_URL = (os.environ.get("DEEPSEEK_BASE_URL") or os.environ.get("LLM_BASE_URL") or "https://api.deepseek.com").rstrip("/")
 API_URL = BASE_URL if BASE_URL.endswith("/chat/completions") else f"{BASE_URL}/chat/completions"
+DEFAULT_DOCS_WEEKLY_PAPERS = PROJECT_ROOT / "docs" / "data" / "weekly_papers.json"
 
 
 def api_key() -> str | None:
@@ -36,6 +37,24 @@ def normalize_item(item: dict) -> dict[str, str]:
     if not number or not zh_title or not zh_abstract:
         raise KeyError(f"Bad translation item keys: {sorted(item.keys())}")
     return {"number": number, "zh_title": zh_title, "zh_abstract": zh_abstract}
+
+
+def seed_cache_from_docs(cache: dict[str, dict[str, str]], docs_weekly_papers: Path) -> int:
+    if not docs_weekly_papers.exists():
+        return 0
+    raw = json.loads(docs_weekly_papers.read_text(encoding="utf-8"))
+    added = 0
+    for item in raw:
+        number = clean(item.get("number", ""))
+        zh_title = clean(item.get("zh_title", ""))
+        zh_abstract = clean(item.get("zh_abstract", ""))
+        if not number or not zh_title or not zh_abstract:
+            continue
+        if cache.get(number, {}).get("zh_title") and cache.get(number, {}).get("zh_abstract"):
+            continue
+        cache[number] = {"zh_title": zh_title, "zh_abstract": zh_abstract}
+        added += 1
+    return added
 
 
 def call_deepseek(batch: list[dict], retries: int = 3) -> list[dict[str, str]]:
@@ -123,11 +142,21 @@ def main() -> None:
     parser.add_argument("--cache", type=Path, default=DEFAULT_TRANSLATION_CACHE)
     parser.add_argument("--week", help="Specific week date, e.g. 2026-06-15. Defaults to the latest week.")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--docs-weekly-papers", type=Path, default=DEFAULT_DOCS_WEEKLY_PAPERS)
     args = parser.parse_args()
 
     cache = load_translation_cache(args.cache)
+    seeded = seed_cache_from_docs(cache, args.docs_weekly_papers.resolve())
+    if seeded:
+        print(f"seeded {seeded} translations from {args.docs_weekly_papers}")
     weeks = build_full_weekly_from_metadata(args.metadata_source.resolve(), cache)
-    issue = next((week for week in weeks if week.date == args.week), weeks[-1])
+    if args.week:
+        issue = next((week for week in weeks if week.date == args.week), None)
+        if issue is None:
+            available = ", ".join(week.date for week in weeks[-5:])
+            raise SystemExit(f"Week {args.week} not found in metadata. Latest available weeks: {available}")
+    else:
+        issue = weeks[-1]
     translated = translate_missing(issue.papers, cache, args.limit, args.cache)
     args.cache.parent.mkdir(parents=True, exist_ok=True)
     args.cache.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
