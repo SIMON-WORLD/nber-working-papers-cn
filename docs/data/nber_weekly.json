@@ -1,5 +1,5 @@
 {
-  "latest": "2026-06-15",
+  "latest": "2026-06-22",
   "weeks": [
     {
       "date": "1973-01-01",
@@ -19140,8 +19140,20 @@
       ],
       "count": 28,
       "data_file": "weekly/2026.json"
+    },
+    {
+      "date": "2026-06-22",
+      "year": 2026,
+      "source_file": "NBER TSV metadata",
+      "title": "【前沿文献】NBER工作论文 2026-06-22 目录与摘要",
+      "intro": [
+        "来源：NBER Working Papers；周报日期：2026-06-22。",
+        "本页面由 NBER 官方 TSV 元数据按 issue_date 汇总为周度归档；未按 Programs 或 JEL 筛选。"
+      ],
+      "count": 26,
+      "data_file": "weekly/2026.json"
     }
   ],
-  "total_papers": 34937,
+  "total_papers": 34963,
   "split_by": "year"
 }
