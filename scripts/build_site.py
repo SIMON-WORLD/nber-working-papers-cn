@@ -21,7 +21,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
-ASSET_VERSION = "20260622"
+ASSET_VERSION = "20260622b"
 
 CHINA_TERMS = (
     "china",
@@ -634,17 +634,19 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <div>
       <p class="eyebrow">Academic Door</p>
       <h1>学术传送门 NBER 工作论文</h1>
-      <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门，获取最新前沿文献，读好论文，用好论文！</p>
+      <div class="intro-row">
+        <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门，获取最新前沿文献，读好论文，用好论文！</p>
+        <div class="follow-card" aria-label="微信公众号">
+          <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
+          <small><strong>学术传送门</strong><br><em>读好文献，用好文献</em></small>
+        </div>
+      </div>
     </div>
     <div class="hero-aside">
       <div class="stats" aria-label="站点统计">
         <span><strong>{weekly_range}</strong> 周报跨度</span>
         <span><strong>{len(months)}</strong> 月度合集</span>
         <span><strong>{latest_week_label}</strong> 最新更新</span>
-      </div>
-      <div class="follow-card" aria-label="微信公众号">
-        <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
-        <small><strong>学术传送门</strong><br><em>读好文献，用好文献</em></small>
       </div>
     </div>
   </header>

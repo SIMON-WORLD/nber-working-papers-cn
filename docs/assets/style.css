@@ -77,17 +77,23 @@ h1 {
 }
 
 .lead {
-  max-width: 760px;
+  max-width: 650px;
   margin: 10px 0 0;
   color: var(--muted);
   font-size: 17px;
+}
+
+.intro-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
 }
 
 .hero-aside {
   display: grid;
   gap: 14px;
   flex: 0 0 auto;
-  padding-top: 31px;
+  padding-top: 8px;
 }
 
 .follow-card {
@@ -101,6 +107,10 @@ h1 {
   background: var(--bg);
   padding: 4px 2px;
   box-shadow: none;
+}
+
+.intro-row .follow-card {
+  margin-top: 10px;
 }
 
 .follow-card small {
@@ -366,8 +376,8 @@ select:focus {
 }
 
 .week-card {
-  min-height: 272px;
-  padding: 16px;
+  min-height: 158px;
+  padding: 14px 16px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -377,21 +387,25 @@ select:focus {
 }
 
 .week-card h3 {
-  margin: 8px 0;
-  font-size: 17px;
-  line-height: 1.35;
+  margin: 6px 0 4px;
+  font-size: 16px;
+  line-height: 1.32;
 }
 
 .week-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .week-card .zh-title,
 .zh-detail-title {
   color: var(--accent-2);
   font-weight: 700;
+}
+
+.week-card .zh-title {
+  margin-bottom: 2px;
 }
 
 .week-card .week-summary {
@@ -773,6 +787,10 @@ footer p {
 
   .hero-aside {
     margin-top: 18px;
+  }
+
+  .intro-row {
+    align-items: flex-start;
   }
 
   .follow-card {
