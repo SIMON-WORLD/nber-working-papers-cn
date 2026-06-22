@@ -3,13 +3,21 @@ name: Update NBER site
 on:
   workflow_dispatch:
   schedule:
+    # GitHub scheduled workflows are UTC and not guaranteed to run exactly on time.
+    # Keep a primary Monday 12:00 Beijing run plus two same-day fallbacks.
     - cron: "0 4 * * 1"
+    - cron: "30 4 * * 1"
+    - cron: "0 5 * * 1"
 
 permissions:
   contents: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+concurrency:
+  group: nber-site-update-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   update:
