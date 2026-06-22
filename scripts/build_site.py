@@ -21,6 +21,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
+ASSET_VERSION = "20260622"
 
 CHINA_TERMS = (
     "china",
@@ -607,10 +608,10 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <section class="latest-week">
       <div class="panel-head">
         <h2>{html.escape(latest_week_title)}</h2>
-        <a href="weekly/{latest_week.date}.html">查看全部 {len(latest_week.papers)} 篇</a>
+        <a href="weekly/{latest_week.date}.html">打开独立周报</a>
       </div>
       <div class="weekly-grid">
-        {''.join(render_week_card(paper, latest_week.date) for paper in latest_week.papers[:12])}
+        {''.join(render_week_card(paper, latest_week.date) for paper in latest_week.papers)}
       </div>
     </section>
 """
@@ -626,25 +627,25 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="学术传送门 NBER 工作论文">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v={ASSET_VERSION}">
 </head>
 <body id="top">
   <header class="site-header">
     <div>
       <p class="eyebrow">Academic Door</p>
       <h1>学术传送门 NBER 工作论文</h1>
-      <div class="intro-row">
-        <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门，获取最新前沿文献，读好论文，用好论文！</p>
-        <div class="follow-card" aria-label="微信公众号">
-          <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
-          <small>扫码关注<br>学术传送门</small>
-        </div>
-      </div>
+      <p class="lead">每周一 12:00 自动更新 NBER Working Papers，中文内容由 DeepSeek 辅助翻译。欢迎关注微信公众号：学术传送门，获取最新前沿文献，读好论文，用好论文！</p>
     </div>
-    <div class="stats" aria-label="站点统计">
-      <span><strong>{weekly_range}</strong> 周报跨度</span>
-      <span><strong>{len(months)}</strong> 月度合集</span>
-      <span><strong>{latest_week_label}</strong> 最新更新</span>
+    <div class="hero-aside">
+      <div class="stats" aria-label="站点统计">
+        <span><strong>{weekly_range}</strong> 周报跨度</span>
+        <span><strong>{len(months)}</strong> 月度合集</span>
+        <span><strong>{latest_week_label}</strong> 最新更新</span>
+      </div>
+      <div class="follow-card" aria-label="微信公众号">
+        <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
+        <small><strong>学术传送门</strong><br><em>读好文献，用好文献</em></small>
+      </div>
     </div>
   </header>
 
@@ -715,7 +716,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <p>Generated at {html.escape(built_at)}.</p>
   </footer>
 
-  <script src="assets/site.js"></script>
+  <script src="assets/site.js?v={ASSET_VERSION}"></script>
 </body>
 </html>
 """
@@ -724,10 +725,12 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
 def render_week_card(paper: WeeklyPaper, date: str) -> str:
     badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
     zh_title = f'\n  <p class="zh-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
+    zh_abstract = f'\n  <p class="week-summary">{html.escape(paper.zh_abstract)}</p>' if paper.zh_abstract else ""
     return f"""<article class="week-card">
   <div class="meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">w{paper.number}</a>{badge}</div>
   <h3><a href="weekly/{date}.html#w{paper.number}">{html.escape(paper.title)}</a></h3>{zh_title}
   <p>{html.escape(paper.authors)}</p>
+  {zh_abstract}
 </article>"""
 
 
@@ -779,7 +782,7 @@ def render_month(
     <meta property="og:description" content="{issue.year} 年 {issue.month} 月 NBER 工作论文合集。">
     <meta property="og:type" content="article">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css?v={ASSET_VERSION}">
   </head>
   <body id="top">
   <header class="site-header compact">
@@ -844,7 +847,7 @@ def render_week(issue: WeekIssue) -> str:
     <meta property="og:description" content="{issue.date} NBER 工作论文周报。">
     <meta property="og:type" content="article">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css?v={ASSET_VERSION}">
   </head>
   <body id="top">
   <header class="site-header compact">
@@ -902,7 +905,7 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <meta property="og:description" content="站点说明、更新频率、数据来源与版权声明。">
     <meta property="og:type" content="article">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css?v={ASSET_VERSION}">
   </head>
   <body id="top">
   <header class="site-header compact">
@@ -1017,6 +1020,8 @@ def write_index_data(
             "title": paper.title,
             "zh_title": paper.zh_title,
             "authors": paper.authors,
+            "abstract": paper.abstract,
+            "zh_abstract": paper.zh_abstract,
             "week_date": paper.week_date,
             "index": paper.index,
             "url": paper.url,

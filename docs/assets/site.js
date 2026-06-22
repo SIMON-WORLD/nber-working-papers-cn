@@ -157,7 +157,7 @@
         const archiveUrl = sourceMode === "weekly" ? `weekly/${paper.week_date}.html#w${paper.number}` : `archive/${paper.month_key}.html#w${paper.number}`;
         const zhTitle = paper.zh_title ? `<p class="paper-zh-title">${escapeHtml(paper.zh_title)}</p>` : "";
         const sourceLabel = sourceMode === "weekly" ? "周报" : "月度";
-        const summary = sourceMode === "weekly" ? "" : `<p class="summary">${escapeHtml(paper.zh_abstract)}</p>`;
+        const summary = paper.zh_abstract ? `<p class="summary">${escapeHtml(paper.zh_abstract)}</p>` : "";
         return `<article class="paper-card">
           <div class="meta">
             <span>${escapeHtml(dateKey)}</span>

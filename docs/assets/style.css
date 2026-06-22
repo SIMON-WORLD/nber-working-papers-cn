@@ -8,6 +8,8 @@
   --accent: #0366d6;
   --accent-2: #334155;
   --accent-soft: #eaf2ff;
+  --danger: #c24132;
+  --danger-soft: #fff0ed;
   --soft: #edf4f2;
   --shadow: 0 10px 30px rgba(20, 31, 24, 0.08);
 }
@@ -42,10 +44,15 @@ footer {
 
 .site-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 28px;
-  padding: 30px 0 18px;
+  gap: 34px;
+  padding: 34px 0 22px;
+}
+
+.site-header > div:first-child {
+  flex: 1 1 560px;
+  padding-top: 2px;
 }
 
 .site-header.compact {
@@ -76,40 +83,53 @@ h1 {
   font-size: 17px;
 }
 
-.intro-row {
-  display: flex;
-  align-items: center;
+.hero-aside {
+  display: grid;
   gap: 14px;
+  flex: 0 0 auto;
+  padding-top: 31px;
 }
 
 .follow-card {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-self: start;
+  gap: 14px;
   flex: 0 0 auto;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: 8px;
-  background: var(--panel);
-  padding: 8px 10px 8px 8px;
-  box-shadow: var(--shadow);
+  background: var(--bg);
+  padding: 4px 2px;
+  box-shadow: none;
 }
 
 .follow-card small {
-  color: var(--accent-2);
-  font-size: 12px;
+  color: var(--text);
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.35;
   white-space: nowrap;
 }
 
+.follow-card small strong,
+.follow-card small em {
+  display: block;
+  font-style: normal;
+}
+
+.follow-card small em {
+  color: var(--danger);
+  margin-top: 4px;
+}
+
 .wechat-qr {
-  width: 72px;
-  height: 72px;
+  width: 82px;
+  height: 82px;
   flex: 0 0 auto;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 0;
+  border-radius: 4px;
   background: #fff;
-  padding: 2px;
+  padding: 1px;
 }
 
 .stats {
@@ -346,7 +366,7 @@ select:focus {
 }
 
 .week-card {
-  min-height: 204px;
+  min-height: 272px;
   padding: 16px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -374,15 +394,22 @@ select:focus {
   font-weight: 700;
 }
 
+.week-card .week-summary {
+  margin-top: 10px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .tag {
   display: inline-flex;
   align-items: center;
   min-height: 22px;
-  border: 1px solid rgba(3, 102, 214, 0.24);
+  border: 1px solid rgba(194, 65, 50, 0.28);
   border-radius: 999px;
   padding: 0 8px;
-  color: var(--accent);
-  background: var(--accent-soft);
+  color: var(--danger);
+  background: var(--danger-soft);
   font-size: 12px;
   font-weight: 700;
 }
@@ -744,8 +771,8 @@ footer p {
     margin-top: 18px;
   }
 
-  .intro-row {
-    align-items: flex-start;
+  .hero-aside {
+    margin-top: 18px;
   }
 
   .follow-card {
@@ -802,10 +829,6 @@ footer p {
 
   .stats {
     grid-template-columns: 1fr;
-  }
-
-  .intro-row {
-    display: block;
   }
 
   .follow-card {
