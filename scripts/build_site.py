@@ -22,6 +22,7 @@ DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
 ASSET_VERSION = "20260622d"
+SITE_URL = "https://simon-world.github.io/nber-working-papers-cn"
 
 CHINA_TERMS = (
     "china",
@@ -1044,7 +1045,7 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
     json_items = []
     for issue in latest:
         title = f"NBER Working Papers {issue.date} ({len(issue.papers)} papers)"
-        url = f"https://example.com/weekly/{issue.date}.html"
+        url = f"{SITE_URL}/weekly/{issue.date}.html"
         description = f"NBER Working Papers weekly archive for {issue.date}, {len(issue.papers)} papers."
         rss_items.append(
             f"""    <item>
@@ -1057,7 +1058,7 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
         json_items.append(
             {
                 "id": url,
-                "url": f"weekly/{issue.date}.html",
+                "url": url,
                 "title": title,
                 "summary": description,
                 "content_text": "\n".join(f"w{p.number} {p.title}" for p in issue.papers[:30]),
@@ -1068,7 +1069,7 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
 <rss version="2.0">
   <channel>
     <title>学术传送门 NBER 工作论文</title>
-    <link>https://example.com/</link>
+    <link>{SITE_URL}/</link>
     <description>面向中文读者的 NBER Working Papers 非官方归档。</description>
     <lastBuildDate>{format_datetime(datetime.now().astimezone())}</lastBuildDate>
 {chr(10).join(rss_items)}
@@ -1078,8 +1079,8 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
     feed_json = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": "学术传送门 NBER 工作论文",
-        "home_page_url": "https://example.com/",
-        "feed_url": "https://example.com/feed.json",
+        "home_page_url": f"{SITE_URL}/",
+        "feed_url": f"{SITE_URL}/feed.json",
         "description": "面向中文读者的 NBER Working Papers 非官方归档。",
         "items": json_items,
         "generated_at": built_at,
