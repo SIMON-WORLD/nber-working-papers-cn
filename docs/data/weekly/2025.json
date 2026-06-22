@@ -7210,13 +7210,13 @@
       "number": "33832",
       "title": "A Double Dose of Reform: Insurance and Centralized Negotiation in Drug Markets",
       "authors": "Panle Jia Barwick, Ashley T. Swanson, Tianli Xia",
-      "abstract": "Making innovative drugs affordable and accessible is a pressing global challenge. Centralized negotiation is an increasingly popular policy solution, but it remains understudied despite wide variation in implementation. This paper studies China’s ongoing National Reimbursement Drug List (NRDL) Reform, which combines centralized drug price negotiation with expanded insurance coverage. The reform reduced retail prices by 48% and out-of-pocket costs by 80%, and increased drug utilization by 350%. At the same time, the insurance design was regressive, and 25% of negotiations failed. Focusing on cancer drugs, we estimate a flexible demand and supply model that features heterogeneous households, bargaining with potential breakdowns, and a government objective function that depends on consumer surplus and insurance spending. We estimate that including innovative cancer drugs in the NRDL generated Y40 billion ($5.6 billion) in annual consumer surplus gains and increased survival by 900,000 life-years among Chinese cancer patients each year. Among the counterfactual policies we examined, centralized market-access negotiation with an optimal coinsurance schedule raises social surplus by 19% relative to the observed policy and achieves 90% of the social surplus of an efficient benchmark.",
+      "abstract": "",
       "meta": "Programs：EH, IO, PE；JEL：I0, L0",
       "url": "https://www.nber.org/papers/w33832",
       "week_date": "2025-05-26",
       "zh_title": "",
       "zh_abstract": "",
-      "is_china_related": true
+      "is_china_related": false
     },
     {
       "index": 30,
