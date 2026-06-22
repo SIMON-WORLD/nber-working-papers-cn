@@ -725,12 +725,10 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
 def render_week_card(paper: WeeklyPaper, date: str) -> str:
     badge = '<span class="tag">中国相关</span>' if paper.is_china_related else ""
     zh_title = f'\n  <p class="zh-title">{html.escape(paper.zh_title)}</p>' if paper.zh_title else ""
-    zh_abstract = f'\n  <p class="week-summary">{html.escape(paper.zh_abstract)}</p>' if paper.zh_abstract else ""
     return f"""<article class="week-card">
   <div class="meta"><span>No. {paper.index}</span><a href="{html.escape(paper.url)}" target="_blank" rel="noopener">w{paper.number}</a>{badge}</div>
   <h3><a href="weekly/{date}.html#w{paper.number}">{html.escape(paper.title)}</a></h3>{zh_title}
   <p>{html.escape(paper.authors)}</p>
-  {zh_abstract}
 </article>"""
 
 
