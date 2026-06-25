@@ -117,6 +117,22 @@ def write_text_if_changed(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
+def parse_iso_date(value: str) -> datetime.date:
+    return datetime.strptime(value, "%Y-%m-%d").date()
+
+
+def filter_published_weeks(weeks: list["WeekIssue"], cutoff: datetime.date) -> list["WeekIssue"]:
+    return [issue for issue in weeks if parse_iso_date(issue.date) <= cutoff]
+
+
+def prune_weekly_pages(output: Path, weeks: list["WeekIssue"]) -> None:
+    weekly_dir = output / "weekly"
+    keep = {f"{issue.date}.html" for issue in weeks}
+    for path in weekly_dir.glob("*.html"):
+        if path.name not in keep:
+            path.unlink()
+
+
 def read_tsv(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f, delimiter="\t"))
@@ -1184,12 +1200,16 @@ def main() -> None:
     else:
         week_files = collect_weekly_files(args.weekly_source.resolve())
         weeks = [parse_week(path, translation_cache) for path in week_files]
+    cutoff_date = datetime.now().date()
+    original_week_count = len(weeks)
+    weeks = filter_published_weeks(weeks, cutoff_date)
     built_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     (output / "assets").mkdir(parents=True, exist_ok=True)
     (output / "data").mkdir(parents=True, exist_ok=True)
     (output / "archive").mkdir(parents=True, exist_ok=True)
     (output / "weekly").mkdir(parents=True, exist_ok=True)
+    prune_weekly_pages(output, weeks)
 
     write_text_if_changed(output / "index.html", render_index(months, weeks, built_at, translation_cache))
     write_text_if_changed(output / "about.html", render_about(months, weeks, built_at))
@@ -1207,7 +1227,10 @@ def main() -> None:
 
     total = sum(len(issue.papers) for issue in months)
     weekly_total = sum(len(issue.papers) for issue in weeks)
+    skipped_future = original_week_count - len(weeks)
     print(f"Built {len(months)} monthly pages ({total} papers) and {len(weeks)} weekly pages ({weekly_total} papers) into {output}")
+    if skipped_future:
+        print(f"Skipped {skipped_future} future weekly issue(s) after {cutoff_date.isoformat()}.")
 
 
 if __name__ == "__main__":
