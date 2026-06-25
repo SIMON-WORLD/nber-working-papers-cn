@@ -11,6 +11,7 @@
   const yearFilter = document.getElementById("yearFilter");
   const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
   const quickFilterLinks = Array.from(document.querySelectorAll("[data-quick-filter]"));
+  const quickSourceLinks = Array.from(document.querySelectorAll("[data-quick-source]"));
   const sourceButtons = Array.from(document.querySelectorAll("[data-source]"));
   const prevPage = document.getElementById("prevPage");
   const nextPage = document.getElementById("nextPage");
@@ -76,6 +77,18 @@
       .replaceAll("'", "&#039;");
   }
 
+  function escapeRegExp(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function highlight(value, query) {
+    const escaped = escapeHtml(value);
+    if (!query) return escaped;
+    const needle = escapeHtml(query.trim());
+    if (!needle) return escaped;
+    return escaped.replace(new RegExp(`(${escapeRegExp(needle)})`, "ig"), "<mark>$1</mark>");
+  }
+
   function renderArchive() {
     const groupedMonths = months.reduce((groups, month) => {
       const year = String(month.year);
@@ -123,16 +136,19 @@
     const query = searchInput.value.trim().toLowerCase();
     const year = yearFilter.value;
     const source = sourceMode === "weekly" ? weeklyPapers : papers;
+    updateFilterCounts(source, year);
     const filtered = source.filter((paper) => {
       const dateKey = sourceMode === "weekly" ? paper.week_date : paper.month_key;
       if (year && String(dateKey).slice(0, 4) !== year) return false;
       if (relationFilter === "china" && !paper.is_china_related) return false;
+      if (relationFilter === "translated" && !paper.zh_title && !paper.zh_abstract) return false;
       if (!query) return true;
       const haystack = [
         paper.number,
         paper.title,
         paper.zh_title,
         paper.authors,
+        paper.abstract,
         paper.zh_abstract,
         paper.is_china_related ? "china 中国相关" : "",
         dateKey,
@@ -155,23 +171,41 @@
       .map((paper) => {
         const dateKey = sourceMode === "weekly" ? paper.week_date : paper.month_key;
         const archiveUrl = sourceMode === "weekly" ? `weekly/${paper.week_date}.html#w${paper.number}` : `archive/${paper.month_key}.html#w${paper.number}`;
-        const zhTitle = paper.zh_title ? `<p class="paper-zh-title">${escapeHtml(paper.zh_title)}</p>` : "";
+        const zhTitle = paper.zh_title ? `<p class="paper-zh-title">${highlight(paper.zh_title, query)}</p>` : "";
         const sourceLabel = sourceMode === "weekly" ? "周报" : "月度";
-        const summary = paper.zh_abstract ? `<p class="summary">${escapeHtml(paper.zh_abstract)}</p>` : "";
+        const summary = paper.zh_abstract ? `<p class="summary">${highlight(paper.zh_abstract, query)}</p>` : "";
         return `<article class="paper-card">
           <div class="meta">
-            <span>${escapeHtml(dateKey)}</span>
+            <span>${highlight(dateKey, query)}</span>
             <span>${sourceLabel} No. ${escapeHtml(paper.index)}</span>
             <a href="${escapeHtml(paper.url)}" target="_blank" rel="noopener">NBER w${escapeHtml(paper.number)}</a>
           </div>
-          <h3><a href="${archiveUrl}">${escapeHtml(paper.title)}</a></h3>
+          <h3><a href="${archiveUrl}">${highlight(paper.title, query)}</a></h3>
           ${zhTitle}
           ${paper.is_china_related ? '<span class="tag">中国相关</span>' : ""}
-          <p class="authors">${escapeHtml(paper.authors)}</p>
+          <p class="authors">${highlight(paper.authors, query)}</p>
           ${summary}
         </article>`;
       })
       .join("");
+  }
+
+  function updateFilterCounts(source, year) {
+    const scoped = source.filter((paper) => {
+      const dateKey = sourceMode === "weekly" ? paper.week_date : paper.month_key;
+      return !year || String(dateKey).slice(0, 4) === year;
+    });
+    const counts = {
+      all: scoped.length,
+      china: scoped.filter((paper) => paper.is_china_related).length,
+      translated: scoped.filter((paper) => paper.zh_title || paper.zh_abstract).length,
+    };
+    filterButtons.forEach((button) => {
+      const span = button.querySelector("span");
+      if (span && counts[button.dataset.filter] !== undefined) {
+        span.textContent = counts[button.dataset.filter];
+      }
+    });
   }
 
   function setFilter(value) {
@@ -216,6 +250,16 @@
       quickFilterLinks.forEach((link) => {
         link.addEventListener("click", () => {
           setFilter(link.dataset.quickFilter);
+        });
+      });
+      quickSourceLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          setSourceMode(link.dataset.quickSource)
+            .then(() => {
+              document.getElementById("paperList").scrollIntoView({ behavior: "smooth", block: "start" });
+            })
+            .catch(setError);
         });
       });
       prevPage.addEventListener("click", () => {

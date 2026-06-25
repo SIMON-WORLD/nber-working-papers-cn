@@ -173,7 +173,7 @@ h1 {
 
 .quick-sections {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin: 6px 0 16px;
 }
@@ -208,6 +208,36 @@ h1 {
 
 .quick-card small {
   color: var(--muted);
+}
+
+.status-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.status-strip div {
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 12px 14px;
+  background: #fbfcfb;
+}
+
+.status-strip span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status-strip strong {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.35;
 }
 
 .site-nav {
@@ -318,7 +348,7 @@ select:focus {
 
 .segmented {
   display: inline-grid;
-  grid-template-columns: repeat(2, minmax(82px, 1fr));
+  grid-template-columns: repeat(3, minmax(82px, 1fr));
   min-height: 44px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -348,6 +378,13 @@ select:focus {
 .segmented span {
   font-size: 12px;
   opacity: 0.82;
+}
+
+mark {
+  border-radius: 3px;
+  padding: 0 2px;
+  background: #fff2a8;
+  color: inherit;
 }
 
 .layout {
@@ -801,6 +838,10 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .status-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .source-tabs,
   .segmented {
     width: 100%;
@@ -844,6 +885,10 @@ footer p {
   }
 
   .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .status-strip {
     grid-template-columns: 1fr;
   }
 

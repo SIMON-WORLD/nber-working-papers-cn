@@ -40,6 +40,8 @@ jobs:
         run: python scripts/translate_weekly.py --metadata-source data/nber --cache data/translations/nber_weekly_zh.json
 
       - name: Build site
+        env:
+          CF_WEB_ANALYTICS_TOKEN: ${{ secrets.CF_WEB_ANALYTICS_TOKEN }}
         run: python scripts/build_site.py --source sources/monthly_ready --metadata-source data/nber --translation-cache data/translations/nber_weekly_zh.json
 
       - name: Upload site preview

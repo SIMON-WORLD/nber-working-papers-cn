@@ -4,6 +4,7 @@ import argparse
 import csv
 import html
 import json
+import os
 import re
 from collections import defaultdict
 from dataclasses import asdict, dataclass
@@ -21,7 +22,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
-ASSET_VERSION = "20260622d"
+ASSET_VERSION = "20260625a"
 SITE_URL = "https://simon-world.github.io/nber-working-papers-cn"
 
 CHINA_TERMS = (
@@ -235,6 +236,13 @@ def render_page_tools(prefix: str = "") -> str:
       <a href="{prefix}index.html">返回主页</a>
       <a href="{prefix}index.html#archiveList">月度合集</a>
     </nav>"""
+
+
+def render_analytics() -> str:
+    token = os.environ.get("CF_WEB_ANALYTICS_TOKEN", "").strip()
+    if not token:
+        return ""
+    return f'\n  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{{"token":"{html.escape(token)}"}}\'></script>'
 
 
 def load_translation_cache(path: Path) -> dict[str, dict[str, str]]:
@@ -597,8 +605,9 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     total_papers = sum(len(issue.papers) for issue in months)
     latest_week = weeks[-1] if weeks else None
     total_weekly_papers = sum(len(issue.papers) for issue in weeks)
+    translated_weekly_papers = sum(1 for issue in weeks for paper in issue.papers if paper.zh_title or paper.zh_abstract)
     china_papers = sum(1 for issue in months for paper in issue.papers if paper.is_china_related)
-    years = sorted({issue.year for issue in months}, reverse=True)
+    years = sorted({issue.year for issue in months} | {issue.year for issue in weeks}, reverse=True)
     month_range = year_range_label({issue.year for issue in months})
     weekly_range = year_range_label({issue.year for issue in weeks})
     latest_week_label = latest_week.date if latest_week else latest.key
@@ -667,11 +676,23 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
         <strong>{len(months)} 个月</strong>
         <small>{month_range}，{total_papers} 篇中文摘要</small>
       </a>
+      <a class="quick-card" href="#paperList" data-quick-source="weekly">
+        <span>周报全量</span>
+        <strong>{total_weekly_papers} 篇</strong>
+        <small>{weekly_range}，{translated_weekly_papers} 篇已有中文摘要</small>
+      </a>
       <a class="quick-card" href="#paperList" data-quick-filter="china">
         <span>中国相关</span>
         <strong>{china_papers} 篇</strong>
         <small>来自月度中文合集筛选</small>
       </a>
+    </section>
+
+    <section class="status-strip" aria-label="更新状态">
+      <div><span>最近构建</span><strong>{html.escape(built_at)}</strong></div>
+      <div><span>最新周报</span><strong>{html.escape(latest_week.date) if latest_week else "暂无"}</strong></div>
+      <div><span>周报中文摘要</span><strong>{translated_weekly_papers} / {total_weekly_papers}</strong></div>
+      <div><span>RSS</span><strong><a href="feed.xml">feed.xml</a></strong></div>
     </section>
 
     {latest_week_html}
@@ -689,6 +710,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <div class="segmented" role="group" aria-label="相关性筛选">
         <button type="button" class="active" data-filter="all">全部论文 <span>{total_papers}</span></button>
         <button type="button" data-filter="china">中国相关 <span>{china_papers}</span></button>
+        <button type="button" data-filter="translated">有中文摘要 <span>{translated_weekly_papers}</span></button>
       </div>
     </section>
 
@@ -721,7 +743,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <p>Generated at {html.escape(built_at)}.</p>
   </footer>
 
-  <script src="assets/site.js?v={ASSET_VERSION}"></script>
+  <script src="assets/site.js?v={ASSET_VERSION}"></script>{render_analytics()}
 </body>
 </html>
 """
@@ -804,6 +826,7 @@ def render_month(
   <footer>
     <p>Maintained by Academic Door / 学术传送门。Hosted on GitHub Pages。</p>
   </footer>
+{render_analytics()}
 </body>
 </html>
 """
@@ -885,6 +908,7 @@ def render_week(issue: WeekIssue) -> str:
   <footer>
     <p>Maintained by Academic Door / 学术传送门。Hosted on GitHub Pages。</p>
   </footer>
+{render_analytics()}
 </body>
 </html>
 """
@@ -937,6 +961,15 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <p>本地工作流会继续生成公众号 ready 稿，供人工审核后发布到“学术传送门”。</p>
     </section>
     <section class="paper-detail">
+      <h2>RSS 订阅</h2>
+      <p>你可以使用 RSS 阅读器订阅本站更新。复制 <a href="feed.xml">RSS Feed</a> 地址到 Feedly、Inoreader、Follow、NetNewsWire、Reeder 等阅读器中，即可在每周更新后收到最新一期 NBER 工作论文目录。</p>
+      <p>公开站点启用后，RSS 地址为 <code>{SITE_URL}/feed.xml</code>；JSON Feed 地址为 <code>{SITE_URL}/feed.json</code>。</p>
+    </section>
+    <section class="paper-detail">
+      <h2>访问统计</h2>
+      <p>本站预留轻量访问统计接口。设置 GitHub Actions Secret <code>CF_WEB_ANALYTICS_TOKEN</code> 后，构建时会自动注入 Cloudflare Web Analytics 脚本；未设置时不会加载任何第三方统计脚本。</p>
+    </section>
+    <section class="paper-detail">
       <h2>版权与声明</h2>
       <p>本站不是 NBER 官方项目。论文原文、版本更新、版权信息和引用格式请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
       <p>本站仅发布目录、作者、摘要、中文导读和原文链接，用于非商业学术交流和资料检索。</p>
@@ -953,6 +986,7 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <p><a href="index.html">返回主页</a></p>
     <p>Generated at {html.escape(built_at)}.</p>
   </footer>
+{render_analytics()}
 </body>
 </html>
 """
