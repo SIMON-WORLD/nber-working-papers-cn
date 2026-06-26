@@ -705,10 +705,9 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     </section>
 
     <section class="status-strip" aria-label="更新状态">
-      <div><span>最近构建</span><strong>{html.escape(built_at)}</strong></div>
+      <div><span>页面更新</span><strong>{html.escape(built_at)}</strong></div>
       <div><span>最新周报</span><strong>{html.escape(latest_week.date) if latest_week else "暂无"}</strong></div>
       <div><span>周报中文摘要</span><strong>{translated_weekly_papers} / {total_weekly_papers}</strong></div>
-      <div><span>RSS</span><strong><a href="feed.xml">feed.xml</a></strong></div>
     </section>
 
     {latest_week_html}
