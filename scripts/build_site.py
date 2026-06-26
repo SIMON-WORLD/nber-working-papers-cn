@@ -11,6 +11,7 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
 from email.utils import format_datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +25,7 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
 ASSET_VERSION = "20260625a"
 SITE_URL = "https://simon-world.github.io/nber-working-papers-cn"
+BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 
 CHINA_TERMS = (
     "china",
@@ -1120,7 +1122,7 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
     <title>学术传送门 NBER 工作论文</title>
     <link>{SITE_URL}/</link>
     <description>面向中文读者的 NBER Working Papers 非官方归档。</description>
-    <lastBuildDate>{format_datetime(datetime.now().astimezone())}</lastBuildDate>
+    <lastBuildDate>{format_datetime(datetime.now(BEIJING_TZ))}</lastBuildDate>
 {chr(10).join(rss_items)}
   </channel>
 </rss>
@@ -1199,10 +1201,11 @@ def main() -> None:
     else:
         week_files = collect_weekly_files(args.weekly_source.resolve())
         weeks = [parse_week(path, translation_cache) for path in week_files]
-    cutoff_date = datetime.now().date()
+    now_beijing = datetime.now(BEIJING_TZ)
+    cutoff_date = now_beijing.date()
     original_week_count = len(weeks)
     weeks = filter_published_weeks(weeks, cutoff_date)
-    built_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    built_at = now_beijing.strftime("%Y-%m-%d %H:%M:%S 北京时间")
 
     (output / "assets").mkdir(parents=True, exist_ok=True)
     (output / "data").mkdir(parents=True, exist_ok=True)
