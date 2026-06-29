@@ -7210,13 +7210,13 @@
       "number": "33832",
       "title": "A Double Dose of Reform: Insurance and Centralized Negotiation in Drug Markets",
       "authors": "Panle Jia Barwick, Ashley T. Swanson, Tianli Xia",
-      "abstract": "",
+      "abstract": "Making innovative drugs affordable and accessible is a pressing global challenge. Centralized negotiation is an increasingly popular policy solution, but it remains understudied despite wide variation in implementation. This paper studies China’s ongoing National Reimbursement Drug List (NRDL) Reform, which combines centralized drug price negotiation with expanded insurance coverage. The reform reduced retail prices by 48% and out-of-pocket costs by 80%, and increased drug utilization by 350%. At the same time, the insurance design was regressive, and 25% of negotiations failed. Focusing on cancer drugs, we estimate a flexible demand and supply model that features heterogeneous households, bargaining with potential breakdowns, and a government objective function that depends on consumer surplus and insurance spending. We estimate that including innovative cancer drugs in the NRDL generated Y40 billion ($5.6 billion) in annual consumer surplus gains and increased survival by 900,000 life-years among Chinese cancer patients each year. Among the counterfactual policies we examined, centralized market-access negotiation with an optimal coinsurance schedule raises social surplus by 19% relative to the observed policy and achieves 90% of the social surplus of an efficient benchmark.",
       "meta": "Programs：EH, IO, PE；JEL：I0, L0",
       "url": "https://www.nber.org/papers/w33832",
       "week_date": "2025-05-26",
       "zh_title": "双重改革：药品市场中的保险与集中谈判",
       "zh_abstract": "使创新药物可负担且可及是一个紧迫的全球性挑战。集中谈判是一种日益流行的政策解决方案，但尽管实施方式差异很大，它仍未得到充分研究。本文研究了中国正在进行的国家医保药品目录（NRDL）改革，该改革将集中药品价格谈判与扩大保险覆盖范围相结合。改革使零售价格降低了48%，自付费用降低了80%，并增加了350%的药品使用量。与此同时，保险设计是累退的，并且25%的谈判失败。聚焦于抗癌药物，我们估计了一个灵活的需求和供给模型，该模型包含异质性家庭、可能破裂的谈判，以及一个依赖于消费者剩余和保险支出的政府目标函数。我们估计，将创新抗癌药物纳入NRDL每年为中国癌症患者带来了400亿元人民币（56亿美元）的消费者剩余收益，并每年增加了90万生命年的生存期。在我们考察的反事实政策中，采用最优共付率表的集中市场准入谈判相对于观察到的政策将社会剩余提高了19%，并达到了有效基准社会剩余的90%。",
-      "is_china_related": false
+      "is_china_related": true
     },
     {
       "index": 30,

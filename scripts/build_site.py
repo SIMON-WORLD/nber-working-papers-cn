@@ -23,7 +23,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
-ASSET_VERSION = "20260625a"
+ASSET_VERSION = "20260629p0"
 SITE_URL = "https://simon-world.github.io/nber-working-papers-cn"
 BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 
@@ -256,8 +256,21 @@ def render_page_tools(prefix: str = "") -> str:
     </nav>"""
 
 
+def find_existing_analytics_token(output: Path = DEFAULT_OUTPUT) -> str:
+    pattern = re.compile(r'data-cf-beacon=[\'"]\{"token":"([^"]+)"\}[\'"]')
+    for path in (output / "index.html", output / "about.html"):
+        if not path.exists():
+            continue
+        match = pattern.search(path.read_text(encoding="utf-8"))
+        if match:
+            return match.group(1).strip()
+    return ""
+
+
 def render_analytics() -> str:
     token = os.environ.get("CF_WEB_ANALYTICS_TOKEN", "").strip()
+    if not token:
+        token = find_existing_analytics_token()
     if not token:
         return ""
     return f'\n  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{{"token":"{html.escape(token)}"}}\'></script>'
@@ -275,6 +288,28 @@ def load_translation_cache(path: Path) -> dict[str, dict[str, str]]:
                 "zh_abstract": clean(item.get("zh_abstract", "")),
             }
     return cache
+
+
+def seed_translation_cache_from_docs(cache: dict[str, dict[str, str]], output: Path) -> int:
+    docs_index = output / "data" / "weekly_papers.json"
+    if not docs_index.exists():
+        return 0
+    raw = json.loads(docs_index.read_text(encoding="utf-8"))
+    added = 0
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        number = clean(item.get("number", ""))
+        zh_title = clean(item.get("zh_title", ""))
+        zh_abstract = clean(item.get("zh_abstract", ""))
+        if not number or not zh_title or not zh_abstract:
+            continue
+        existing = cache.get(number, {})
+        if existing.get("zh_title") and existing.get("zh_abstract"):
+            continue
+        cache[number] = {"zh_title": zh_title, "zh_abstract": zh_abstract}
+        added += 1
+    return added
 
 
 def collect_ready_files(source: Path) -> list[Path]:
@@ -629,7 +664,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     month_range = year_range_label({issue.year for issue in months})
     weekly_range = year_range_label({issue.year for issue in weeks})
     latest_week_label = latest_week.date if latest_week else latest.key
-    latest_week_title = f"\u6700\u65b0\u4e00\u5468 NBER \u5de5\u4f5c\u8bba\u6587\uff08updated on: {latest_week.date}\uff09" if latest_week else "\u6700\u65b0\u4e00\u5468 NBER \u5de5\u4f5c\u8bba\u6587"
+    latest_week_title = f"最新一周 NBER 工作论文（{latest_week.date}）" if latest_week else "最新一周 NBER 工作论文"
     latest_week_html = ""
     if latest_week:
         latest_week_html = f"""
@@ -672,7 +707,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <div class="stats" aria-label="站点统计">
         <span><strong>{weekly_range}</strong> 周报跨度</span>
         <span><strong>{len(months)}</strong> 月度合集</span>
-        <span><strong>{latest_week_label}</strong> 最新更新</span>
+        <span><strong>{latest_week_label}</strong> 最新周报</span>
       </div>
       <div class="follow-card" aria-label="微信公众号">
         <img class="wechat-qr" src="assets/images/academic-door-qr.jpg" alt="学术传送门微信公众号二维码">
@@ -687,7 +722,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <a class="quick-card" href="{f'weekly/{latest_week.date}.html' if latest_week else '#'}">
         <span>最新周报</span>
         <strong>{len(latest_week.papers) if latest_week else 0} 篇</strong>
-        <small>updated on: {html.escape(latest_week.date) if latest_week else "暂无"}</small>
+        <small>最新一期：{html.escape(latest_week.date) if latest_week else "暂无"}</small>
       </a>
       <a class="quick-card" href="#archiveList">
         <span>月度中文合集</span>
@@ -697,17 +732,17 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <a class="quick-card" href="#paperList" data-quick-source="weekly">
         <span>周报全量</span>
         <strong>{total_weekly_papers} 篇</strong>
-        <small>{weekly_range}，{translated_weekly_papers} 篇已有中文摘要</small>
+        <small>{weekly_range}，官方全量索引；{translated_weekly_papers} 篇已有中文摘要</small>
       </a>
       <a class="quick-card" href="#paperList" data-quick-filter="china">
         <span>中国相关</span>
         <strong>{china_papers} 篇</strong>
-        <small>来自月度中文合集筛选</small>
+        <small>来自月度中文合集筛选，供选题参考</small>
       </a>
     </section>
 
     <section class="status-strip" aria-label="更新状态">
-      <div><span>页面更新</span><strong>{html.escape(built_at)}</strong></div>
+      <div><span>网站更新时间</span><strong>{html.escape(built_at)}</strong></div>
       <div><span>最新周报</span><strong>{html.escape(latest_week.date) if latest_week else "暂无"}</strong></div>
       <div><span>周报中文摘要</span><strong>{translated_weekly_papers} / {total_weekly_papers}</strong></div>
     </section>
@@ -719,7 +754,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
         <button type="button" class="active" data-source="monthly">月度中文合集</button>
         <button type="button" data-source="weekly">周报全量</button>
       </div>
-      <input id="searchInput" type="search" placeholder="搜索标题、作者、摘要或 NBER 编号" autocomplete="off">
+      <input id="searchInput" type="search" placeholder="搜索英文标题、中文标题、作者、摘要或 NBER 编号" autocomplete="off">
       <select id="yearFilter" aria-label="按年份筛选">
         <option value="">全部年份</option>
         {''.join(f'<option value="{year}">{year}</option>' for year in years)}
@@ -757,7 +792,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <p>订阅：<a href="feed.xml">RSS Feed</a> / <a href="feed.json">JSON Feed</a></p>
     <p><a href="about.html">关于本站与更新说明</a></p>
     <p>本站为 Academic Door / 学术传送门维护的面向中文读者的非官方学术交流项目。论文原文、版本更新与版权信息请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
-    <p>Generated at {html.escape(built_at)}.</p>
+    <p>网站更新时间：{html.escape(built_at)}。</p>
   </footer>
 
   <script src="assets/site.js?v={ASSET_VERSION}"></script>{render_analytics()}
@@ -852,7 +887,7 @@ def render_month(
 def render_week(issue: WeekIssue) -> str:
     rows = "\n".join(render_week_article(paper) for paper in issue.papers)
     intro = "".join(f"<p>{html.escape(line)}</p>" for line in issue.intro)
-    display_title = f"NBER 工作论文周报（updated on: {issue.date}）"
+    display_title = f"NBER 工作论文周报（{issue.date}）"
     china_count = sum(1 for paper in issue.papers if paper.is_china_related)
     translated_count = sum(1 for paper in issue.papers if paper.zh_title or paper.zh_abstract)
     china_link = '<a href="#china-related">只看中国相关</a>' if china_count else ""
@@ -887,7 +922,7 @@ def render_week(issue: WeekIssue) -> str:
     <title>{html.escape(display_title)}</title>
     <meta name="description" content="{html.escape(display_title)}。">
     <meta property="og:title" content="{html.escape(display_title)}">
-    <meta property="og:description" content="{issue.date} NBER 工作论文周报。">
+    <meta property="og:description" content="{issue.date} NBER 工作论文周报，官方全量口径整理。">
     <meta property="og:type" content="article">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../assets/style.css?v={ASSET_VERSION}">
@@ -897,7 +932,7 @@ def render_week(issue: WeekIssue) -> str:
     <div>
       <p class="eyebrow"><a href="../index.html">学术传送门 NBER 工作论文</a></p>
       <h1>{html.escape(display_title)}</h1>
-      <p class="lead">{issue.date}，共 {len(issue.papers)} 篇。</p>
+      <p class="lead">{issue.date}，共 {len(issue.papers)} 篇。周报采用 NBER 官方全量元数据；中文标题与摘要为阶段性翻译覆盖。</p>
     </div>
   </header>
   <main class="month-page">
@@ -912,7 +947,7 @@ def render_week(issue: WeekIssue) -> str:
     </section>
     <section class="quick-sections week-summary-grid" aria-label="本周统计">
       <div class="quick-card"><span>本周论文</span><strong>{len(issue.papers)} 篇</strong><small>官方全量口径</small></div>
-      <div class="quick-card"><span>中文翻译</span><strong>{translated_count} 篇</strong><small>标题或摘要已翻译</small></div>
+      <div class="quick-card"><span>中文翻译</span><strong>{translated_count} 篇</strong><small>标题或摘要已翻译；未覆盖处显示待补充</small></div>
       <div class="quick-card"><span>中国相关</span><strong>{china_count} 篇</strong><small>按标题、作者、摘要关键词识别</small></div>
     </section>
     {china_section}
@@ -965,16 +1000,16 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <section class="quick-sections">
       <div class="quick-card"><span>周报跨度</span><strong>{weekly_range}</strong><small>{total_weekly} 篇全量周报索引</small></div>
       <div class="quick-card"><span>月度合集</span><strong>{month_range}</strong><small>{total_monthly} 篇中文摘要</small></div>
-      <div class="quick-card"><span>最新更新</span><strong>{html.escape(latest_week)}</strong><small>最新月度合集：{html.escape(latest_month)}</small></div>
+      <div class="quick-card"><span>最新周报</span><strong>{html.escape(latest_week)}</strong><small>最新月度合集：{html.escape(latest_month)}</small></div>
     </section>
     <section class="paper-detail">
       <h2>本站收录什么</h2>
       <p>周报页面按 NBER 官方工作论文元数据汇总生成，采用官方全量口径，不按 Programs、JEL 或邮件订阅偏好筛选。月度页面来自学术传送门整理稿，保留中文标题、作者、英文摘要和中文摘要，适合做公众号选题和发布前检索。</p>
-      <p>首页提供两个检索范围：“月度中文合集”偏向已整理素材，“周报全量”偏向完整 NBER 工作论文索引。</p>
+      <p>首页提供两个检索范围：“月度中文合集”偏向已整理素材，“周报全量”偏向完整 NBER 工作论文索引。周报全量中的中文摘要为阶段性覆盖，不代表全部历史条目已经翻译。</p>
     </section>
     <section class="paper-detail">
       <h2>更新流程</h2>
-      <p>GitHub Actions 每周一 12:00 北京时间自动下载 NBER 元数据，补充最新一周的中文翻译缓存，并重建静态站点。翻译由 DeepSeek 辅助生成，仍需以论文原文为准。</p>
+      <p>GitHub Actions 每周一 12:00 北京时间后自动检查 NBER 元数据，补充最新一周的中文翻译缓存，并重建静态站点。GitHub 定时任务可能延迟执行；翻译由 DeepSeek 辅助生成，仍需以论文原文为准。</p>
       <p>本地工作流会继续生成公众号 ready 稿，供人工审核后发布到“学术传送门”。</p>
     </section>
     <section class="paper-detail">
@@ -1195,6 +1230,7 @@ def main() -> None:
 
     months = [parse_month(path) for path in files]
     translation_cache = load_translation_cache(args.translation_cache.resolve())
+    seeded_translations = seed_translation_cache_from_docs(translation_cache, output)
     if args.weekly_mode == "full-tsv":
         weeks = build_full_weekly_from_metadata(args.metadata_source.resolve(), translation_cache)
     else:
@@ -1230,6 +1266,8 @@ def main() -> None:
     weekly_total = sum(len(issue.papers) for issue in weeks)
     skipped_future = original_week_count - len(weeks)
     print(f"Built {len(months)} monthly pages ({total} papers) and {len(weeks)} weekly pages ({weekly_total} papers) into {output}")
+    if seeded_translations:
+        print(f"Seeded {seeded_translations} weekly translations from existing docs/data.")
     if skipped_future:
         print(f"Skipped {skipped_future} future weekly issue(s) after {cutoff_date.isoformat()}.")
 

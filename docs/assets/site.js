@@ -34,7 +34,11 @@
   function setError() {
     archiveList.innerHTML = "";
     weeklyList.innerHTML = "";
-    paperList.innerHTML = `<article class="paper-card"><h3>数据加载失败</h3><p class="summary">请通过本地服务器或 GitHub Pages 访问本站，例如在项目目录运行 <code>python -m http.server 8765 --bind 127.0.0.1 --directory docs</code> 后打开 <code>http://127.0.0.1:8765/</code>。</p></article>`;
+    const isFile = window.location.protocol === "file:";
+    const fileHint = isFile
+      ? "当前是 file:// 打开方式，浏览器会阻止加载本站的 JSON 数据。"
+      : "当前网络或页面路径无法加载本站 JSON 数据。";
+    paperList.innerHTML = `<article class="paper-card"><h3>数据加载失败</h3><p class="summary">${fileHint} 请通过本地服务器或 GitHub Pages 访问本站：在项目目录运行 <code>python -m http.server 8765 --bind 127.0.0.1 --directory docs</code>，然后打开 <code>http://127.0.0.1:8765/</code>；公开站点为 <code>https://simon-world.github.io/nber-working-papers-cn/</code>。</p></article>`;
     resultCount.textContent = "加载失败";
     pageInfo.textContent = "";
     prevPage.disabled = true;
@@ -166,6 +170,11 @@
     pageInfo.textContent = `第 ${currentPage} / ${totalPages} 页`;
     prevPage.disabled = currentPage <= 1;
     nextPage.disabled = currentPage >= totalPages;
+    if (!filtered.length) {
+      const scopeLabel = sourceMode === "weekly" ? "周报全量" : "月度中文合集";
+      paperList.innerHTML = `<article class="paper-card"><h3>没有找到匹配论文</h3><p class="summary">当前范围为${scopeLabel}。可以尝试减少关键词、切换年份，或用作者名、NBER 编号、英文标题关键词重新搜索。</p></article>`;
+      return;
+    }
     paperList.innerHTML = filtered
       .slice(start, start + pageSize)
       .map((paper) => {
