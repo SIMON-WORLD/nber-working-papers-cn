@@ -4,7 +4,13 @@
     <title>学术传送门 NBER 工作论文</title>
     <link>https://simon-world.github.io/nber-working-papers-cn/</link>
     <description>面向中文读者的 NBER Working Papers 非官方归档。</description>
-    <lastBuildDate>Sat, 27 Jun 2026 02:04:39 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 12:42:11 +0800</lastBuildDate>
+    <item>
+      <title>NBER Working Papers 2026-06-29 (22 papers)</title>
+      <link>https://simon-world.github.io/nber-working-papers-cn/weekly/2026-06-29.html</link>
+      <guid>https://simon-world.github.io/nber-working-papers-cn/weekly/2026-06-29.html</guid>
+      <description>NBER Working Papers weekly archive for 2026-06-29, 22 papers.</description>
+    </item>
     <item>
       <title>NBER Working Papers 2026-06-22 (26 papers)</title>
       <link>https://simon-world.github.io/nber-working-papers-cn/weekly/2026-06-22.html</link>
@@ -118,12 +124,6 @@
       <link>https://simon-world.github.io/nber-working-papers-cn/weekly/2026-02-16.html</link>
       <guid>https://simon-world.github.io/nber-working-papers-cn/weekly/2026-02-16.html</guid>
       <description>NBER Working Papers weekly archive for 2026-02-16, 30 papers.</description>
-    </item>
-    <item>
-      <title>NBER Working Papers 2026-02-09 (34 papers)</title>
-      <link>https://simon-world.github.io/nber-working-papers-cn/weekly/2026-02-09.html</link>
-      <guid>https://simon-world.github.io/nber-working-papers-cn/weekly/2026-02-09.html</guid>
-      <description>NBER Working Papers weekly archive for 2026-02-09, 34 papers.</description>
     </item>
   </channel>
 </rss>
