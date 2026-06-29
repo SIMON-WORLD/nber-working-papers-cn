@@ -4,10 +4,16 @@ on:
   workflow_dispatch:
   schedule:
     # GitHub scheduled workflows are UTC and not guaranteed to run exactly on time.
-    # Keep a primary Monday 12:00 Beijing run plus two same-day fallbacks.
+    # Keep a primary Monday 12:00 Beijing run plus same-day fallbacks.
+    # Repeated runs are cheap because existing translations are seeded from docs/data.
     - cron: "0 4 * * 1"
+    - cron: "15 4 * * 1"
     - cron: "30 4 * * 1"
+    - cron: "45 4 * * 1"
     - cron: "0 5 * * 1"
+    - cron: "30 5 * * 1"
+    - cron: "0 6 * * 1"
+    - cron: "0 7 * * 1"
 
 permissions:
   contents: write
