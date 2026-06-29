@@ -6,6 +6,7 @@ import html
 import json
 import os
 import re
+import time
 from collections import defaultdict
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
@@ -23,7 +24,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
-ASSET_VERSION = "20260629p1"
+ASSET_VERSION = "20260629p2"
 SITE_URL = "https://simon-world.github.io/nber-working-papers-cn"
 BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 
@@ -116,7 +117,16 @@ def read_text(path: Path) -> str:
 def write_text_if_changed(path: Path, text: str) -> None:
     if path.exists() and path.read_text(encoding="utf-8") == text:
         return
-    path.write_text(text, encoding="utf-8")
+    last_error: PermissionError | None = None
+    for attempt in range(6):
+        try:
+            path.write_text(text, encoding="utf-8")
+            return
+        except PermissionError as exc:
+            last_error = exc
+            time.sleep(0.4 * (attempt + 1))
+    if last_error:
+        raise last_error
 
 
 def parse_iso_date(value: str) -> datetime.date:
@@ -665,9 +675,6 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     weekly_range = year_range_label({issue.year for issue in weeks})
     latest_week_label = latest_week.date if latest_week else latest.key
     latest_week_title = f"最新一周 NBER 工作论文（{latest_week.date}）" if latest_week else "最新一周 NBER 工作论文"
-    rss_url = f"{SITE_URL}/feed.xml"
-    json_url = f"{SITE_URL}/feed.json"
-    status_url = f"{SITE_URL}/data/site_status.json"
     latest_week_html = ""
     if latest_week:
         latest_week_html = f"""
@@ -744,42 +751,6 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       </a>
     </section>
 
-    <section class="status-strip" aria-label="更新状态">
-      <div><span>网站更新时间</span><strong>{html.escape(built_at)}</strong></div>
-      <div><span>最新周报</span><strong>{html.escape(latest_week.date) if latest_week else "暂无"}</strong></div>
-      <div><span>周报中文摘要</span><strong>{translated_weekly_papers} / {total_weekly_papers}</strong></div>
-    </section>
-
-    <section class="resource-strip" aria-label="订阅与状态">
-      <article class="resource-card">
-        <span>RSS 订阅</span>
-        <strong>每周更新提醒</strong>
-        <p>把 RSS 地址复制到 Feedly、Inoreader、Follow、Reeder 等阅读器即可订阅。</p>
-        <div class="resource-actions">
-          <a href="feed.xml">打开 RSS</a>
-          <button type="button" class="copy-button" data-copy="{html.escape(rss_url)}">复制 RSS 地址</button>
-        </div>
-      </article>
-      <article class="resource-card">
-        <span>JSON Feed</span>
-        <strong>给自动化工具使用</strong>
-        <p>适合给订阅工具、脚本或后续工作流读取最新周报。</p>
-        <div class="resource-actions">
-          <a href="feed.json">打开 JSON</a>
-          <button type="button" class="copy-button" data-copy="{html.escape(json_url)}">复制 JSON 地址</button>
-        </div>
-      </article>
-      <article class="resource-card">
-        <span>更新状态</span>
-        <strong>机器可读状态</strong>
-        <p>记录最近构建时间、最新周报、收录数量和中文摘要覆盖情况。</p>
-        <div class="resource-actions">
-          <a href="data/site_status.json">查看状态</a>
-          <button type="button" class="copy-button" data-copy="{html.escape(status_url)}">复制状态地址</button>
-        </div>
-      </article>
-    </section>
-
     {latest_week_html}
 
     <section class="toolbar" aria-label="检索工具">
@@ -828,7 +799,7 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   </main>
 
   <footer>
-      <p>订阅：<a href="feed.xml">RSS Feed</a> / <a href="feed.json">JSON Feed</a></p>
+    <p>订阅：<a href="feed.xml">RSS Feed</a></p>
     <p><a href="about.html">关于本站与更新说明</a></p>
     <p>本站为 Academic Door / 学术传送门维护的面向中文读者的非官方学术交流项目。论文原文、版本更新与版权信息请以 <a href="https://www.nber.org/papers" target="_blank" rel="noopener">NBER 官网</a> 为准。</p>
     <p>网站更新时间：{html.escape(built_at)}。</p>
@@ -1029,40 +1000,22 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="index.html">学术传送门 NBER 工作论文</a></p>
-      <h1>关于本站与更新说明</h1>
-      <p class="lead">这是 Academic Door / 学术传送门维护的 NBER Working Papers 非官方中文整理项目，用于学术交流、检索归档和公众号选题。</p>
+      <h1>关于本站</h1>
+      <p class="lead">学术传送门维护的 NBER Working Papers 中文整理项目，方便中文读者查看最新工作论文、检索历史归档，并服务公众号选题。</p>
     </div>
   </header>
   <main class="about-page">
     {render_site_nav("about", weeks[-1].date if weeks else None)}
     {render_page_tools("")}
-    <section class="quick-sections">
-      <div class="quick-card"><span>周报跨度</span><strong>{weekly_range}</strong><small>{total_weekly} 篇全量周报索引</small></div>
-      <div class="quick-card"><span>月度合集</span><strong>{month_range}</strong><small>{total_monthly} 篇中文摘要</small></div>
-      <div class="quick-card"><span>最新周报</span><strong>{html.escape(latest_week)}</strong><small>最新月度合集：{html.escape(latest_month)}</small></div>
+    <section class="about-summary">
+      <div><span>周报跨度</span><strong>{weekly_range}</strong><small>{total_weekly} 篇全量周报索引</small></div>
+      <div><span>月度合集</span><strong>{month_range}</strong><small>{total_monthly} 篇中文摘要</small></div>
+      <div><span>最新周报</span><strong>{html.escape(latest_week)}</strong><small>最新月度合集：{html.escape(latest_month)}</small></div>
     </section>
     <section class="paper-detail">
-      <h2>本站收录什么</h2>
-      <p>周报页面按 NBER 官方工作论文元数据汇总生成，采用官方全量口径，不按 Programs、JEL 或邮件订阅偏好筛选。月度页面来自学术传送门整理稿，保留中文标题、作者、英文摘要和中文摘要，适合做公众号选题和发布前检索。</p>
-      <p>首页提供两个检索范围：“月度中文合集”偏向已整理素材，“周报全量”偏向完整 NBER 工作论文索引。周报全量中的中文摘要为阶段性覆盖，不代表全部历史条目已经翻译。</p>
-    </section>
-    <section class="paper-detail">
-      <h2>更新流程</h2>
-      <p>GitHub Actions 每周一 12:00 北京时间后自动检查 NBER 元数据，补充最新一周的中文翻译缓存，并重建静态站点。GitHub 定时任务可能延迟执行；翻译由 DeepSeek 辅助生成，仍需以论文原文为准。</p>
-      <p>本地工作流会继续生成公众号 ready 稿，供人工审核后发布到“学术传送门”。</p>
-    </section>
-    <section class="paper-detail">
-      <h2>RSS 订阅</h2>
-      <p>RSS 是一种网页更新订阅方式。把本站 RSS 地址复制到 Feedly、Inoreader、Follow、NetNewsWire、Reeder 等阅读器中，阅读器会在每周更新后自动显示最新一期 NBER 工作论文目录。</p>
-      <div class="rss-help-grid">
-        <div><span>RSS Feed</span><code>{SITE_URL}/feed.xml</code><button type="button" class="copy-button" data-copy="{SITE_URL}/feed.xml">复制 RSS 地址</button></div>
-        <div><span>JSON Feed</span><code>{SITE_URL}/feed.json</code><button type="button" class="copy-button" data-copy="{SITE_URL}/feed.json">复制 JSON 地址</button></div>
-      </div>
-    </section>
-    <section class="paper-detail">
-      <h2>访问统计</h2>
-      <p>本站使用可选的 Cloudflare Web Analytics。设置 GitHub Actions Secret <code>CF_WEB_ANALYTICS_TOKEN</code> 后，构建时会自动注入统计脚本；未设置时不会加载任何第三方统计脚本。</p>
-      <p>公开站点的机器可读更新状态在 <a href="data/site_status.json">data/site_status.json</a>，可用于检查最新周报日期、构建时间和中文摘要覆盖数量。</p>
+      <h2>数据与更新</h2>
+      <p>周报采用 NBER 官方公开元数据的全量口径，不按邮件订阅、Programs 或 JEL 筛选。月度中文合集来自学术传送门 ready 稿，更适合公众号选题和发布前审核。</p>
+      <p>网站每周一 12:00 北京时间后自动检查更新。中文标题与摘要由 DeepSeek 辅助翻译，仍请以 NBER 原文为准。</p>
     </section>
     <section class="paper-detail">
       <h2>版权与声明</h2>
@@ -1081,7 +1034,7 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     <p><a href="index.html">返回主页</a></p>
     <p>网站更新时间：{html.escape(built_at)}。</p>
   </footer>
-<script src="assets/site.js?v={ASSET_VERSION}"></script>{render_analytics()}
+{render_analytics()}
 </body>
 </html>
 """

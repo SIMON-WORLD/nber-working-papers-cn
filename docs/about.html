@@ -9,14 +9,14 @@
     <meta property="og:description" content="站点说明、更新频率、数据来源与版权声明。">
     <meta property="og:type" content="article">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/style.css?v=20260629p1">
+    <link rel="stylesheet" href="assets/style.css?v=20260629p2">
   </head>
   <body id="top">
   <header class="site-header compact">
     <div>
       <p class="eyebrow"><a href="index.html">学术传送门 NBER 工作论文</a></p>
-      <h1>关于本站与更新说明</h1>
-      <p class="lead">这是 Academic Door / 学术传送门维护的 NBER Working Papers 非官方中文整理项目，用于学术交流、检索归档和公众号选题。</p>
+      <h1>关于本站</h1>
+      <p class="lead">学术传送门维护的 NBER Working Papers 中文整理项目，方便中文读者查看最新工作论文、检索历史归档，并服务公众号选题。</p>
     </div>
   </header>
   <main class="about-page">
@@ -26,33 +26,15 @@
       <a href="index.html">返回主页</a>
       <a href="index.html#archiveList">月度合集</a>
     </nav>
-    <section class="quick-sections">
-      <div class="quick-card"><span>周报跨度</span><strong>1973-2026</strong><small>34985 篇全量周报索引</small></div>
-      <div class="quick-card"><span>月度合集</span><strong>2020-2026</strong><small>8367 篇中文摘要</small></div>
-      <div class="quick-card"><span>最新周报</span><strong>2026-06-29</strong><small>最新月度合集：2026-05</small></div>
+    <section class="about-summary">
+      <div><span>周报跨度</span><strong>1973-2026</strong><small>34985 篇全量周报索引</small></div>
+      <div><span>月度合集</span><strong>2020-2026</strong><small>8367 篇中文摘要</small></div>
+      <div><span>最新周报</span><strong>2026-06-29</strong><small>最新月度合集：2026-05</small></div>
     </section>
     <section class="paper-detail">
-      <h2>本站收录什么</h2>
-      <p>周报页面按 NBER 官方工作论文元数据汇总生成，采用官方全量口径，不按 Programs、JEL 或邮件订阅偏好筛选。月度页面来自学术传送门整理稿，保留中文标题、作者、英文摘要和中文摘要，适合做公众号选题和发布前检索。</p>
-      <p>首页提供两个检索范围：“月度中文合集”偏向已整理素材，“周报全量”偏向完整 NBER 工作论文索引。周报全量中的中文摘要为阶段性覆盖，不代表全部历史条目已经翻译。</p>
-    </section>
-    <section class="paper-detail">
-      <h2>更新流程</h2>
-      <p>GitHub Actions 每周一 12:00 北京时间后自动检查 NBER 元数据，补充最新一周的中文翻译缓存，并重建静态站点。GitHub 定时任务可能延迟执行；翻译由 DeepSeek 辅助生成，仍需以论文原文为准。</p>
-      <p>本地工作流会继续生成公众号 ready 稿，供人工审核后发布到“学术传送门”。</p>
-    </section>
-    <section class="paper-detail">
-      <h2>RSS 订阅</h2>
-      <p>RSS 是一种网页更新订阅方式。把本站 RSS 地址复制到 Feedly、Inoreader、Follow、NetNewsWire、Reeder 等阅读器中，阅读器会在每周更新后自动显示最新一期 NBER 工作论文目录。</p>
-      <div class="rss-help-grid">
-        <div><span>RSS Feed</span><code>https://simon-world.github.io/nber-working-papers-cn/feed.xml</code><button type="button" class="copy-button" data-copy="https://simon-world.github.io/nber-working-papers-cn/feed.xml">复制 RSS 地址</button></div>
-        <div><span>JSON Feed</span><code>https://simon-world.github.io/nber-working-papers-cn/feed.json</code><button type="button" class="copy-button" data-copy="https://simon-world.github.io/nber-working-papers-cn/feed.json">复制 JSON 地址</button></div>
-      </div>
-    </section>
-    <section class="paper-detail">
-      <h2>访问统计</h2>
-      <p>本站使用可选的 Cloudflare Web Analytics。设置 GitHub Actions Secret <code>CF_WEB_ANALYTICS_TOKEN</code> 后，构建时会自动注入统计脚本；未设置时不会加载任何第三方统计脚本。</p>
-      <p>公开站点的机器可读更新状态在 <a href="data/site_status.json">data/site_status.json</a>，可用于检查最新周报日期、构建时间和中文摘要覆盖数量。</p>
+      <h2>数据与更新</h2>
+      <p>周报采用 NBER 官方公开元数据的全量口径，不按邮件订阅、Programs 或 JEL 筛选。月度中文合集来自学术传送门 ready 稿，更适合公众号选题和发布前审核。</p>
+      <p>网站每周一 12:00 北京时间后自动检查更新。中文标题与摘要由 DeepSeek 辅助翻译，仍请以 NBER 原文为准。</p>
     </section>
     <section class="paper-detail">
       <h2>版权与声明</h2>
@@ -69,9 +51,9 @@
   </main>
   <footer>
     <p><a href="index.html">返回主页</a></p>
-    <p>网站更新时间：2026-06-29 21:47:13 北京时间。</p>
+    <p>网站更新时间：2026-06-29 22:20:17 北京时间。</p>
   </footer>
-<script src="assets/site.js?v=20260629p1"></script>
+
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
 </body>
 </html>
