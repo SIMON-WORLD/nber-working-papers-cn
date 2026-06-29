@@ -1074,7 +1074,6 @@ def write_index_data(
             "title": paper.title,
             "zh_title": paper.zh_title,
             "authors": paper.authors,
-            "abstract": paper.abstract,
             "zh_abstract": paper.zh_abstract,
             "week_date": paper.week_date,
             "index": paper.index,
