@@ -23,7 +23,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
-ASSET_VERSION = "20260629p0"
+ASSET_VERSION = "20260629p1"
 SITE_URL = "https://simon-world.github.io/nber-working-papers-cn"
 BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 
@@ -665,6 +665,9 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     weekly_range = year_range_label({issue.year for issue in weeks})
     latest_week_label = latest_week.date if latest_week else latest.key
     latest_week_title = f"最新一周 NBER 工作论文（{latest_week.date}）" if latest_week else "最新一周 NBER 工作论文"
+    rss_url = f"{SITE_URL}/feed.xml"
+    json_url = f"{SITE_URL}/feed.json"
+    status_url = f"{SITE_URL}/data/site_status.json"
     latest_week_html = ""
     if latest_week:
         latest_week_html = f"""
@@ -747,6 +750,36 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       <div><span>周报中文摘要</span><strong>{translated_weekly_papers} / {total_weekly_papers}</strong></div>
     </section>
 
+    <section class="resource-strip" aria-label="订阅与状态">
+      <article class="resource-card">
+        <span>RSS 订阅</span>
+        <strong>每周更新提醒</strong>
+        <p>把 RSS 地址复制到 Feedly、Inoreader、Follow、Reeder 等阅读器即可订阅。</p>
+        <div class="resource-actions">
+          <a href="feed.xml">打开 RSS</a>
+          <button type="button" class="copy-button" data-copy="{html.escape(rss_url)}">复制 RSS 地址</button>
+        </div>
+      </article>
+      <article class="resource-card">
+        <span>JSON Feed</span>
+        <strong>给自动化工具使用</strong>
+        <p>适合给订阅工具、脚本或后续工作流读取最新周报。</p>
+        <div class="resource-actions">
+          <a href="feed.json">打开 JSON</a>
+          <button type="button" class="copy-button" data-copy="{html.escape(json_url)}">复制 JSON 地址</button>
+        </div>
+      </article>
+      <article class="resource-card">
+        <span>更新状态</span>
+        <strong>机器可读状态</strong>
+        <p>记录最近构建时间、最新周报、收录数量和中文摘要覆盖情况。</p>
+        <div class="resource-actions">
+          <a href="data/site_status.json">查看状态</a>
+          <button type="button" class="copy-button" data-copy="{html.escape(status_url)}">复制状态地址</button>
+        </div>
+      </article>
+    </section>
+
     {latest_week_html}
 
     <section class="toolbar" aria-label="检索工具">
@@ -754,7 +787,10 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
         <button type="button" class="active" data-source="monthly">月度中文合集</button>
         <button type="button" data-source="weekly">周报全量</button>
       </div>
-      <input id="searchInput" type="search" placeholder="搜索英文标题、中文标题、作者、摘要或 NBER 编号" autocomplete="off">
+      <div class="search-box">
+        <input id="searchInput" type="search" placeholder="搜索英文标题、中文标题、作者、摘要或 NBER 编号" autocomplete="off">
+        <button type="button" id="clearSearch" aria-label="清空搜索">清空</button>
+      </div>
       <select id="yearFilter" aria-label="按年份筛选">
         <option value="">全部年份</option>
         {''.join(f'<option value="{year}">{year}</option>' for year in years)}
@@ -775,8 +811,11 @@ def render_index(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
       </aside>
       <section class="results-panel">
         <div class="panel-head">
-          <h2>论文检索</h2>
-          <span id="resultCount"></span>
+          <div>
+            <h2>论文检索</h2>
+            <p id="activeFilters" class="results-meta">月度中文合集 · 全部年份 · 全部论文</p>
+          </div>
+          <span id="resultCount" aria-live="polite"></span>
         </div>
         <div id="paperList" class="paper-list" data-loading="论文索引加载中..."></div>
         <div class="pagination" aria-label="分页">
@@ -1014,12 +1053,16 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
     </section>
     <section class="paper-detail">
       <h2>RSS 订阅</h2>
-      <p>你可以使用 RSS 阅读器订阅本站更新。复制 <a href="feed.xml">RSS Feed</a> 地址到 Feedly、Inoreader、Follow、NetNewsWire、Reeder 等阅读器中，即可在每周更新后收到最新一期 NBER 工作论文目录。</p>
-      <p>公开站点启用后，RSS 地址为 <code>{SITE_URL}/feed.xml</code>；JSON Feed 地址为 <code>{SITE_URL}/feed.json</code>。</p>
+      <p>RSS 是一种网页更新订阅方式。把本站 RSS 地址复制到 Feedly、Inoreader、Follow、NetNewsWire、Reeder 等阅读器中，阅读器会在每周更新后自动显示最新一期 NBER 工作论文目录。</p>
+      <div class="rss-help-grid">
+        <div><span>RSS Feed</span><code>{SITE_URL}/feed.xml</code><button type="button" class="copy-button" data-copy="{SITE_URL}/feed.xml">复制 RSS 地址</button></div>
+        <div><span>JSON Feed</span><code>{SITE_URL}/feed.json</code><button type="button" class="copy-button" data-copy="{SITE_URL}/feed.json">复制 JSON 地址</button></div>
+      </div>
     </section>
     <section class="paper-detail">
       <h2>访问统计</h2>
-      <p>本站预留轻量访问统计接口。设置 GitHub Actions Secret <code>CF_WEB_ANALYTICS_TOKEN</code> 后，构建时会自动注入 Cloudflare Web Analytics 脚本；未设置时不会加载任何第三方统计脚本。</p>
+      <p>本站使用可选的 Cloudflare Web Analytics。设置 GitHub Actions Secret <code>CF_WEB_ANALYTICS_TOKEN</code> 后，构建时会自动注入统计脚本；未设置时不会加载任何第三方统计脚本。</p>
+      <p>公开站点的机器可读更新状态在 <a href="data/site_status.json">data/site_status.json</a>，可用于检查最新周报日期、构建时间和中文摘要覆盖数量。</p>
     </section>
     <section class="paper-detail">
       <h2>版权与声明</h2>
@@ -1036,9 +1079,9 @@ def render_about(months: list[MonthIssue], weeks: list[WeekIssue], built_at: str
   </main>
   <footer>
     <p><a href="index.html">返回主页</a></p>
-    <p>Generated at {html.escape(built_at)}.</p>
+    <p>网站更新时间：{html.escape(built_at)}。</p>
   </footer>
-{render_analytics()}
+<script src="assets/site.js?v={ASSET_VERSION}"></script>{render_analytics()}
 </body>
 </html>
 """
@@ -1124,20 +1167,48 @@ def write_index_data(
     write_text_if_changed(data_dir / "weekly_papers.json", json.dumps(weekly_paper_items, ensure_ascii=False))
 
 
+def write_site_status(output: Path, months: list[MonthIssue], weeks: list[WeekIssue], built_at: str) -> None:
+    latest_week = weeks[-1] if weeks else None
+    total_weekly = sum(len(issue.papers) for issue in weeks)
+    translated_weekly = sum(1 for issue in weeks for paper in issue.papers if paper.zh_title or paper.zh_abstract)
+    status = {
+        "site": "Academic Door NBER Working Papers",
+        "built_at": built_at,
+        "latest_week": latest_week.date if latest_week else "",
+        "latest_week_papers": len(latest_week.papers) if latest_week else 0,
+        "monthly_issue_count": len(months),
+        "monthly_paper_count": sum(len(issue.papers) for issue in months),
+        "weekly_issue_count": len(weeks),
+        "weekly_paper_count": total_weekly,
+        "weekly_translated_count": translated_weekly,
+        "weekly_translation_coverage": round(translated_weekly / total_weekly, 4) if total_weekly else 0,
+        "rss": f"{SITE_URL}/feed.xml",
+        "json_feed": f"{SITE_URL}/feed.json",
+        "latest_week_url": f"{SITE_URL}/weekly/{latest_week.date}.html" if latest_week else "",
+    }
+    write_text_if_changed(output / "data" / "site_status.json", json.dumps(status, ensure_ascii=False, indent=2))
+
+
 def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
     latest = list(reversed(weeks[-20:]))
     rss_items = []
     json_items = []
     for issue in latest:
-        title = f"NBER Working Papers {issue.date} ({len(issue.papers)} papers)"
+        title = f"NBER 工作论文周报 {issue.date}（{len(issue.papers)} 篇）"
         url = f"{SITE_URL}/weekly/{issue.date}.html"
-        description = f"NBER Working Papers weekly archive for {issue.date}, {len(issue.papers)} papers."
+        description = f"{issue.date} NBER Working Papers 官方全量周报，共 {len(issue.papers)} 篇。"
+        issue_dt = datetime.strptime(issue.date, "%Y-%m-%d").replace(tzinfo=BEIJING_TZ)
+        content_text = "\n".join(
+            f"w{p.number} {p.title}" + (f"\n{p.zh_title}" if p.zh_title else "")
+            for p in issue.papers[:30]
+        )
         rss_items.append(
             f"""    <item>
       <title>{html.escape(title)}</title>
       <link>{html.escape(url)}</link>
       <guid>{html.escape(url)}</guid>
       <description>{html.escape(description)}</description>
+      <pubDate>{format_datetime(issue_dt)}</pubDate>
     </item>"""
         )
         json_items.append(
@@ -1146,7 +1217,8 @@ def write_feeds(output: Path, weeks: list[WeekIssue], built_at: str) -> None:
                 "url": url,
                 "title": title,
                 "summary": description,
-                "content_text": "\n".join(f"w{p.number} {p.title}" for p in issue.papers[:30]),
+                "date_published": issue_dt.isoformat(),
+                "content_text": content_text,
             }
         )
 
@@ -1251,6 +1323,7 @@ def main() -> None:
     write_text_if_changed(output / "index.html", render_index(months, weeks, built_at, translation_cache))
     write_text_if_changed(output / "about.html", render_about(months, weeks, built_at))
     write_index_data(output, months, weeks, translation_cache)
+    write_site_status(output, months, weeks, built_at)
     write_weekly_json(output, weeks, built_at)
     write_feeds(output, weeks, built_at)
     latest_week_date = weeks[-1].date if weeks else None

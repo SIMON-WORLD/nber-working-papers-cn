@@ -9,7 +9,7 @@
     <meta property="og:description" content="站点说明、更新频率、数据来源与版权声明。">
     <meta property="og:type" content="article">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/style.css?v=20260629p0">
+    <link rel="stylesheet" href="assets/style.css?v=20260629p1">
   </head>
   <body id="top">
   <header class="site-header compact">
@@ -43,12 +43,16 @@
     </section>
     <section class="paper-detail">
       <h2>RSS 订阅</h2>
-      <p>你可以使用 RSS 阅读器订阅本站更新。复制 <a href="feed.xml">RSS Feed</a> 地址到 Feedly、Inoreader、Follow、NetNewsWire、Reeder 等阅读器中，即可在每周更新后收到最新一期 NBER 工作论文目录。</p>
-      <p>公开站点启用后，RSS 地址为 <code>https://simon-world.github.io/nber-working-papers-cn/feed.xml</code>；JSON Feed 地址为 <code>https://simon-world.github.io/nber-working-papers-cn/feed.json</code>。</p>
+      <p>RSS 是一种网页更新订阅方式。把本站 RSS 地址复制到 Feedly、Inoreader、Follow、NetNewsWire、Reeder 等阅读器中，阅读器会在每周更新后自动显示最新一期 NBER 工作论文目录。</p>
+      <div class="rss-help-grid">
+        <div><span>RSS Feed</span><code>https://simon-world.github.io/nber-working-papers-cn/feed.xml</code><button type="button" class="copy-button" data-copy="https://simon-world.github.io/nber-working-papers-cn/feed.xml">复制 RSS 地址</button></div>
+        <div><span>JSON Feed</span><code>https://simon-world.github.io/nber-working-papers-cn/feed.json</code><button type="button" class="copy-button" data-copy="https://simon-world.github.io/nber-working-papers-cn/feed.json">复制 JSON 地址</button></div>
+      </div>
     </section>
     <section class="paper-detail">
       <h2>访问统计</h2>
-      <p>本站预留轻量访问统计接口。设置 GitHub Actions Secret <code>CF_WEB_ANALYTICS_TOKEN</code> 后，构建时会自动注入 Cloudflare Web Analytics 脚本；未设置时不会加载任何第三方统计脚本。</p>
+      <p>本站使用可选的 Cloudflare Web Analytics。设置 GitHub Actions Secret <code>CF_WEB_ANALYTICS_TOKEN</code> 后，构建时会自动注入统计脚本；未设置时不会加载任何第三方统计脚本。</p>
+      <p>公开站点的机器可读更新状态在 <a href="data/site_status.json">data/site_status.json</a>，可用于检查最新周报日期、构建时间和中文摘要覆盖数量。</p>
     </section>
     <section class="paper-detail">
       <h2>版权与声明</h2>
@@ -65,9 +69,9 @@
   </main>
   <footer>
     <p><a href="index.html">返回主页</a></p>
-    <p>Generated at 2026-06-29 20:36:08 北京时间.</p>
+    <p>网站更新时间：2026-06-29 21:47:13 北京时间。</p>
   </footer>
-
+<script src="assets/site.js?v=20260629p1"></script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
 </body>
 </html>

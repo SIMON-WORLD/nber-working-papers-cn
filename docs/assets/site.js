@@ -8,7 +8,9 @@
   const paperList = document.getElementById("paperList");
   const resultCount = document.getElementById("resultCount");
   const searchInput = document.getElementById("searchInput");
+  const clearSearch = document.getElementById("clearSearch");
   const yearFilter = document.getElementById("yearFilter");
+  const activeFilters = document.getElementById("activeFilters");
   const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
   const quickFilterLinks = Array.from(document.querySelectorAll("[data-quick-filter]"));
   const quickSourceLinks = Array.from(document.querySelectorAll("[data-quick-source]"));
@@ -20,6 +22,32 @@
   let sourceMode = "monthly";
   let relationFilter = "all";
   let currentPage = 1;
+
+  function setupCopyButtons() {
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const value = button.dataset.copy || "";
+        const original = button.textContent;
+        try {
+          await navigator.clipboard.writeText(value);
+          button.textContent = "已复制";
+          button.classList.add("copied");
+        } catch (error) {
+          button.textContent = "复制失败";
+        }
+        window.setTimeout(() => {
+          button.textContent = original;
+          button.classList.remove("copied");
+        }, 1800);
+      });
+    });
+  }
+
+  setupCopyButtons();
+
+  if (!archiveList || !weeklyList || !paperList || !resultCount || !searchInput || !yearFilter || !prevPage || !nextPage || !pageInfo) {
+    return;
+  }
 
   function setLoading() {
     archiveList.textContent = archiveList.dataset.loading || "加载中...";
@@ -167,6 +195,7 @@
     const start = (currentPage - 1) * pageSize;
 
     resultCount.textContent = `${filtered.length} 篇`;
+    updateActiveFilters(query, year);
     pageInfo.textContent = `第 ${currentPage} / ${totalPages} 页`;
     prevPage.disabled = currentPage <= 1;
     nextPage.disabled = currentPage >= totalPages;
@@ -197,6 +226,19 @@
         </article>`;
       })
       .join("");
+  }
+
+  function updateActiveFilters(query, year) {
+    if (!activeFilters) return;
+    const sourceLabel = sourceMode === "weekly" ? "周报全量" : "月度中文合集";
+    const relationLabel = {
+      all: "全部论文",
+      china: "中国相关",
+      translated: "有中文摘要",
+    }[relationFilter] || "全部论文";
+    const parts = [sourceLabel, year || "全部年份", relationLabel];
+    if (query) parts.push(`关键词：${query}`);
+    activeFilters.textContent = parts.join(" · ");
   }
 
   function updateFilterCounts(source, year) {
@@ -242,6 +284,15 @@
         currentPage = 1;
         renderPapers();
       });
+      if (clearSearch) {
+        clearSearch.addEventListener("click", () => {
+          searchInput.value = "";
+          yearFilter.value = "";
+          currentPage = 1;
+          renderPapers();
+          searchInput.focus();
+        });
+      }
       yearFilter.addEventListener("change", () => {
         currentPage = 1;
         renderPapers();
