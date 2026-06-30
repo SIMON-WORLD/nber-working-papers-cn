@@ -24,7 +24,7 @@ DEFAULT_WEEKLY_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" 
 DEFAULT_METADATA_SOURCE = WORKSPACE_ROOT / "workflow" / "01_sources" / "journals" / "nber"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 DEFAULT_TRANSLATION_CACHE = PROJECT_ROOT / "data" / "translations" / "nber_weekly_zh.json"
-ASSET_VERSION = "20260629p2"
+ASSET_VERSION = "20260701p1"
 SITE_URL = "https://simon-world.github.io/nber-working-papers-cn"
 BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 
