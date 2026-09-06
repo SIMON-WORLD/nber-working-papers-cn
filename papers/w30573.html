@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Differentiable State-Space Models and Hamiltonian Monte Carlo Estimation｜NBER w30573｜学术传送门</title>
+  <meta name="description" content="我们提出了一种基于可微状态空间模型与哈密顿蒙特卡洛（HMC）采样器相结合的方法，将动态随机一般均衡（DSGE）模型应用于数据。首先，我们引入了一种方法，用于对DSGE模型的扰动解相对于模型参数进行隐式自动微分。我们可以将得到的输出用于需要梯度的各种任务，例如构建HMC采样器，以估计DSGE模型的一阶和二阶近似。导数的可用性还使得一种通用的无滤波方法成为可能，">
+  <meta property="og:title" content="可微状态空间模型与哈密顿蒙特卡洛估计｜NBER w30573">
+  <meta property="og:description" content="我们提出了一种基于可微状态空间模型与哈密顿蒙特卡洛（HMC）采样器相结合的方法，将动态随机一般均衡（DSGE）模型应用于数据。首先，我们引入了一种方法，用于对DSGE模型的扰动解相对于模型参数进行隐式自动微分。我们可以将得到的输出用于需要梯度的各种任务，例如构建HMC采样器，以估计DSGE模型的一阶和二阶近似。导数的可用性还使得一种通用的无滤波方法成为可能，">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w30573.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w30573.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Differentiable State-Space Models and Hamiltonian Monte Carlo Estimation","name":"可微状态空间模型与哈密顿蒙特卡洛估计","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w30573.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w30573.html","identifier":"NBER Working Paper w30573","author":[{"@type":"Person","name":"David Childers"},{"@type":"Person","name":"Jesús Fernández-Villaverde"},{"@type":"Person","name":"Jesse Perla"},{"@type":"Person","name":"Christopher Rackauckas"},{"@type":"Person","name":"Peifan Wu"}],"abstract":"我们提出了一种基于可微状态空间模型与哈密顿蒙特卡洛（HMC）采样器相结合的方法，将动态随机一般均衡（DSGE）模型应用于数据。首先，我们引入了一种方法，用于对DSGE模型的扰动解相对于模型参数进行隐式自动微分。我们可以将得到的输出用于需要梯度的各种任务，例如构建HMC采样器，以估计DSGE模型的一阶和二阶近似。导数的可用性还使得一种通用的无滤波方法成为可能，即通过采样参数和潜在状态的联合似然来估计非线性、非高斯DSGE模型。我们通过估计一个经典的真实商业周期模型、一个真实小型开放经济模型和一个中等规模的新凯恩斯DSGE模型，证明了基于梯度的联合似然采样方法在效率和稳健性上优于标准的Metropolis-Hastings采样器。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w30573","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2022-10-24"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w30573","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w30573.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w30573</span><a href="../weekly/2022-10-24.html#w30573">所在周报</a><a href="../archive/2022-10.html#w30573">所在月度合集</a></div>
+      <h1>Differentiable State-Space Models and Hamiltonian Monte Carlo Estimation</h1>
+      <p class="standalone-zh-title">可微状态空间模型与哈密顿蒙特卡洛估计</p>
+      <p class="authors">David Childers, Jesús Fernández-Villaverde, Jesse Perla, Christopher Rackauckas, Peifan Wu</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>We propose a methodology to take dynamic stochastic general equilibrium (DSGE) models to the data based on the combination of differentiable state-space models and the Hamiltonian Monte Carlo (HMC) sampler. First, we introduce a method for implicit automatic differentiation of perturbation solutions of DSGE models with respect to the model&#x27;s parameters. We can use the resulting output for various tasks requiring gradients, such as building an HMC sampler, to estimate first- and second-order approximations of DSGE models. The availability of derivatives also enables a general filter-free method to estimate nonlinear, non-Gaussian DSGE models by sampling the joint likelihood of parameters and latent states. We show that the gradient-based joint likelihood sampling approach is superior in efficiency and robustness to standard Metropolis-Hastings samplers by estimating a canonical real business cycle model, a real small open economy model, and a medium-scale New Keynesian DSGE model.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>我们提出了一种基于可微状态空间模型与哈密顿蒙特卡洛（HMC）采样器相结合的方法，将动态随机一般均衡（DSGE）模型应用于数据。首先，我们引入了一种方法，用于对DSGE模型的扰动解相对于模型参数进行隐式自动微分。我们可以将得到的输出用于需要梯度的各种任务，例如构建HMC采样器，以估计DSGE模型的一阶和二阶近似。导数的可用性还使得一种通用的无滤波方法成为可能，即通过采样参数和潜在状态的联合似然来估计非线性、非高斯DSGE模型。我们通过估计一个经典的真实商业周期模型、一个真实小型开放经济模型和一个中等规模的新凯恩斯DSGE模型，证明了基于梯度的联合似然采样方法在效率和稳健性上优于标准的Metropolis-Hastings采样器。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w30573" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w30573.html">分享链接</button>
+        <button type="button" data-copy-value="David Childers, Jesús Fernández-Villaverde, Jesse Perla, Christopher Rackauckas, Peifan Wu. Differentiable State-Space Models and Hamiltonian Monte Carlo Estimation. NBER Working Paper 30573. https://www.nber.org/papers/w30573">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

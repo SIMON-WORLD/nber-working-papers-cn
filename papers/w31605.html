@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Incorporating Micro Data into Differentiated Products Demand Estimation with PyBLP｜NBER w31605｜学术传送门</title>
+  <meta name="description" content="我们描绘了一个通用框架，用于将多种类型的微观数据（从汇总统计到选定消费者的完整调查）纳入Berry、Levinsohn和Pakes（1995）风格的差异化产品需求系统估计中。我们将Conlon和Gortmaker（2020）中针对BLP估计的推荐实践扩展到包含微观数据的情况，并在我们的开源软件包PyBLP中实现它们。蒙特卡洛实验和实证例子表明，纳入微观数据可">
+  <meta property="og:title" content="使用PyBLP将微观数据纳入差异化产品需求估计｜NBER w31605">
+  <meta property="og:description" content="我们描绘了一个通用框架，用于将多种类型的微观数据（从汇总统计到选定消费者的完整调查）纳入Berry、Levinsohn和Pakes（1995）风格的差异化产品需求系统估计中。我们将Conlon和Gortmaker（2020）中针对BLP估计的推荐实践扩展到包含微观数据的情况，并在我们的开源软件包PyBLP中实现它们。蒙特卡洛实验和实证例子表明，纳入微观数据可">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w31605.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w31605.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Incorporating Micro Data into Differentiated Products Demand Estimation with PyBLP","name":"使用PyBLP将微观数据纳入差异化产品需求估计","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w31605.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w31605.html","identifier":"NBER Working Paper w31605","author":[{"@type":"Person","name":"Christopher Conlon"},{"@type":"Person","name":"Jeff Gortmaker"}],"abstract":"我们描绘了一个通用框架，用于将多种类型的微观数据（从汇总统计到选定消费者的完整调查）纳入Berry、Levinsohn和Pakes（1995）风格的差异化产品需求系统估计中。我们将Conlon和Gortmaker（2020）中针对BLP估计的推荐实践扩展到包含微观数据的情况，并在我们的开源软件包PyBLP中实现它们。蒙特卡洛实验和实证例子表明，纳入微观数据可以显著改善BLP估计量的有限样本表现，特别是在使用针对性强的汇总统计或我们推导并展示如何计算的“最优微观矩”时。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w31605","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2023-08-28"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w31605","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w31605.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w31605</span><a href="../weekly/2023-08-28.html#w31605">所在周报</a><a href="../archive/2023-08.html#w31605">所在月度合集</a></div>
+      <h1>Incorporating Micro Data into Differentiated Products Demand Estimation with PyBLP</h1>
+      <p class="standalone-zh-title">使用PyBLP将微观数据纳入差异化产品需求估计</p>
+      <p class="authors">Christopher Conlon, Jeff Gortmaker</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/other.html">其他主题</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>We delineate a general framework for incorporating many types of micro data from summary statistics to full surveys of selected consumers into Berry, Levinsohn, and Pakes (1995)-style estimates of differentiated products demand systems. We extend recommended practices for BLP estimation in Conlon and Gortmaker (2020) to the case with micro data and implement them in our open-source package PyBLP. Monte Carlo experiments and empirical examples suggest that incorporating micro data can substantially improve the finite sample performance of the BLP estimator, particularly when using well-targeted summary statistics or “optimal micro moments” that we derive and show how to compute.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>我们描绘了一个通用框架，用于将多种类型的微观数据（从汇总统计到选定消费者的完整调查）纳入Berry、Levinsohn和Pakes（1995）风格的差异化产品需求系统估计中。我们将Conlon和Gortmaker（2020）中针对BLP估计的推荐实践扩展到包含微观数据的情况，并在我们的开源软件包PyBLP中实现它们。蒙特卡洛实验和实证例子表明，纳入微观数据可以显著改善BLP估计量的有限样本表现，特别是在使用针对性强的汇总统计或我们推导并展示如何计算的“最优微观矩”时。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w31605" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w31605.html">分享链接</button>
+        <button type="button" data-copy-value="Christopher Conlon, Jeff Gortmaker. Incorporating Micro Data into Differentiated Products Demand Estimation with PyBLP. NBER Working Paper 31605. https://www.nber.org/papers/w31605">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

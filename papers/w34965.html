@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Out of the Black Box: Uncertainty Quantification for LLMs via Conditional Probabilities｜NBER w34965｜学术传送门</title>
+  <meta name="description" content="自回归大语言模型通过从基于先前上下文条件估计的下一个词元概率分布中进行采样来生成文本。我们利用这些概率构建了一个基于熵的预测不确定性度量，称为内部置信度。在新闻分类中，具有更高内部置信度的大语言模型预测在系统上更为准确。为了评估该度量的经济相关性，我们基于大语言模型预测构建了多空投资组合。基于高置信度预测的投资组合实现了比无条件基准高出约20%的夏普比率，而">
+  <meta property="og:title" content="走出黑箱：基于条件概率的大语言模型不确定性量化｜NBER w34965">
+  <meta property="og:description" content="自回归大语言模型通过从基于先前上下文条件估计的下一个词元概率分布中进行采样来生成文本。我们利用这些概率构建了一个基于熵的预测不确定性度量，称为内部置信度。在新闻分类中，具有更高内部置信度的大语言模型预测在系统上更为准确。为了评估该度量的经济相关性，我们基于大语言模型预测构建了多空投资组合。基于高置信度预测的投资组合实现了比无条件基准高出约20%的夏普比率，而">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w34965.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w34965.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Out of the Black Box: Uncertainty Quantification for LLMs via Conditional Probabilities","name":"走出黑箱：基于条件概率的大语言模型不确定性量化","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w34965.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w34965.html","identifier":"NBER Working Paper w34965","author":[{"@type":"Person","name":"Hui Chen"},{"@type":"Person","name":"Antoine Didisheim"},{"@type":"Person","name":"Luciano A. Somoza"}],"abstract":"自回归大语言模型通过从基于先前上下文条件估计的下一个词元概率分布中进行采样来生成文本。我们利用这些概率构建了一个基于熵的预测不确定性度量，称为内部置信度。在新闻分类中，具有更高内部置信度的大语言模型预测在系统上更为准确。为了评估该度量的经济相关性，我们基于大语言模型预测构建了多空投资组合。基于高置信度预测的投资组合实现了比无条件基准高出约20%的夏普比率，而基于低置信度预测的投资组合则未产生超额收益。相比之下，自我声明的置信度表现出显著的解码偏差，并且没有提供可比的绩效提升。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w34965","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2026-03-16"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w34965","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w34965.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w34965</span><a href="../weekly/2026-03-16.html#w34965">所在周报</a><a href="../archive/2026-03.html#w34965">所在月度合集</a></div>
+      <h1>Out of the Black Box: Uncertainty Quantification for LLMs via Conditional Probabilities</h1>
+      <p class="standalone-zh-title">走出黑箱：基于条件概率的大语言模型不确定性量化</p>
+      <p class="authors">Hui Chen, Antoine Didisheim, Luciano A. Somoza</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/finance-assets.html">金融与资产定价</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Autoregressive LLMs generate text by sampling from estimated probability distributions over the next token, conditional on prior context. We use these probabilities to construct an entropy-based measure of prediction uncertainty, termed inner confidence. In news classification, LLM predictions with higher inner confidence are systematically more accurate. To evaluate the measure&#x27;s economic relevance, we form long-short portfolios based on LLM predictions. The portfolio based on high-confidence predictions achieves a Sharpe ratio about 20\\% higher than the unconditional benchmark, while the one based on low-confidence predictions yields no excess returns. In contrast, self-declared confidence exhibits significant decoding biases and provides no comparable performance gains.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>自回归大语言模型通过从基于先前上下文条件估计的下一个词元概率分布中进行采样来生成文本。我们利用这些概率构建了一个基于熵的预测不确定性度量，称为内部置信度。在新闻分类中，具有更高内部置信度的大语言模型预测在系统上更为准确。为了评估该度量的经济相关性，我们基于大语言模型预测构建了多空投资组合。基于高置信度预测的投资组合实现了比无条件基准高出约20%的夏普比率，而基于低置信度预测的投资组合则未产生超额收益。相比之下，自我声明的置信度表现出显著的解码偏差，并且没有提供可比的绩效提升。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w34965" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w34965.html">分享链接</button>
+        <button type="button" data-copy-value="Hui Chen, Antoine Didisheim, Luciano A. Somoza. Out of the Black Box: Uncertainty Quantification for LLMs via Conditional Probabilities. NBER Working Paper 34965. https://www.nber.org/papers/w34965">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

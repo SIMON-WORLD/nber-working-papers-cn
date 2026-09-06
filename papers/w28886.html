@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Synthetic Controls with Staggered Adoption｜NBER w28886｜学术传送门</title>
+  <meta name="description" content="不同单位在不同时间交错采纳政策，为观察性因果推断创造了有前景的机会。然而，估计仍然具有挑战性，常见的回归方法可能得出误导性结果。一个有前景的替代方法是合成控制法（SCM），它通过寻找控制单位的加权平均，尽可能紧密地平衡处理单位在干预前的结果变量。在本文中，我们将最初为研究单一处理单位而设计的SCM推广到交错采纳情境。我们首先界定了平均处理效应的误差，并表明该">
+  <meta property="og:title" content="交错采纳情境下的合成控制法｜NBER w28886">
+  <meta property="og:description" content="不同单位在不同时间交错采纳政策，为观察性因果推断创造了有前景的机会。然而，估计仍然具有挑战性，常见的回归方法可能得出误导性结果。一个有前景的替代方法是合成控制法（SCM），它通过寻找控制单位的加权平均，尽可能紧密地平衡处理单位在干预前的结果变量。在本文中，我们将最初为研究单一处理单位而设计的SCM推广到交错采纳情境。我们首先界定了平均处理效应的误差，并表明该">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w28886.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w28886.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Synthetic Controls with Staggered Adoption","name":"交错采纳情境下的合成控制法","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w28886.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w28886.html","identifier":"NBER Working Paper w28886","author":[{"@type":"Person","name":"Eli Ben-Michael"},{"@type":"Person","name":"Avi Feller"},{"@type":"Person","name":"Jesse Rothstein"}],"abstract":"不同单位在不同时间交错采纳政策，为观察性因果推断创造了有前景的机会。然而，估计仍然具有挑战性，常见的回归方法可能得出误导性结果。一个有前景的替代方法是合成控制法（SCM），它通过寻找控制单位的加权平均，尽可能紧密地平衡处理单位在干预前的结果变量。在本文中，我们将最初为研究单一处理单位而设计的SCM推广到交错采纳情境。我们首先界定了平均处理效应的误差，并表明该误差既取决于每个处理单位单独的失衡程度，也取决于处理单位平均值的失衡程度。然后，我们提出了“部分池化”的SCM权重，以最小化这两个指标的加权组合；仅关注平衡其中某一成分的方法可能导致偏差。我们将该方法扩展到纳入单位层面的截距偏移和辅助协变量。我们通过广泛的模拟评估了所提出方法的性能，并将结果应用于教师集体谈判是否导致更高学校支出这一问题，发现影响极小。我们在augsynth R包中实现了所提出的方法。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w28886","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2021-06-07"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w28886","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w28886.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w28886</span><a href="../weekly/2021-06-07.html#w28886">所在周报</a><a href="../archive/2021-06.html#w28886">所在月度合集</a></div>
+      <h1>Synthetic Controls with Staggered Adoption</h1>
+      <p class="standalone-zh-title">交错采纳情境下的合成控制法</p>
+      <p class="authors">Eli Ben-Michael, Avi Feller, Jesse Rothstein</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/education-labor.html">教育与劳动</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Staggered adoption of policies by different units at different times creates promising opportunities for observational causal inference. Estimation remains challenging, however, and common regression methods can give misleading results. A promising alternative is the synthetic control method (SCM), which finds a weighted average of control units that closely balances the treated unit’s pre-treatment outcomes. In this paper, we generalize SCM, originally designed to study a single treated unit, to the staggered adoption setting. We first bound the error for the average effect and show that it depends on both the imbalance for each treated unit separately and the imbalance for the average of the treated units. We then propose &quot;partially pooled&quot; SCM weights to minimize a weighted combination of these measures; approaches that focus only on balancing one of the two components can lead to bias. We extend this approach to incorporate unit-level intercept shifts and auxiliary covariates. We assess the performance of the proposed method via extensive simulations and apply our results to the question of whether teacher collective bargaining leads to higher school spending, finding minimal impacts. We implement the proposed method in the augsynth R package.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>不同单位在不同时间交错采纳政策，为观察性因果推断创造了有前景的机会。然而，估计仍然具有挑战性，常见的回归方法可能得出误导性结果。一个有前景的替代方法是合成控制法（SCM），它通过寻找控制单位的加权平均，尽可能紧密地平衡处理单位在干预前的结果变量。在本文中，我们将最初为研究单一处理单位而设计的SCM推广到交错采纳情境。我们首先界定了平均处理效应的误差，并表明该误差既取决于每个处理单位单独的失衡程度，也取决于处理单位平均值的失衡程度。然后，我们提出了“部分池化”的SCM权重，以最小化这两个指标的加权组合；仅关注平衡其中某一成分的方法可能导致偏差。我们将该方法扩展到纳入单位层面的截距偏移和辅助协变量。我们通过广泛的模拟评估了所提出方法的性能，并将结果应用于教师集体谈判是否导致更高学校支出这一问题，发现影响极小。我们在augsynth R包中实现了所提出的方法。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w28886" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w28886.html">分享链接</button>
+        <button type="button" data-copy-value="Eli Ben-Michael, Avi Feller, Jesse Rothstein. Synthetic Controls with Staggered Adoption. NBER Working Paper 28886. https://www.nber.org/papers/w28886">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

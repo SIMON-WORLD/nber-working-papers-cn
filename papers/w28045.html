@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery｜NBER w28045｜学术传送门</title>
+  <meta name="description" content="将卫星影像与机器学习相结合（SIML）有望通过远程估算数据匮乏地区的社会经济和环境状况来应对全球性挑战，然而SIML的资源需求限制了其可及性和应用。我们证明，单一卫星影像编码能够泛化应用于多种不同的预测任务（例如森林覆盖、房价、道路长度）。我们的方法在计算成本降低数个数量级的情况下，实现了与深度神经网络相媲美的准确性，可全球规模化应用，提供标签超分辨率预测，">
+  <meta property="og:title" content="基于全球卫星影像的机器学习通用且可及的方法｜NBER w28045">
+  <meta property="og:description" content="将卫星影像与机器学习相结合（SIML）有望通过远程估算数据匮乏地区的社会经济和环境状况来应对全球性挑战，然而SIML的资源需求限制了其可及性和应用。我们证明，单一卫星影像编码能够泛化应用于多种不同的预测任务（例如森林覆盖、房价、道路长度）。我们的方法在计算成本降低数个数量级的情况下，实现了与深度神经网络相媲美的准确性，可全球规模化应用，提供标签超分辨率预测，">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w28045.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w28045.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery","name":"基于全球卫星影像的机器学习通用且可及的方法","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w28045.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w28045.html","identifier":"NBER Working Paper w28045","author":[{"@type":"Person","name":"Esther Rolf"},{"@type":"Person","name":"Jonathan Proctor"},{"@type":"Person","name":"Tamma Carleton"},{"@type":"Person","name":"Ian Bolliger"},{"@type":"Person","name":"Vaishaal Shankar"},{"@type":"Person","name":"Miyabi Ishihara"},{"@type":"Person","name":"Benjamin Recht"},{"@type":"Person","name":"Solomon Hsiang"}],"abstract":"将卫星影像与机器学习相结合（SIML）有望通过远程估算数据匮乏地区的社会经济和环境状况来应对全球性挑战，然而SIML的资源需求限制了其可及性和应用。我们证明，单一卫星影像编码能够泛化应用于多种不同的预测任务（例如森林覆盖、房价、道路长度）。我们的方法在计算成本降低数个数量级的情况下，实现了与深度神经网络相媲美的准确性，可全球规模化应用，提供标签超分辨率预测，并有助于不确定性表征。由于影像编码在不同任务间共享，它们可以集中计算并分发给无限数量的研究人员，这些研究人员只需将自己的真实数据拟合线性回归，即可达到最先进的SIML性能。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w28045","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2020-11-09"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w28045","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w28045.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w28045</span><a href="../weekly/2020-11-09.html#w28045">所在周报</a><a href="../archive/2020-11.html#w28045">所在月度合集</a></div>
+      <h1>A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery</h1>
+      <p class="standalone-zh-title">基于全球卫星影像的机器学习通用且可及的方法</p>
+      <p class="authors">Esther Rolf, Jonathan Proctor, Tamma Carleton, Ian Bolliger, Vaishaal Shankar, Miyabi Ishihara, Benjamin Recht, Solomon Hsiang</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/environment-health.html">环境与气候</a>
+        
+        <span>全球/多国</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Combining satellite imagery with machine learning (SIML) has the potential to address global challenges by remotely estimating socioeconomic and environmental conditions in data-poor regions, yet the resource requirements of SIML limit its accessibility and use. We show that a single encoding of satellite imagery can generalize across diverse prediction tasks (e.g. forest cover, house price, road length). Our method achieves accuracy competitive with deep neural networks at orders of magnitude lower computational cost, scales globally, delivers label super-resolution predictions, and facilitates characterizations of uncertainty. Since image encodings are shared across tasks, they can be centrally computed and distributed to unlimited researchers, who need only fit a linear regression to their own ground truth data in order to achieve state-of-the-art SIML performance.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>将卫星影像与机器学习相结合（SIML）有望通过远程估算数据匮乏地区的社会经济和环境状况来应对全球性挑战，然而SIML的资源需求限制了其可及性和应用。我们证明，单一卫星影像编码能够泛化应用于多种不同的预测任务（例如森林覆盖、房价、道路长度）。我们的方法在计算成本降低数个数量级的情况下，实现了与深度神经网络相媲美的准确性，可全球规模化应用，提供标签超分辨率预测，并有助于不确定性表征。由于影像编码在不同任务间共享，它们可以集中计算并分发给无限数量的研究人员，这些研究人员只需将自己的真实数据拟合线性回归，即可达到最先进的SIML性能。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w28045" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w28045.html">分享链接</button>
+        <button type="button" data-copy-value="Esther Rolf, Jonathan Proctor, Tamma Carleton, Ian Bolliger, Vaishaal Shankar, Miyabi Ishihara, Benjamin Recht, Solomon Hsiang. A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery. NBER Working Paper 28045. https://www.nber.org/papers/w28045">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

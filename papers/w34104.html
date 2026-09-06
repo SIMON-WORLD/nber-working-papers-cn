@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Seemingly Virtuous Complexity in Return Prediction｜NBER w34104｜学术传送门</title>
+  <meta name="description" content="使用随机傅里叶特征（RFF）进行回报预测——即对少量（K个）预测变量进行大量（P个）非线性变换——近来变得流行。令人惊讶的是，即使在使用小至T=12个月的滚动窗口且P达到数千的情况下，这种方法似乎也能产生成功的样本外股市指数择时策略。然而，当P远大于T时，基于RFF的预测变成了T个训练样本回报的加权平均值，权重由训练数据中的预测向量与当前预测向量之间的相似性">
+  <meta property="og:title" content="看似有益的回报预测复杂性｜NBER w34104">
+  <meta property="og:description" content="使用随机傅里叶特征（RFF）进行回报预测——即对少量（K个）预测变量进行大量（P个）非线性变换——近来变得流行。令人惊讶的是，即使在使用小至T=12个月的滚动窗口且P达到数千的情况下，这种方法似乎也能产生成功的样本外股市指数择时策略。然而，当P远大于T时，基于RFF的预测变成了T个训练样本回报的加权平均值，权重由训练数据中的预测向量与当前预测向量之间的相似性">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w34104.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w34104.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Seemingly Virtuous Complexity in Return Prediction","name":"看似有益的回报预测复杂性","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w34104.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w34104.html","identifier":"NBER Working Paper w34104","author":[{"@type":"Person","name":"Stefan Nagel"}],"abstract":"使用随机傅里叶特征（RFF）进行回报预测——即对少量（K个）预测变量进行大量（P个）非线性变换——近来变得流行。令人惊讶的是，即使在使用小至T=12个月的滚动窗口且P达到数千的情况下，这种方法似乎也能产生成功的样本外股市指数择时策略。然而，当P远大于T时，基于RFF的预测变成了T个训练样本回报的加权平均值，权重由训练数据中的预测向量与当前预测向量之间的相似性决定。在短训练窗口中，相似性主要反映时间邻近性，因此预测简化为训练数据中T个回报观测值的近期加权平均值——本质上是一种动量策略。此外，由于相似性随预测变量的波动性而下降，结果便是一种波动率择时的动量策略。因此，基于RFF的策略的强劲表现并非源于其从训练数据中提取预测信号的能力，而是因为波动率择时的动量策略在历史数据中恰好表现良好。当将相同方法应用于回报呈现反转而非动量的人工数据时，这一点变得清晰：RFF方法仍然构建了相同的波动率择时动量策略，而该策略随后表现不佳。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w34104","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2025-08-11"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w34104","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w34104.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w34104</span><a href="../weekly/2025-08-11.html#w34104">所在周报</a><a href="../archive/2025-08.html#w34104">所在月度合集</a></div>
+      <h1>Seemingly Virtuous Complexity in Return Prediction</h1>
+      <p class="standalone-zh-title">看似有益的回报预测复杂性</p>
+      <p class="authors">Stefan Nagel</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/finance-assets.html">金融与资产定价</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Return prediction with Random Fourier Features (RFF)—a very large number, P , of nonlinear trans-formations of a small number, K, of predictor variables—has become popular recently. Surprisingly, this approach appears to yield a successful out-of-sample stock market index timing strategy even when trained in rolling windows as small as T = 12 months with P in the thousands. However, when P ≫ T , the RFF-based forecast becomes a weighted average of the T training sample returns, with weights determined by the similarity between the predictor vectors in the training data and the current predictor vector. In short training windows, similarity primarily reflects temporal proximity, so the forecast reduces to a recency-weighted average of the T return observations in the training data—essentially a momentum strategy. Moreover, because similarity declines with predictor volatility, the result is a volatility-timed momentum strategy. The strong performance of the RFF-based strategy thus stems not from its ability to extract predictive signals from the training data, but from the fact that a volatility-timed momentum strategy happened to perform well in historical data. This point becomes clear when applying the same method to artificial data in which returns exhibit reversals rather than momentum: the RFF approach still constructs the same volatility-timed momentum strategy, which then performs poorly.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>使用随机傅里叶特征（RFF）进行回报预测——即对少量（K个）预测变量进行大量（P个）非线性变换——近来变得流行。令人惊讶的是，即使在使用小至T=12个月的滚动窗口且P达到数千的情况下，这种方法似乎也能产生成功的样本外股市指数择时策略。然而，当P远大于T时，基于RFF的预测变成了T个训练样本回报的加权平均值，权重由训练数据中的预测向量与当前预测向量之间的相似性决定。在短训练窗口中，相似性主要反映时间邻近性，因此预测简化为训练数据中T个回报观测值的近期加权平均值——本质上是一种动量策略。此外，由于相似性随预测变量的波动性而下降，结果便是一种波动率择时的动量策略。因此，基于RFF的策略的强劲表现并非源于其从训练数据中提取预测信号的能力，而是因为波动率择时的动量策略在历史数据中恰好表现良好。当将相同方法应用于回报呈现反转而非动量的人工数据时，这一点变得清晰：RFF方法仍然构建了相同的波动率择时动量策略，而该策略随后表现不佳。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w34104" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w34104.html">分享链接</button>
+        <button type="button" data-copy-value="Stefan Nagel. Seemingly Virtuous Complexity in Return Prediction. NBER Working Paper 34104. https://www.nber.org/papers/w34104">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

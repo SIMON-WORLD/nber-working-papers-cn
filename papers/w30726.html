@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Noise-Robust De-Duplication at Scale｜NBER w30726｜学术传送门</title>
+  <meta name="description" content="在大型、嘈杂的文本语料库中识别近似重复项具有众多应用，包括去重训练数据集、降低隐私风险、评估测试集泄露，以及在大型语料库中识别重复的新闻文章和文献。在这些不同的应用中，绝大多数工作依赖于N-gram方法。评估N-gram方法表现如何的努力有限，部分原因在于不清楚如何为大规模语料库创建无偏评估数据集。本研究利用历史新闻专线的独特时效性，创建了一个包含27,21">
+  <meta property="og:title" content="大规模噪声鲁棒的去重方法｜NBER w30726">
+  <meta property="og:description" content="在大型、嘈杂的文本语料库中识别近似重复项具有众多应用，包括去重训练数据集、降低隐私风险、评估测试集泄露，以及在大型语料库中识别重复的新闻文章和文献。在这些不同的应用中，绝大多数工作依赖于N-gram方法。评估N-gram方法表现如何的努力有限，部分原因在于不清楚如何为大规模语料库创建无偏评估数据集。本研究利用历史新闻专线的独特时效性，创建了一个包含27,21">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w30726.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w30726.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Noise-Robust De-Duplication at Scale","name":"大规模噪声鲁棒的去重方法","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w30726.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w30726.html","identifier":"NBER Working Paper w30726","author":[{"@type":"Person","name":"Emily Silcock"},{"@type":"Person","name":"Luca D'Amico-Wong"},{"@type":"Person","name":"Jinglin Yang"},{"@type":"Person","name":"Melissa Dell"}],"abstract":"在大型、嘈杂的文本语料库中识别近似重复项具有众多应用，包括去重训练数据集、降低隐私风险、评估测试集泄露，以及在大型语料库中识别重复的新闻文章和文献。在这些不同的应用中，绝大多数工作依赖于N-gram方法。评估N-gram方法表现如何的努力有限，部分原因在于不清楚如何为大规模语料库创建无偏评估数据集。本研究利用历史新闻专线的独特时效性，创建了一个包含27,210篇文档、122,876个正例重复对的数据集，用于研究噪声鲁棒的去重。新闻的时效敏感性使得全面的手工标注成为可能——尽管语料库整体规模巨大——因为重复发生在狭窄的日期范围内。随后，本研究开发并评估了一系列去重方法：哈希和N-gram重叠（文献中占主导地位）、对比训练的双编码器，以及结合双编码器和交叉编码器的“重排序”风格方法。神经方法显著优于哈希和N-gram重叠。我们展示了双编码器具有良好的可扩展性，能够在单个GPU卡上在数小时内对1000万篇文章的语料库进行去重。我们还将预训练模型应用于C4（大规模清洗爬取语料库）的RealNews和专利部分，说明神经方法能够在存在各种类型噪声的情况下，识别出哈希方法遗漏的许多近似重复项。我们公开发布的NEWS-COPY去重数据集、去重后的RealNews和专利语料库以及预训练模型，将促进进一步的研究和应用。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w30726","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2022-12-12"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w30726","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w30726.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w30726</span><a href="../weekly/2022-12-12.html#w30726">所在周报</a><a href="../archive/2022-12.html#w30726">所在月度合集</a></div>
+      <h1>Noise-Robust De-Duplication at Scale</h1>
+      <p class="standalone-zh-title">大规模噪声鲁棒的去重方法</p>
+      <p class="authors">Emily Silcock, Luca D&#x27;Amico-Wong, Jinglin Yang, Melissa Dell</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Identifying near duplicates within large, noisy text corpora has a myriad of applications that range from de-duplicating training datasets, reducing privacy risk, and evaluating test set leakage, to identifying reproduced news articles and literature within large corpora. Across these diverse applications, the overwhelming majority of work relies on N-grams. Limited efforts have been made to evaluate how well N-gram methods perform, in part because it is unclear how one could create an unbiased evaluation dataset for a massive corpus. This study uses the unique timeliness of historical news wires to create a 27,210 document dataset, with 122,876 positive duplicate pairs, for studying noise-robust de-duplication. The time-sensitivity of news makes comprehensive hand labelling feasible - despite the massive overall size of the corpus - as duplicates occur within a narrow date range. The study then develops and evaluates a range of de-duplication methods: hashing and N-gram overlap (which predominate in the literature), a contrastively trained bi-encoder, and a ``re-rank&#x27;&#x27; style approach combining a bi- and cross-encoder. The neural approaches significantly outperform hashing and N-gram overlap. We show that the bi-encoder scales well, de-duplicating a 10 million article corpus on a single GPU card in a matter of hours. We also apply our pre-trained model to the RealNews and patent portions of C4 (Colossal Clean Crawled Corpus), illustrating that a neural approach can identify many near duplicates missed by hashing, in the presence of various types of noise. The public release of our NEWS-COPY de-duplication dataset, de-duplicated RealNews and patent corpuses, and the pre-trained models will facilitate further research and applications.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>在大型、嘈杂的文本语料库中识别近似重复项具有众多应用，包括去重训练数据集、降低隐私风险、评估测试集泄露，以及在大型语料库中识别重复的新闻文章和文献。在这些不同的应用中，绝大多数工作依赖于N-gram方法。评估N-gram方法表现如何的努力有限，部分原因在于不清楚如何为大规模语料库创建无偏评估数据集。本研究利用历史新闻专线的独特时效性，创建了一个包含27,210篇文档、122,876个正例重复对的数据集，用于研究噪声鲁棒的去重。新闻的时效敏感性使得全面的手工标注成为可能——尽管语料库整体规模巨大——因为重复发生在狭窄的日期范围内。随后，本研究开发并评估了一系列去重方法：哈希和N-gram重叠（文献中占主导地位）、对比训练的双编码器，以及结合双编码器和交叉编码器的“重排序”风格方法。神经方法显著优于哈希和N-gram重叠。我们展示了双编码器具有良好的可扩展性，能够在单个GPU卡上在数小时内对1000万篇文章的语料库进行去重。我们还将预训练模型应用于C4（大规模清洗爬取语料库）的RealNews和专利部分，说明神经方法能够在存在各种类型噪声的情况下，识别出哈希方法遗漏的许多近似重复项。我们公开发布的NEWS-COPY去重数据集、去重后的RealNews和专利语料库以及预训练模型，将促进进一步的研究和应用。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w30726" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w30726.html">分享链接</button>
+        <button type="button" data-copy-value="Emily Silcock, Luca D&#x27;Amico-Wong, Jinglin Yang, Melissa Dell. Noise-Robust De-Duplication at Scale. NBER Working Paper 30726. https://www.nber.org/papers/w30726">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

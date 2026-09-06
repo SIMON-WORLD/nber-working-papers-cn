@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Double Robustness of Local Projections and Some Unpleasant VARithmetic｜NBER w32495｜学术传送门</title>
+  <meta name="description" content="我们考虑在局部误设的向量自回归（VAR）模型中的脉冲响应推断。即使误设大到可以以趋近于1的概率被检测到，传统的局部投影（LP）置信区间仍具有正确的覆盖概率。这一结果源于一种类似于流行的部分线性回归估计量的“双重稳健性”性质。相比之下，具有短到中等滞后长度的传统VAR置信区间可能会严重覆盖不足，即使对于很小、经济上合理且难以统计检测的误设也是如此。没有免费的午">
+  <meta property="og:title" content="局部投影的双重稳健性与一些不愉快的VAR计量问题｜NBER w32495">
+  <meta property="og:description" content="我们考虑在局部误设的向量自回归（VAR）模型中的脉冲响应推断。即使误设大到可以以趋近于1的概率被检测到，传统的局部投影（LP）置信区间仍具有正确的覆盖概率。这一结果源于一种类似于流行的部分线性回归估计量的“双重稳健性”性质。相比之下，具有短到中等滞后长度的传统VAR置信区间可能会严重覆盖不足，即使对于很小、经济上合理且难以统计检测的误设也是如此。没有免费的午">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w32495.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w32495.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Double Robustness of Local Projections and Some Unpleasant VARithmetic","name":"局部投影的双重稳健性与一些不愉快的VAR计量问题","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w32495.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w32495.html","identifier":"NBER Working Paper w32495","author":[{"@type":"Person","name":"José Luis Montiel Olea"},{"@type":"Person","name":"Mikkel Plagborg-Møller"},{"@type":"Person","name":"Eric Qian"},{"@type":"Person","name":"Christian K. Wolf"}],"abstract":"我们考虑在局部误设的向量自回归（VAR）模型中的脉冲响应推断。即使误设大到可以以趋近于1的概率被检测到，传统的局部投影（LP）置信区间仍具有正确的覆盖概率。这一结果源于一种类似于流行的部分线性回归估计量的“双重稳健性”性质。相比之下，具有短到中等滞后长度的传统VAR置信区间可能会严重覆盖不足，即使对于很小、经济上合理且难以统计检测的误设也是如此。没有免费的午餐：只有当滞后长度大到使得区间与LP区间一样宽时，VAR置信区间才具有稳健的覆盖概率。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w32495","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2024-05-27"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w32495","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w32495.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w32495</span><a href="../weekly/2024-05-27.html#w32495">所在周报</a><a href="../archive/2024-05.html#w32495">所在月度合集</a></div>
+      <h1>Double Robustness of Local Projections and Some Unpleasant VARithmetic</h1>
+      <p class="standalone-zh-title">局部投影的双重稳健性与一些不愉快的VAR计量问题</p>
+      <p class="authors">José Luis Montiel Olea, Mikkel Plagborg-Møller, Eric Qian, Christian K. Wolf</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>We consider impulse response inference in a locally misspecified vector autoregression (VAR) model. The conventional local projection (LP) confidence interval has correct coverage even when the misspecification is so large that it can be detected with probability approaching 1. This result follows from a “double robustness” property analogous to that of popular partially linear regression estimators. In contrast, the conventional VAR confidence interval with short-to-moderate lag length can severely undercover, even for misspecification that is small, economically plausible, and difficult to detect statistically. There is no free lunch: the VAR confidence interval has robust coverage only if the lag length is so large that the interval is as wide as the LP interval.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>我们考虑在局部误设的向量自回归（VAR）模型中的脉冲响应推断。即使误设大到可以以趋近于1的概率被检测到，传统的局部投影（LP）置信区间仍具有正确的覆盖概率。这一结果源于一种类似于流行的部分线性回归估计量的“双重稳健性”性质。相比之下，具有短到中等滞后长度的传统VAR置信区间可能会严重覆盖不足，即使对于很小、经济上合理且难以统计检测的误设也是如此。没有免费的午餐：只有当滞后长度大到使得区间与LP区间一样宽时，VAR置信区间才具有稳健的覆盖概率。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w32495" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w32495.html">分享链接</button>
+        <button type="button" data-copy-value="José Luis Montiel Olea, Mikkel Plagborg-Møller, Eric Qian, Christian K. Wolf. Double Robustness of Local Projections and Some Unpleasant VARithmetic. NBER Working Paper 32495. https://www.nber.org/papers/w32495">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Textual Factors: A Scalable, Interpretable, and Data-driven Approach to Analyzing Unstructured Information｜NBER w33168｜学术传送门</title>
+  <meta name="description" content="我们提出了一种分析大规模文本数据的一般方法，结合了神经网络语言处理和生成式统计建模的优势，为非结构化数据创建因子结构，以用于社会科学中常见的下游回归分析。我们通过以下步骤生成文本因子：(i) 使用词向量嵌入表示文本，(ii) 使用局部敏感哈希对向量进行聚类以生成主题的支持集，以及(iii) 通过主题建模识别相对可解释的跨越性聚类（即文本因子）。我们的数据驱动">
+  <meta property="og:title" content="文本因子：一种可扩展、可解释且数据驱动的非结构化信息分析方法｜NBER w33168">
+  <meta property="og:description" content="我们提出了一种分析大规模文本数据的一般方法，结合了神经网络语言处理和生成式统计建模的优势，为非结构化数据创建因子结构，以用于社会科学中常见的下游回归分析。我们通过以下步骤生成文本因子：(i) 使用词向量嵌入表示文本，(ii) 使用局部敏感哈希对向量进行聚类以生成主题的支持集，以及(iii) 通过主题建模识别相对可解释的跨越性聚类（即文本因子）。我们的数据驱动">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w33168.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w33168.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Textual Factors: A Scalable, Interpretable, and Data-driven Approach to Analyzing Unstructured Information","name":"文本因子：一种可扩展、可解释且数据驱动的非结构化信息分析方法","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w33168.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w33168.html","identifier":"NBER Working Paper w33168","author":[{"@type":"Person","name":"Lin William Cong"},{"@type":"Person","name":"Tengyuan Liang"},{"@type":"Person","name":"Xiao Zhang"},{"@type":"Person","name":"Wu Zhu"}],"abstract":"我们提出了一种分析大规模文本数据的一般方法，结合了神经网络语言处理和生成式统计建模的优势，为非结构化数据创建因子结构，以用于社会科学中常见的下游回归分析。我们通过以下步骤生成文本因子：(i) 使用词向量嵌入表示文本，(ii) 使用局部敏感哈希对向量进行聚类以生成主题的支持集，以及(iii) 通过主题建模识别相对可解释的跨越性聚类（即文本因子）。我们的数据驱动方法能够捕捉复杂的语言结构，同时确保计算可扩展性和经济可解释性，可能在某些方面优于并补充研究人员使用的其他非结构化数据分析方法，包括新兴的大语言模型。我们对框架进行了初步验证测试，并讨论了其三种应用类型：(i) 利用文本增强预测和推断，(ii) 解释（非基于文本的）模型，以及(iii) 构建新的基于文本的度量指标和解释变量。我们使用金融和经济学中的例子来说明每种应用，例如基于新闻文章进行宏观经济预测、从公司文件中解释多因子资产定价模型，以及从专利中衡量基于主题的技术突破。最后，我们提供了一个灵活的文本因子统计软件包以供在线分发，以促进未来的研究和应用。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w33168","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2024-11-18"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w33168","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w33168.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w33168</span><a href="../weekly/2024-11-18.html#w33168">所在周报</a><a href="../archive/2024-11.html#w33168">所在月度合集</a></div>
+      <h1>Textual Factors: A Scalable, Interpretable, and Data-driven Approach to Analyzing Unstructured Information</h1>
+      <p class="standalone-zh-title">文本因子：一种可扩展、可解释且数据驱动的非结构化信息分析方法</p>
+      <p class="authors">Lin William Cong, Tengyuan Liang, Xiao Zhang, Wu Zhu</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/finance-assets.html">金融与资产定价</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>We introduce a general approach for analyzing large-scale text-based data, combining the strengths of neural network language processing and generative statistical modeling to create a factor structure of unstructured data for downstream regressions typically used in social sciences. We generate textual factors by (i) representing texts using vector word embedding, (ii) clustering the vectors using Locality-Sensitive Hashing to generate supports of topics, and (iii) identifying relatively interpretable spanning clusters (i.e., textual factors) through topic modeling. Our data-driven approach captures complex linguistic structures while ensuring computational scalability and economic interpretability, plausibly attaining certain advantages over and complementing other unstructured data analytics used by researchers, including emergent large language models. We conduct initial validation tests of the framework and discuss three types of its applications: (i) enhancing prediction and inference with texts, (ii) interpreting (non-text-based) models, and (iii) constructing new text-based metrics and explanatory variables. We illustrate each of these applications using examples in finance and economics such as macroeconomic forecasting from news articles, interpreting multi-factor asset pricing models from corporate filings, and measuring theme-based technology breakthroughs from patents. Finally, we provide a flexible statistical package of textual factors for online distribution to facilitate future research and applications.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>我们提出了一种分析大规模文本数据的一般方法，结合了神经网络语言处理和生成式统计建模的优势，为非结构化数据创建因子结构，以用于社会科学中常见的下游回归分析。我们通过以下步骤生成文本因子：(i) 使用词向量嵌入表示文本，(ii) 使用局部敏感哈希对向量进行聚类以生成主题的支持集，以及(iii) 通过主题建模识别相对可解释的跨越性聚类（即文本因子）。我们的数据驱动方法能够捕捉复杂的语言结构，同时确保计算可扩展性和经济可解释性，可能在某些方面优于并补充研究人员使用的其他非结构化数据分析方法，包括新兴的大语言模型。我们对框架进行了初步验证测试，并讨论了其三种应用类型：(i) 利用文本增强预测和推断，(ii) 解释（非基于文本的）模型，以及(iii) 构建新的基于文本的度量指标和解释变量。我们使用金融和经济学中的例子来说明每种应用，例如基于新闻文章进行宏观经济预测、从公司文件中解释多因子资产定价模型，以及从专利中衡量基于主题的技术突破。最后，我们提供了一个灵活的文本因子统计软件包以供在线分发，以促进未来的研究和应用。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w33168" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w33168.html">分享链接</button>
+        <button type="button" data-copy-value="Lin William Cong, Tengyuan Liang, Xiao Zhang, Wu Zhu. Textual Factors: A Scalable, Interpretable, and Data-driven Approach to Analyzing Unstructured Information. NBER Working Paper 33168. https://www.nber.org/papers/w33168">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Exploiting Symmetry in High-Dimensional Dynamic Programming｜NBER w28981｜学术传送门</title>
+  <meta name="description" content="我们提出了一种新方法，利用深度学习求解具有大量（但有限）异质性主体的高维动态规划问题和递归竞争均衡。我们通过三种互补技术避免了维度诅咒：（1）利用近似运动规律和价值函数中的对称性；（2）构建测度集中，利用来自异质性冲击分布的单次蒙特卡洛抽样计算高维期望；（3）设计和训练利用对称性和测度集中的深度学习架构。作为一个应用，我们找到了经典Lucas和Prescot">
+  <meta property="og:title" content="在高维动态规划中利用对称性｜NBER w28981">
+  <meta property="og:description" content="我们提出了一种新方法，利用深度学习求解具有大量（但有限）异质性主体的高维动态规划问题和递归竞争均衡。我们通过三种互补技术避免了维度诅咒：（1）利用近似运动规律和价值函数中的对称性；（2）构建测度集中，利用来自异质性冲击分布的单次蒙特卡洛抽样计算高维期望；（3）设计和训练利用对称性和测度集中的深度学习架构。作为一个应用，我们找到了经典Lucas和Prescot">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w28981.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w28981.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Exploiting Symmetry in High-Dimensional Dynamic Programming","name":"在高维动态规划中利用对称性","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w28981.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w28981.html","identifier":"NBER Working Paper w28981","author":[{"@type":"Person","name":"Mahdi Ebrahimi Kahou"},{"@type":"Person","name":"Jesús Fernández-Villaverde"},{"@type":"Person","name":"Jesse Perla"},{"@type":"Person","name":"Arnav Sood"}],"abstract":"我们提出了一种新方法，利用深度学习求解具有大量（但有限）异质性主体的高维动态规划问题和递归竞争均衡。我们通过三种互补技术避免了维度诅咒：（1）利用近似运动规律和价值函数中的对称性；（2）构建测度集中，利用来自异质性冲击分布的单次蒙特卡洛抽样计算高维期望；（3）设计和训练利用对称性和测度集中的深度学习架构。作为一个应用，我们找到了经典Lucas和Prescott（1971）不确定性下投资模型的多企业版本的全局解。首先，我们将解与线性二次高斯版本进行比较以进行验证和基准测试。接下来，我们求解不存在精确或封闭形式解的非线性版本。最后，我们描述了我们的方法如何应用于经济学中的一大类模型。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w28981","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2021-07-05"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w28981","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w28981.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w28981</span><a href="../weekly/2021-07-05.html#w28981">所在周报</a><a href="../archive/2021-07.html#w28981">所在月度合集</a></div>
+      <h1>Exploiting Symmetry in High-Dimensional Dynamic Programming</h1>
+      <p class="standalone-zh-title">在高维动态规划中利用对称性</p>
+      <p class="authors">Mahdi Ebrahimi Kahou, Jesús Fernández-Villaverde, Jesse Perla, Arnav Sood</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>全球/多国</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>We propose a new method for solving high-dimensional dynamic programming problems and recursive competitive equilibria with a large (but finite) number of heterogeneous agents using deep learning. We avoid the curse of dimensionality thanks to three complementary techniques: (1) exploiting symmetry in the approximate law of motion and the value function; (2) constructing a concentration of measure to calculate high-dimensional expectations using a single Monte Carlo draw from the distribution of idiosyncratic shocks; and (3) designing and training deep learning architectures that exploit symmetry and concentration of measure. As an application, we find a global solution of a multi-firm version of the classic Lucas and Prescott (1971) model of investment under uncertainty. First, we compare the solution against a linear-quadratic Gaussian version for validation and benchmarking. Next, we solve the nonlinear version where no accurate or closed-form solution exists. Finally, we describe how our approach applies to a large class of models in economics.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>我们提出了一种新方法，利用深度学习求解具有大量（但有限）异质性主体的高维动态规划问题和递归竞争均衡。我们通过三种互补技术避免了维度诅咒：（1）利用近似运动规律和价值函数中的对称性；（2）构建测度集中，利用来自异质性冲击分布的单次蒙特卡洛抽样计算高维期望；（3）设计和训练利用对称性和测度集中的深度学习架构。作为一个应用，我们找到了经典Lucas和Prescott（1971）不确定性下投资模型的多企业版本的全局解。首先，我们将解与线性二次高斯版本进行比较以进行验证和基准测试。接下来，我们求解不存在精确或封闭形式解的非线性版本。最后，我们描述了我们的方法如何应用于经济学中的一大类模型。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w28981" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w28981.html">分享链接</button>
+        <button type="button" data-copy-value="Mahdi Ebrahimi Kahou, Jesús Fernández-Villaverde, Jesse Perla, Arnav Sood. Exploiting Symmetry in High-Dimensional Dynamic Programming. NBER Working Paper 28981. https://www.nber.org/papers/w28981">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

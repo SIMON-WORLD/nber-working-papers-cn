@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Survival Analysis with Limited Overlap and Censoring Distribution Shift｜NBER w35643｜学术传送门</title>
+  <meta name="description" content="生存分析方法常用于预测事件发生的时间，在训练期间真实事件发生时间（TTE）可能被删失的情况下。此类方法通常假设未删失数据代表删失数据，并且给定协变量的删失概率随时间保持不变，即不存在删失分布偏移。然而，当删失源于针对具有特定合并症或遗传标记的个体的干预（例如预测癌症发病时间时的预防性手术，或预测自然临产时间时的计划剖宫产和引产）以及临床政策变化改变这些干预的">
+  <meta property="og:title" content="有限重叠和删失分布偏移下的生存分析｜NBER w35643">
+  <meta property="og:description" content="生存分析方法常用于预测事件发生的时间，在训练期间真实事件发生时间（TTE）可能被删失的情况下。此类方法通常假设未删失数据代表删失数据，并且给定协变量的删失概率随时间保持不变，即不存在删失分布偏移。然而，当删失源于针对具有特定合并症或遗传标记的个体的干预（例如预测癌症发病时间时的预防性手术，或预测自然临产时间时的计划剖宫产和引产）以及临床政策变化改变这些干预的">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w35643.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w35643.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Survival Analysis with Limited Overlap and Censoring Distribution Shift","name":"有限重叠和删失分布偏移下的生存分析","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w35643.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w35643.html","identifier":"NBER Working Paper w35643","author":[{"@type":"Person","name":"Meera Krishnamoorthy"},{"@type":"Person","name":"Donna Tjandra"},{"@type":"Person","name":"Divya Shanmugam"},{"@type":"Person","name":"Amanda E. Kowalski"},{"@type":"Person","name":"Jenna Wiens"}],"abstract":"生存分析方法常用于预测事件发生的时间，在训练期间真实事件发生时间（TTE）可能被删失的情况下。此类方法通常假设未删失数据代表删失数据，并且给定协变量的删失概率随时间保持不变，即不存在删失分布偏移。然而，当删失源于针对具有特定合并症或遗传标记的个体的干预（例如预测癌症发病时间时的预防性手术，或预测自然临产时间时的计划剖宫产和引产）以及临床政策变化改变这些干预的目标个体时，这两个假设在实践中都可能失效。为了解决这个问题，我们提出了一种新方法，即聚类加权事件时间推断（CWITE），当这些假设不成立时，该方法仍能保持准确性。与忽略删失时间（TTC）或仅将其视为TTE下限的现有方法不同，CWITE利用了一个洞察，即一部分删失个体可能在其真实TTE附近被删失，并使用一种新颖的机制从这些个体中学习。在预测自然临产时间的任务中，使用真实世界数据，CWITE提高了与删失训练数据相似的个体的TTE准确性（平均绝对误差：6.50天，95%置信区间：[5.55, 7.40]对比7.82天，[6.82, 8.82]），同时在与未删失训练数据相似的个体上保持了可比的性能（6.50天，[5.54, 7.61]对比6.63天，[5.67, 7.69]）。我们的结果表明，在有限重叠和删失分布偏移的情况下，从删失训练数据中纳入更具体的监督可以显著提高TTE预测，这些挑战在真实世界临床数据中很常见。实现CWITE并重现论文中所有实验的代码可在https://github.com/MLD3/CWITE获取。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w35643","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2026-08-24"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w35643","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w35643.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w35643</span><a href="../weekly/2026-08-24.html#w35643">所在周报</a><a href="../archive/2026-08.html#w35643">所在月度合集</a></div>
+      <h1>Survival Analysis with Limited Overlap and Censoring Distribution Shift</h1>
+      <p class="standalone-zh-title">有限重叠和删失分布偏移下的生存分析</p>
+      <p class="authors">Meera Krishnamoorthy, Donna Tjandra, Divya Shanmugam, Amanda E. Kowalski, Jenna Wiens</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/education-labor.html">教育与劳动</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Survival analysis methods are often used to predict the time until the onset of an event in settings when the true time-to-event (TTE) may be censored during training. Such approaches typically assume uncensored data are representative of censored data and that the probability of censoring conditioned on the covariates remains constant over time, i.e., there is no censoring distribution shift. However, both assumptions can fail in practice when censoring results from interventions targeted to individuals with particular comorbidities or genetic markers (such as prophylactic surgery when predicting time to cancer onset, or scheduled cesarean delivery and induction when predicting time to spontaneous labor) and changes in clinical policies alter which individuals are targeted for these interventions over time. To address this, we propose a new approach, cluster-weighted inference of time-to event (CWITE), that remains accurate when these assumptions do not hold. Unlike existing approaches that ignore times-to-censoring (TTC) or treat them only as a lower bound of the TTE, CWITE leverages the insight that a subset of censored individuals are likely censored close to their true TTEs, and uses a novel mechanism to learn from such individuals. On the task of predicting time to spontaneous labor using real-world data, CWITE improves TTE accuracy for individuals similar to censored training data (mean absolute error: 6.50 days, 95% CI: [5.55, 7.40] vs. 7.82 days, [6.82, 8.82]) while maintaining comparable performance for those similar to uncensored training data (6.50 days, [5.54, 7.61] vs. 6.63 days, [5.67,7.69]). Our results demonstrate that incorporating more specific supervision from censored training data can significantly improve TTE predictions in settings with limited overlap and censoring distribution shift, challenges common in real-world clinical data. Code to implement CWITE and reproduce all experiments in the paper is available at https://github.com/MLD3/CWITE.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>生存分析方法常用于预测事件发生的时间，在训练期间真实事件发生时间（TTE）可能被删失的情况下。此类方法通常假设未删失数据代表删失数据，并且给定协变量的删失概率随时间保持不变，即不存在删失分布偏移。然而，当删失源于针对具有特定合并症或遗传标记的个体的干预（例如预测癌症发病时间时的预防性手术，或预测自然临产时间时的计划剖宫产和引产）以及临床政策变化改变这些干预的目标个体时，这两个假设在实践中都可能失效。为了解决这个问题，我们提出了一种新方法，即聚类加权事件时间推断（CWITE），当这些假设不成立时，该方法仍能保持准确性。与忽略删失时间（TTC）或仅将其视为TTE下限的现有方法不同，CWITE利用了一个洞察，即一部分删失个体可能在其真实TTE附近被删失，并使用一种新颖的机制从这些个体中学习。在预测自然临产时间的任务中，使用真实世界数据，CWITE提高了与删失训练数据相似的个体的TTE准确性（平均绝对误差：6.50天，95%置信区间：[5.55, 7.40]对比7.82天，[6.82, 8.82]），同时在与未删失训练数据相似的个体上保持了可比的性能（6.50天，[5.54, 7.61]对比6.63天，[5.67, 7.69]）。我们的结果表明，在有限重叠和删失分布偏移的情况下，从删失训练数据中纳入更具体的监督可以显著提高TTE预测，这些挑战在真实世界临床数据中很常见。实现CWITE并重现论文中所有实验的代码可在https://github.com/MLD3/CWITE获取。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w35643" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w35643.html">分享链接</button>
+        <button type="button" data-copy-value="Meera Krishnamoorthy, Donna Tjandra, Divya Shanmugam, Amanda E. Kowalski, Jenna Wiens. Survival Analysis with Limited Overlap and Censoring Distribution Shift. NBER Working Paper 35643. https://www.nber.org/papers/w35643">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

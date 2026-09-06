@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Long Story Short: Omitted Variable Bias in Causal Machine Learning｜NBER w30302｜学术传送门</title>
+  <meta name="description" content="我们推导出对于一大类可识别为结果条件期望函数的线性泛函的因果参数，其遗漏变量偏误大小的通用、简洁且严格的界限。这些泛函涵盖了因果推断研究中许多传统的研究目标，例如，潜在结果的（加权）平均值、平均处理效应（包括亚组效应，如对受处理者的效应）、（加权）平均导数，以及协变量分布变化带来的政策效应——所有这些都适用于一般的非参数因果模型。我们的构造依赖于目标泛函的R">
+  <meta property="og:title" content="长话短说：因果机器学习中的遗漏变量偏误｜NBER w30302">
+  <meta property="og:description" content="我们推导出对于一大类可识别为结果条件期望函数的线性泛函的因果参数，其遗漏变量偏误大小的通用、简洁且严格的界限。这些泛函涵盖了因果推断研究中许多传统的研究目标，例如，潜在结果的（加权）平均值、平均处理效应（包括亚组效应，如对受处理者的效应）、（加权）平均导数，以及协变量分布变化带来的政策效应——所有这些都适用于一般的非参数因果模型。我们的构造依赖于目标泛函的R">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w30302.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w30302.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Long Story Short: Omitted Variable Bias in Causal Machine Learning","name":"长话短说：因果机器学习中的遗漏变量偏误","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w30302.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w30302.html","identifier":"NBER Working Paper w30302","author":[{"@type":"Person","name":"Victor Chernozhukov"},{"@type":"Person","name":"Carlos Cinelli"},{"@type":"Person","name":"Whitney Newey"},{"@type":"Person","name":"Amit Sharma"},{"@type":"Person","name":"Vasilis Syrgkanis"}],"abstract":"我们推导出对于一大类可识别为结果条件期望函数的线性泛函的因果参数，其遗漏变量偏误大小的通用、简洁且严格的界限。这些泛函涵盖了因果推断研究中许多传统的研究目标，例如，潜在结果的（加权）平均值、平均处理效应（包括亚组效应，如对受处理者的效应）、（加权）平均导数，以及协变量分布变化带来的政策效应——所有这些都适用于一般的非参数因果模型。我们的构造依赖于目标泛函的Riesz-Fréchet表示。具体来说，我们展示了偏误界限如何仅取决于潜在变量在结果变量和感兴趣参数的Riesz表示子中创造的额外变异。此外，在许多重要情况下（例如，平均处理效应和平均导数），该界限被证明取决于易于解释的量，这些量衡量了遗漏变量的解释力。因此，关于遗漏变量最大解释力（在解释处理和结果变异方面）的简单合理性判断，就足以对偏误大小设置总体界限。此外，我们使用去偏机器学习对界限中可学习的组成部分提供灵活且高效的统计推断。最后，实证例子展示了该方法的实用性。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w30302","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2022-08-01"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w30302","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w30302.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w30302</span><a href="../weekly/2022-08-01.html#w30302">所在周报</a><a href="../archive/2022-07.html#w30302">所在月度合集</a></div>
+      <h1>Long Story Short: Omitted Variable Bias in Causal Machine Learning</h1>
+      <p class="standalone-zh-title">长话短说：因果机器学习中的遗漏变量偏误</p>
+      <p class="authors">Victor Chernozhukov, Carlos Cinelli, Whitney Newey, Amit Sharma, Vasilis Syrgkanis</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>We derive general, yet simple, sharp bounds on the size of the omitted variable bias for a broad class of causal parameters that can be identified as linear functionals of the conditional expectation function of the outcome. Such functionals encompass many of the traditional targets of investigation in causal inference studies, such as, for example, (weighted) average of potential outcomes, average treatment effects (including subgroup effects, such as the effect on the treated), (weighted) average derivatives, and policy effects from shifts in covariate distribution -- all for general, nonparametric causal models. Our construction relies on the Riesz-Frechet representation of the target functional. Specifically, we show how the bound on the bias depends only on the additional variation that the latent variables create both in the outcome and in the Riesz representer for the parameter of interest. Moreover, in many important cases (e.g, average treatment effects and avearage derivatives) the bound is shown to depend on easily interpretable quantities that measure the explanatory power of the omitted variables. Therefore, simple plausibility judgments on the maximum explanatory power of omitted variables (in explaining treatment and outcome variation) are sufficient to place overall bounds on the size of the bias. Furthermore, we use debiased machine learning to provide flexible and efficient statistical inference on learnable components of the bounds. Finally, empirical examples demonstrate the usefulness of the approach.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>我们推导出对于一大类可识别为结果条件期望函数的线性泛函的因果参数，其遗漏变量偏误大小的通用、简洁且严格的界限。这些泛函涵盖了因果推断研究中许多传统的研究目标，例如，潜在结果的（加权）平均值、平均处理效应（包括亚组效应，如对受处理者的效应）、（加权）平均导数，以及协变量分布变化带来的政策效应——所有这些都适用于一般的非参数因果模型。我们的构造依赖于目标泛函的Riesz-Fréchet表示。具体来说，我们展示了偏误界限如何仅取决于潜在变量在结果变量和感兴趣参数的Riesz表示子中创造的额外变异。此外，在许多重要情况下（例如，平均处理效应和平均导数），该界限被证明取决于易于解释的量，这些量衡量了遗漏变量的解释力。因此，关于遗漏变量最大解释力（在解释处理和结果变异方面）的简单合理性判断，就足以对偏误大小设置总体界限。此外，我们使用去偏机器学习对界限中可学习的组成部分提供灵活且高效的统计推断。最后，实证例子展示了该方法的实用性。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w30302" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w30302.html">分享链接</button>
+        <button type="button" data-copy-value="Victor Chernozhukov, Carlos Cinelli, Whitney Newey, Amit Sharma, Vasilis Syrgkanis. Long Story Short: Omitted Variable Bias in Causal Machine Learning. NBER Working Paper 30302. https://www.nber.org/papers/w30302">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

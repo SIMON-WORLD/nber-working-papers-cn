@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>An Exploration of Trend-Cycle Decomposition Methodologies in Simulated Data｜NBER w26750｜学术传送门</title>
+  <meta name="description" content="本文使用模拟来探索Hodrick和Prescott（1997）的HP滤波器、Baxter和King（1999）的BK滤波器以及Hamilton（2018）的H滤波器的性质，这些滤波器旨在将单变量时间序列分解为趋势和周期成分。每个模拟时间序列近似于美国实际GDP的自然对数，它们分别是随机游走、ARIMA模型、两个不可观测成分模型，以及具有缓慢变化的非平稳随机趋">
+  <meta property="og:title" content="模拟数据中趋势-周期分解方法的探索｜NBER w26750">
+  <meta property="og:description" content="本文使用模拟来探索Hodrick和Prescott（1997）的HP滤波器、Baxter和King（1999）的BK滤波器以及Hamilton（2018）的H滤波器的性质，这些滤波器旨在将单变量时间序列分解为趋势和周期成分。每个模拟时间序列近似于美国实际GDP的自然对数，它们分别是随机游走、ARIMA模型、两个不可观测成分模型，以及具有缓慢变化的非平稳随机趋">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w26750.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w26750.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"An Exploration of Trend-Cycle Decomposition Methodologies in Simulated Data","name":"模拟数据中趋势-周期分解方法的探索","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w26750.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w26750.html","identifier":"NBER Working Paper w26750","author":[{"@type":"Person","name":"Robert J. Hodrick"}],"abstract":"本文使用模拟来探索Hodrick和Prescott（1997）的HP滤波器、Baxter和King（1999）的BK滤波器以及Hamilton（2018）的H滤波器的性质，这些滤波器旨在将单变量时间序列分解为趋势和周期成分。每个模拟时间序列近似于美国实际GDP的自然对数，它们分别是随机游走、ARIMA模型、两个不可观测成分模型，以及具有缓慢变化的非平稳随机趋势和明确周期成分的模型。在基本时间序列中，H滤波器在更准确地刻画基础框架方面优于HP和BK滤波器，但在更复杂的模型中，情况则相反。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w26750","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2020-02-17"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w26750","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w26750.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w26750</span><a href="../weekly/2020-02-17.html#w26750">所在周报</a><a href="../archive/2020-02.html#w26750">所在月度合集</a></div>
+      <h1>An Exploration of Trend-Cycle Decomposition Methodologies in Simulated Data</h1>
+      <p class="standalone-zh-title">模拟数据中趋势-周期分解方法的探索</p>
+      <p class="authors">Robert J. Hodrick</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>美国</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>This paper uses simulations to explore the properties of the HP filter of Hodrick and Prescott (1997), the BK filter of Baxter and King (1999), and the H filter of Hamilton (2018) that are designed to decompose a univariate time series into trend and cyclical components. Each simulated time series approximates the natural logarithms of U.S. Real GDP, and they are a random walk, an ARIMA model, two unobserved components models, and models with slowly changing nonstationary stochastic trends and definitive cyclical components. In basic time series, the H filter dominates the HP and BK filters in more closely characterizing the underlying framework, but in more complex models, the reverse is true.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>本文使用模拟来探索Hodrick和Prescott（1997）的HP滤波器、Baxter和King（1999）的BK滤波器以及Hamilton（2018）的H滤波器的性质，这些滤波器旨在将单变量时间序列分解为趋势和周期成分。每个模拟时间序列近似于美国实际GDP的自然对数，它们分别是随机游走、ARIMA模型、两个不可观测成分模型，以及具有缓慢变化的非平稳随机趋势和明确周期成分的模型。在基本时间序列中，H滤波器在更准确地刻画基础框架方面优于HP和BK滤波器，但在更复杂的模型中，情况则相反。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w26750" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w26750.html">分享链接</button>
+        <button type="button" data-copy-value="Robert J. Hodrick. An Exploration of Trend-Cycle Decomposition Methodologies in Simulated Data. NBER Working Paper 26750. https://www.nber.org/papers/w26750">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

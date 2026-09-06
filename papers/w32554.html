@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>On Robust Inference in Time Series Regression｜NBER w32554｜学术传送门</title>
+  <meta name="description" content="使用异方差一致性标准误的最小二乘回归（“OLS-HC回归”）在横截面环境中已被证明非常有用。然而，当通过异方差和自相关一致性标准误（“OLS-HAC回归”）将HC技术应用于时间序列环境时，必须面对几个通常被忽视的主要困难。首先，在合理的时间序列环境中，OLS参数估计可能不一致，因此OLS-HAC推断即使在渐近意义上也会失败。其次，大多数经济时间序列存在自相关">
+  <meta property="og:title" content="时间序列回归中的稳健推断｜NBER w32554">
+  <meta property="og:description" content="使用异方差一致性标准误的最小二乘回归（“OLS-HC回归”）在横截面环境中已被证明非常有用。然而，当通过异方差和自相关一致性标准误（“OLS-HAC回归”）将HC技术应用于时间序列环境时，必须面对几个通常被忽视的主要困难。首先，在合理的时间序列环境中，OLS参数估计可能不一致，因此OLS-HAC推断即使在渐近意义上也会失败。其次，大多数经济时间序列存在自相关">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w32554.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w32554.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"On Robust Inference in Time Series Regression","name":"时间序列回归中的稳健推断","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w32554.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w32554.html","identifier":"NBER Working Paper w32554","author":[{"@type":"Person","name":"Richard T. Baillie"},{"@type":"Person","name":"Francis X. Diebold"},{"@type":"Person","name":"George Kapetanios"},{"@type":"Person","name":"Kun Ho Kim"},{"@type":"Person","name":"Aaron Mora"}],"abstract":"使用异方差一致性标准误的最小二乘回归（“OLS-HC回归”）在横截面环境中已被证明非常有用。然而，当通过异方差和自相关一致性标准误（“OLS-HAC回归”）将HC技术应用于时间序列环境时，必须面对几个通常被忽视的主要困难。首先，在合理的时间序列环境中，OLS参数估计可能不一致，因此OLS-HAC推断即使在渐近意义上也会失败。其次，大多数经济时间序列存在自相关，这使得OLS参数估计效率低下。第三，自相关同样使得基于OLS参数估计的条件预测效率低下。最后，流行的HAC协方差矩阵估计量的结构不适合捕捉经济时间序列中通常存在的自回归自相关，这导致在除最大样本外的所有样本中，基于HAC的假设检验产生较大的规模扭曲和降低的检验功效。我们表明，通过使用一个简单且易于实施的动态回归程序（我们称之为DURBIN），这四个问题在很大程度上得以避免。我们通过涵盖一系列实际问题的详细模拟证明了DURBIN的优势。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w32554","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2024-06-10"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w32554","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w32554.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w32554</span><a href="../weekly/2024-06-10.html#w32554">所在周报</a><a href="../archive/2024-06.html#w32554">所在月度合集</a></div>
+      <h1>On Robust Inference in Time Series Regression</h1>
+      <p class="standalone-zh-title">时间序列回归中的稳健推断</p>
+      <p class="authors">Richard T. Baillie, Francis X. Diebold, George Kapetanios, Kun Ho Kim, Aaron Mora</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/environment-health.html">环境与气候</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Least squares regression with heteroskedasticity consistent standard errors (“OLS-HC regression”) has proved very useful in cross section environments. However, several major difficulties, which are generally overlooked, must be confronted when transferring the HC technology to time series environments via heteroskedasticity and autocorrelation consistent standard errors (“OLS-HAC regression”). First, in plausible time-series environments, OLS parameter estimates can be inconsistent, so that OLS-HAC inference fails even asymptotically. Second, most economic time series have autocorrelation, which renders OLS parameter estimates inefficient. Third, autocorrelation similarly renders conditional predictions based on OLS parameter estimates inefficient. Finally, the structure of popular HAC covariance matrix estimators is ill-suited for capturing the autoregressive autocorrelation typically present in economic time series, which produces large size distortions and reduced power in HAC-based hypothesis testing, in all but the largest samples. We show that all four problems are largely avoided by the use of a simple and easily-implemented dynamic regression procedure, which we call DURBIN. We demonstrate the advantages of DURBIN with detailed simulations covering a range of practical issues.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>使用异方差一致性标准误的最小二乘回归（“OLS-HC回归”）在横截面环境中已被证明非常有用。然而，当通过异方差和自相关一致性标准误（“OLS-HAC回归”）将HC技术应用于时间序列环境时，必须面对几个通常被忽视的主要困难。首先，在合理的时间序列环境中，OLS参数估计可能不一致，因此OLS-HAC推断即使在渐近意义上也会失败。其次，大多数经济时间序列存在自相关，这使得OLS参数估计效率低下。第三，自相关同样使得基于OLS参数估计的条件预测效率低下。最后，流行的HAC协方差矩阵估计量的结构不适合捕捉经济时间序列中通常存在的自回归自相关，这导致在除最大样本外的所有样本中，基于HAC的假设检验产生较大的规模扭曲和降低的检验功效。我们表明，通过使用一个简单且易于实施的动态回归程序（我们称之为DURBIN），这四个问题在很大程度上得以避免。我们通过涵盖一系列实际问题的详细模拟证明了DURBIN的优势。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w32554" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w32554.html">分享链接</button>
+        <button type="button" data-copy-value="Richard T. Baillie, Francis X. Diebold, George Kapetanios, Kun Ho Kim, Aaron Mora. On Robust Inference in Time Series Regression. NBER Working Paper 32554. https://www.nber.org/papers/w32554">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

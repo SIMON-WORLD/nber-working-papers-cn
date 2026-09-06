@@ -1,0 +1,277 @@
+{
+  "schema_version": 2,
+  "latest_year": 2026,
+  "total": 35651,
+  "years": [
+    {
+      "year": 2026,
+      "count": 1080,
+      "path": "data/search/weekly/2026.json"
+    },
+    {
+      "year": 2025,
+      "count": 1290,
+      "path": "data/search/weekly/2025.json"
+    },
+    {
+      "year": 2024,
+      "count": 1325,
+      "path": "data/search/weekly/2024.json"
+    },
+    {
+      "year": 2023,
+      "count": 1191,
+      "path": "data/search/weekly/2023.json"
+    },
+    {
+      "year": 2022,
+      "count": 1197,
+      "path": "data/search/weekly/2022.json"
+    },
+    {
+      "year": 2021,
+      "count": 1319,
+      "path": "data/search/weekly/2021.json"
+    },
+    {
+      "year": 2020,
+      "count": 1687,
+      "path": "data/search/weekly/2020.json"
+    },
+    {
+      "year": 2019,
+      "count": 1185,
+      "path": "data/search/weekly/2019.json"
+    },
+    {
+      "year": 2018,
+      "count": 1262,
+      "path": "data/search/weekly/2018.json"
+    },
+    {
+      "year": 2017,
+      "count": 1164,
+      "path": "data/search/weekly/2017.json"
+    },
+    {
+      "year": 2016,
+      "count": 1161,
+      "path": "data/search/weekly/2016.json"
+    },
+    {
+      "year": 2015,
+      "count": 1030,
+      "path": "data/search/weekly/2015.json"
+    },
+    {
+      "year": 2014,
+      "count": 1027,
+      "path": "data/search/weekly/2014.json"
+    },
+    {
+      "year": 2013,
+      "count": 1086,
+      "path": "data/search/weekly/2013.json"
+    },
+    {
+      "year": 2012,
+      "count": 963,
+      "path": "data/search/weekly/2012.json"
+    },
+    {
+      "year": 2011,
+      "count": 1062,
+      "path": "data/search/weekly/2011.json"
+    },
+    {
+      "year": 2010,
+      "count": 1024,
+      "path": "data/search/weekly/2010.json"
+    },
+    {
+      "year": 2009,
+      "count": 1004,
+      "path": "data/search/weekly/2009.json"
+    },
+    {
+      "year": 2008,
+      "count": 896,
+      "path": "data/search/weekly/2008.json"
+    },
+    {
+      "year": 2007,
+      "count": 920,
+      "path": "data/search/weekly/2007.json"
+    },
+    {
+      "year": 2006,
+      "count": 888,
+      "path": "data/search/weekly/2006.json"
+    },
+    {
+      "year": 2005,
+      "count": 891,
+      "path": "data/search/weekly/2005.json"
+    },
+    {
+      "year": 2004,
+      "count": 820,
+      "path": "data/search/weekly/2004.json"
+    },
+    {
+      "year": 2003,
+      "count": 790,
+      "path": "data/search/weekly/2003.json"
+    },
+    {
+      "year": 2002,
+      "count": 711,
+      "path": "data/search/weekly/2002.json"
+    },
+    {
+      "year": 2001,
+      "count": 635,
+      "path": "data/search/weekly/2001.json"
+    },
+    {
+      "year": 2000,
+      "count": 627,
+      "path": "data/search/weekly/2000.json"
+    },
+    {
+      "year": 1999,
+      "count": 595,
+      "path": "data/search/weekly/1999.json"
+    },
+    {
+      "year": 1998,
+      "count": 506,
+      "path": "data/search/weekly/1998.json"
+    },
+    {
+      "year": 1997,
+      "count": 464,
+      "path": "data/search/weekly/1997.json"
+    },
+    {
+      "year": 1996,
+      "count": 448,
+      "path": "data/search/weekly/1996.json"
+    },
+    {
+      "year": 1995,
+      "count": 422,
+      "path": "data/search/weekly/1995.json"
+    },
+    {
+      "year": 1994,
+      "count": 374,
+      "path": "data/search/weekly/1994.json"
+    },
+    {
+      "year": 1993,
+      "count": 358,
+      "path": "data/search/weekly/1993.json"
+    },
+    {
+      "year": 1992,
+      "count": 303,
+      "path": "data/search/weekly/1992.json"
+    },
+    {
+      "year": 1991,
+      "count": 372,
+      "path": "data/search/weekly/1991.json"
+    },
+    {
+      "year": 1990,
+      "count": 355,
+      "path": "data/search/weekly/1990.json"
+    },
+    {
+      "year": 1989,
+      "count": 412,
+      "path": "data/search/weekly/1989.json"
+    },
+    {
+      "year": 1988,
+      "count": 328,
+      "path": "data/search/weekly/1988.json"
+    },
+    {
+      "year": 1987,
+      "count": 363,
+      "path": "data/search/weekly/1987.json"
+    },
+    {
+      "year": 1986,
+      "count": 331,
+      "path": "data/search/weekly/1986.json"
+    },
+    {
+      "year": 1985,
+      "count": 254,
+      "path": "data/search/weekly/1985.json"
+    },
+    {
+      "year": 1984,
+      "count": 276,
+      "path": "data/search/weekly/1984.json"
+    },
+    {
+      "year": 1983,
+      "count": 201,
+      "path": "data/search/weekly/1983.json"
+    },
+    {
+      "year": 1982,
+      "count": 222,
+      "path": "data/search/weekly/1982.json"
+    },
+    {
+      "year": 1981,
+      "count": 224,
+      "path": "data/search/weekly/1981.json"
+    },
+    {
+      "year": 1980,
+      "count": 211,
+      "path": "data/search/weekly/1980.json"
+    },
+    {
+      "year": 1979,
+      "count": 113,
+      "path": "data/search/weekly/1979.json"
+    },
+    {
+      "year": 1978,
+      "count": 68,
+      "path": "data/search/weekly/1978.json"
+    },
+    {
+      "year": 1977,
+      "count": 59,
+      "path": "data/search/weekly/1977.json"
+    },
+    {
+      "year": 1976,
+      "count": 39,
+      "path": "data/search/weekly/1976.json"
+    },
+    {
+      "year": 1975,
+      "count": 47,
+      "path": "data/search/weekly/1975.json"
+    },
+    {
+      "year": 1974,
+      "count": 45,
+      "path": "data/search/weekly/1974.json"
+    },
+    {
+      "year": 1973,
+      "count": 26,
+      "path": "data/search/weekly/1973.json"
+    }
+  ]
+}

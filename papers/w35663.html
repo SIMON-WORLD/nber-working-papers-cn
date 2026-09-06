@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>CentaurBench: Benchmarking LLM Capabilities on Augmenting vs. Automating Real-World Work Tasks｜NBER w35663｜学术传送门</title>
+  <meta name="description" content="大多数LLM基准测试根据模型自动化工作任务的能力对其进行排名。然而，在实践中，模型通常被用来辅助其他（人类或LLM）智能体。因此，驱动模型选择的不仅是哪个模型能产生最佳输出，而是哪个模型最能改进另一个（较弱的）智能体的工作。我们引入了一个统一框架，用于评估模型自动化和增强另一个智能体表现的能力。在七个具有经济学基础的真实世界任务中，一个辅助模型为标准化低能力">
+  <meta property="og:title" content="CentaurBench：基准测试LLM在增强与自动化现实工作任务方面的能力｜NBER w35663">
+  <meta property="og:description" content="大多数LLM基准测试根据模型自动化工作任务的能力对其进行排名。然而，在实践中，模型通常被用来辅助其他（人类或LLM）智能体。因此，驱动模型选择的不仅是哪个模型能产生最佳输出，而是哪个模型最能改进另一个（较弱的）智能体的工作。我们引入了一个统一框架，用于评估模型自动化和增强另一个智能体表现的能力。在七个具有经济学基础的真实世界任务中，一个辅助模型为标准化低能力">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w35663.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w35663.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"CentaurBench: Benchmarking LLM Capabilities on Augmenting vs. Automating Real-World Work Tasks","name":"CentaurBench：基准测试LLM在增强与自动化现实工作任务方面的能力","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w35663.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w35663.html","identifier":"NBER Working Paper w35663","author":[{"@type":"Person","name":"Pattaraphon Kenny Wongchamcharoen"},{"@type":"Person","name":"Kris Gulati"},{"@type":"Person","name":"Min Min Fong"},{"@type":"Person","name":"Abhishek Nagaraj"}],"abstract":"大多数LLM基准测试根据模型自动化工作任务的能力对其进行排名。然而，在实践中，模型通常被用来辅助其他（人类或LLM）智能体。因此，驱动模型选择的不仅是哪个模型能产生最佳输出，而是哪个模型最能改进另一个（较弱的）智能体的工作。我们引入了一个统一框架，用于评估模型自动化和增强另一个智能体表现的能力。在七个具有经济学基础的真实世界任务中，一个辅助模型为标准化低能力工作者模型编写辅助文本，后者负责生成交付物。在自动化模式下，辅助模型直接生成输出。输出通过具有任务特定评分标准的LLM评审小组进行盲法两两比较评分，并在十次运行中重复。两种模式下的排名仅呈适度相关，自动化获胜者在七项任务中有五项在增强方面落败。辅助并非可靠地产生正面效果。在三个任务中，未受辅助的工作者排名高于所有受辅助条件，且只有一个模型的指导平均而言优于无指导。这些结果表明，自动化能力是辅助质量的非完全代理，这促使基准测试应根据模型在人类-AI和多智能体系统中所扮演的角色来评估模型。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w35663","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2026-08-31"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w35663","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w35663.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w35663</span><a href="../weekly/2026-08-31.html#w35663">所在周报</a><a href="../archive/2026-08.html#w35663">所在月度合集</a></div>
+      <h1>CentaurBench: Benchmarking LLM Capabilities on Augmenting vs. Automating Real-World Work Tasks</h1>
+      <p class="standalone-zh-title">CentaurBench：基准测试LLM在增强与自动化现实工作任务方面的能力</p>
+      <p class="authors">Pattaraphon Kenny Wongchamcharoen, Kris Gulati, Min Min Fong, Abhishek Nagaraj</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Most LLM benchmarks rank models on their ability to automate work tasks. In practice, however, models are often used to assist other (human or LLM) agents. The question that drives model selection is therefore not only which model produces the best output, but which model most improves the work of another (weaker) agent. We introduce a unified framework that evaluates the capability of models to automate and augment another agent&#x27;s performance. Across seven economically grounded real-world tasks, an assistant model writes assistance text for a standardized lower-capacity worker model, which produces the deliverable. In automation mode, the assistant produces the output directly. Outputs are scored through blind pairwise comparisons by an LLM judge panel with task-specific rubrics, replicated across ten runs. Rankings across the two regimes are only modestly correlated, and the automation winner loses augmentation on five of seven tasks. Assistance is not reliably positive. The unaided worker outranks every assisted condition on three tasks, and only one model&#x27;s guidance beats no guidance on average. These results suggest that automation ability is an incomplete proxy for assistance quality, motivating benchmarks that evaluate models according to the roles they play in human-AI and multi-agent systems.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>大多数LLM基准测试根据模型自动化工作任务的能力对其进行排名。然而，在实践中，模型通常被用来辅助其他（人类或LLM）智能体。因此，驱动模型选择的不仅是哪个模型能产生最佳输出，而是哪个模型最能改进另一个（较弱的）智能体的工作。我们引入了一个统一框架，用于评估模型自动化和增强另一个智能体表现的能力。在七个具有经济学基础的真实世界任务中，一个辅助模型为标准化低能力工作者模型编写辅助文本，后者负责生成交付物。在自动化模式下，辅助模型直接生成输出。输出通过具有任务特定评分标准的LLM评审小组进行盲法两两比较评分，并在十次运行中重复。两种模式下的排名仅呈适度相关，自动化获胜者在七项任务中有五项在增强方面落败。辅助并非可靠地产生正面效果。在三个任务中，未受辅助的工作者排名高于所有受辅助条件，且只有一个模型的指导平均而言优于无指导。这些结果表明，自动化能力是辅助质量的非完全代理，这促使基准测试应根据模型在人类-AI和多智能体系统中所扮演的角色来评估模型。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w35663" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w35663.html">分享链接</button>
+        <button type="button" data-copy-value="Pattaraphon Kenny Wongchamcharoen, Kris Gulati, Min Min Fong, Abhishek Nagaraj. CentaurBench: Benchmarking LLM Capabilities on Augmenting vs. Automating Real-World Work Tasks. NBER Working Paper 35663. https://www.nber.org/papers/w35663">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

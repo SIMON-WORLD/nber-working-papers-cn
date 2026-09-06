@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>No Ground Truth? No Problem: Improving Administrative Data Linking Using Active Learning and a Little Bit of Guile｜NBER w31100｜学术传送门</title>
+  <meta name="description" content="尽管跨大型行政数据集（“大数据”）链接记录有可能彻底改变实证社会科学研究，但许多行政数据文件没有通用标识符，因此并非设计用于相互链接。为解决此问题，研究人员开发了概率记录链接算法，利用识别特征中的统计模式来执行链接任务。自然，当算法能够访问“真实”示例（即可通过机构知识或辅助数据验证的匹配）时，候选链接算法的准确性可以得到显著提高。不幸的是，获取这些示例的成">
+  <meta property="og:title" content="没有真实数据？没问题：利用主动学习和一点巧思改进行政数据链接｜NBER w31100">
+  <meta property="og:description" content="尽管跨大型行政数据集（“大数据”）链接记录有可能彻底改变实证社会科学研究，但许多行政数据文件没有通用标识符，因此并非设计用于相互链接。为解决此问题，研究人员开发了概率记录链接算法，利用识别特征中的统计模式来执行链接任务。自然，当算法能够访问“真实”示例（即可通过机构知识或辅助数据验证的匹配）时，候选链接算法的准确性可以得到显著提高。不幸的是，获取这些示例的成">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w31100.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w31100.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"No Ground Truth? No Problem: Improving Administrative Data Linking Using Active Learning and a Little Bit of Guile","name":"没有真实数据？没问题：利用主动学习和一点巧思改进行政数据链接","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w31100.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w31100.html","identifier":"NBER Working Paper w31100","author":[{"@type":"Person","name":"Sarah Tahamont"},{"@type":"Person","name":"Zubin Jelveh"},{"@type":"Person","name":"Melissa McNeill"},{"@type":"Person","name":"Shi Yan"},{"@type":"Person","name":"Aaron Chalfin"},{"@type":"Person","name":"Benjamin Hansen"}],"abstract":"尽管跨大型行政数据集（“大数据”）链接记录有可能彻底改变实证社会科学研究，但许多行政数据文件没有通用标识符，因此并非设计用于相互链接。为解决此问题，研究人员开发了概率记录链接算法，利用识别特征中的统计模式来执行链接任务。自然，当算法能够访问“真实”示例（即可通过机构知识或辅助数据验证的匹配）时，候选链接算法的准确性可以得到显著提高。不幸的是，获取这些示例的成本通常很高，通常需要研究人员手动审查记录对，以便就它们是否匹配做出明智判断。当缺乏真实信息池时，研究人员可以使用“主动学习”算法进行链接，该算法要求用户为选定的候选对提供真实信息。在本文中，我们研究了通过主动学习提供真实示例对链接性能的价值。我们证实了普遍直觉，即数据链接可以通过真实示例的可用性得到显著改善。但关键的是，在许多实际应用中，只需要相对较少数量的策略性选择的真实示例，就能获得大部分可实现的收益。通过适度的真实信息投入，研究人员可以使用现成的工具，近似于能够访问大型真实示例数据库的监督学习算法的性能。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w31100","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2023-04-10"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w31100","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w31100.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w31100</span><a href="../weekly/2023-04-10.html#w31100">所在周报</a><a href="../archive/2023-04.html#w31100">所在月度合集</a></div>
+      <h1>No Ground Truth? No Problem: Improving Administrative Data Linking Using Active Learning and a Little Bit of Guile</h1>
+      <p class="standalone-zh-title">没有真实数据？没问题：利用主动学习和一点巧思改进行政数据链接</p>
+      <p class="authors">Sarah Tahamont, Zubin Jelveh, Melissa McNeill, Shi Yan, Aaron Chalfin, Benjamin Hansen</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/other.html">其他主题</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>While linking records across large administrative datasets [“big data”] has the potential to revolutionize empirical social science research, many administrative data files do not have common identifiers and are thus not designed to be linked to others. To address this problem, researchers have developed probabilistic record linkage algorithms which use statistical patterns in identifying characteristics to perform linking tasks. Naturally, the accuracy of a candidate linking algorithm can be substantially improved when an algorithm has access to “ground-truth” examples — matches which can be validated using institutional knowledge or auxiliary data. Unfortunately, the cost of obtaining these examples is typically high, often requiring a researcher to manually review pairs of records in order to make an informed judgement about whether they are a match. When a pool of ground-truth information is unavailable, researchers can use “active learning” algorithms for linking, which ask the user to provide ground-truth information for select candidate pairs. In this paper, we investigate the value of providing ground-truth examples via active learning for linking performance. We confirm popular intuition that data linking can be dramatically improved with the availability of ground truth examples. But critically, in many real-world applications, only a relatively small number of tactically-selected ground-truth examples are needed to obtain most of the achievable gains. With a modest investment in ground truth, researchers can approximate the performance of a supervised learning algorithm that has access to a large database of ground truth examples using a readily available off-the-shelf tool.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>尽管跨大型行政数据集（“大数据”）链接记录有可能彻底改变实证社会科学研究，但许多行政数据文件没有通用标识符，因此并非设计用于相互链接。为解决此问题，研究人员开发了概率记录链接算法，利用识别特征中的统计模式来执行链接任务。自然，当算法能够访问“真实”示例（即可通过机构知识或辅助数据验证的匹配）时，候选链接算法的准确性可以得到显著提高。不幸的是，获取这些示例的成本通常很高，通常需要研究人员手动审查记录对，以便就它们是否匹配做出明智判断。当缺乏真实信息池时，研究人员可以使用“主动学习”算法进行链接，该算法要求用户为选定的候选对提供真实信息。在本文中，我们研究了通过主动学习提供真实示例对链接性能的价值。我们证实了普遍直觉，即数据链接可以通过真实示例的可用性得到显著改善。但关键的是，在许多实际应用中，只需要相对较少数量的策略性选择的真实示例，就能获得大部分可实现的收益。通过适度的真实信息投入，研究人员可以使用现成的工具，近似于能够访问大型真实示例数据库的监督学习算法的性能。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w31100" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w31100.html">分享链接</button>
+        <button type="button" data-copy-value="Sarah Tahamont, Zubin Jelveh, Melissa McNeill, Shi Yan, Aaron Chalfin, Benjamin Hansen. No Ground Truth? No Problem: Improving Administrative Data Linking Using Active Learning and a Little Bit of Guile. NBER Working Paper 31100. https://www.nber.org/papers/w31100">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Robustness Checks in Structural Analysis｜NBER w30443｜学术传送门</title>
+  <meta name="description" content="本文介绍了一种计算效率高的方法，用于估计结构模型的变体。我们的方法近似了矩与参数之间的关系，为传统估计方法提供了一种低成本替代方案。我们建立了通用的收敛条件，主要要求基于模型的矩是参数的连续函数。虽然这种连续性不需要连续的经济模型，但它要求模型只有稀疏的不连续性，这是我们定义的一个概念。我们还提供了核近似和神经网络近似的收敛速度界限，其中神经网络在高维情况下">
+  <meta property="og:title" content="结构分析中的稳健性检验｜NBER w30443">
+  <meta property="og:description" content="本文介绍了一种计算效率高的方法，用于估计结构模型的变体。我们的方法近似了矩与参数之间的关系，为传统估计方法提供了一种低成本替代方案。我们建立了通用的收敛条件，主要要求基于模型的矩是参数的连续函数。虽然这种连续性不需要连续的经济模型，但它要求模型只有稀疏的不连续性，这是我们定义的一个概念。我们还提供了核近似和神经网络近似的收敛速度界限，其中神经网络在高维情况下">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w30443.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w30443.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Robustness Checks in Structural Analysis","name":"结构分析中的稳健性检验","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w30443.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w30443.html","identifier":"NBER Working Paper w30443","author":[{"@type":"Person","name":"Sylvain Catherine"},{"@type":"Person","name":"Mehran Ebrahimian"},{"@type":"Person","name":"Mohammad Fereydounian"},{"@type":"Person","name":"David Sraer"},{"@type":"Person","name":"David Thesmar"}],"abstract":"本文介绍了一种计算效率高的方法，用于估计结构模型的变体。我们的方法近似了矩与参数之间的关系，为传统估计方法提供了一种低成本替代方案。我们建立了通用的收敛条件，主要要求基于模型的矩是参数的连续函数。虽然这种连续性不需要连续的经济模型，但它要求模型只有稀疏的不连续性，这是我们定义的一个概念。我们还提供了核近似和神经网络近似的收敛速度界限，其中神经网络在高维情况下表现出更优的性能。我们将此方法应用于两个标准结构模型：（1）动态公司金融和（2）生命周期投资组合选择。我们通过模拟证明了我们方法的可靠性，然后利用它来探索识别、对样本分割和矩选择的稳健性以及模型误设。这些探索使用标准技术在计算上不可行，但使用我们的方法变得简单。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w30443","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2022-09-12"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w30443","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w30443.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w30443</span><a href="../weekly/2022-09-12.html#w30443">所在周报</a><a href="../archive/2022-09.html#w30443">所在月度合集</a></div>
+      <h1>Robustness Checks in Structural Analysis</h1>
+      <p class="standalone-zh-title">结构分析中的稳健性检验</p>
+      <p class="authors">Sylvain Catherine, Mehran Ebrahimian, Mohammad Fereydounian, David Sraer, David Thesmar</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/finance-assets.html">金融与资产定价</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>This paper introduces a computationally efficient methodology for estimating variants of structural models. Our approach approximates the relationship between moments and parameters, offering a low-cost alternative to traditional estimation methods. We establish general convergence conditions, primarily requiring model-based moments to be continuous functions of parameters. While this continuity does not necessitate a continuous economic model, it does require the model to have only sparse discontinuities, a concept we define. We also provide convergence rate bounds for Kernel and Neural Net approximations, with the latter demonstrating superior performance in higher dimensions. \nWe apply this methodology to two standard structural models: (1) dynamic corporate finance and (2) life-cycle portfolio choice. We demonstrate the reliability of our approach through simulations and then use it to explore identification, robustness to sample splits and moment selection, and model misspecification. These explorations are computationally infeasible with standard techniques, but become trivial with our methodology.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>本文介绍了一种计算效率高的方法，用于估计结构模型的变体。我们的方法近似了矩与参数之间的关系，为传统估计方法提供了一种低成本替代方案。我们建立了通用的收敛条件，主要要求基于模型的矩是参数的连续函数。虽然这种连续性不需要连续的经济模型，但它要求模型只有稀疏的不连续性，这是我们定义的一个概念。我们还提供了核近似和神经网络近似的收敛速度界限，其中神经网络在高维情况下表现出更优的性能。我们将此方法应用于两个标准结构模型：（1）动态公司金融和（2）生命周期投资组合选择。我们通过模拟证明了我们方法的可靠性，然后利用它来探索识别、对样本分割和矩选择的稳健性以及模型误设。这些探索使用标准技术在计算上不可行，但使用我们的方法变得简单。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w30443" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w30443.html">分享链接</button>
+        <button type="button" data-copy-value="Sylvain Catherine, Mehran Ebrahimian, Mohammad Fereydounian, David Sraer, David Thesmar. Robustness Checks in Structural Analysis. NBER Working Paper 30443. https://www.nber.org/papers/w30443">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

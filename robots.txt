@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://academic-door.github.io/nber-working-papers-cn/sitemap.xml

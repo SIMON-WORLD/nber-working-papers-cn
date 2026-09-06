@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>A Practitioner&#x27;s Guide to Using Large Language Models and Generative AI in Economic History｜NBER w35374｜学术传送门</title>
+  <meta name="description" content="大语言模型（LLMs）正在降低使用以往需要强大数据科学技能（如手写账簿、文本、图像或录音）的激动人心数据源的准入门槛。本指南为LLMs新手研究者提供入门介绍。它阐述了将研究想法转化为可运行代码和数据的逐步工作流程，并描述了与LLM交互的四种主要方式：聊天窗口、编辑器集成助手、代理式编码工具和API。随后，指南按顺序探讨实践者面临的决策：从LLM是否为合适工具">
+  <meta property="og:title" content="经济史研究中大语言模型与生成式AI的应用实践指南｜NBER w35374">
+  <meta property="og:description" content="大语言模型（LLMs）正在降低使用以往需要强大数据科学技能（如手写账簿、文本、图像或录音）的激动人心数据源的准入门槛。本指南为LLMs新手研究者提供入门介绍。它阐述了将研究想法转化为可运行代码和数据的逐步工作流程，并描述了与LLM交互的四种主要方式：聊天窗口、编辑器集成助手、代理式编码工具和API。随后，指南按顺序探讨实践者面临的决策：从LLM是否为合适工具">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w35374.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w35374.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"A Practitioner's Guide to Using Large Language Models and Generative AI in Economic History","name":"经济史研究中大语言模型与生成式AI的应用实践指南","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w35374.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w35374.html","identifier":"NBER Working Paper w35374","author":[{"@type":"Person","name":"Andreas Ferrara"}],"abstract":"大语言模型（LLMs）正在降低使用以往需要强大数据科学技能（如手写账簿、文本、图像或录音）的激动人心数据源的准入门槛。本指南为LLMs新手研究者提供入门介绍。它阐述了将研究想法转化为可运行代码和数据的逐步工作流程，并描述了与LLM交互的四种主要方式：聊天窗口、编辑器集成助手、代理式编码工具和API。随后，指南按顺序探讨实践者面临的决策：从LLM是否为合适工具、数据是否允许发送至LLM，到如何选择模型、编写提示词、管理上下文限制和控制成本，最后在回归设定中验证、复现、记录和纠正LLM生成的度量指标。近期研究综述展示了这些工具如何大规模提取、链接、协调和分类历史数据。四个带复现文件的实例说明了LLM的使用：分类绘画中的情感、链接无姓名的人口普查记录、衡量1882年《排华法案》的报纸显著性和情感倾向，以及评分富兰克林·D·罗斯福战时演讲的情感表达。指南还将工作流程、最佳实践建议和复现包准备浓缩为汇总表格和清单，以辅助应用经济学家。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w35374","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2026-06-29"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w35374","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w35374.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w35374</span><a href="../weekly/2026-06-29.html#w35374">所在周报</a><a href="../archive/2026-06.html#w35374">所在月度合集</a></div>
+      <h1>A Practitioner&#x27;s Guide to Using Large Language Models and Generative AI in Economic History</h1>
+      <p class="standalone-zh-title">经济史研究中大语言模型与生成式AI的应用实践指南</p>
+      <p class="authors">Andreas Ferrara</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/ai-digital.html">AI 与数字经济</a>
+        <a class="tag" href="../topics/china.html">中国相关</a>
+        
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Large language models (LLMs) are lowering the entry barriers to working with exciting data sources that used to require strong data science skills, such as handwritten ledgers, text, images, or sound recordings. This guide provides an introduction for researchers who are new to LLMs. It sets out a step-by-step workflow for turning a research idea into working code and data, and describes the four main ways of interacting with an LLM: the chat window, editor-integrated assistants, agentic coding tools, and the API. It then works through the decisions a practitioner meets in sequence, beginning with whether an LLM is the right tool and whether the data are allowed to be sent to one, then how to select models, write prompts, manage context limits, and control costs, and finally how to validate, reproduce, document, and correct LLM-generated measures in regression settings. A review of recent research shows how these tools already extract, link, harmonize, and classify historical data at scale. Four worked examples with replication files illustrate the use of LLMs. They classify emotions in paintings, link census records without names, measure newspaper salience and sentiment around the 1882 Chinese Exclusion Act, and score the emotional delivery of Franklin D. Roosevelt&#x27;s wartime speeches. The guide also condenses the workflow, the best-practice recommendations, and the preparation of replication packages into summary tables and checklists to aid applied economists.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>大语言模型（LLMs）正在降低使用以往需要强大数据科学技能（如手写账簿、文本、图像或录音）的激动人心数据源的准入门槛。本指南为LLMs新手研究者提供入门介绍。它阐述了将研究想法转化为可运行代码和数据的逐步工作流程，并描述了与LLM交互的四种主要方式：聊天窗口、编辑器集成助手、代理式编码工具和API。随后，指南按顺序探讨实践者面临的决策：从LLM是否为合适工具、数据是否允许发送至LLM，到如何选择模型、编写提示词、管理上下文限制和控制成本，最后在回归设定中验证、复现、记录和纠正LLM生成的度量指标。近期研究综述展示了这些工具如何大规模提取、链接、协调和分类历史数据。四个带复现文件的实例说明了LLM的使用：分类绘画中的情感、链接无姓名的人口普查记录、衡量1882年《排华法案》的报纸显著性和情感倾向，以及评分富兰克林·D·罗斯福战时演讲的情感表达。指南还将工作流程、最佳实践建议和复现包准备浓缩为汇总表格和清单，以辅助应用经济学家。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w35374" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w35374.html">分享链接</button>
+        <button type="button" data-copy-value="Andreas Ferrara. A Practitioner&#x27;s Guide to Using Large Language Models and Generative AI in Economic History. NBER Working Paper 35374. https://www.nber.org/papers/w35374">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

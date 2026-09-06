@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Parameter Recovery Using Remotely Sensed Variables｜NBER w30861｜学术传送门</title>
+  <meta name="description" content="遥感测量和其他机器学习预测越来越多地用于替代实证分析中的直接观测。此类测量中的误差可能导致参数估计偏差，但目前尚不清楚这些偏差有多大或如何纠正。我们利用一个新的基准数据集，该数据集提供了美国本土多个变量的共位地面真实观测和遥感测量，以表明在多种实证环境中，未经校正使用遥感测量的常见做法会导致参数点估计和标准误的偏差。我们使用遥感测量估计的95%置信区间中，超">
+  <meta property="og:title" content="利用遥感变量进行参数恢复｜NBER w30861">
+  <meta property="og:description" content="遥感测量和其他机器学习预测越来越多地用于替代实证分析中的直接观测。此类测量中的误差可能导致参数估计偏差，但目前尚不清楚这些偏差有多大或如何纠正。我们利用一个新的基准数据集，该数据集提供了美国本土多个变量的共位地面真实观测和遥感测量，以表明在多种实证环境中，未经校正使用遥感测量的常见做法会导致参数点估计和标准误的偏差。我们使用遥感测量估计的95%置信区间中，超">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w30861.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w30861.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Parameter Recovery Using Remotely Sensed Variables","name":"利用遥感变量进行参数恢复","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w30861.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w30861.html","identifier":"NBER Working Paper w30861","author":[{"@type":"Person","name":"Jonathan Proctor"},{"@type":"Person","name":"Tamma Carleton"},{"@type":"Person","name":"Sandy Sum"}],"abstract":"遥感测量和其他机器学习预测越来越多地用于替代实证分析中的直接观测。此类测量中的误差可能导致参数估计偏差，但目前尚不清楚这些偏差有多大或如何纠正。我们利用一个新的基准数据集，该数据集提供了美国本土多个变量的共位地面真实观测和遥感测量，以表明在多种实证环境中，未经校正使用遥感测量的常见做法会导致参数点估计和标准误的偏差。我们使用遥感测量估计的95%置信区间中，超过四分之三不包含真实的感兴趣系数。这些偏差源于经典测量误差和更结构化的测量误差，我们发现后者在基于机器学习的遥感测量中很常见。我们表明，多重插补——一种标准统计插补技术，在此背景下尚未测试——能有效减少偏差并提高统计覆盖率，在简单线性回归和面板固定效应框架中仅轻微降低功效。我们的结果证明，多重插补是一种通用且易于实施的方法，用于校正依赖遥感变量的参数估计。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w30861","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2023-01-23"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w30861","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w30861.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w30861</span><a href="../weekly/2023-01-23.html#w30861">所在周报</a><a href="../archive/2023-01.html#w30861">所在月度合集</a></div>
+      <h1>Parameter Recovery Using Remotely Sensed Variables</h1>
+      <p class="standalone-zh-title">利用遥感变量进行参数恢复</p>
+      <p class="authors">Jonathan Proctor, Tamma Carleton, Sandy Sum</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/other.html">其他主题</a>
+        
+        <span>美国</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Remotely sensed measurements and other machine learning predictions are increasingly used in place of direct observations in empirical analyses. Errors in such measures may bias parameter estimation, but it remains unclear how large such biases are or how to correct for them. We leverage a new benchmark dataset providing co-located ground truth observations and remotely sensed measurements for multiple variables across the contiguous U.S. to show that the common practice of using remotely sensed measurements without correction leads to biased parameter point estimates and standard errors across a diversity of empirical settings. More than three-quarters of the 95% confidence intervals we estimate using remotely sensed measurements do not contain the true coefficient of interest. These biases result from both classical measurement error and more structured measurement error, which we find is common in machine learning based remotely sensed measurements. We show that multiple imputation, a standard statistical imputation technique so far untested in this setting, effectively reduces bias and improves statistical coverage with only minor reductions in power in both simple linear regression and panel fixed effects frameworks. Our results demonstrate that multiple imputation is a generalizable and easily implementable method for correcting parameter estimates relying on remotely sensed variables.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>遥感测量和其他机器学习预测越来越多地用于替代实证分析中的直接观测。此类测量中的误差可能导致参数估计偏差，但目前尚不清楚这些偏差有多大或如何纠正。我们利用一个新的基准数据集，该数据集提供了美国本土多个变量的共位地面真实观测和遥感测量，以表明在多种实证环境中，未经校正使用遥感测量的常见做法会导致参数点估计和标准误的偏差。我们使用遥感测量估计的95%置信区间中，超过四分之三不包含真实的感兴趣系数。这些偏差源于经典测量误差和更结构化的测量误差，我们发现后者在基于机器学习的遥感测量中很常见。我们表明，多重插补——一种标准统计插补技术，在此背景下尚未测试——能有效减少偏差并提高统计覆盖率，在简单线性回归和面板固定效应框架中仅轻微降低功效。我们的结果证明，多重插补是一种通用且易于实施的方法，用于校正依赖遥感变量的参数估计。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w30861" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w30861.html">分享链接</button>
+        <button type="button" data-copy-value="Jonathan Proctor, Tamma Carleton, Sandy Sum. Parameter Recovery Using Remotely Sensed Variables. NBER Working Paper 30861. https://www.nber.org/papers/w30861">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

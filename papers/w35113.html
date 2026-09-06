@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>A Blended Data Approach to Measuring Monthly Housing Starts: Satellite Imagery, Survey Data and More!｜NBER w35113｜学术传送门</title>
+  <meta name="description" content="作为美国人口普查局全面建筑改造计划的一部分，正在考虑使用替代数据源来补充或取代当前的数据收集方法。对于衡量新建住宅建设的建筑调查（SOC），这包括通过卫星图像观察住房开工量，以取代目前由实地代表进行的住房开工量访谈。每月为SOC样本中的一部分地点获取卫星图像。然后，将卷积神经网络模型应用于图像，以预测可能的新建住宅建设项目，当前重点是单户住宅开工量。应用了几">
+  <meta property="og:title" content="衡量月度住房开工量的混合数据方法：卫星图像、调查数据等！｜NBER w35113">
+  <meta property="og:description" content="作为美国人口普查局全面建筑改造计划的一部分，正在考虑使用替代数据源来补充或取代当前的数据收集方法。对于衡量新建住宅建设的建筑调查（SOC），这包括通过卫星图像观察住房开工量，以取代目前由实地代表进行的住房开工量访谈。每月为SOC样本中的一部分地点获取卫星图像。然后，将卷积神经网络模型应用于图像，以预测可能的新建住宅建设项目，当前重点是单户住宅开工量。应用了几">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w35113.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w35113.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"A Blended Data Approach to Measuring Monthly Housing Starts: Satellite Imagery, Survey Data and More!","name":"衡量月度住房开工量的混合数据方法：卫星图像、调查数据等！","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w35113.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w35113.html","identifier":"NBER Working Paper w35113","author":[{"@type":"Person","name":"Nicole Czaplicki"},{"@type":"Person","name":"Colin J. Shevlin"},{"@type":"Person","name":"Hector R. Ferronato"},{"@type":"Person","name":"Aidan D. Smith"},{"@type":"Person","name":"Dwarakh V. Nayam"},{"@type":"Person","name":"Lei Peng"},{"@type":"Person","name":"Scott W. Springer"},{"@type":"Person","name":"Doren Walker"}],"abstract":"作为美国人口普查局全面建筑改造计划的一部分，正在考虑使用替代数据源来补充或取代当前的数据收集方法。对于衡量新建住宅建设的建筑调查（SOC），这包括通过卫星图像观察住房开工量，以取代目前由实地代表进行的住房开工量访谈。每月为SOC样本中的一部分地点获取卫星图像。然后，将卷积神经网络模型应用于图像，以预测可能的新建住宅建设项目，当前重点是单户住宅开工量。应用了几个预测后处理步骤，包括基于与已知建筑物或道路交叉点的排除、针对云层覆盖导致的数据缺失的处理，以及针对连续图像之间时间跨度的调整，最终生成地点层面的住房开工量估计值。然后，将这些地点层面的估计值与现有的建筑许可证层面调查数据相结合，以生成西中部分区层面的住房开工量估计值，这是人口普查局的一个实验性数据产品。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w35113","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2026-04-27"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w35113","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w35113.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w35113</span><a href="../weekly/2026-04-27.html#w35113">所在周报</a><a href="../archive/2026-04.html#w35113">所在月度合集</a></div>
+      <h1>A Blended Data Approach to Measuring Monthly Housing Starts: Satellite Imagery, Survey Data and More!</h1>
+      <p class="standalone-zh-title">衡量月度住房开工量的混合数据方法：卫星图像、调查数据等！</p>
+      <p class="authors">Nicole Czaplicki, Colin J. Shevlin, Hector R. Ferronato, Aidan D. Smith, Dwarakh V. Nayam, Lei Peng, Scott W. Springer, Doren Walker</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>美国</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>As part of the comprehensive Construction Re-engineering Initiative at the U.S. Census Bureau, alternative data sources are being considered to supplement or replace current data collection methods. For the Survey of Construction (SOC), which measures new residential construction, this includes observing housing starts from satellite imagery in place of the current interviews for housing starts conducted by field representatives. Satellite images are obtained monthly for a subset of places in the SOC sample. Convolutional neural network models are then applied to images to predict likely new residential construction projects, with the current focus being single-family housing starts. Several post prediction processing steps are applied including exclusions based on intersections with known buildings or roads, treatments for missing data due to cloud cover, and adjustments for the length of time between consecutive images, to ultimately produce place level estimates of housing starts. These place level estimates are then combined with the existing building permit level survey data to produce estimates of West South Central division level housing starts, an experimental data product from the Census Bureau.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>作为美国人口普查局全面建筑改造计划的一部分，正在考虑使用替代数据源来补充或取代当前的数据收集方法。对于衡量新建住宅建设的建筑调查（SOC），这包括通过卫星图像观察住房开工量，以取代目前由实地代表进行的住房开工量访谈。每月为SOC样本中的一部分地点获取卫星图像。然后，将卷积神经网络模型应用于图像，以预测可能的新建住宅建设项目，当前重点是单户住宅开工量。应用了几个预测后处理步骤，包括基于与已知建筑物或道路交叉点的排除、针对云层覆盖导致的数据缺失的处理，以及针对连续图像之间时间跨度的调整，最终生成地点层面的住房开工量估计值。然后，将这些地点层面的估计值与现有的建筑许可证层面调查数据相结合，以生成西中部分区层面的住房开工量估计值，这是人口普查局的一个实验性数据产品。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w35113" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w35113.html">分享链接</button>
+        <button type="button" data-copy-value="Nicole Czaplicki, Colin J. Shevlin, Hector R. Ferronato, Aidan D. Smith, Dwarakh V. Nayam, Lei Peng, Scott W. Springer, Doren Walker. A Blended Data Approach to Measuring Monthly Housing Starts: Satellite Imagery, Survey Data and More!. NBER Working Paper 35113. https://www.nber.org/papers/w35113">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

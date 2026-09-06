@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Mechanism Design Approaches to Blockchain Consensus｜NBER w30189｜学术传送门</title>
+  <meta name="description" content="区块链共识是指网络中每个节点就区块链的当前状态达成一致的状态。现有协议通过竞赛或投票程序选择单个节点作为独裁者来提议新区块，从而实现共识。然而，这一程序仍可能导致潜在攻击，使共识更难达成，或者如果创建了多个竞争链（即分叉），且可能选择不诚实的分叉，则会导致协调问题。我们探索了在出现阻碍共识的争议时，使用机制来实现共识的潜力。利用权益证明（POS）协议中节点质">
+  <meta property="og:title" content="区块链共识的机制设计方法｜NBER w30189">
+  <meta property="og:description" content="区块链共识是指网络中每个节点就区块链的当前状态达成一致的状态。现有协议通过竞赛或投票程序选择单个节点作为独裁者来提议新区块，从而实现共识。然而，这一程序仍可能导致潜在攻击，使共识更难达成，或者如果创建了多个竞争链（即分叉），且可能选择不诚实的分叉，则会导致协调问题。我们探索了在出现阻碍共识的争议时，使用机制来实现共识的潜力。利用权益证明（POS）协议中节点质">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w30189.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w30189.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Mechanism Design Approaches to Blockchain Consensus","name":"区块链共识的机制设计方法","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w30189.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w30189.html","identifier":"NBER Working Paper w30189","author":[{"@type":"Person","name":"Joshua S. Gans"},{"@type":"Person","name":"Richard T. Holden"}],"abstract":"区块链共识是指网络中每个节点就区块链的当前状态达成一致的状态。现有协议通过竞赛或投票程序选择单个节点作为独裁者来提议新区块，从而实现共识。然而，这一程序仍可能导致潜在攻击，使共识更难达成，或者如果创建了多个竞争链（即分叉），且可能选择不诚实的分叉，则会导致协调问题。我们探索了在出现阻碍共识的争议时，使用机制来实现共识的潜力。利用权益证明（POS）协议中节点质押代币的特性，我们构建了揭示机制，在该机制中，唯一的（子博弈完美）均衡涉及验证节点仅使用所有节点之间存在的现有信息来提议诚实的区块。我们在拜占庭容错和最长链规则下构建了操作和计算上简单的机制，并讨论了它们对攻击的稳健性。我们的观点是，使用简单机制是区块链共识中一个尚未被探索的领域，并且有可能缓解已知的权衡并增强可扩展性。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w30189","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2022-06-27"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w30189","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w30189.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w30189</span><a href="../weekly/2022-06-27.html#w30189">所在周报</a><a href="../archive/2022-06.html#w30189">所在月度合集</a></div>
+      <h1>Mechanism Design Approaches to Blockchain Consensus</h1>
+      <p class="standalone-zh-title">区块链共识的机制设计方法</p>
+      <p class="authors">Joshua S. Gans, Richard T. Holden</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/trade.html">国际贸易</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Blockchain consensus is a state whereby each node in a network agrees on the current state of the blockchain. Existing protocols achieve consensus via a contest or voting procedure to select one node as a dictator to propose new blocks. However, this procedure can still lead to potential attacks that make consensus harder to achieve or lead to coordination issues if multiple, competing chains (i.e., forks) are created with the potential that an untruthful fork might be selected. We explore the potential for mechanisms to be used to achieve consensus that are triggered when there is a dispute impeding consensus. Using the feature that nodes stake tokens in proof of stake (POS) protocols, we construct revelation mechanisms in which the unique (subgame perfect) equilibrium involves validating nodes propose truthful blocks using only the information that exists amongst all nodes. We construct operationally and computationally simple mechanisms under both Byzantine Fault Tolerance and a Longest Chain Rule, and discuss their robustness to attacks. Our perspective is that the use of simple mechanisms is an unexplored area of blockchain consensus and has the potential to mitigate known trade-offs and enhance scalability.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>区块链共识是指网络中每个节点就区块链的当前状态达成一致的状态。现有协议通过竞赛或投票程序选择单个节点作为独裁者来提议新区块，从而实现共识。然而，这一程序仍可能导致潜在攻击，使共识更难达成，或者如果创建了多个竞争链（即分叉），且可能选择不诚实的分叉，则会导致协调问题。我们探索了在出现阻碍共识的争议时，使用机制来实现共识的潜力。利用权益证明（POS）协议中节点质押代币的特性，我们构建了揭示机制，在该机制中，唯一的（子博弈完美）均衡涉及验证节点仅使用所有节点之间存在的现有信息来提议诚实的区块。我们在拜占庭容错和最长链规则下构建了操作和计算上简单的机制，并讨论了它们对攻击的稳健性。我们的观点是，使用简单机制是区块链共识中一个尚未被探索的领域，并且有可能缓解已知的权衡并增强可扩展性。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w30189" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w30189.html">分享链接</button>
+        <button type="button" data-copy-value="Joshua S. Gans, Richard T. Holden. Mechanism Design Approaches to Blockchain Consensus. NBER Working Paper 30189. https://www.nber.org/papers/w30189">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

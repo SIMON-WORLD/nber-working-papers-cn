@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Scaling Point-in-Time Language Models｜NBER w35247｜学术传送门</title>
+  <meta name="description" content="在不受限制的互联网语料库上训练的大型语言模型不可避免地嵌入了未来的信息，引入了前瞻性偏差，损害了金融和社会科学中回测和因果推断的有效性。时点语言模型——仅使用截至每个日历日期可用的文本进行训练——通过构造消除了这种信息泄漏，但现有的努力通常产生的模型性能明显落后于其不受限制的对应模型。我们表明，这种性能差距可以通过规模扩展来缩小。通过在来自FineWeb的1">
+  <meta property="og:title" content="扩展时点语言模型｜NBER w35247">
+  <meta property="og:description" content="在不受限制的互联网语料库上训练的大型语言模型不可避免地嵌入了未来的信息，引入了前瞻性偏差，损害了金融和社会科学中回测和因果推断的有效性。时点语言模型——仅使用截至每个日历日期可用的文本进行训练——通过构造消除了这种信息泄漏，但现有的努力通常产生的模型性能明显落后于其不受限制的对应模型。我们表明，这种性能差距可以通过规模扩展来缩小。通过在来自FineWeb的1">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w35247.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w35247.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Scaling Point-in-Time Language Models","name":"扩展时点语言模型","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w35247.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w35247.html","identifier":"NBER Working Paper w35247","author":[{"@type":"Person","name":"Bryan T. Kelly"},{"@type":"Person","name":"Semyon Malamud"},{"@type":"Person","name":"Johannes Schwab"},{"@type":"Person","name":"Teng Andrea Xu"}],"abstract":"在不受限制的互联网语料库上训练的大型语言模型不可避免地嵌入了未来的信息，引入了前瞻性偏差，损害了金融和社会科学中回测和因果推断的有效性。时点语言模型——仅使用截至每个日历日期可用的文本进行训练——通过构造消除了这种信息泄漏，但现有的努力通常产生的模型性能明显落后于其不受限制的对应模型。我们表明，这种性能差距可以通过规模扩展来缩小。通过在来自FineWeb的1万亿个按时间顺序过滤的令牌上训练参数多达40亿的解码器专用Transformer，我们构建了一个跨越2013-2024年的月度模型检查点序列。在一系列常识推理和语言理解基准测试中，我们的模型接近在时间上不受限制的数据上训练的同等规模领先开源模型（如Gemma-3-4B和LLaMA-7B）的性能，尽管在若干任务上仍存在性能差距。最后，在一个严格的样本外经济评估任务中，基于时点嵌入构建的投资组合实现了稳健的正夏普比率，并且表现接近违反时间有效性的全样本对应组合，这表明时间一致的语言模型可以在不依赖前瞻性偏差的情况下提取具有经济意义的信号。我们发布了完整的流程——包括数据集构建、训练基础设施和评估代码——以实现可复现的时点语言建模，并支持需要严格时间有效性的研究应用。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w35247","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2026-05-25"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w35247","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w35247.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w35247</span><a href="../weekly/2026-05-25.html#w35247">所在周报</a><a href="../archive/2026-05.html#w35247">所在月度合集</a></div>
+      <h1>Scaling Point-in-Time Language Models</h1>
+      <p class="standalone-zh-title">扩展时点语言模型</p>
+      <p class="authors">Bryan T. Kelly, Semyon Malamud, Johannes Schwab, Teng Andrea Xu</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/theory-methods.html">理论与方法</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Large language models trained on unrestricted internet corpora inevitably embed information from the future, introducing lookahead bias that compromises the validity of backtests and causal inference in finance and the social sciences. Point-in-time language models—trained exclusively on text available up to each calendar date—eliminate this leakage by construction, but existing efforts typically produce models that lag substantially behind their unconstrained counterparts. We show that this performance gap can be narrowed through scale. Training decoder-only transformers with up to 4 billion parameters on 1 trillion chronologically filtered tokens from FineWeb, we construct a sequence of monthly model checkpoints spanning 2013–2024. Across a range of common-sense reasoning and language understanding benchmarks, our models approach the performance of leading open-weight models of comparable size (such as Gemma-3-4B and LLaMA-7B) trained on temporally unrestricted data, although a performance gap remains on several tasks. Finally, in a strict out-of-sample economic evaluation task, portfolios built from point-in-time embeddings achieve robust positive Sharpe ratios and perform close to full-sample counterparts that violate temporal validity, indicating that chronologically consistent language models can extract economically meaningful signals without relying on look-ahead bias. We release the complete pipeline—including dataset construction, training infrastructure, and evaluation code—to enable reproducible point-in-time language modeling and to support research applications that require strict temporal validity.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>在不受限制的互联网语料库上训练的大型语言模型不可避免地嵌入了未来的信息，引入了前瞻性偏差，损害了金融和社会科学中回测和因果推断的有效性。时点语言模型——仅使用截至每个日历日期可用的文本进行训练——通过构造消除了这种信息泄漏，但现有的努力通常产生的模型性能明显落后于其不受限制的对应模型。我们表明，这种性能差距可以通过规模扩展来缩小。通过在来自FineWeb的1万亿个按时间顺序过滤的令牌上训练参数多达40亿的解码器专用Transformer，我们构建了一个跨越2013-2024年的月度模型检查点序列。在一系列常识推理和语言理解基准测试中，我们的模型接近在时间上不受限制的数据上训练的同等规模领先开源模型（如Gemma-3-4B和LLaMA-7B）的性能，尽管在若干任务上仍存在性能差距。最后，在一个严格的样本外经济评估任务中，基于时点嵌入构建的投资组合实现了稳健的正夏普比率，并且表现接近违反时间有效性的全样本对应组合，这表明时间一致的语言模型可以在不依赖前瞻性偏差的情况下提取具有经济意义的信号。我们发布了完整的流程——包括数据集构建、训练基础设施和评估代码——以实现可复现的时点语言建模，并支持需要严格时间有效性的研究应用。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w35247" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w35247.html">分享链接</button>
+        <button type="button" data-copy-value="Bryan T. Kelly, Semyon Malamud, Johannes Schwab, Teng Andrea Xu. Scaling Point-in-Time Language Models. NBER Working Paper 35247. https://www.nber.org/papers/w35247">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

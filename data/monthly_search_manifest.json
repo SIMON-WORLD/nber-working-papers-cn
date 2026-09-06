@@ -1,0 +1,41 @@
+{
+  "latest_year": "2026",
+  "total": 8609,
+  "years": [
+    {
+      "year": "2026",
+      "count": 911,
+      "path": "data/search/monthly/2026.json"
+    },
+    {
+      "year": "2025",
+      "count": 1249,
+      "path": "data/search/monthly/2025.json"
+    },
+    {
+      "year": "2024",
+      "count": 1297,
+      "path": "data/search/monthly/2024.json"
+    },
+    {
+      "year": "2023",
+      "count": 1166,
+      "path": "data/search/monthly/2023.json"
+    },
+    {
+      "year": "2022",
+      "count": 1083,
+      "path": "data/search/monthly/2022.json"
+    },
+    {
+      "year": "2021",
+      "count": 1193,
+      "path": "data/search/monthly/2021.json"
+    },
+    {
+      "year": "2020",
+      "count": 1710,
+      "path": "data/search/monthly/2020.json"
+    }
+  ]
+}

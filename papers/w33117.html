@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Taming the Curse of Dimensionality: Quantitative Economics with Deep Learning｜NBER w33117｜学术传送门</title>
+  <meta name="description" content="我们认为深度学习为驯服数量经济学中的维度灾难提供了一条有前景的途径。我们首先探讨了求解动态均衡模型所面临的独特挑战，特别是个体代理人决策与均衡所需的总体一致性条件之间的反馈循环。随后，我们介绍了深度神经网络，并通过求解随机新古典增长模型来展示其应用。接着，我们将深度神经网络与数量经济学中的传统求解方法进行了比较。最后，我们综述了神经网络在数量经济学中的应用，">
+  <meta property="og:title" content="驯服维度灾难：基于深度学习的数量经济学｜NBER w33117">
+  <meta property="og:description" content="我们认为深度学习为驯服数量经济学中的维度灾难提供了一条有前景的途径。我们首先探讨了求解动态均衡模型所面临的独特挑战，特别是个体代理人决策与均衡所需的总体一致性条件之间的反馈循环。随后，我们介绍了深度神经网络，并通过求解随机新古典增长模型来展示其应用。接着，我们将深度神经网络与数量经济学中的传统求解方法进行了比较。最后，我们综述了神经网络在数量经济学中的应用，">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w33117.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w33117.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Taming the Curse of Dimensionality: Quantitative Economics with Deep Learning","name":"驯服维度灾难：基于深度学习的数量经济学","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w33117.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w33117.html","identifier":"NBER Working Paper w33117","author":[{"@type":"Person","name":"Jesús Fernández-Villaverde"},{"@type":"Person","name":"Galo Nuño"},{"@type":"Person","name":"Jesse Perla"}],"abstract":"我们认为深度学习为驯服数量经济学中的维度灾难提供了一条有前景的途径。我们首先探讨了求解动态均衡模型所面临的独特挑战，特别是个体代理人决策与均衡所需的总体一致性条件之间的反馈循环。随后，我们介绍了深度神经网络，并通过求解随机新古典增长模型来展示其应用。接着，我们将深度神经网络与数量经济学中的传统求解方法进行了比较。最后，我们综述了神经网络在数量经济学中的应用，并给出了谨慎乐观的理由。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w33117","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2024-11-04"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w33117","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w33117.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w33117</span><a href="../weekly/2024-11-04.html#w33117">所在周报</a><a href="../archive/2024-11.html#w33117">所在月度合集</a></div>
+      <h1>Taming the Curse of Dimensionality: Quantitative Economics with Deep Learning</h1>
+      <p class="standalone-zh-title">驯服维度灾难：基于深度学习的数量经济学</p>
+      <p class="authors">Jesús Fernández-Villaverde, Galo Nuño, Jesse Perla</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/macro-policy.html">宏观与货币财政</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>We argue that deep learning provides a promising avenue for taming the curse of dimensionality in quantitative economics. We begin by exploring the unique challenges posed by solving dynamic equilibrium models, especially the feedback loop between individual agents&#x27; decisions and the aggregate consistency conditions required by equilibrium. Following this, we introduce deep neural networks and demonstrate their application by solving the stochastic neoclassical growth model. Next, we compare deep neural networks with traditional solution methods in quantitative economics. We conclude with a survey of neural network applications in quantitative economics and offer reasons for cautious optimism.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>我们认为深度学习为驯服数量经济学中的维度灾难提供了一条有前景的途径。我们首先探讨了求解动态均衡模型所面临的独特挑战，特别是个体代理人决策与均衡所需的总体一致性条件之间的反馈循环。随后，我们介绍了深度神经网络，并通过求解随机新古典增长模型来展示其应用。接着，我们将深度神经网络与数量经济学中的传统求解方法进行了比较。最后，我们综述了神经网络在数量经济学中的应用，并给出了谨慎乐观的理由。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w33117" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w33117.html">分享链接</button>
+        <button type="button" data-copy-value="Jesús Fernández-Villaverde, Galo Nuño, Jesse Perla. Taming the Curse of Dimensionality: Quantitative Economics with Deep Learning. NBER Working Paper 33117. https://www.nber.org/papers/w33117">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

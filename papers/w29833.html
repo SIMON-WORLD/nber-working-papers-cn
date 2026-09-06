@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>High-Dimensional Factor Models with an Application to Mutual Fund Characteristics｜NBER w29833｜学术传送门</title>
+  <meta name="description" content="本文考虑了将二维因子模型扩展到以张量表示的高维数据。我描述了张量的分解，这些分解将标准矩阵奇异值分解和主成分分析推广到更高维度。我使用一个三维数据集来估计模型，该数据集包含在34个季度内观察到的1342只共同基金的25个特征。张量因子模型将数据维度减少了97%，同时捕捉了数据93%的变异。我将高维张量模型与标准二维模型联系起来，并表明该模型的组成部分具有清晰">
+  <meta property="og:title" content="高维因子模型及其在共同基金特征中的应用｜NBER w29833">
+  <meta property="og:description" content="本文考虑了将二维因子模型扩展到以张量表示的高维数据。我描述了张量的分解，这些分解将标准矩阵奇异值分解和主成分分析推广到更高维度。我使用一个三维数据集来估计模型，该数据集包含在34个季度内观察到的1342只共同基金的25个特征。张量因子模型将数据维度减少了97%，同时捕捉了数据93%的变异。我将高维张量模型与标准二维模型联系起来，并表明该模型的组成部分具有清晰">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w29833.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w29833.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"High-Dimensional Factor Models with an Application to Mutual Fund Characteristics","name":"高维因子模型及其在共同基金特征中的应用","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w29833.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w29833.html","identifier":"NBER Working Paper w29833","author":[{"@type":"Person","name":"Martin Lettau"}],"abstract":"本文考虑了将二维因子模型扩展到以张量表示的高维数据。我描述了张量的分解，这些分解将标准矩阵奇异值分解和主成分分析推广到更高维度。我使用一个三维数据集来估计模型，该数据集包含在34个季度内观察到的1342只共同基金的25个特征。张量因子模型将数据维度减少了97%，同时捕捉了数据93%的变异。我将高维张量模型与标准二维模型联系起来，并表明该模型的组成部分具有清晰的经济解释。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w29833","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2022-03-14"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w29833","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w29833.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w29833</span><a href="../weekly/2022-03-14.html#w29833">所在周报</a><a href="../archive/2022-03.html#w29833">所在月度合集</a></div>
+      <h1>High-Dimensional Factor Models with an Application to Mutual Fund Characteristics</h1>
+      <p class="standalone-zh-title">高维因子模型及其在共同基金特征中的应用</p>
+      <p class="authors">Martin Lettau</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/finance-assets.html">金融与资产定价</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>This paper considers extensions of two-dimensional factor models to higher-dimensional data represented as tensors. I describe decompositions of tensors that generalize the standard matrix singular value decomposition and principal component analysis to higher dimensions. I estimate the model using a three-dimensional data set consisting of 25 characteristics of 1,342 mutual funds observed over 34 quarters. The tensor factor models reduce the data dimensionality by 97% while capturing 93% of the variation of the data. I relate higher-dimensional tensor models to standard two-dimensional models and show that the components of the model have clear economic interpretations.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>本文考虑了将二维因子模型扩展到以张量表示的高维数据。我描述了张量的分解，这些分解将标准矩阵奇异值分解和主成分分析推广到更高维度。我使用一个三维数据集来估计模型，该数据集包含在34个季度内观察到的1342只共同基金的25个特征。张量因子模型将数据维度减少了97%，同时捕捉了数据93%的变异。我将高维张量模型与标准二维模型联系起来，并表明该模型的组成部分具有清晰的经济解释。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w29833" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w29833.html">分享链接</button>
+        <button type="button" data-copy-value="Martin Lettau. High-Dimensional Factor Models with an Application to Mutual Fund Characteristics. NBER Working Paper 29833. https://www.nber.org/papers/w29833">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

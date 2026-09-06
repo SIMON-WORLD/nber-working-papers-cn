@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>A Simulated Reconstruction and Reidentification Attack on the 2010 U.S. Census: Full Technical Report｜NBER w31995｜学术传送门</title>
+  <meta name="description" content="在过去的半个世纪里，包括美国人口普查局在内的统计机构普遍接受并采用一种做法，即对汇总表格数据产品采取不同于保护公开发布的微观数据产品中个人记录的策略。这一策略基于一个假设：用于生成表格数据产品的汇总过程使得最终统计数据本质上比其来源的微观数据更不易泄露。与此常见假设一致，2010年美国人口与住房普查对其表格和微观数据出版物采用了不同的披露限制规则。本文证明，">
+  <meta property="og:title" content="对2010年美国人口普查的模拟重建与再识别攻击：完整技术报告｜NBER w31995">
+  <meta property="og:description" content="在过去的半个世纪里，包括美国人口普查局在内的统计机构普遍接受并采用一种做法，即对汇总表格数据产品采取不同于保护公开发布的微观数据产品中个人记录的策略。这一策略基于一个假设：用于生成表格数据产品的汇总过程使得最终统计数据本质上比其来源的微观数据更不易泄露。与此常见假设一致，2010年美国人口与住房普查对其表格和微观数据出版物采用了不同的披露限制规则。本文证明，">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w31995.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w31995.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"A Simulated Reconstruction and Reidentification Attack on the 2010 U.S. Census: Full Technical Report","name":"对2010年美国人口普查的模拟重建与再识别攻击：完整技术报告","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w31995.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w31995.html","identifier":"NBER Working Paper w31995","author":[{"@type":"Person","name":"John M. Abowd"},{"@type":"Person","name":"Tamara Adams"},{"@type":"Person","name":"Robert Ashmead"},{"@type":"Person","name":"David Darais"},{"@type":"Person","name":"Sourya Dey"},{"@type":"Person","name":"Simson L. Garfinkel"},{"@type":"Person","name":"Nathan Goldschlag"},{"@type":"Person","name":"Daniel Kifer"},{"@type":"Person","name":"Philip Leclerc"},{"@type":"Person","name":"Ethan Lew"},{"@type":"Person","name":"Scott Moore"},{"@type":"Person","name":"Rolando A. Rodríguez. Ramy N. Tadros"},{"@type":"Person","name":"Lars Vilhuber"}],"abstract":"在过去的半个世纪里，包括美国人口普查局在内的统计机构普遍接受并采用一种做法，即对汇总表格数据产品采取不同于保护公开发布的微观数据产品中个人记录的策略。这一策略基于一个假设：用于生成表格数据产品的汇总过程使得最终统计数据本质上比其来源的微观数据更不易泄露。与此常见假设一致，2010年美国人口与住房普查对其表格和微观数据出版物采用了不同的披露限制规则。本文证明，在2010年人口普查的披露限制背景下，认为表格数据本质上比其底层微观数据更不易泄露的假设存在根本性缺陷。2010年人口普查在180个表格集中发布了超过1500亿条汇总统计数据。这些表格大多以最详细的地理层级——单个普查区块（人口可少至一人）发布。仅使用已发布的34个表格集，我们重建了来自机密2010年人口普查个人记录的微观数据记录，包括五个变量（普查区块、性别、年龄、种族和民族）。仅使用已发布数据，使用我们方法的攻击者可以验证，在70%的普查区块（9700万人）中，所有记录都被完美重建。我们进一步通过再识别研究确认，在重建精度完美的普查区块内，攻击者能够以95%的准确率正确推断出340万脆弱人口独特性个体（其种族和民族与普查区块上的模态个体不同）的实际人口普查种族和民族回答。在展示了2010年人口普查所用披露限制方法固有的脆弱性之后，我们接着证明，2020年人口普查出版物所使用的更稳健的披露限制框架能够抵御基于重建的攻击。最后，我们表明，2020年人口普查披露避免系统的现有替代方案要么无法保护机密性，要么会过度降低统计数据在主要法定用例（即根据1965年《投票权法案》重新划定全国所有立法和投票选区的边界）中的效用。您正在阅读完整的技术报告。摘要论文请参见 https://doi.org/10.1162/99608f92.4a1ebf70。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w31995","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2023-12-25"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w31995","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w31995.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w31995</span><a href="../weekly/2023-12-25.html#w31995">所在周报</a><a href="../archive/2023-12.html#w31995">所在月度合集</a></div>
+      <h1>A Simulated Reconstruction and Reidentification Attack on the 2010 U.S. Census: Full Technical Report</h1>
+      <p class="standalone-zh-title">对2010年美国人口普查的模拟重建与再识别攻击：完整技术报告</p>
+      <p class="authors">John M. Abowd, Tamara Adams, Robert Ashmead, David Darais, Sourya Dey, Simson L. Garfinkel, Nathan Goldschlag, Daniel Kifer, Philip Leclerc, Ethan Lew, Scott Moore, Rolando A. Rodríguez. Ramy N. Tadros, Lars Vilhuber</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/other.html">其他主题</a>
+        
+        <span>美国</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>For the last half-century, it has been a common and accepted practice for statistical agencies, including the United States Census Bureau, to adopt different strategies to protect the confidentiality of aggregate tabular data products from those used to protect the individual records contained in publicly released microdata products. This strategy was premised on the assumption that the aggregation used to generate tabular data products made the resulting statistics inherently less disclosive than the microdata from which they were tabulated. Consistent with this common assumption, the 2010 Census of Population and Housing in the U.S. used different disclosure limitation rules for its tabular and microdata publications. This paper demonstrates that, in the context of disclosure limitation for the 2010 Census, the assumption that tabular data are inherently less disclosive than their underlying microdata is fundamentally flawed. The 2010 Census published more than 150 billion aggregate statistics in 180 table sets. Most of these tables were published at the most detailed geographic level—individual census blocks, which can have populations as small as one person. Using only 34 of the published table sets, we reconstructed microdata records including five variables (census block, sex, age, race, and ethnicity) from the confidential 2010 Census person records. Using only published data, an attacker using our methods can verify that all records in 70% of all census blocks (97 million people) are perfectly reconstructed. We further confirm, through reidentification studies, that an attacker can, within census blocks with perfect reconstruction accuracy, correctly infer the actual census response on race and ethnicity for 3.4 million vulnerable population uniques (persons with race and ethnicity different from the modal person on the census block) with 95% accuracy. Having shown the vulnerabilities inherent to the disclosure limitation methods used for the 2010 Census, we proceed to demonstrate that the more robust disclosure limitation framework used for the 2020 Census publications defends against attacks that are based on reconstruction. Finally, we show that available alternatives to the 2020 Census Disclosure Avoidance System would either fail to protect confidentiality, or would overly degrade the statistics’ utility for the primary statutory use case: redrawing the boundaries of all of the nation’s legislative and voting districts in compliance with the 1965 Voting Rights Act. You are reading the full technical report. For the summary paper see https://doi.org/10.1162/99608f92.4a1ebf70.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>在过去的半个世纪里，包括美国人口普查局在内的统计机构普遍接受并采用一种做法，即对汇总表格数据产品采取不同于保护公开发布的微观数据产品中个人记录的策略。这一策略基于一个假设：用于生成表格数据产品的汇总过程使得最终统计数据本质上比其来源的微观数据更不易泄露。与此常见假设一致，2010年美国人口与住房普查对其表格和微观数据出版物采用了不同的披露限制规则。本文证明，在2010年人口普查的披露限制背景下，认为表格数据本质上比其底层微观数据更不易泄露的假设存在根本性缺陷。2010年人口普查在180个表格集中发布了超过1500亿条汇总统计数据。这些表格大多以最详细的地理层级——单个普查区块（人口可少至一人）发布。仅使用已发布的34个表格集，我们重建了来自机密2010年人口普查个人记录的微观数据记录，包括五个变量（普查区块、性别、年龄、种族和民族）。仅使用已发布数据，使用我们方法的攻击者可以验证，在70%的普查区块（9700万人）中，所有记录都被完美重建。我们进一步通过再识别研究确认，在重建精度完美的普查区块内，攻击者能够以95%的准确率正确推断出340万脆弱人口独特性个体（其种族和民族与普查区块上的模态个体不同）的实际人口普查种族和民族回答。在展示了2010年人口普查所用披露限制方法固有的脆弱性之后，我们接着证明，2020年人口普查出版物所使用的更稳健的披露限制框架能够抵御基于重建的攻击。最后，我们表明，2020年人口普查披露避免系统的现有替代方案要么无法保护机密性，要么会过度降低统计数据在主要法定用例（即根据1965年《投票权法案》重新划定全国所有立法和投票选区的边界）中的效用。您正在阅读完整的技术报告。摘要论文请参见 https://doi.org/10.1162/99608f92.4a1ebf70。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w31995" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w31995.html">分享链接</button>
+        <button type="button" data-copy-value="John M. Abowd, Tamara Adams, Robert Ashmead, David Darais, Sourya Dey, Simson L. Garfinkel, Nathan Goldschlag, Daniel Kifer, Philip Leclerc, Ethan Lew, Scott Moore, Rolando A. Rodríguez. Ramy N. Tadros, Lars Vilhuber. A Simulated Reconstruction and Reidentification Attack on the 2010 U.S. Census: Full Technical Report. NBER Working Paper 31995. https://www.nber.org/papers/w31995">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

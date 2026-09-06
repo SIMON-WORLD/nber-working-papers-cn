@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>Teaching Economics to the Machines｜NBER w34713｜学术传送门</title>
+  <meta name="description" content="结构性经济模型虽然简洁且可解释，但通常表现出较差的数据拟合和有限的预测性能。相比之下，机器学习模型提供了极大的灵活性，但容易过拟合且泛化能力弱。我们提出了一个理论引导的迁移学习框架，将经济理论的结构性约束整合到机器学习模型中。该方法首先在由结构性模型生成的合成数据上预训练一个神经网络，然后使用经验数据对其进行微调，从而允许可能被错误设定的经济约束来告知和正则">
+  <meta property="og:title" content="向机器教授经济学｜NBER w34713">
+  <meta property="og:description" content="结构性经济模型虽然简洁且可解释，但通常表现出较差的数据拟合和有限的预测性能。相比之下，机器学习模型提供了极大的灵活性，但容易过拟合且泛化能力弱。我们提出了一个理论引导的迁移学习框架，将经济理论的结构性约束整合到机器学习模型中。该方法首先在由结构性模型生成的合成数据上预训练一个神经网络，然后使用经验数据对其进行微调，从而允许可能被错误设定的经济约束来告知和正则">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w34713.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w34713.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Teaching Economics to the Machines","name":"向机器教授经济学","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w34713.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w34713.html","identifier":"NBER Working Paper w34713","author":[{"@type":"Person","name":"Hui Chen"},{"@type":"Person","name":"Yuhan Cheng"},{"@type":"Person","name":"Yanchu Liu"},{"@type":"Person","name":"Ke Tang"}],"abstract":"结构性经济模型虽然简洁且可解释，但通常表现出较差的数据拟合和有限的预测性能。相比之下，机器学习模型提供了极大的灵活性，但容易过拟合且泛化能力弱。我们提出了一个理论引导的迁移学习框架，将经济理论的结构性约束整合到机器学习模型中。该方法首先在由结构性模型生成的合成数据上预训练一个神经网络，然后使用经验数据对其进行微调，从而允许可能被错误设定的经济约束来告知和正则化对经验数据的学习。应用于期权定价时，我们的模型显著优于结构性基准和纯数据驱动基准，在小样本、市场条件不稳定以及模型误设有限的情况下，收益尤其巨大。除了性能提升外，该框架还提供了改进结构性模型的诊断方法，并引入了一种基于数据-模型互补性的新模型比较指标。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w34713","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2026-01-19"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w34713","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w34713.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w34713</span><a href="../weekly/2026-01-19.html#w34713">所在周报</a><a href="../archive/2026-01.html#w34713">所在月度合集</a></div>
+      <h1>Teaching Economics to the Machines</h1>
+      <p class="standalone-zh-title">向机器教授经济学</p>
+      <p class="authors">Hui Chen, Yuhan Cheng, Yanchu Liu, Ke Tang</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/public-finance.html">公共财政与税收</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>Structural economic models, while parsimonious and interpretable, often exhibit poor data fit and limited forecasting performance. Machine learning models, by contrast, offer substantial flexibility but are prone to overfitting and weak out-of-distribution generalization. We propose a theory-guided transfer learning framework that integrates structural restrictions from economic theory into machine learning models. The approach pre-trains a neural network on synthetic data generated by a structural model and then fine-tunes it using empirical data, allowing potentially misspecified economic restrictions to inform and regularize learning on empirical data. Applied to option pricing, our model substantially outperforms both structural and purely data-driven benchmarks, with especially large gains in small samples, under unstable market conditions, and when model misspecification is limited. Beyond performance, the framework provides diagnostics for improving structural models and introduces a new model-comparison metric based on data-model complementarity.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>结构性经济模型虽然简洁且可解释，但通常表现出较差的数据拟合和有限的预测性能。相比之下，机器学习模型提供了极大的灵活性，但容易过拟合且泛化能力弱。我们提出了一个理论引导的迁移学习框架，将经济理论的结构性约束整合到机器学习模型中。该方法首先在由结构性模型生成的合成数据上预训练一个神经网络，然后使用经验数据对其进行微调，从而允许可能被错误设定的经济约束来告知和正则化对经验数据的学习。应用于期权定价时，我们的模型显著优于结构性基准和纯数据驱动基准，在小样本、市场条件不稳定以及模型误设有限的情况下，收益尤其巨大。除了性能提升外，该框架还提供了改进结构性模型的诊断方法，并引入了一种基于数据-模型互补性的新模型比较指标。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w34713" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w34713.html">分享链接</button>
+        <button type="button" data-copy-value="Hui Chen, Yuhan Cheng, Yanchu Liu, Ke Tang. Teaching Economics to the Machines. NBER Working Paper 34713. https://www.nber.org/papers/w34713">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>

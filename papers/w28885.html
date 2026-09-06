@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="BACE8BE20C737E80A115F8B4963BA646">
+  <meta name="google-site-verification" content="XphD8mlEyX3Qu2VNh6tzQCe0kOIoQCzUxyZTALswuTA">
+  <title>The Augmented Synthetic Control Method｜NBER w28885｜学术传送门</title>
+  <meta name="description" content="合成控制法（SCM）是一种在面板数据情境下估计单一处理单位处理效应的流行方法。“合成控制”是控制单位的加权平均，它尽可能紧密地平衡处理单位在干预前的结果变量和其他协变量。原始方法的一个关键特征是仅在干预前结果拟合良好时使用SCM。我们提出增强型SCM作为SCM在干预前拟合不可行情境下的扩展。类似于对不精确匹配的偏差校正，增强型SCM使用一个结果模型来估计因干">
+  <meta property="og:title" content="增强型合成控制法｜NBER w28885">
+  <meta property="og:description" content="合成控制法（SCM）是一种在面板数据情境下估计单一处理单位处理效应的流行方法。“合成控制”是控制单位的加权平均，它尽可能紧密地平衡处理单位在干预前的结果变量和其他协变量。原始方法的一个关键特征是仅在干预前结果拟合良好时使用SCM。我们提出增强型SCM作为SCM在干预前拟合不可行情境下的扩展。类似于对不精确匹配的偏差校正，增强型SCM使用一个结果模型来估计因干">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://academic-door.github.io/nber-working-papers-cn/papers/w28885.html">
+  <meta property="og:site_name" content="学术传送门 NBER 工作论文">
+  <link rel="canonical" href="https://academic-door.github.io/nber-working-papers-cn/papers/w28885.html">
+  <link rel="icon" href="../assets/images/academic-door-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=20260720-country-summary-navigation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Augmented Synthetic Control Method","name":"增强型合成控制法","url":"https://academic-door.github.io/nber-working-papers-cn/papers/w28885.html","mainEntityOfPage":"https://academic-door.github.io/nber-working-papers-cn/papers/w28885.html","identifier":"NBER Working Paper w28885","author":[{"@type":"Person","name":"Eli Ben-Michael"},{"@type":"Person","name":"Avi Feller"},{"@type":"Person","name":"Jesse Rothstein"}],"abstract":"合成控制法（SCM）是一种在面板数据情境下估计单一处理单位处理效应的流行方法。“合成控制”是控制单位的加权平均，它尽可能紧密地平衡处理单位在干预前的结果变量和其他协变量。原始方法的一个关键特征是仅在干预前结果拟合良好时使用SCM。我们提出增强型SCM作为SCM在干预前拟合不可行情境下的扩展。类似于对不精确匹配的偏差校正，增强型SCM使用一个结果模型来估计因干预前拟合不完美导致的偏差，然后对原始SCM估计进行去偏。我们的主要提议使用岭回归作为结果模型，在最小化凸包外推的同时直接控制干预前拟合。该估计量也可以表示为修改后的合成控制问题的解，该问题允许某些供体单位具有负权重。我们在不同数据生成过程（包括线性因子模型）下界定了该方法的估计误差，并展示了正则化如何有助于避免对噪声的过拟合。我们通过广泛的模拟研究展示了增强型SCM的改进，并将该框架应用于估计2012年堪萨斯州减税对经济增长的影响。我们在新的augsynth R包中实现了所提出的方法。","inLanguage":["en","zh-CN"],"sameAs":"https://www.nber.org/papers/w28885","publisher":{"@type":"Organization","name":"National Bureau of Economic Research"},"isPartOf":{"@type":"WebSite","name":"学术传送门 NBER 工作论文","url":"https://academic-door.github.io/nber-working-papers-cn/"},"datePublished":"2021-06-07"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://academic-door.github.io/nber-working-papers-cn/"},{"@type":"ListItem","position":2,"name":"NBER w28885","item":"https://academic-door.github.io/nber-working-papers-cn/papers/w28885.html"}]}</script>
+</head>
+<body id="top" data-build-version="20260720-country-summary-navigation">
+  <header class="site-header compact detail-header">
+    <a class="detail-brand" href="../index.html">Academic Door · 学术传送门</a>
+  </header>
+  <main class="paper-page">
+    <nav class="site-nav" aria-label="站点导航"><a class="site-nav-link" href="../index.html">主页</a><a class="site-nav-link" href="../about.html">关于本站</a><a class="site-nav-link" href="../weekly/2026-08-31.html">最新周报</a><a class="site-nav-link" href="../index.html#archiveList">月度合集</a><a class="site-nav-link" href="../topics.html">研究专题</a><a class="site-nav-link" href="../feed.xml">RSS</a><span class="presence" data-presence-count aria-live="polite"></span></nav><script defer src="../assets/presence.js?v=20260720-country-summary-navigation"></script><script defer src="../assets/page-tools.js?v=20260720-country-summary-navigation"></script>
+    <article class="standalone-paper">
+      <div class="paper-detail-topline"><span>NBER Working Paper w28885</span><a href="../weekly/2021-06-07.html#w28885">所在周报</a><a href="../archive/2021-06.html#w28885">所在月度合集</a></div>
+      <h1>The Augmented Synthetic Control Method</h1>
+      <p class="standalone-zh-title">增强型合成控制法</p>
+      <p class="authors">Eli Ben-Michael, Avi Feller, Jesse Rothstein</p>
+      <div class="paper-taxonomy">
+        <a href="../topics/macro-policy.html">宏观与货币财政</a>
+        
+        <span>未指明区域</span>
+      </div>
+      <div class="abstract-pair">
+        <section class="abstract-block"><h2>Abstract</h2><p>The synthetic control method (SCM) is a popular approach for estimating the impact of a treatment on a single unit in panel data settings. The &quot;synthetic control&quot; is a weighted average of control units that balances the treated unit&#x27;s pre-treatment outcomes and other covariates as closely as possible. A critical feature of the original proposal is to use SCM only when the fit on pre-treatment outcomes is excellent. We propose Augmented SCM as an extension of SCM to settings where such pre-treatment fit is infeasible. Analogous to bias correction for inexact matching, Augmented SCM uses an outcome model to estimate the bias due to imperfect pre-treatment fit and then de-biases the original SCM estimate. Our main proposal, which uses ridge regression as the outcome model, directly controls pre-treatment fit while minimizing extrapolation from the convex hull. This estimator can also be expressed as a solution to a modified synthetic controls problem that allows negative weights on some donor units. We bound the estimation error of this approach under different data generating processes, including a linear factor model, and show how regularization helps to avoid over-fitting to noise. We demonstrate gains from Augmented SCM with extensive simulation studies and apply this framework to estimate the impact of the 2012 Kansas tax cuts on economic growth. We implement the proposed method in the new augsynth R package.</p></section>
+        <section class="abstract-block zh-block"><h2>中文摘要</h2><p>合成控制法（SCM）是一种在面板数据情境下估计单一处理单位处理效应的流行方法。“合成控制”是控制单位的加权平均，它尽可能紧密地平衡处理单位在干预前的结果变量和其他协变量。原始方法的一个关键特征是仅在干预前结果拟合良好时使用SCM。我们提出增强型SCM作为SCM在干预前拟合不可行情境下的扩展。类似于对不精确匹配的偏差校正，增强型SCM使用一个结果模型来估计因干预前拟合不完美导致的偏差，然后对原始SCM估计进行去偏。我们的主要提议使用岭回归作为结果模型，在最小化凸包外推的同时直接控制干预前拟合。该估计量也可以表示为修改后的合成控制问题的解，该问题允许某些供体单位具有负权重。我们在不同数据生成过程（包括线性因子模型）下界定了该方法的估计误差，并展示了正则化如何有助于避免对噪声的过拟合。我们通过广泛的模拟研究展示了增强型SCM的改进，并将该框架应用于估计2012年堪萨斯州减税对经济增长的影响。我们在新的augsynth R包中实现了所提出的方法。</p></section>
+      </div>
+      <div class="paper-actions">
+        <a class="primary-action" href="https://www.nber.org/papers/w28885" target="_blank" rel="noopener">在 NBER 阅读原文</a>
+        <button type="button" data-copy-value="https://academic-door.github.io/nber-working-papers-cn/papers/w28885.html">分享链接</button>
+        <button type="button" data-copy-value="Eli Ben-Michael, Avi Feller, Jesse Rothstein. The Augmented Synthetic Control Method. NBER Working Paper 28885. https://www.nber.org/papers/w28885">复制题录</button>
+      </div>
+      <p class="action-feedback" data-copy-feedback aria-live="polite"></p>
+    </article>
+  </main>
+  <footer><p>本站为非官方学术交流项目，论文内容与版本信息请以 NBER 官网和论文原文为准。</p></footer>
+  <script src="../assets/static-paper.js?v=20260720-country-summary-navigation"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a28736d89a41412b92efe9024bfc08f2"}'></script>
+</body>
+</html>
